@@ -20,6 +20,12 @@ class TestOfficialDetail(unittest.TestCase):
   self.assertEqual(len(v),29)
   x=s.player_detail(table(['SEASON','TYPE','CLUB','PO']+s.PLAYER,['2026-27','BP','群馬','PG']+v),'群馬','中村拓人')
   self.assertEqual((x['G'],x['MIN'],x['PPG'],x['APG'],x['pos']),(11,'230:24',7.8,2.1,'PG'))
+ def test_leader_link_name_is_cleaned(self):
+  h='<a href="/roster_detail/?PlayerID=51000658">平均得点 キーボン・ハリス 背番号： #00</a>'
+  found=s.roster_links(h)
+  self.assertEqual(len(found),1)
+  self.assertEqual(found[0]['name'],'キーボン・ハリス')
+  self.assertEqual(found[0]['number'],'00')
  def test_wrong_club_rejected(self):
   h=['SEASON','TYPE','CLUB','PO']+s.PLAYER
   v=['11','10','230:24','20:56']+['1.0']*(len(s.PLAYER)-4)
