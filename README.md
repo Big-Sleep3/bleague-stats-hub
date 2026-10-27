@@ -34,3 +34,8 @@ PITP / FBPS / 2NDPTS / PTSOFFTO / POSS は累計÷試合数、%・PACE・RTGは�
 出典: https://www.bleague.jp/stats/?year=2026&tab=1&target=club-b1&value=sPointsInThePaint&o=desc&e=2&dt=dtl
 
 公式サイトの利用条件とアクセス負荷に配慮して使用すること。
+## 日本語 / English の切り替え
+
+画面右上の「日本語」「English」から表示言語を切り替え可能。ランキング、指標名、フィルタ、比較画面、状態表示、CSVの列見出し、クラブ名は英語UIにも対応。順位と数値は言語にかかわらず同一の公式データを使用し、**公式データが日本語のみの選手名は元の表記を保持**する。選択した言語はブラウザに保存される（保存が許可される環境のみ）。
+
+UIのブラウザ動作テスト: `tests/test_i18n_ui.py`。
