@@ -1,5 +1,24 @@
 {
-  "last_attempt": null,
-  "results": {},
-  "notes": "初回自動更新の実行待ち。保存された2026-10-26データを表示中。"
+  "last_attempt": "2026-10-28 03:32 JST",
+  "results": {
+    "advanced": {
+      "success": true,
+      "rows": 26,
+      "updated": "2026-10-26 02:24 JST",
+      "method": "leaderboard"
+    },
+    "basic": {
+      "success": true,
+      "rows": 26,
+      "updated": "2026-10-26 02:24 JST",
+      "method": "leaderboard"
+    },
+    "players": {
+      "success": true,
+      "rows": 332,
+      "updated": "2026-10-28 03:40 JST (club/player detail pages)",
+      "method": "club_detail/roster_detail fallback"
+    }
+  },
+  "notes": "Incomplete sources are never accepted; previous validated values remain."
 }
