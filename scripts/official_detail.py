@@ -63,7 +63,24 @@ def roster_links(html):
   number=re.search(r'#\s*(\d{1,2})',label)
   name=re.sub(r'ポジション[：:].*$','',label)
   name=re.sub(r'^\s*(?:#\s*)?\d{1,2}\s+','',name)
-  name=re.sub(r'\s*#\s*\d{1,2}\s*$','',name).strip()
+  name=re.sub(r'\s*#\s*\d{1,2}\s*  if not name or len(name)>100:continue
+  entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
+    'number':number[1] if number else '',
+    'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
+  score=int(bool(pos))+int(bool(number))+int(len(name)<35)
+  if pid not in out or out[pid][0]<score:out[pid]=(score,entry)
+ return [v[1] for v in out.values()]
+,'',name).strip()
+  name=re.sub(r'^(?:平均得点|平均リバウンド|平均アシスト)\s+','',name)
+  name=re.sub(r'\s*背番号\s*[：:]\s*  if not name or len(name)>100:continue
+  entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
+    'number':number[1] if number else '',
+    'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
+  score=int(bool(pos))+int(bool(number))+int(len(name)<35)
+  if pid not in out or out[pid][0]<score:out[pid]=(score,entry)
+ return [v[1] for v in out.values()]
+,'',name)
+  name=clean(name)
   if not name or len(name)>100:continue
   entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
     'number':number[1] if number else '',
