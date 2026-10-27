@@ -1,7 +1,7 @@
 import json
 import unittest
 from pathlib import Path
-from scripts.update_stats import ADV,BASIC,PLAYER,number,club,parse_rows,validate
+from scripts.update_stats import ADV,BASIC,PLAYER,number,club,parse_rows,validate,signature
 
 class ParserTests(unittest.TestCase):
  def test_metrics(self):
@@ -21,6 +21,13 @@ class ParserTests(unittest.TestCase):
   self.assertEqual(len({x['abbr'] for x in data['advanced']}),26)
   self.assertTrue(all(x['gp']>=1 for x in data['advanced']))
   validate(data['advanced'],'advanced',data['advanced'])
+ def test_signature_ignores_row_order(self):
+  data=json.loads((Path(__file__).parents[1]/'data'/'stats.json').read_text())
+  rows=data['advanced']
+  self.assertEqual(signature(rows,'advanced'),signature(list(reversed(rows)),'advanced'))
+  changed=json.loads(json.dumps(rows))
+  changed[0]['v']['PITP']+=2
+  self.assertNotEqual(signature(rows,'advanced'),signature(changed,'advanced'))
  def test_bad_data_refused(self):
   data=json.loads((Path(__file__).parents[1]/'data'/'stats.json').read_text())
   with self.assertRaises(AssertionError):validate(data['advanced'][:4],'advanced',data['advanced'])
@@ -30,6 +37,6 @@ class ParserTests(unittest.TestCase):
   nums=[str(shinshu['v'][k]) for k in ADV]
   t={'rows':[{'c':['1','信州ブレイブウォリアーズ',*nums],'links':[]}]}
   parsed=parse_rows(t,'advanced',data['advanced'])
-  self.assertEqual(parsed[0]['gp'],12)
-  self.assertEqual(parsed[0]['v']['PITP'],408)
+  self.assertEqual(parsed[0]['gp'],shinshu['gp'])
+  self.assertEqual(parsed[0]['v']['PITP'],shinshu['v']['PITP'])
 if __name__=='__main__':unittest.main()
