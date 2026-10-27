@@ -138,7 +138,7 @@ set(1,direction==='desc'?'LEAGUE LEADER':'LEAGUE LOWEST',top?fmt(top):'—',top?
 if(tab==='players')set(2,'収録されている個人成績',data.quality.players==='full'?`${data.players.length}人`:`${data.players.length}人のみ`,data.quality.players==='full'?'全選手を対象':'公式リーダーズ抜粋');else set(2,'信州のリーグ順位',srow&&rank.has(srow)?rank.get(srow)+' 位':'—',srow?`信州 ${fmt(srow)}`:'未取得');
 set(3,'リーグ平均値',avg===null?'—':avg.toFixed(1)+(metric.includes('%')?'%':''),vals.length+' 件の数値の平均');set(4,'対象の件数',rows.length+' 件',tab==='advanced'&&mode==='avg'?'PITP等は1試合あたり':tab==='players'?'検索・出場率条件を適用':'表示範囲の件数');
 $('sourceInfo').textContent='保存スナップショット / '+(data.updated?.[tab]||'未取得');}
-function downloadCSV(){const rows=orderRows(selection()), ms=metrics(), headings=['順位',tab==='players'?'選手':'クラブ',...(tab==='players'?['所属クラブ','ポジション','背番号']:['略称','GP']),...ms.map(m=>m[0])],ranks=rankMap(orderRows(arr()));const lines=[headings,...rows.map(x=>[ranks.get(x)||'',x.name,...(tab==='players'?[x.club,x.pos||'',x.number||'']:[x.abbr,x.gp]),...ms.map(m=>fmt(x,m[0]))])];const out='\ufeff'+lines.map(line=>line.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob([out],{type:'text/csv;charset=utf-8'}));a.href=url;a.download=`BPREMIER_2026-27_${tab}_${mode}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function downloadCSV(){const rows=orderRows(selection()), ms=metrics(), headings=language==='en'?['Rank',tab==='players'?'Player':'Club',...(tab==='players'?['Club','Position','Jersey #']:['Abbr.','GP']),...ms.map(m=>m[0])]:['順位',tab==='players'?'選手':'クラブ',...(tab==='players'?['所属クラブ','ポジション','背番号']:['略称','GP']),...ms.map(m=>m[0])],ranks=rankMap(orderRows(arr()));const lines=[headings,...rows.map(x=>[ranks.get(x)||'',language==='en'&&tab!=='players'?findEnglishClub(x.name):x.name,...(tab==='players'?[language==='en'?(EN_CLUBS[x.club]||x.club):x.club,x.pos||'',x.number||'']:[language==='en'?(EN_SHORT[x.abbr]||x.abbr):x.abbr,x.gp]),...ms.map(m=>fmt(x,m[0]))])];const out='\ufeff'+lines.map(line=>line.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob([out],{type:'text/csv;charset=utf-8'}));a.href=url;a.download=`BPREMIER_2026-27_${tab}_${mode}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function setTab(t){tab=t;group='全項目';metric=t==='advanced'?'PITP':'PPG';club='';q='';direction='desc';render()}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 ['compareA','compareB','compareType','compareMode'].forEach(id=>$(id).addEventListener('change',e=>{if(id==='compareA')compareA=e.target.value;if(id==='compareB')compareB=e.target.value;if(id==='compareType')compareType=e.target.value;if(id==='compareMode')compareMode=e.target.value;render()}));
@@ -250,6 +250,41 @@ const EN_TEXT={
  '保存済み・要更新':'Saved / Refresh Needed','未収録':'Missing',
  '限定データ':'Partial Dataset','一部のみ':'Partial','GP':'GP'
 };
+// Complete descriptions and notes that must remain readable in both languages.
+Object.assign(EN_TEXT,{
+ '26クラブ・18項目。PITP等の総得点を1試合平均で順位付け':
+ '26 clubs and 18 metrics. Rank cumulative scores such as PITP by points per game.',
+ 'このタブは公式掲載値をもとにした26クラブのデータを表示。次回の取得が成功するまで値は変わりません。':
+ 'This tab uses official data from 26 clubs. Figures change only after a successful sync.',
+ 'このタブは公式掲載値をもとにした取得済みのデータを表示。次回の取得が成功するまで値は変わりません。':
+ 'This tab uses verified official stats. Figures remain unchanged until the next successful sync.',
+ '個人成績は初期版として公式サイトの「PPG・RPG・APG」各上位3人のみを表示。全選手や全項目を取得済みではありません。自動更新スクリプトで取得に成功すると、全選手・全項目の表示に切り替わります。':
+ 'Only the top three leaders for PPG, RPG, and APG are in this initial sample; the full roster has not yet loaded. A successful sync will replace it with complete player stats.',
+ 'クラブ基本成績は未取得のため、まだランキングを表示できません。自動更新をセットアップすると公式サイトから取得を試みます。':
+ 'Basic club rankings are unavailable because this dataset has not yet been fetched. Automatic updates will attempt an official fetch.',
+ '一部データのみ取得済み。表示されない値を0として扱わず「—」で示します。':
+ 'Only partial data was retrieved. Missing statistics appear as —, never as zero.',
+ 'クラブ基本データは全26クラブ分をまだ取得できていないため、この比較は利用できません。更新後に自動表示されます。':
+ 'Basic comparisons are unavailable until all 26 clubs have been fetched.',
+ '同じクラブ同士を比較中。比較対象を変更してね。':
+ 'Both comparison selections are the same club. Please choose a different opponent.',
+ '差は「対戦相手 − 自チーム」。マイナスが必ず悪いという意味ではないため、守備指標にも注意。':
+ 'Difference = Opponent − Home Team. Negative values are not automatically bad; consider defensive metrics.',
+ '※割合・PACE・OFFRTG・DEFRTG・NETRTGなどは累計／平均の切り替えにかかわらず公式掲載値。順位は指標ごとに降順（DEFRTG・OPPPTSPG・TOPGなどは昇順）で計算。':
+ 'Note: Percentages, PACE, OFFRTG, DEFRTG and NETRTG always use official values, regardless of the Per Game/Total toggle. Ranks are descending except for metrics such as DEFRTG, opponent PPG and TOPG.',
+ '※非公式ツール。出典はB.LEAGUE公式サイト。詳細のPITP / FBPS / 2NDPTS / PTSOFFTO / POSSは累計値を出場試合数で除算し、割合・PACE・レーティングなどは掲載値をそのまま使用。詳細成績のGPは初期データではPOSS ÷ PACEから復元しているため、正式な試合数が取れた場合はそれを優先。個人の「全選手ランキング」と公式のリーダーズ（出場率等の条件あり）は対象が異なる場合がある。':
+ 'Unofficial tool using B.LEAGUE data. PITP, FBPS, 2NDPTS, PTSOFFTO and POSS per-game values are totals divided by games played. Percentages, PACE and ratings use published figures. Initial advanced GP was derived from POSS ÷ PACE when official GP was unavailable. Player rankings may differ from official leaderboards with participation requirements.',
+ 'PITP等は1試合あたり':'Metrics such as PITP are per game',
+ '検索・出場率条件を適用':'Search and participation filters applied',
+ '表示範囲の件数':'Number of matching records',
+ '詳細18項目':'18 advanced metrics','基本26項目':'26 basic metrics',
+ 'データがまだ取得されていません。上の公式リンクも参照してね。':
+ 'No data available yet. See the official website above.',
+ '全選手を対象':'All players included','個人抜粋':'Player sample',
+ '公式掲載値':'Official published values',
+ '更新履歴を取得できません':'Update history unavailable',
+ '公式 成績詳細':'Official Stats'
+});
 const textCache=new WeakMap();
 let language='ja';
 try { language=localStorage.getItem('bpremler-language')==='en'?'en':'ja'; } catch (_) {}
@@ -295,6 +330,10 @@ function translatePhrase(source,element){
   [/^● 詳細26クラブ収録 \/ 個人抜粋$/,'● 26 Advanced Clubs / Player Sample'],
   [/^公式掲載値：/,'Official published: '],
   [/^公式データ更新：/,'Official stats updated: '],
+  [/(\d+)クラブ・(\d+)項目/g,'$1 clubs · $2 metrics'],
+  [/全選手・(\d+)項目/g,'All players · $1 metrics'],
+  [/(\d+)件/g,'$1 records'],
+  [/(\d+)クラブ/g,'$1 clubs'],
   [/^データセット：/,'Dataset: '],
   [/^公式データの更新：/,'Official stats updated: '],
   [/^クラブランキング｜/,'Club Rankings | '],
@@ -396,7 +435,7 @@ const originalRender=render;
 render=function(){originalRender();translatePage();};
 
 render();
-if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
+if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=language==='en'?' Latest hosted JSON unavailable; showing bundled snapshot.':' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
 
 if(location.protocol.startsWith('http')){
  fetch('./data/sync-status.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject(Error(r.status))).then(s=>{
