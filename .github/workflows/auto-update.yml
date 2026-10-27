@@ -8,7 +8,12 @@ on:
       - '.github/workflows/auto-update.yml'
   workflow_dispatch:
   schedule:
-    - cron: '18 1,8,13 * * *'
+    # Every 15 minutes, 17:00-02:45 Japan time (UTC+9).
+    - cron: '*/15 8-17 * * *'
+    # A couple of extra checks during daytime.
+    - cron: '17 4,6 * * *'
+    # Daily early-morning forced roster refresh.
+    - cron: '33 19 * * *'
 permissions:
   contents: write
 concurrency:
@@ -17,9 +22,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 65
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -28,21 +35,43 @@ jobs:
           python -m pip install --upgrade pip
           pip install playwright==1.56.0 beautifulsoup4==4.14.2
           python -m playwright install --with-deps chromium
-      - name: Run unit tests
+      - name: Run parser tests
         run: python -m unittest discover -s tests -v
-      - name: Fetch and validate official statistics
-        id: fetch
+      - name: Check official team stats
+        id: quick
         continue-on-error: true
-        run: python scripts/update_stats.py
-      - name: Commit successful data and diagnostics
+        run: |
+          if [ "${{ github.event.schedule }}" = "33 19 * * *" ]; then
+            python scripts/update_stats.py --mode quick --force-players
+          else
+            python scripts/update_stats.py --mode quick
+          fi
+          echo "needs_players=$(cat .needs_players)" >> "$GITHUB_OUTPUT"
+      - name: Publish new team stats and diagnostics immediately
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/stats.json data/sync-status.json
+          git add data/stats.json data/sync-status.json data/last-data-change.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Refresh B.PREMIER stats and sync status'
+            git commit -m 'Check and refresh official B.PREMIER team stats'
+            git pull --rebase origin main
             git push
           fi
-      - name: Fail workflow when all sources fail
-        if: steps.fetch.outcome == 'failure'
+      - name: Refresh all player stats when team values change
+        if: steps.quick.outputs.needs_players == 'true'
+        id: players
+        continue-on-error: true
+        run: python scripts/update_stats.py --mode players
+      - name: Publish player stats and diagnostics
+        if: steps.players.outcome != 'skipped'
+        run: |
+          git add data/stats.json data/sync-status.json data/last-data-change.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh official B.PREMIER player stats'
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Report incomplete synchronization
+        if: steps.quick.outcome == 'failure' || steps.players.outcome == 'failure'
         run: exit 1
