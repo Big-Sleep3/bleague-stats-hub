@@ -22,8 +22,16 @@
 .health-name{font-size:12px;font-weight:900;color:#183349}
 .health-detail{font-size:11px;color:#6b8390;line-height:1.5}
 @media(max-width:650px){.health-grid{grid-template-columns:1fr;gap:7px;margin:10px 0 16px}.health-item{padding:9px 12px}}
+
+/* Bilingual UI */
+.mast-right{display:flex;align-items:center;gap:16px;min-width:0}
+.lang-switch{display:inline-flex;gap:2px;padding:3px;background:#24455a;border:1px solid #426276;border-radius:10px;flex-shrink:0}
+.lang-switch button{background:transparent;color:#bfd4dc;border:0;border-radius:7px;padding:7px 12px;font-weight:850;min-height:34px;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#f6fafb;color:#132a3d;box-shadow:0 1px 4px #071d3040}
+.lang-switch button:focus-visible{outline:3px solid #77dacf;outline-offset:2px}
+@media(max-width:420px){.logo{font-size:13px}.logo small{font-size:8px}.mast .wrap{gap:8px}.lang-switch button{font-size:11px;padding:6px 9px}}
 </style></head><body>
-<header class="mast"><div class="wrap"><div class="logo">◈ BASKETBALL STATS LAB<small>UNOFFICIAL SCOUTING DASHBOARD</small></div><div class="season">2026–27 · B.PREMIER</div></div></header>
+<header class="mast"><div class="wrap"><div class="logo">◈ BASKETBALL STATS LAB<small>UNOFFICIAL SCOUTING DASHBOARD</small></div><div class="mast-right"><div class="season">2026–27 · B.PREMIER</div><div class="lang-switch" role="group" aria-label="言語 / Language"><button id="langJa" type="button" data-lang="ja" aria-pressed="true">日本語</button><button id="langEn" type="button" data-lang="en" aria-pressed="false">English</button></div></div></div></header>
 <main class="wrapmain"><div class="intro"><div><div class="eyebrow">LEAGUE-WIDE STATS · 2026–27</div><h1>B.PREMIER STATS HUB</h1><p class="subtitle">クラブの公式基本成績・詳細18項目の1試合平均・個人成績をまとめて比較</p></div><div class="status" id="globalStatus">● 保存データを表示中</div></div>
 <nav class="tabs" aria-label="データ種別"><button class="tab" type="button" data-tab="advanced" aria-selected="true">クラブ詳細｜平均・合計</button><button class="tab" type="button" data-tab="basic" aria-selected="false">クラブ基本成績</button><button class="tab" type="button" data-tab="players" aria-selected="false">個人成績</button><button class="tab" type="button" data-tab="compare" aria-selected="false">クラブ比較</button></nav>
 <div id="healthBar" class="health-grid" role="status" aria-live="polite"></div>
@@ -58,7 +66,7 @@ function timeMinutes(v){if(typeof v==='number')return v;const parts=String(v).sp
 function fmt(row,k=metric){const n=metricVal(row,k);if(n==null||!Number.isFinite(n))return '—';if(k==='MIN'||k==='MINPG')return typeof row[k]==='string'?safe(row[k]):n.toFixed(1);let suffix=k.includes('%')?'%':'';return n.toFixed(k==='G'||k==='GS'?0:1)+suffix}
 function orderRows(rows){return [...rows].sort((a,b)=>{const x=metricVal(a),y=metricVal(b);if(x===null&&y===null)return nameOf(a).localeCompare(nameOf(b),'ja');if(x===null)return 1;if(y===null)return -1;const diff=direction==='desc'?y-x:x-y;return Math.abs(diff)>1e-9?diff:nameOf(a).localeCompare(nameOf(b),'ja')})}
 function nameOf(row){return row.name||''}function rankMap(rows){const r=new Map();let last=null,rank=0;rows.forEach((x,i)=>{const n=metricVal(x);if(n!==null){if(last===null||Math.abs(n-last)>1e-9)rank=i+1;last=n;r.set(x,rank)}});return r}
-function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.abbr,t.club,t.number].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
+function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.abbr,t.club,t.number,EN_CLUBS[t.club||t.abbr],EN_SHORT[t.club||t.abbr]].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
 function renderControls(){const available=metrics();if(!available.some(m=>m[0]===metric))metric=tab==='advanced'?'PITP':tab==='basic'?'PPG':'PPG';$('metric').innerHTML=available.map(m=>`<option value="${safe(m[0])}">${safe(m[0])} — ${safe(m[1])}</option>`).join('');$('metric').value=metric;
 const groups=['全項目',...new Set(available.map(m=>m[2]))];if(!groups.includes(group))group='全項目';$('chips').innerHTML=groups.map(g=>`<button class="chip ${group===g?'active':''}" data-group="${safe(g)}">${safe(g)}</button>`).join('');$('modeWrap').classList.toggle('hidden',tab!=='advanced');$('modeAvg').classList.toggle('active',mode==='avg');$('modeTotal').classList.toggle('active',mode==='total');$('eligibleWrap').classList.toggle('hidden',tab!=='players');$('positionWrap').classList.toggle('hidden',tab!=='players');
 const clubs=[...data.advanced].sort((a,b)=>a.name.localeCompare(b.name,'ja'));$('club').innerHTML='<option value="">全クラブ</option>'+clubs.map(t=>`<option value="${safe(t.abbr)}">${safe(t.name)}</option>`).join('');$('club').value=club;$('eligible').value=eligible;$('position').value=position;$('search').value=q;$('sortToggle').textContent=direction==='desc'?'↓ 高い順':'↑ 低い順';
@@ -135,14 +143,267 @@ function setTab(t){tab=t;group='全項目';metric=t==='advanced'?'PITP':'PPG';cl
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 ['compareA','compareB','compareType','compareMode'].forEach(id=>$(id).addEventListener('change',e=>{if(id==='compareA')compareA=e.target.value;if(id==='compareB')compareB=e.target.value;if(id==='compareType')compareType=e.target.value;if(id==='compareMode')compareMode=e.target.value;render()}));
 $('metric').addEventListener('change',e=>{metric=e.target.value;group='全項目';direction=metric==='DEFRTG'||metric==='OPPPTSPG'||metric==='TOPG'||metric==='FPG'?'asc':'desc';render()});$('modeAvg').addEventListener('click',()=>{mode='avg';render()});$('modeTotal').addEventListener('click',()=>{mode='total';render()});$('club').addEventListener('change',e=>{club=e.target.value;render()});$('eligible').addEventListener('change',e=>{eligible=e.target.value;render()});$('position').addEventListener('change',e=>{position=e.target.value;render()});$('search').addEventListener('input',e=>{q=e.target.value;render()});$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-group]');if(b){group=b.dataset.group;render()}});$('sortToggle').addEventListener('click',()=>{direction=direction==='asc'?'desc':'asc';render()});$('thead').addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(!b)return;if(metric===b.dataset.sort)direction=direction==='asc'?'desc':'asc';else{metric=b.dataset.sort;direction='desc'}render()});$('clear').addEventListener('click',()=>{club='';q='';group='全項目';eligible='all';position='';mode='avg';metric=tab==='advanced'?'PITP':'PPG';direction='desc';render()});$('csv').addEventListener('click',downloadCSV);$('loadJson').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const candidate=JSON.parse(await file.text());if(candidate.schema!==1||!Array.isArray(candidate.advanced)||candidate.advanced.length!==26||!Array.isArray(candidate.players)||!Array.isArray(candidate.basic))throw Error('stats.json形式か26クラブが不足');data=candidate;render();alert('新しいデータを読み込みました。このブラウザの表示中だけ反映します。')}catch(err){alert('読み込みエラー：'+err.message)}e.target.value=''});
+
+// --- Language switcher. This layer never modifies the official numeric data. ---
+const EN_CLUBS={
+ '北海道':'Levanga Hokkaido','仙台':'Sendai 89ERS','秋田':'Akita Northern Happinets',
+ '茨城':'Ibaraki Robots','宇都宮':'Utsunomiya Brex','群馬':'Gunma Crane Thunders',
+ 'A千葉':'Altiri Chiba','千葉J':'Chiba Jets','A東京':'Alvark Tokyo','東京SR':'Sunrockers Shibuya',
+ '川崎':'Kawasaki Brave Thunders','横浜BC':'Yokohama B-Corsairs','富山':'Toyama Grouses',
+ '信州':'Shinshu Brave Warriors','三遠':'San-en NeoPhoenix','三河':'SeaHorses Mikawa',
+ '名古屋D':'Nagoya Diamond Dolphins','滋賀':'Shiga Lakes','京都':'Kyoto Hannaryz',
+ '大阪':'Osaka Evessa','神戸':'Kobe Storks','島根':'Shimane Susanoo Magic',
+ '広島':'Hiroshima Dragonflies','佐賀':'Saga Ballooners','長崎':'Nagasaki Velca',
+ '琉球':'Ryukyu Golden Kings'
+};
+const EN_SHORT={
+ '北海道':'Hokkaido','仙台':'Sendai','秋田':'Akita','茨城':'Ibaraki',
+ '宇都宮':'Utsunomiya','群馬':'Gunma','A千葉':'Altiri Chiba','千葉J':'Chiba Jets',
+ 'A東京':'Alvark Tokyo','東京SR':'Shibuya','川崎':'Kawasaki','横浜BC':'Yokohama BC',
+ '富山':'Toyama','信州':'Shinshu','三遠':'San-en','三河':'Mikawa',
+ '名古屋D':'Nagoya D','滋賀':'Shiga','京都':'Kyoto','大阪':'Osaka',
+ '神戸':'Kobe','島根':'Shimane','広島':'Hiroshima','佐賀':'Saga','長崎':'Nagasaki','琉球':'Ryukyu'
+};
+const EN_METRICS={
+ '2NDPTS':'Second-Chance Points','FBPS':'Fast-Break Points','PITP':'Points in the Paint',
+ 'PTSOFFTO':'Points off Turnovers','%PTSFT':'% of Points from FT','%PTSPITP':'% of Points in Paint',
+ 'EFG%':'Effective FG%','TS%':'True Shooting %','%PTS2PT':'% of Points from 2PT',
+ '%FGA2PT':'% of FGA from 2PT','%PTS3PT':'% of Points from 3PT',
+ '%FGA3PT':'% of FGA from 3PT','AST/TO':'Assist/Turnover Ratio',
+ 'PACE':'Pace','POSS':'Total Possessions','OFFRTG':'Offensive Rating','DEFRTG':'Defensive Rating',
+ 'NETRTG':'Net Rating','PPG':'Points per Game','OPPPTSPG':'Opp. Points per Game',
+ 'FGMPG':'FG Made per Game','FGAPG':'FG Attempts per Game','FG%':'Field Goal %',
+ '2FGMPG':'2PT Made per Game','2FGAPG':'2PT Attempts per Game','2FG%':'2PT %',
+ '3FGMPG':'3PT Made per Game','3FGAPG':'3PT Attempts per Game','3FG%':'3PT %',
+ 'FTMPG':'FT Made per Game','FTAPG':'FT Attempts per Game','FT%':'Free Throw %',
+ 'ORPG':'Off. Rebounds per Game','DRPG':'Def. Rebounds per Game','RPG':'Rebounds per Game',
+ 'APG':'Assists per Game','TOPG':'Turnovers per Game','STPG':'Steals per Game',
+ 'BSPG':'Blocks per Game','BSRPG':'Blocks Against per Game',
+ 'FPG':'Fouls per Game','FDPG':'Fouls Drawn per Game','MINPG':'Minutes per Game',
+ 'EFFPG':'Efficiency per Game','G':'Games Played','GS':'Games Started',
+ 'MIN':'Total Minutes','+/-':'Plus/Minus'
+};
+const EN_GROUPS={
+ '全項目':'All Metrics','得点':'Scoring','シュート':'Shooting','2Pt':'2PT','3Pt':'3PT',
+ 'アシスト':'Assists','ポゼッション':'Possessions','レーティング':'Ratings',
+ 'FG':'FG','FT':'FT','REB':'Rebounds','AST':'Assists','TO':'Turnovers','守備':'Defense',
+ 'ファウル':'Fouls','時間':'Minutes','効率':'Efficiency','出場':'Games'
+};
+const EN_TEXT={
+ 'クラブの公式基本成績・詳細18項目の1試合平均・個人成績をまとめて比較':
+ 'Compare official club averages, 18 advanced stats, and player statistics in one place',
+ '● 保存データを表示中':'● Showing saved data',
+ 'クラブ詳細｜平均・合計':'Club Advanced | Per Game / Total',
+ 'クラブ基本成績':'Club Basic Stats','個人成績':'Player Stats',
+ 'クラブ比較':'Club Comparison','クラブ詳細ランキング':'Club Advanced Rankings',
+ 'クラブ基本成績':'Club Basic Stats','個人成績ランキング':'Player Rankings',
+ '26クラブ・18項目の詳細数値を比較':'Compare 18 advanced metrics across 26 clubs',
+ '並べ替えるスタッツ':'Sort by metric','表示形式':'Value Type',
+ '1試合平均':'Per Game','合計':'Total','クラブ':'Club','全クラブ':'All Clubs',
+ '対象選手':'Eligible Players','全出場選手':'All Players','出場率85%以上':'Played ≥85% of Games',
+ 'ポジション':'Position','全ポジション':'All Positions',
+ '名前で検索':'Search by Name','クラブ・選手名':'Club / Player Name',
+ '↓ 高い順':'↓ Highest First','↑ 低い順':'↑ Lowest First',
+ '条件リセット':'Reset Filters','データJSON読み込み':'Import JSON',
+ 'リーグ1位':'League #1','信州の順位':'Shinshu Rank','リーグ平均':'League Avg.',
+ '順位比較':'Rank Comparison','ランキング一覧':'Rankings',
+ '列見出しを押して並べ替え':'Click a column heading to sort',
+ '↓ 表示データCSV':'↓ Export CSV','Bリーグ公式 ↗':'B.LEAGUE Official ↗',
+ 'クラブ比較｜SCOUTING VIEW':'Club Comparison | SCOUTING VIEW',
+ '同一指標を2クラブで比較。差は「対戦相手 − 信州」で表示（比較先は変更可能）。':
+ 'Compare any two clubs. Difference = Opponent minus Home Team.',
+ '自チーム':'Home Team','対戦相手':'Opponent','スタッツ':'Stat Type',
+ 'クラブ詳細18項目':'18 Advanced Metrics','クラブ基本26項目':'26 Basic Metrics',
+ '詳細集計':'Advanced Values','合計（累計項目のみ）':'Total (cumulative only)',
+ '指標':'Metric','相手':'Opponent','差（相手−自チーム）':'Difference (Opp. − Home)',
+ 'リーグ順位（自）':'League Rank (Home)','リーグ順位（相手）':'League Rank (Opp.)',
+ '公式 成績詳細':'Official Stats','データセット：保存スナップショット':'Dataset: Saved Snapshot',
+ '更新ジョブ：未接続':'Update job: Not Connected',
+ '平均得点':'Points per Game','平均REB':'Rebounds per Game','平均AST':'Assists per Game',
+ '平均TO':'Turnovers per Game','平均STL':'Steals per Game','平均BLK':'Blocks per Game',
+ '速攻得点':'Fast-Break Points','ペイント内得点':'Points in the Paint',
+ 'セカンドチャンス得点':'Second-Chance Points','TOからの得点':'Points off Turnovers',
+ '得点中FT比率':'FT Scoring Share','得点中ペイント比率':'Paint Scoring Share',
+ '実効FG成功率':'Effective FG%','トゥルーシューティング':'True Shooting %',
+ '2P得点比率':'2PT Scoring Share','2P試投比率':'2PT Attempt Share',
+ '3P得点比率':'3PT Scoring Share','3P試投比率':'3PT Attempt Share',
+ 'AST/TO比':'Assist / Turnover','総ポゼッション':'Total Possessions',
+ '攻撃効率':'Offensive Rating','守備効率':'Defensive Rating',
+ '平均失点':'Opponent PPG','FG成功':'FG Made','FG試投':'FG Attempts','FG成功率':'FG%',
+ '2P成功':'2PT Made','2P試投':'2PT Attempts','2P成功率':'2PT%',
+ '3P成功':'3PT Made','3P試投':'3PT Attempts','3P成功率':'3PT%',
+ 'FT成功':'FT Made','FT試投':'FT Attempts','FT成功率':'FT%',
+ 'オフェンスREB':'Offensive Rebounds','ディフェンスREB':'Defensive Rebounds',
+ '被ブロック':'Blocks Against','被BLK':'Blocks Against',
+ '平均ファウル':'Fouls per Game','被ファウル':'Fouls Drawn',
+ '平均出場時間':'Minutes per Game','合計出場時間':'Total Minutes',
+ '貢献度':'Efficiency','出場試合':'Games Played','先発試合':'Games Started',
+ '＋／−':'Plus / Minus',
+ '順位':'Rank','選手':'Player','所属クラブ':'Club','略称':'Abbr.','背番号':'Number',
+ 'LEAGUE LEADER':'LEAGUE LEADER','LEAGUE LOWEST':'LEAGUE LOWEST',
+ '収録されている個人成績':'Players in Dataset','全選手を対象':'All available players',
+ '公式リーダーズ抜粋':'Leaders-only sample','リーグ平均値':'League Average',
+ '対象の件数':'Matching Records','未取得':'Not Available',
+ '保存スナップショット':'Saved snapshot','更新日時なし':'Date unavailable',
+ '公式ランキング':'Official leaderboard','クラブ・選手ページ':'Club/player detail pages',
+ '初期保存データ':'Initial snapshot','収録済み':'Available',
+ '保存済み・要更新':'Saved / Refresh Needed','未収録':'Missing',
+ '限定データ':'Partial Dataset','一部のみ':'Partial','GP':'GP'
+};
+const textCache=new WeakMap();
+let language='ja';
+try { language=localStorage.getItem('bpremler-language')==='en'?'en':'ja'; } catch (_) {}
+function findEnglishClub(value) {
+ const v=String(value||'').trim();
+ if(EN_CLUBS[v])return EN_CLUBS[v];
+ const r=data.advanced?.find(x=>x.name===v);
+ if(r)return EN_CLUBS[r.abbr]||v;
+ return v;
+}
+function translatePhrase(source,element){
+ const raw=String(source),s=raw.trim();
+ if(!s)return raw;
+ const padL=(raw.match(/^\s*/)||[''])[0],padR=(raw.match(/\s*$/)||[''])[0];
+ const restore=t=>padL+t+padR;
+ if(element?.tagName==='OPTION'){
+  const list=element.closest('select')?.id;
+  if(list==='metric'){
+   const m=metrics().find(x=>x[0]===element.value);
+   if(m)return restore(m[0]+' — '+(EN_METRICS[m[0]]||m[1]));
+  }
+  if(list==='club'||list==='compareA'||list==='compareB'){
+   if(!element.value)return restore('All Clubs');
+   return restore(EN_CLUBS[element.value]||s);
+  }
+ }
+ const team=findEnglishClub(s);
+ if(team!==s)return restore(team);
+ if(EN_SHORT[s])return restore(EN_SHORT[s]);
+ if(EN_TEXT[s])return restore(EN_TEXT[s]);
+ if(EN_GROUPS[s])return restore(EN_GROUPS[s]);
+ const metricCode=(element?.closest('tr')?.querySelector('td strong')?.textContent||'').trim();
+ if(metricCode && element?.closest('#compareBody') && EN_METRICS[metricCode] && !/^[-+]?\d/.test(s)){
+  if(element.closest('td')?.cellIndex===0)return restore(EN_METRICS[metricCode]);
+ }
+ const metricMatch=s.match(/^([A-Z0-9%/+.-]+)\s+—\s+(.+)$/);
+ if(metricMatch&&EN_METRICS[metricMatch[1]])return restore(metricMatch[1]+' — '+EN_METRICS[metricMatch[1]]);
+ let v=s;
+ const replacements=[
+  [/^● クラブ比較 \/ 詳細26クラブ$/,'● Club Comparison / 26 Advanced Clubs'],
+  [/^● クラブ比較 \/ 基本 (\d+)クラブ$/,'● Club Comparison / $1 Basic Clubs'],
+  [/^● 詳細26クラブ収録 \/ 個人全選手$/,'● 26 Advanced Clubs / Full Player Data'],
+  [/^● 詳細26クラブ収録 \/ 個人抜粋$/,'● 26 Advanced Clubs / Player Sample'],
+  [/^公式掲載値：/,'Official published: '],
+  [/^公式データ更新：/,'Official stats updated: '],
+  [/^データセット：/,'Dataset: '],
+  [/^公式データの更新：/,'Official stats updated: '],
+  [/^クラブランキング｜/,'Club Rankings | '],
+  [/^個人ランキング｜/,'Player Rankings | '],
+  [/^(\d+) \/ (\d+) 選手 ｜/,'$1 / $2 players |'],
+  [/^(\d+) \/ (\d+) クラブ ｜/,'$1 / $2 clubs |'],
+  [/指標名の列を押すとその数値で並べ替え/g,'Click metric headers to sort'],
+  [/表は左右にスクロール可能/g,'Scroll horizontally for more columns'],
+  [/^(\d+)人のみ$/,'$1 players (sample)'],
+  [/^(\d+)人$/,'$1 players'],
+  [/^(\d+) 位$/,'#$1'],
+  [/^信州 /,'Shinshu '],
+  [/^(\d+) 件の数値の平均$/,'Average of $1 values'],
+  [/^(\d+) 件$/,'$1 records'],
+  [/^(\d+)件$/,'$1 records'],
+  [/^(\d+)クラブ・(\d+)項目$/,'$1 clubs · $2 metrics'],
+  [/^全選手・(\d+)項目$/,'All players · $1 metrics'],
+  [/ ｜ /g,' | '],
+  [/^GP (\d+) \| 詳細18項目$/,'GP $1 | 18 advanced metrics'],
+  [/^GP (\d+) \| 基本26項目$/,'GP $1 | 26 basic metrics'],
+  [/保存済み・要更新/g,'Saved / Refresh needed'],
+  [/収録済み/g,'Available'],
+  [/限定データ/g,'Partial dataset'],
+  [/未収録/g,'Missing'],
+  [/一部のみ/g,'Partial'],
+  [/更新日時なし/g,'Date unavailable'],
+  [/公式ランキング/g,'Official leaderboard'],
+  [/クラブ・選手ページ/g,'Club/player pages'],
+  [/初期保存データ/g,'Initial snapshot'],
+  [/未取得/g,'Not available'],
+  [/クラブ詳細/g,'Advanced Club Stats'],
+  [/クラブ基本/g,'Basic Club Stats'],
+  [/個人成績/g,'Player Stats'],
+  [/^最終確認 /,'Last checked '],
+  [/ \/ 成功 /,' / Successful: '],
+  [/ \/ 失敗 /,' / Failed: '],
+  [/^自動更新 未実行$/,'Automatic update not run yet'],
+  [/^更新履歴を取得できません$/,'Update log unavailable'],
+  [/^全クラブ分をまだ取得できていない/,'not yet available for all clubs'],
+  [/データがまだ取得されていません。上の公式リンクも参照してね。/,'No data yet. Please also check the official website.'],
+  [/^出場試合$/,'Games Played'],
+  [/^正式な試合数$/,'Official game count']
+ ];
+ for(const [pattern,replacement] of replacements)v=v.replace(pattern,replacement);
+ const exactLong=[
+  [/^26クラブ・18項目。/,'26 clubs, 18 metrics. '],
+  [/^PPG・RPG・FG%・TO・STLなど、公式掲載のクラブ成績$/,'Official club stats including PPG, RPG, FG%, TO, and STL'],
+  [/^選手名・クラブ・ポジション・出場率で絞り込める公式成績ベースの一覧$/,'Filter official player stats by name, club, position and game participation'],
+  [/^このタブは公式掲載値をもとにした/,'This tab displays verified official data for '],
+  [/のデータを表示。次回の取得が成功するまで値は変わりません。$/,'; figures stay unchanged until the next successful sync.'],
+  [/^個人成績は初期版として/,'This initial player dataset includes '],
+  [/^一部データのみ取得済み。/,'Only partial data is available. '],
+  [/^クラブ基本成績は未取得のため、/,'Basic club stats are not yet available, so '],
+  [/^同じクラブ同士を比較中。比較対象を変更してね。$/,'You selected the same club twice. Choose another opponent.'],
+  [/^差は「対戦相手 − 自チーム」。マイナスが必ず悪いという意味ではないため、守備指標にも注意。$/,'Difference = Opponent minus Home. A negative number is not always bad, especially on defensive metrics.'],
+  [/^クラブ基本データは全26クラブ分をまだ取得できていないため、この比較は利用できません。更新後に自動表示されます。$/,'Basic club comparisons are unavailable until all 26 clubs are fetched.'],
+  [/^※割合・PACE・OFFRTG・DEFRTG・NETRTGなどは/,'Note: Percentages, PACE, OFFRTG, DEFRTG and NETRTG use official values regardless of display mode. '],
+  [/^※非公式ツール。/,'Unofficial tool. '],
+  [/^自動更新はGitHub Actionsを設定・初回成功した後に有効。表示値の更新日時を確認$/,'Automatic updates use GitHub Actions. Always verify the displayed source timestamp.'],
+  [/^比較対象を変更してね。$/,'Choose another opponent.']
+ ];
+ for(const [pattern,replacement] of exactLong)v=v.replace(pattern,replacement);
+ if(v===s){
+  if(s.startsWith('※'))return restore('Note: See the official B.LEAGUE source for metric definitions, eligibility and update times.');
+  if(s.includes('平均')&&s.includes('順位')&&s.includes('PITP'))return restore('Rank 26 clubs by per-game averages, including PITP.');
+ }
+ // We do not invent English player spellings; official player names remain as supplied.
+ return restore(v);
+}
+function translatePage(){
+ document.documentElement.lang=language;
+ document.querySelectorAll('.lang-switch [data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===language)));
+ document.getElementById('search').placeholder=language==='en'?'Club / Player Name':'クラブ・選手名';
+ document.querySelector('nav.tabs')?.setAttribute('aria-label',language==='en'?'Data categories':'データ種別');
+ document.querySelector('.table-scroll')?.setAttribute('aria-label',language==='en'?'Statistics table: scroll horizontally':'成績表：横スクロール可');
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+  acceptNode(node){return node.parentElement&&!node.parentElement.closest('script,style,noscript')?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}
+ });
+ let node;
+ while((node=walker.nextNode())){
+  const prev=textCache.get(node);
+  const original=prev && (node.data===prev.en || node.data===prev.ja)?prev.ja:node.data;
+  const translated=translatePhrase(original,node.parentElement);
+  const entry={ja:original,en:translated};
+  textCache.set(node,entry);
+  const target=language==='en'?entry.en:entry.ja;
+  if(node.data!==target)node.data=target;
+ }
+}
+function setLanguage(l){
+ if(l!== 'ja' && l!=='en')return;
+ language=l;
+ try{localStorage.setItem('bpremler-language',l);}catch(_){}
+ render();
+}
+document.getElementById('langJa').addEventListener('click',()=>setLanguage('ja'));
+document.getElementById('langEn').addEventListener('click',()=>setLanguage('en'));
+const originalRender=render;
+render=function(){originalRender();translatePage();};
+
 render();
-if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok')})}
+if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
 
 if(location.protocol.startsWith('http')){
  fetch('./data/sync-status.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject(Error(r.status))).then(s=>{
  const statuses=Object.entries(s.results||{}), ok=statuses.filter(([,v])=>v.success).map(([k])=>k).join('・');
  const error=statuses.filter(([,v])=>!v.success).map(([k])=>k).join('・');
  $('syncInfo').textContent=s.last_attempt?`最終確認 ${s.last_attempt} / 成功 ${ok||'なし'}${error?' / 失敗 '+error:''}`:'自動更新 未実行';
- }).catch(()=>{$('syncInfo').textContent='更新履歴を取得できません';});
+ translatePage();
+ }).catch(()=>{$('syncInfo').textContent='更新履歴を取得できません';translatePage();});
 }
 </script></body></html>
