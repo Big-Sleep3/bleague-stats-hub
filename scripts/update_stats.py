@@ -141,22 +141,36 @@ def fetch(page,kind,reference):
  return rows,u,official_time(page)
 def signature(rows,kind):
  import hashlib
- # Preserve all official metrics, ignore only row ordering.
- records=sorted(rows,key=lambda x:json.dumps(x,sort_keys=True,ensure_ascii=False))
+ # Fingerprint official numeric stats and stable identities, not HTML labels/URL formatting.
+ metrics={'advanced':ADV,'basic':BASIC,'players':PLAYER}[kind]
+ cleaned=[]
+ for r in rows:
+  if kind=='advanced':
+   cleaned.append({'abbr':r['abbr'],'gp':r['gp'],'v':{k:r['v'].get(k) for k in metrics}})
+  elif kind=='basic':
+   cleaned.append({'abbr':r['abbr'],'gp':r.get('gp'),'v':{k:r.get(k) for k in metrics}})
+  else:
+   cleaned.append({'club':r['club'],'id':r.get('url') or (r.get('name'),r.get('number')),
+     'v':{k:r.get(k) for k in metrics}})
+ records=sorted(cleaned,key=lambda x:json.dumps(x,sort_keys=True,ensure_ascii=False))
  payload=json.dumps(records,sort_keys=True,ensure_ascii=False,separators=(',',':'))
  return hashlib.sha256(payload.encode('utf-8')).hexdigest()
 
 def note_data_change(data,kinds):
  path=ROOT/'data/last-data-change.json'
  old=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
- change={
+ event={
   'revision':int(old.get('revision',0))+1,
   'changed_at':now(),
   'changed_kinds':kinds,
-  'official_updated':{k:data.get('updated',{}).get(k) for k in kinds},
+  'official_updated':{k:data.get('updated',{}).get(k) for k in kinds}
+ }
+ change={
+  **event,
+  'history':(old.get('history',[])+[event])[-100:],
   'row_counts':{k:len(data.get(k,[])) for k in ('advanced','basic','players')},
   'signature':{k:signature(data.get(k,[]),k) for k in ('advanced','basic','players')},
-  'notes':'A revision means official statistics changed, not merely that a check ran.'
+  'notes':'A revision means official numeric stats changed, not merely that a check ran.'
  }
  save(path,change)
 
