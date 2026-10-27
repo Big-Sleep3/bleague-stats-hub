@@ -139,54 +139,107 @@ def fetch(page,kind,reference):
  rows=parse_rows(t,kind,reference)
  validate(rows,kind,reference)
  return rows,u,official_time(page)
-def run():
+def signature(rows,kind):
+ import hashlib
+ # Preserve all official metrics, ignore only row ordering.
+ records=sorted(rows,key=lambda x:json.dumps(x,sort_keys=True,ensure_ascii=False))
+ payload=json.dumps(records,sort_keys=True,ensure_ascii=False,separators=(',',':'))
+ return hashlib.sha256(payload.encode('utf-8')).hexdigest()
+
+def note_data_change(data,kinds):
+ path=ROOT/'data/last-data-change.json'
+ old=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+ change={
+  'revision':int(old.get('revision',0))+1,
+  'changed_at':now(),
+  'changed_kinds':kinds,
+  'official_updated':{k:data.get('updated',{}).get(k) for k in kinds},
+  'row_counts':{k:len(data.get(k,[])) for k in ('advanced','basic','players')},
+  'signature':{k:signature(data.get(k,[]),k) for k in ('advanced','basic','players')},
+  'notes':'A revision means official statistics changed, not merely that a check ran.'
+ }
+ save(path,change)
+
+def run(mode='quick',force_players=False):
  from playwright.sync_api import sync_playwright
  from fallback import pages,basic_from_pages,players_from_pages,LIST_URL
  data=json.loads(STATS.read_text(encoding='utf-8'))
- status={'last_attempt':now(),'results':{},'notes':'Incomplete sources are never accepted; previous validated values remain.'}
- good=0
+ status=json.loads(STATUS.read_text(encoding='utf-8')) if STATUS.exists() else {'results':{}}
+ status['last_attempt']=now()
+ status['notes']='Official changes are detected from data values. Failed/partial extractions are rejected.'
+ status.setdefault('results',{})
+ kinds=('advanced','basic') if mode=='quick' else ('players',)
+ changed=[]
+ checked=0
+ failures=[]
  try:
   with sync_playwright() as p:
    browser=p.chromium.launch(headless=True,args=['--no-sandbox'])
    page=browser.new_page(locale='ja-JP',timezone_id='Asia/Tokyo',viewport={'width':1500,'height':1000})
    page.set_default_timeout(18000)
    cache=None
-   for kind in ('advanced','basic','players'):
+   for kind in kinds:
     try:
+     reference=data['advanced']
      try:
-      rows,u,official=fetch(page,kind,data['advanced'])
+      rows,u,official=fetch(page,kind,reference)
       method='leaderboard'
      except Exception as first:
       if kind=='advanced':raise
       print(kind,'main listing failed:',str(first)[:200],flush=True)
       if cache is None:
-       cache=pages(page,club,{r['abbr'] for r in data['advanced']})
-      if kind=='basic':rows=basic_from_pages(cache,data['advanced'])
+       cache=pages(page,club,{r['abbr'] for r in reference})
+      if kind=='basic':rows=basic_from_pages(cache,reference)
       else:
-       rows,diagnostics=players_from_pages(page,cache,validate,data['advanced'])
-       print('Player fallback results:',diagnostics,flush=True)
-      validate(rows,kind,data['advanced'])
+       rows,diagnostics=players_from_pages(page,cache,validate,reference)
+       print('Player fallback:',diagnostics,flush=True)
+      validate(rows,kind,reference)
       u=LIST_URL
-      official=now()+' (club/player detail pages)'
+      official=None
       method='club_detail/roster_detail fallback'
-     data[kind]=rows
-     data.setdefault('quality',{})[kind]='full'
-     data.setdefault('source',{})[kind]=u
-     data.setdefault('updated',{})[kind]=official or (now()+' (official timestamp unavailable)')
-     data.setdefault('retrieved',{})[kind]=now()
-     data.setdefault('method',{})[kind]=method
-     status['results'][kind]={'success':True,'rows':len(rows),'updated':official,'method':method}
-     good+=1
-     print(kind,'success',len(rows),flush=True)
+     new_sig=signature(rows,kind)
+     old_sig=signature(data.get(kind,[]),kind)
+     changed_this=new_sig!=old_sig
+     checked+=1
+     if changed_this:
+      data[kind]=rows
+      data.setdefault('quality',{})[kind]='full'
+      data.setdefault('source',{})[kind]=u
+      data.setdefault('updated',{})[kind]=official or (now()+' (detail page values; official time not supplied)')
+      data.setdefault('retrieved',{})[kind]=now()
+      data.setdefault('method',{})[kind]=method
+      changed.append(kind)
+     status['results'][kind]={'success':True,'rows':len(rows),'changed':changed_this,
+        'official_updated':official or data.get('updated',{}).get(kind),
+        'method':method,'checked_at':now()}
+     print(kind,'CHANGED' if changed_this else 'unchanged',len(rows),flush=True)
     except Exception as e:
-     status['results'][kind]={'success':False,'error':str(e)[:500]}
-     print(kind,'ERROR',str(e),file=sys.stderr,flush=True)
+     status['results'][kind]={'success':False,'error':str(e)[:500],'checked_at':now()}
+     failures.append(kind)
+     print(kind,'ERROR:',str(e),file=sys.stderr,flush=True)
    browser.close()
- except Exception as e:status['fatal_error']=str(e)[:500]
- if good:
-  data['errors']=[k+': '+v.get('error','') for k,v in status['results'].items() if not v['success']]
+ except Exception as e:
+  status['fatal_error']=str(e)[:500]
+  failures.append('fatal')
+  print('Fatal:',str(e),file=sys.stderr,flush=True)
+ if changed:
+  data['errors']=[k+': '+v.get('error','') for k,v in status['results'].items() if not v.get('success',False)]
   save(STATS,data)
+  note_data_change(data,changed)
+ status['last_check_outcome']='ok' if checked==len(kinds) else 'partial_failure'
  save(STATUS,status)
- print('Result',good,'/3 successful',flush=True)
- return 0 if good else 2
-if __name__=='__main__':sys.exit(run())
+ if mode=='quick':
+  need=bool(changed) or bool(force_players)
+  # An untracked file communicates the postgame player-refresh decision to Actions.
+  (ROOT/'.needs_players').write_text('true' if need else 'false',encoding='utf-8')
+  print('NEEDS_PLAYERS='+('true' if need else 'false'),flush=True)
+ print('Changed:',changed,'Failed:',failures,flush=True)
+ return 0 if checked==len(kinds) else 2
+
+if __name__=='__main__':
+ import argparse
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--mode',choices=('quick','players'),default='quick')
+ parser.add_argument('--force-players',action='store_true')
+ args=parser.parse_args()
+ sys.exit(run(mode=args.mode,force_players=args.force_players))
