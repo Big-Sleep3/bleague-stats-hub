@@ -141,6 +141,7 @@ def fetch(page,kind,reference):
  return rows,u,official_time(page)
 def run():
  from playwright.sync_api import sync_playwright
+ from fallback import pages,basic_from_pages,players_from_pages,LIST_URL
  data=json.loads(STATS.read_text(encoding='utf-8'))
  status={'last_attempt':now(),'results':{},'notes':'Incomplete sources are never accepted; previous validated values remain.'}
  good=0
@@ -149,16 +150,32 @@ def run():
    browser=p.chromium.launch(headless=True,args=['--no-sandbox'])
    page=browser.new_page(locale='ja-JP',timezone_id='Asia/Tokyo',viewport={'width':1500,'height':1000})
    page.set_default_timeout(18000)
+   cache=None
    for kind in ('advanced','basic','players'):
     try:
-     rows,u,official=fetch(page,kind,data['advanced'])
+     try:
+      rows,u,official=fetch(page,kind,data['advanced'])
+      method='leaderboard'
+     except Exception as first:
+      if kind=='advanced':raise
+      print(kind,'main listing failed:',str(first)[:200],flush=True)
+      if cache is None:
+       cache=pages(page,club,{r['abbr'] for r in data['advanced']})
+      if kind=='basic':rows=basic_from_pages(cache,data['advanced'])
+      else:
+       rows,diagnostics=players_from_pages(page,cache,validate,data['advanced'])
+       print('Player fallback results:',diagnostics,flush=True)
+      validate(rows,kind,data['advanced'])
+      u=LIST_URL
+      official=now()+' (club/player detail pages)'
+      method='club_detail/roster_detail fallback'
      data[kind]=rows
      data.setdefault('quality',{})[kind]='full'
      data.setdefault('source',{})[kind]=u
      data.setdefault('updated',{})[kind]=official or (now()+' (official timestamp unavailable)')
      data.setdefault('retrieved',{})[kind]=now()
-     data.setdefault('method',{})[kind]='leaderboard'
-     status['results'][kind]={'success':True,'rows':len(rows),'updated':official}
+     data.setdefault('method',{})[kind]=method
+     status['results'][kind]={'success':True,'rows':len(rows),'updated':official,'method':method}
      good+=1
      print(kind,'success',len(rows),flush=True)
     except Exception as e:
