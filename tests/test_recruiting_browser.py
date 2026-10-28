@@ -46,6 +46,14 @@ class RecruitingBrowserTests(unittest.TestCase):
         row=page.locator("tbody tr").first
         self.assertIn("33.6%",row.inner_text())
         row.locator("button[data-open]").click()
+        page.locator("#stats-min-gp").select_option("10")
+        page.locator("#stats-min-3pa").select_option("5")
+        expect(page.locator("tbody tr")).to_have_count(1)
+        with page.expect_download() as event:
+            page.locator("#export-stats-csv").click()
+        csv=Path(event.value.path()).read_text(encoding="utf-8-sig")
+        self.assertIn("3P%",csv)
+        self.assertIn("松本",csv)
         expect(page.locator("#drawer-inner")).to_contain_text("3PM")
         expect(page.locator("#drawer-inner")).to_contain_text("3PA")
         page.locator("#close-drawer").click()
