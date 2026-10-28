@@ -1,5 +1,5 @@
 import unittest
-from scripts.enrich_english import extract_official_english, pid_of, ascii_name
+from scripts.enrich_english import extract_official_english, pid_of, ascii_name, filter_name_map
 
 class EnglishNameTests(unittest.TestCase):
  def test_official_profile_roman_spelling(self):
@@ -21,6 +21,12 @@ class EnglishNameTests(unittest.TestCase):
  def test_reject_unverified(self):
   html="<h1>別の選手</h1><span>LeBron James</span>"
   self.assertIsNone(extract_official_english(html,'架空選手'))
+ def test_mass_duplicate_labels_fail_closed(self):
+  with self.assertRaises(RuntimeError):
+   filter_name_map({str(i):'Same Duplicate' for i in range(6)}, {str(i) for i in range(6)})
+ def test_bad_labels_ignored(self):
+  clean=filter_name_map({'1':'Buy tickets','2':'Jarrett Culver'},{'1','2'})
+  self.assertEqual(clean,{'2':'Jarrett Culver'})
  def test_read_player_id(self):
   self.assertEqual(pid_of({'url':'https://www.bleague.jp/roster_detail/?PlayerID=19755'}),'19755')
  def test_name_not_an_unrelated_page_element(self):
