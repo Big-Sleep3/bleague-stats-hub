@@ -47,12 +47,15 @@ jobs:
             python scripts/update_stats.py --mode quick
           fi
           echo "needs_players=$(cat .needs_players)" >> "$GITHUB_OUTPUT"
+      - name: Keep HTML fallback snapshot current
+        if: always()
+        run: python scripts/embed_snapshot.py
       - name: Publish new team stats and diagnostics immediately
         if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/stats.json data/sync-status.json data/last-data-change.json
+          git add index.html data/stats.json data/sync-status.json data/last-data-change.json
           if ! git diff --cached --quiet; then
             git commit -m 'Check and refresh official B.PREMIER team stats'
             git pull --rebase origin main
@@ -63,10 +66,13 @@ jobs:
         id: players
         continue-on-error: true
         run: python scripts/update_stats.py --mode players
+      - name: Keep full player snapshot current
+        if: steps.players.outcome != 'skipped'
+        run: python scripts/embed_snapshot.py
       - name: Publish player stats and diagnostics
         if: steps.players.outcome != 'skipped'
         run: |
-          git add data/stats.json data/sync-status.json data/last-data-change.json
+          git add index.html data/stats.json data/sync-status.json data/last-data-change.json
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh official B.PREMIER player stats'
             git pull --rebase origin main
