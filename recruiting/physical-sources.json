@@ -342,6 +342,83 @@
       "gradeAtSource": null,
       "source": "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/",
       "publisher": "JBA 2024-25天皇杯登録ロスター"
+    },
+    {
+      "name": "ンワンクォチネドゥ ゴッツウィル",
+      "university": "上武大学",
+      "height": 196,
+      "weight": 98,
+      "position": "C",
+      "asOfYear": 2026,
+      "gradeAtSource": 2,
+      "source": "https://jobu-basketball.com/rafale/member/",
+      "publisher": "上武大学男子バスケットボール部 SERPENTS 2026"
+    },
+    {
+      "name": "楠見 海翔",
+      "university": "上武大学",
+      "height": 180,
+      "weight": 81,
+      "position": "SG",
+      "asOfYear": 2026,
+      "gradeAtSource": 2,
+      "source": "https://jobu-basketball.com/rafale/member/",
+      "publisher": "上武大学男子バスケットボール部 SERPENTS 2026"
+    },
+    {
+      "name": "藤田 大輝",
+      "university": "駒澤大学",
+      "height": 187,
+      "weight": 84,
+      "position": "SG",
+      "asOfYear": 2026,
+      "gradeAtSource": null,
+      "source": "https://shinagawa.cc/3x3-basketball/member/%E8%97%A4%E7%94%B0%E5%A4%A7%E8%BC%9D/",
+      "publisher": "品川CC WILDCATS 2026"
+    },
+    {
+      "name": "大角 洸碧",
+      "university": "順天堂大学",
+      "height": 188,
+      "weight": null,
+      "position": "SG",
+      "asOfYear": 2025,
+      "gradeAtSource": 1,
+      "source": "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm",
+      "publisher": "関東大学バスケットボール連盟 2025年度フレッシュマン・エリートキャンプ"
+    },
+    {
+      "name": "ダイラ モゼス ヨラム",
+      "university": "明星大学",
+      "height": null,
+      "weight": null,
+      "position": null,
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://meiseiunivbb.com/player",
+      "publisher": "明星大学男子バスケットボール部 2026公式名鑑"
+    },
+    {
+      "name": "宮澤 海輝",
+      "university": "順天堂大学",
+      "height": null,
+      "weight": null,
+      "position": null,
+      "asOfYear": 2026,
+      "gradeAtSource": 1,
+      "source": "https://juntendo-lonelywolves.com/player",
+      "publisher": "順天堂大学バスケットボール部 2026公式選手一覧"
+    },
+    {
+      "name": "澤口 陽",
+      "university": "順天堂大学",
+      "height": null,
+      "weight": null,
+      "position": null,
+      "asOfYear": 2026,
+      "gradeAtSource": 1,
+      "source": "https://juntendo-lonelywolves.com/player",
+      "publisher": "順天堂大学バスケットボール部 2026公式選手一覧"
     }
   ],
   "directorySources": [
