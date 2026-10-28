@@ -32,6 +32,8 @@ class LanguageSwitcherTests(unittest.TestCase):
    self.assertIn('クラブ比較',page.locator('#compareView .headline h2').inner_text())
    self.assertIn('宇都宮ブレックス',page.locator('#compareNameB').inner_text())
    page.locator('[data-tab=players]').click()
+   self.assertGreaterEqual(page.locator('#tbody tr').count(),300)
+   self.assertNotIn('only the top three',page.locator('#warning').inner_text().lower())
    self.assertIn('個人成績',page.locator('#panelTitle').inner_text())
    page.locator('#langEn').click()
    self.assertIn('Player Rankings',page.locator('#panelTitle').inner_text())
