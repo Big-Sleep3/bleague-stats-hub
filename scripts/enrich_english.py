@@ -20,6 +20,14 @@ OUT = ROOT / "data" / "player-names-en.json"
 EN_ROOT = "https://www.bleague.jp/en/roster_detail/?PlayerID="
 JA_ROOT = "https://www.bleague.jp/roster_detail/?PlayerID="
 
+def profile_urls(pid):
+    """Prefer the JP profile: its bilingual name pair verifies the Roman spelling.
+
+    The /en/ profile can show only the Roman name, so the parser cannot
+    establish the required Japanese-name match there.
+    """
+    return (JA_ROOT + pid, EN_ROOT + pid)
+
 def now():
     return dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).strftime("%Y-%m-%d %H:%M JST")
 
@@ -88,7 +96,7 @@ async def enrich():
                 except asyncio.QueueEmpty:break
                 try:
                     name=None
-                    for url in (EN_ROOT+pid,JA_ROOT+pid):
+                    for url in profile_urls(pid):
                         try:
                             await page.goto(url,wait_until="domcontentloaded",timeout=25000)
                             name=extract_official_english(await page.content(),player["name"])
