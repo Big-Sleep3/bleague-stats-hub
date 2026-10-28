@@ -40,7 +40,7 @@ function loadLocal(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');ret
 let user=loadLocal();
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(user));return true}catch{toast('ブラウザへの保存に失敗。JSON書き出しでバックアップしてね');return false}}
 function local(p){return user[p.id]||{}}
-function value(p,key){let x=local(p);if(key==='grade')return x.grade===undefined?p.grade:x.grade;if(key==='position')return x.position===undefined?p.position:x.position;if(key==='height')return x.height===undefined?p.height:x.height;return x[key]}
+function value(p,key){const x=local(p);if(['grade','position','height','weight'].includes(key))return x[key]===undefined?p[key]:x[key];return x[key]}
 function cohort(p){const g=Number(value(p,'grade'));return g===4?'now':g>=1&&g<=3?'future':'verify'}
 function labelCohort(p){const suffix=p.gradeProjected&&local(p).grade===undefined?' (前年資料から推定)':'';return cohort(p)==='now'?'NOW / 4年'+suffix:cohort(p)==='future'?'FUTURE / '+value(p,'grade')+'年'+suffix:'要確認'}
 function pillCohort(p){return `<span class="pill ${cohort(p)}">${esc(labelCohort(p))}</span>`}
