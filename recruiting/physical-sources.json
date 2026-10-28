@@ -49,6 +49,12 @@
       "season": "rookie",
       "university": "江戸川大学",
       "id": 109
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "早稲田大学",
+      "id": 6
     }
   ],
   "curatedProfiles": [
@@ -83,6 +89,78 @@
       "gradeAtSource": 3,
       "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjgyNDc2ZTRkNDE5YS5wZGY%3D",
       "publisher": "JUBF 第48回李相佰盃2025選手名簿"
+    },
+    {
+      "name": "塚田 大聖",
+      "university": "明治大学",
+      "height": 196,
+      "weight": 95,
+      "position": "PF",
+      "gradeAtSource": 4,
+      "asOfYear": 2026,
+      "source": "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/",
+      "publisher": "明治大学体育会男子バスケットボール部 2026"
+    },
+    {
+      "name": "下山 瑛司",
+      "university": "早稲田大学",
+      "height": 169,
+      "weight": 69,
+      "position": "PG",
+      "gradeAtSource": 4,
+      "asOfYear": 2026,
+      "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000567",
+      "publisher": "B.LEAGUE公式選手プロフィール"
+    },
+    {
+      "name": "鍋田 憲伸",
+      "university": "法政大学",
+      "height": 182,
+      "weight": 75,
+      "asOfYear": 2026,
+      "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000571",
+      "publisher": "B.LEAGUE公式選手プロフィール"
+    },
+    {
+      "name": "青木 汰斗",
+      "university": "明星大学",
+      "height": 178,
+      "weight": 82,
+      "position": "G",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://meiseiunivbb.com/player/detail/id/23497",
+      "publisher": "明星大学男子バスケットボール部選手紹介"
+    },
+    {
+      "name": "北條 彪之介",
+      "university": "青山学院大学",
+      "height": 192,
+      "weight": 85,
+      "position": "SF",
+      "asOfYear": 2025,
+      "gradeAtSource": 2,
+      "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1025/",
+      "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑"
+    },
+    {
+      "name": "松本 秦",
+      "university": "早稲田大学",
+      "height": 191,
+      "weight": 85,
+      "position": "SF",
+      "asOfYear": 2025,
+      "gradeAtSource": 1,
+      "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+      "publisher": "JUBF World University Basketball Series 2025日本学生選抜"
+    }
+  ],
+  "directorySources": [
+    {
+      "year": 2025,
+      "url": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1025/",
+      "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+      "access": "public_profiles_only"
     }
   ]
 }
