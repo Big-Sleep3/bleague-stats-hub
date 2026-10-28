@@ -197,6 +197,12 @@ const EN_PLAYER_STARTERS={
  '大浦 颯太':'Sota Oura'
 };
 const EN_OFFICIAL_NAMES={};
+function validOfficialDisplayName(name){
+ if(typeof name!=='string'||!name.includes(' ')||name.length>85||name.length<4)return false;
+ if(!/^[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+$/.test(name))return false;
+ const blocked=['buy','ticket','tickets','club','player','players','information','news','schedule','stats','statistics','league','game','games','merchandise','login','watch','live','results','ranking','rankings','privacy','policy','home','away','see','more'];
+ return !name.toLowerCase().split(/\s+/).some(w=>blocked.includes(w.replace(/[.'’\-]/g,'')));
+}
 function playerId(p){
  return String(p?.url||'').match(/[?&]PlayerID=(\d+)/)?.[1]||'';
 }
@@ -488,11 +494,11 @@ if(location.protocol.startsWith('http')){
  .then(r=>r.ok?r.json():Promise.reject(Error(r.status)))
  .then(payload=>{
    if(payload&&payload.names&&typeof payload.names==='object'){
-     Object.entries(payload.names).forEach(([id,name])=>{
-       if(/^\d+$/.test(id) && typeof name==='string' && /^[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+$/.test(name) && name.includes(' ')){
-         EN_OFFICIAL_NAMES[id]=name.trim();
-       }
-     });
+     const clean=Object.entries(payload.names).filter(([id,name])=>/^\d+$/.test(id)&&validOfficialDisplayName(name));
+     const counts={}; clean.forEach(([,name])=>{counts[name]=(counts[name]||0)+1;});
+     // An accidental page-label import must not overwrite hundreds of identities.
+     if(clean.some(([,name])=>counts[name]>=5)){console.warn('English names rejected: repeated label.');return;}
+     clean.forEach(([id,name])=>{EN_OFFICIAL_NAMES[id]=name.trim();});
      render();
    }
  }).catch(err=>console.warn('Official English name map unavailable:',err.message));
