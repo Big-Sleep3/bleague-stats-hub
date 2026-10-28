@@ -13,14 +13,20 @@ create table if not exists public.recruiting_notes (
   updated_at timestamptz not null default now(),
   constraint payload_object check (jsonb_typeof(payload)='object')
 );
-create or replace function public.recruiting_is_approved()
+-- Keep privileged membership lookup outside the API-exposed public schema.
+create schema if not exists recruiting_private;
+revoke all on schema recruiting_private from public;
+grant usage on schema recruiting_private to authenticated;
+create or replace function recruiting_private.is_approved()
 returns boolean language sql stable security definer set search_path = ''
 as $$
-  select exists (select 1 from public.recruiting_staff
-    where user_id = (select auth.uid()) and approved = true)
+  select exists (
+    select 1 from public.recruiting_staff
+    where user_id = (select auth.uid()) and approved = true
+  )
 $$;
-revoke all on function public.recruiting_is_approved() from public;
-grant execute on function public.recruiting_is_approved() to authenticated;
+revoke all on function recruiting_private.is_approved() from public;
+grant execute on function recruiting_private.is_approved() to authenticated;
 alter table public.recruiting_staff enable row level security;
 alter table public.recruiting_notes enable row level security;
 drop policy if exists "Read own membership" on public.recruiting_staff;
@@ -28,18 +34,18 @@ create policy "Read own membership" on public.recruiting_staff
   for select to authenticated using (user_id = (select auth.uid()));
 drop policy if exists "Approved read" on public.recruiting_notes;
 create policy "Approved read" on public.recruiting_notes
-  for select to authenticated using ((select public.recruiting_is_approved()));
+  for select to authenticated using ((select recruiting_private.is_approved()));
 drop policy if exists "Approved insert" on public.recruiting_notes;
 create policy "Approved insert" on public.recruiting_notes
   for insert to authenticated
-  with check ((select public.recruiting_is_approved()) and updated_by=(select auth.uid()));
+  with check ((select recruiting_private.is_approved()) and updated_by=(select auth.uid()));
 drop policy if exists "Approved update" on public.recruiting_notes;
 create policy "Approved update" on public.recruiting_notes
   for update to authenticated
-  using ((select public.recruiting_is_approved()))
-  with check ((select public.recruiting_is_approved()) and updated_by=(select auth.uid()));
-revoke all on public.recruiting_staff from anon;
-revoke all on public.recruiting_notes from anon;
+  using ((select recruiting_private.is_approved()))
+  with check ((select recruiting_private.is_approved()) and updated_by=(select auth.uid()));
+revoke all on public.recruiting_staff from anon, authenticated;
+revoke all on public.recruiting_notes from anon, authenticated;
 grant select on public.recruiting_staff to authenticated;
 grant select,insert,update on public.recruiting_notes to authenticated;
 -- After a staff member signs in once, approve exact Auth user UUID via SQL editor:
