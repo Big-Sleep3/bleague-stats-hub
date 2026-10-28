@@ -29,6 +29,7 @@ class RecruitingBrowserTests(unittest.TestCase):
         cls.browser.close()
         cls.playwright.stop()
         cls.server.shutdown()
+        cls.server.server_close()
     def test_public_stats_language_and_player_details(self):
         page=self.browser.new_page()
         errors=[]
@@ -89,7 +90,7 @@ class RecruitingBrowserTests(unittest.TestCase):
         expect(page.locator("#official-full-stats")).to_contain_text("3P%")
         expect(page.locator("#video-tag")).to_be_visible()
         page.locator('#urh-language-control [data-lang="en"]').click()
-        expect(page.locator('label:has(input[name="height"])')).to_contain_text("Height")
+        expect(page.locator('#form label:has(input[name="height"])')).to_contain_text("Height")
         expect(page.locator("#new-prospect-form")).to_have_count(1)
         self.assertFalse(errors,f"Staff browser errors: {errors}")
         page.close()
