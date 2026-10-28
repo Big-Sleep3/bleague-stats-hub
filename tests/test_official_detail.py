@@ -30,6 +30,15 @@ class TestOfficialDetail(unittest.TestCase):
   h=['SEASON','TYPE','CLUB','PO']+s.PLAYER
   v=['11','10','230:24','20:56']+['1.0']*(len(s.PLAYER)-4)
   with self.assertRaises(ValueError):s.player_detail(table(h,['2026-27','BP','群馬','PG']+v),'信州','架空')
+ def test_verified_english_name(self):
+  html='<section><p>#8</p><h2>Jarrett Culver</h2><h3>ジャレット・カルバー</h3></section>'
+  self.assertEqual(s.english_name(html,'ジャレット・カルバー'),'Jarrett Culver')
+  self.assertIsNone(s.english_name(html,'架空 選手'))
+ def test_english_spelling_in_player_record(self):
+  v='11 10 230:24 20:56 7.8 3.4 9.0 37.4% 3.0 6.6 45.2% 0.4 2.4 15.4% 0.7 1.4 53.3% 0.5 1.3 1.7 2.1 1.2 0.6 0.1 0.3 2.2 1.6 3.9 1.6'.split()
+  html='<h2>Jarrett Culver</h2><h3>ジャレット・カルバー</h3>'+table(['SEASON','TYPE','CLUB','PO']+s.PLAYER,['2026-27','BP','仙台','SG']+v)
+  r=s.player_detail(html,'仙台','ジャレット・カルバー')
+  self.assertEqual(r['name_en'],'Jarrett Culver')
  def test_player_and_club_links(self):
   h='<a href="/club_detail/?TeamID=716&amp;tab=1">信州</a><a href="/roster_detail/?PlayerID=123">00 キーボン・ハリス ポジション：SG #00</a>'
   self.assertEqual(len(s.club_urls(h)),1)
