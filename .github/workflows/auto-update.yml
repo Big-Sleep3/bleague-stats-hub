@@ -41,7 +41,7 @@ jobs:
         id: quick
         continue-on-error: true
         run: |
-          if [ "${{ github.event.schedule }}" = "33 19 * * *" ]; then
+          if [ "${{ github.event.schedule }}" = "33 19 * * *" ] || [ "${{ github.event_name }}" = "push" ]; then
             python scripts/update_stats.py --mode quick --force-players
           else
             python scripts/update_stats.py --mode quick
