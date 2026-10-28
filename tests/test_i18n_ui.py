@@ -35,6 +35,8 @@ class LanguageSwitcherTests(unittest.TestCase):
    self.assertIn('個人成績',page.locator('#panelTitle').inner_text())
    page.locator('#langEn').click()
    self.assertIn('Player Rankings',page.locator('#panelTitle').inner_text())
+   self.assertIn('Official data snapshot',page.locator('#sourceInfo').inner_text())
+   self.assertIn('Jarrett Culver',page.locator('#tbody').inner_text())
    self.assertEqual(page.locator('#search').get_attribute('placeholder'),'Club / Player Name')
    self.assertGreaterEqual(page.locator('#tbody tr').count(),9)
    self.assertFalse(errors,errors)
