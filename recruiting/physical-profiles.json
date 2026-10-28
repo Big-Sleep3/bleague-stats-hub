@@ -1,8 +1,1199 @@
 {
   "schema": 1,
-  "asOf": null,
-  "coverage": "出典確認済みの身長・体重。2025年値を2026年の実測と混同しない。",
-  "players": [],
-  "sourceCount": 0,
+  "asOf": "2026-10-28 14:46 JST",
+  "coverage": "Sourced basketball player physical measurements. Older measurements labelled by source year.",
+  "players": [
+    {
+      "id": "K26-001",
+      "name": "松本 秦",
+      "university": "早稲田大学",
+      "heightEvidence": {
+        "value": 191,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000562",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 88,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000562",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "height": 191,
+      "weight": 88,
+      "position": "SF",
+      "grade": 2,
+      "sources": [
+        "https://www.bleague.jp/roster_detail/?PlayerID=51000562",
+        "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men"
+      ]
+    },
+    {
+      "id": "K26-003",
+      "name": "コネ ボウゴウジィ ディット ハメード",
+      "university": "日本体育大学",
+      "heightEvidence": {
+        "value": 207.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1121/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 105.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1121/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "C",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1121/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1121/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 207.0,
+      "weight": 105.0,
+      "position": "C",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1121/"
+      ]
+    },
+    {
+      "id": "K26-004",
+      "name": "菅野 陸",
+      "university": "山梨学院大学",
+      "heightEvidence": {
+        "value": 176,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 69,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "height": 176,
+      "weight": 69,
+      "position": "PG",
+      "grade": 3,
+      "sources": [
+        "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D"
+      ]
+    },
+    {
+      "id": "K26-005",
+      "name": "坂口 大和",
+      "university": "中央大学",
+      "heightEvidence": {
+        "value": 186.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1097/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 79.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1097/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1097/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1097/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 186.0,
+      "weight": 79.0,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1097/"
+      ]
+    },
+    {
+      "id": "K26-006",
+      "name": "塚田 大聖",
+      "university": "明治大学",
+      "heightEvidence": {
+        "value": 196,
+        "source": "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/",
+        "sourceYear": 2026,
+        "publisher": "明治大学体育会男子バスケットボール部 2026",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 95,
+        "source": "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/",
+        "sourceYear": 2026,
+        "publisher": "明治大学体育会男子バスケットボール部 2026",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PF",
+        "source": "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/",
+        "sourceYear": 2026,
+        "publisher": "明治大学体育会男子バスケットボール部 2026",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/",
+        "sourceYear": 2026,
+        "publisher": "明治大学体育会男子バスケットボール部 2026",
+        "quality": 2
+      },
+      "height": 196,
+      "weight": 95,
+      "position": "PF",
+      "grade": 4,
+      "sources": [
+        "https://meiji-basketball.com/player/%E5%A1%9A%E7%94%B0-%E5%A4%A7%E8%81%96/"
+      ]
+    },
+    {
+      "id": "K26-007",
+      "name": "北條 彪之介",
+      "university": "青山学院大学",
+      "heightEvidence": {
+        "value": 191.0,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 85.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1025/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "height": 191.0,
+      "weight": 85.0,
+      "position": "SF",
+      "grade": 3,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1025/"
+      ]
+    },
+    {
+      "id": "K26-008",
+      "name": "大江 悠斗",
+      "university": "日本体育大学",
+      "heightEvidence": {
+        "value": 170.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 67.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 170.0,
+      "weight": 67.0,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/"
+      ]
+    },
+    {
+      "id": "K26-009",
+      "name": "轟 琉維",
+      "university": "東海大学",
+      "heightEvidence": {
+        "value": 169.0,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 69,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjgyNDc2ZTRkNDE5YS5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF 第48回李相佰盃2025選手名簿",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "height": 169.0,
+      "weight": 69,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjgyNDc2ZTRkNDE5YS5wZGY%3D"
+      ]
+    },
+    {
+      "id": "K26-010",
+      "name": "朝田 健心",
+      "university": "日本体育大学",
+      "heightEvidence": {
+        "value": 180.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1132/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 74.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1132/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1132/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1132/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 180.0,
+      "weight": 74.0,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1132/"
+      ]
+    },
+    {
+      "id": "K26-011",
+      "name": "佐藤 友",
+      "university": "東海大学",
+      "heightEvidence": {
+        "value": 189.0,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "F",
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 88.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1118/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 189.0,
+      "weight": 88.0,
+      "position": "F",
+      "grade": 3,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1118/"
+      ]
+    },
+    {
+      "id": "K26-012",
+      "name": "三浦 健一",
+      "university": "早稲田大学",
+      "heightEvidence": {
+        "value": 190.0,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "F",
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 83.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1052/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 190.0,
+      "weight": 83.0,
+      "position": "F",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1052/"
+      ]
+    },
+    {
+      "id": "K26-013",
+      "name": "城戸 賢心",
+      "university": "早稲田大学",
+      "heightEvidence": {
+        "value": 181.0,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 72.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1050/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 181.0,
+      "weight": 72.0,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1050/"
+      ]
+    },
+    {
+      "id": "K26-014",
+      "name": "山田 哲汰",
+      "university": "日本大学",
+      "heightEvidence": {
+        "value": 188.0,
+        "source": "https://jubf.jp/game/university-detail/id/22/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://jubf.jp/game/university-detail/id/22/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/22/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 78.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1142/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 188.0,
+      "weight": 78.0,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/22/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1142/"
+      ]
+    },
+    {
+      "id": "K26-015",
+      "name": "下山 瑛司",
+      "university": "早稲田大学",
+      "heightEvidence": {
+        "value": 169,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000567",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 69,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000567",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000567",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000567",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "height": 169,
+      "weight": 69,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://www.bleague.jp/roster_detail/?PlayerID=51000567"
+      ]
+    },
+    {
+      "id": "K26-016",
+      "name": "武藤 俊太朗",
+      "university": "明治大学",
+      "heightEvidence": {
+        "value": 190.0,
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 87.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1176/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 190.0,
+      "weight": 87.0,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1176/"
+      ]
+    },
+    {
+      "id": "K26-017",
+      "name": "ロイ 優太郎",
+      "university": "白鴎大学",
+      "heightEvidence": {
+        "value": 192.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1164/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 82.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1164/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "F",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1164/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1164/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 192.0,
+      "weight": 82.0,
+      "position": "F",
+      "grade": 3,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1164/"
+      ]
+    },
+    {
+      "id": "K26-018",
+      "name": "湧川 裕斗",
+      "university": "明治大学",
+      "heightEvidence": {
+        "value": 183.0,
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 73.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1169/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 183.0,
+      "weight": 73.0,
+      "position": "PG",
+      "grade": 2,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1169/"
+      ]
+    },
+    {
+      "id": "K26-019",
+      "name": "石口 直",
+      "university": "中央大学",
+      "heightEvidence": {
+        "value": 180.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1094/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 76.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1094/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1094/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1094/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 180.0,
+      "weight": 76.0,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1094/"
+      ]
+    },
+    {
+      "id": "K26-020",
+      "name": "中川 知定真",
+      "university": "東海大学",
+      "heightEvidence": {
+        "value": 192.0,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "F",
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 92.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1107/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 192.0,
+      "weight": 92.0,
+      "position": "F",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/44/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1107/"
+      ]
+    },
+    {
+      "id": "K26-022",
+      "name": "嘉手川 太智",
+      "university": "早稲田大学",
+      "heightEvidence": {
+        "value": 177.0,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "G",
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 70.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1049/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 177.0,
+      "weight": 70.0,
+      "position": "G",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1049/"
+      ]
+    },
+    {
+      "id": "K26-023",
+      "name": "境 アリーム",
+      "university": "白鴎大学",
+      "heightEvidence": {
+        "value": 198.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 90.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "C",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 198.0,
+      "weight": 90.0,
+      "position": "C",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/"
+      ]
+    },
+    {
+      "id": "K26-025",
+      "name": "広瀬 洸生",
+      "university": "青山学院大学",
+      "heightEvidence": {
+        "value": 190.0,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 87.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 190.0,
+      "weight": 87.0,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/"
+      ]
+    },
+    {
+      "id": "K26-026",
+      "name": "小川 瑛次郎",
+      "university": "白鴎大学",
+      "heightEvidence": {
+        "value": 185.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1155/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 85.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1155/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1155/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1155/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 185.0,
+      "weight": 85.0,
+      "position": "SF",
+      "grade": 3,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1155/"
+      ]
+    },
+    {
+      "id": "K26-027",
+      "name": "高山 鈴琉",
+      "university": "中央大学",
+      "heightEvidence": {
+        "value": 174.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1093/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 75.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1093/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1093/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1093/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 174.0,
+      "weight": 75.0,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1093/"
+      ]
+    },
+    {
+      "id": "K26-030",
+      "name": "芦田 真人",
+      "university": "青山学院大学",
+      "heightEvidence": {
+        "value": 182.0,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 80.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 182.0,
+      "weight": 80.0,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/"
+      ]
+    },
+    {
+      "id": "K26D2-14C820345001",
+      "name": "青木 汰斗",
+      "university": "明星大学",
+      "heightEvidence": {
+        "value": 178,
+        "source": "https://meiseiunivbb.com/player/detail/id/23497",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部選手紹介",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 82,
+        "source": "https://meiseiunivbb.com/player/detail/id/23497",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部選手紹介",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "G",
+        "source": "https://meiseiunivbb.com/player/detail/id/23497",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部選手紹介",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://meiseiunivbb.com/player/detail/id/23497",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部選手紹介",
+        "quality": 2
+      },
+      "height": 178,
+      "weight": 82,
+      "position": "G",
+      "grade": 4,
+      "sources": [
+        "https://meiseiunivbb.com/player/detail/id/23497"
+      ]
+    },
+    {
+      "id": "K26D2-A9873120B272",
+      "name": "鍋田 憲伸",
+      "university": "法政大学",
+      "heightEvidence": {
+        "value": 182,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000571",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 75,
+        "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000571",
+        "sourceYear": 2026,
+        "publisher": "B.LEAGUE公式選手プロフィール",
+        "quality": 2
+      },
+      "height": 182,
+      "weight": 75,
+      "sources": [
+        "https://www.bleague.jp/roster_detail/?PlayerID=51000571"
+      ]
+    },
+    {
+      "id": "K26D2-F9B399542357",
+      "name": "坂本 康成",
+      "university": "筑波大学",
+      "heightEvidence": {
+        "value": 194.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1082/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 82.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1082/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1082/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1082/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 194.0,
+      "weight": 82.0,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1082/"
+      ]
+    },
+    {
+      "id": "K26D2-5DEDD84634D8",
+      "name": "笠木 憂生",
+      "university": "専修大学",
+      "heightEvidence": {
+        "value": 193.0,
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "F",
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 3,
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 90.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1042/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 193.0,
+      "weight": 90.0,
+      "position": "F",
+      "grade": 3,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1042/"
+      ]
+    },
+    {
+      "id": "K26D2-9B22083360A9",
+      "name": "古山 幸聖",
+      "university": "専修大学",
+      "heightEvidence": {
+        "value": 189.0,
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "G",
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "height": 189.0,
+      "position": "G",
+      "grade": 2,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/25/type/intercollege/y/2025/s/men"
+      ]
+    }
+  ],
+  "sourceCount": 184,
   "warnings": []
 }
