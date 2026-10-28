@@ -66,12 +66,12 @@ function timeMinutes(v){if(typeof v==='number')return v;const parts=String(v).sp
 function fmt(row,k=metric){const n=metricVal(row,k);if(n==null||!Number.isFinite(n))return '—';if(k==='MIN'||k==='MINPG')return typeof row[k]==='string'?safe(row[k]):n.toFixed(1);let suffix=k.includes('%')?'%':'';return n.toFixed(k==='G'||k==='GS'?0:1)+suffix}
 function orderRows(rows){return [...rows].sort((a,b)=>{const x=metricVal(a),y=metricVal(b);if(x===null&&y===null)return nameOf(a).localeCompare(nameOf(b),'ja');if(x===null)return 1;if(y===null)return -1;const diff=direction==='desc'?y-x:x-y;return Math.abs(diff)>1e-9?diff:nameOf(a).localeCompare(nameOf(b),'ja')})}
 function nameOf(row){return row.name||''}function rankMap(rows){const r=new Map();let last=null,rank=0;rows.forEach((x,i)=>{const n=metricVal(x);if(n!==null){if(last===null||Math.abs(n-last)>1e-9)rank=i+1;last=n;r.set(x,rank)}});return r}
-function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.name_en,EN_PLAYER_STARTERS[t.name],t.abbr,t.club,t.number,EN_CLUBS[t.club||t.abbr],EN_SHORT[t.club||t.abbr]].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
+function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.name_en,EN_OFFICIAL_NAMES[playerId(t)],EN_PLAYER_STARTERS[t.name],t.abbr,t.club,t.number,EN_CLUBS[t.club||t.abbr],EN_SHORT[t.club||t.abbr]].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
 function renderControls(){const available=metrics();if(!available.some(m=>m[0]===metric))metric=tab==='advanced'?'PITP':tab==='basic'?'PPG':'PPG';$('metric').innerHTML=available.map(m=>`<option value="${safe(m[0])}">${safe(m[0])} — ${safe(m[1])}</option>`).join('');$('metric').value=metric;
 const groups=['全項目',...new Set(available.map(m=>m[2]))];if(!groups.includes(group))group='全項目';$('chips').innerHTML=groups.map(g=>`<button class="chip ${group===g?'active':''}" data-group="${safe(g)}">${safe(g)}</button>`).join('');$('modeWrap').classList.toggle('hidden',tab!=='advanced');$('modeAvg').classList.toggle('active',mode==='avg');$('modeTotal').classList.toggle('active',mode==='total');$('eligibleWrap').classList.toggle('hidden',tab!=='players');$('positionWrap').classList.toggle('hidden',tab!=='players');
 const clubs=[...data.advanced].sort((a,b)=>a.name.localeCompare(b.name,'ja'));$('club').innerHTML='<option value="">全クラブ</option>'+clubs.map(t=>`<option value="${safe(t.abbr)}">${safe(t.name)}</option>`).join('');$('club').value=club;$('eligible').value=eligible;$('position').value=position;$('search').value=q;$('sortToggle').textContent=direction==='desc'?'↓ 高い順':'↑ 低い順';
 document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
-const titles={advanced:['クラブ詳細ランキング','26クラブ・18項目。PITP等の総得点を1試合平均で順位付け'],basic:['クラブ基本成績','PPG・RPG・FG%・TO・STLなど、公式掲載のクラブ成績'],players:['個人成績ランキング','選手名・クラブ・ポジション・出場率で絞り込める公式成績ベースの一覧']};$('panelTitle').textContent=titles[tab][0];$('panelDescription').textContent=titles[tab][1];$('updatedAt').textContent=`公式データ更新：${data.updated?.[tab]||'未取得'}`;$('official').href=data.source?.[tab]||'https://www.bleague.jp/stats/';
+const titles={advanced:['クラブ詳細ランキング','26クラブ・18項目。PITP等の総得点を1試合平均で順位付け'],basic:['クラブ基本成績','PPG・RPG・FG%・TO・STLなど、公式掲載のクラブ成績'],players:['個人成績ランキング','選手名・クラブ・ポジション・出場率で絞り込める公式成績ベースの一覧']};$('panelTitle').textContent=titles[tab][0];$('panelDescription').textContent=titles[tab][1];if(tab==='players'&&language==='en'){const names=data.players.filter(p=>verifiedEnglishName(p)).length;$('panelDescription').textContent+=' | Official English names: '+names+'/'+data.players.length;}$('updatedAt').textContent=`公式データ更新：${data.updated?.[tab]||'未取得'}`;$('official').href=data.source?.[tab]||'https://www.bleague.jp/stats/';
 const quality=data.quality?.[tab]||'unavailable';let msg='';if(quality==='full')msg=`このタブは公式掲載値をもとにした${tab==='advanced'?'26クラブの':'取得済みの'}データを表示。次回の取得が成功するまで値は変わりません。`;if(quality==='leaders-only')msg='個人成績は初期版として公式サイトの「PPG・RPG・APG」各上位3人のみを表示。全選手や全項目を取得済みではありません。自動更新スクリプトで取得に成功すると、全選手・全項目の表示に切り替わります。';if(quality==='unavailable')msg='クラブ基本成績は未取得のため、まだランキングを表示できません。自動更新をセットアップすると公式サイトから取得を試みます。';if(quality==='partial')msg='一部データのみ取得済み。表示されない値を0として扱わず「—」で示します。';$('warning').classList.toggle('ok',quality==='full');$('warning').textContent=msg;$('globalStatus').textContent=`● ${data.quality?.advanced==='full'?'詳細26クラブ収録':'保存データ'} / ${data.quality?.players==='full'?'個人全選手':'個人抜粋'}`;
 }
 function renderHealth(){
@@ -196,9 +196,16 @@ const EN_PLAYER_STARTERS={
  'アイザイア・リバース':'Isaiah Livers',
  '大浦 颯太':'Sota Oura'
 };
+const EN_OFFICIAL_NAMES={};
+function playerId(p){
+ return String(p?.url||'').match(/[?&]PlayerID=(\d+)/)?.[1]||'';
+}
+function verifiedEnglishName(p){
+ return (p?.name_en||EN_OFFICIAL_NAMES[playerId(p)]||'');
+}
 function displayPlayerName(p){
  if(!p)return '';
- return language==='en'?(p.name_en||EN_PLAYER_STARTERS[p.name]||p.name):p.name;
+ return language==='en'?(verifiedEnglishName(p)||EN_PLAYER_STARTERS[p.name]||p.name):p.name;
 }
 const EN_METRICS={
  '2NDPTS':'Second-Chance Points','FBPS':'Fast-Break Points','PITP':'Points in the Paint',
@@ -474,6 +481,20 @@ render=function(){originalRender();translatePage();};
 render();
 if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=language==='en'?' Latest hosted JSON unavailable; showing bundled snapshot.':' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
 
+if(location.protocol.startsWith('http')){
+ fetch('./data/player-names-en.json',{cache:'no-store'})
+ .then(r=>r.ok?r.json():Promise.reject(Error(r.status)))
+ .then(payload=>{
+   if(payload&&payload.names&&typeof payload.names==='object'){
+     Object.entries(payload.names).forEach(([id,name])=>{
+       if(/^\d+$/.test(id) && typeof name==='string' && /^[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+$/.test(name) && name.includes(' ')){
+         EN_OFFICIAL_NAMES[id]=name.trim();
+       }
+     });
+     render();
+   }
+ }).catch(err=>console.warn('Official English name map unavailable:',err.message));
+}
 if(location.protocol.startsWith('http')){
  fetch('./data/sync-status.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject(Error(r.status))).then(s=>{
  const statuses=Object.entries(s.results||{}), ok=statuses.filter(([,v])=>v.success).map(([k])=>k).join('・');
