@@ -95,6 +95,15 @@ function officialStatTable(p){
  cols.map(([k,label,pct])=>'<tr><th>'+label+'</th><td class="mono">'+statValue(p,k,1,!!pct)+'</td></tr>').join('')+
  '</tbody></table></div></section>'
 }
+function exportStatsCsv(){
+ const table=document.querySelector('#workspace .data-table');if(!table)return;
+ const quote=v=>{let t=String(v??'').trim();if(/^[=+@]/.test(t))t="'"+t;return '"'+t.replaceAll('"','""')+'"';};
+ const csv=[...table.querySelectorAll('tr')].map(tr=>[...tr.querySelectorAll('th,td')].map(td=>quote(td.innerText)).join(',')).join('\r\n');
+ const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});
+ const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='university-recruiting-2026-stats.csv';a.click();
+ setTimeout(()=>URL.revokeObjectURL(u),4000);
+ toast('公式スタッツをCSVに書き出したよ');
+}
 function renderFullStats(){
  const leagues=[...new Set(base.players.map(p=>p.league||'関東大学1部'))].sort();
  const q=state.statsSearch.trim().toLowerCase(),lg=state.statsLeague;
@@ -106,7 +115,7 @@ function renderFullStats(){
  players.sort((a,b)=>(statRaw(b,sort)??-1)-(statRaw(a,sort)??-1));
  return '<div class="panel"><div class="panel-head"><div><div class="panel-title">FULL STATS / SHOOTING / DEFENSE</div>'+
  '<div class="panel-sub">公式大会スタッツから集計 · 3P% は3PM÷3PA · 異なるリーグの水準に注意</div></div>'+
- '<a href="./sources.html" class="btn">OFFICIAL SOURCES</a></div>'+
+ '<div class="actions"><button type="button" class="btn primary" id="export-stats-csv">EXPORT CSV</button><a href="./sources.html" class="btn">OFFICIAL SOURCES</a></div></div>'+
  '<div class="filters"><input id="full-search" type="search" class="field search" placeholder="選手・大学名で検索" value="'+esc(state.statsSearch)+'">'+
  '<select id="stats-league" class="field"><option value="all">すべてのリーグ</option>'+
  leagues.map(x=>'<option value="'+esc(x)+'" '+(lg===x?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select>'+
@@ -145,7 +154,7 @@ function safeUrl(raw){try{const u=new URL(String(raw||''));return u.protocol==='
 function exportData(){const data={version:1,createdAt:new Date().toISOString(),source:'University Recruiting Hub (local browser backup)',players:user};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`recruiting-local-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('JSONバックアップを書き出したよ')}
 async function importData(file){if(!file)return;try{if(file.size>2000000)throw new Error('2MB以下のJSONを選んでね');const obj=JSON.parse(await file.text());if(obj.version!==1||!obj.players||typeof obj.players!=='object'||Array.isArray(obj.players))throw new Error('このアプリ用のバックアップではないよ');let next={};for(const [id,v] of Object.entries(obj.players)){if(getPlayer(id)&&v&&typeof v==='object'&&!Array.isArray(v))next[id]=v}if(!window.confirm(`バックアップから${Object.keys(next).length}名分の記録を復元するよ。今の端末内データは上書きされるけど、いい？`))return;user=next;persist();closeDrawer();renderKpis();renderWorkspace();toast('バックアップを復元したよ')}catch(e){toast(e.message||'読み込み失敗')}finally{$('#import-file').value=''}}
 // User interactions: event delegation allows tabs, rows and forms to be rerendered safely.
-document.addEventListener('click',e=>{const tab=e.target.closest('[data-view]');if(tab){changeView(tab.dataset.view);return}const go=e.target.closest('[data-goto]');if(go){changeView(go.dataset.goto);return}const open=e.target.closest('[data-open]');if(open){openDrawer(open.dataset.open);return}const remove=e.target.closest('[data-remove]');if(remove){state.compare=state.compare.filter(x=>x!==remove.dataset.remove);renderWorkspace();return}if(e.target.id==='close-drawer'||e.target.id==='backdrop')closeDrawer()});
+document.addEventListener('click',e=>{if(e.target.closest('#export-stats-csv')){exportStatsCsv();return}const tab=e.target.closest('[data-view]');if(tab){changeView(tab.dataset.view);return}const go=e.target.closest('[data-goto]');if(go){changeView(go.dataset.goto);return}const open=e.target.closest('[data-open]');if(open){openDrawer(open.dataset.open);return}const remove=e.target.closest('[data-remove]');if(remove){state.compare=state.compare.filter(x=>x!==remove.dataset.remove);renderWorkspace();return}if(e.target.id==='close-drawer'||e.target.id==='backdrop')closeDrawer()});
 document.addEventListener('input',e=>{if(e.target.id==='search'){state.search=e.target.value;updateBoardRows()}if(e.target.id==='full-search'){state.statsSearch=e.target.value;renderWorkspace();const el=document.getElementById('full-search');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length)}}});
 document.addEventListener('change',e=>{const t=e.target;if(t.dataset.compare){selectCompare(t.dataset.compare,t.checked);return}if(['cohort','university','position','sort'].includes(t.id)){state[t.id]=t.value;updateBoardRows()}if(t.id==='stats-league'){state.statsLeague=t.value;renderWorkspace()}if(t.id==='stats-sort'){state.statsSort=t.value;renderWorkspace()}if(t.id==='stats-min-gp'){state.statsMinGp=Number(t.value);renderWorkspace()}if(t.id==='stats-min-3pa'){state.statsMin3PA=Number(t.value);renderWorkspace()}});
 document.addEventListener('submit',e=>{const f=e.target;if(!['scout-form','film-form','history-form'].includes(f.id))return;e.preventDefault();const p=getPlayer(state.selected);if(!p)return;if(f.id==='scout-form')saveScout(f,p);if(f.id==='film-form')saveFilm(f,p);if(f.id==='history-form')saveHistory(f,p)});
