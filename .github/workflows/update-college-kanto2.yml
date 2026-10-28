@@ -38,4 +38,15 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recruiting/players-kanto2.json
           git commit -m 'data: update verified Kanto D2 player stats'
-          git push
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "Verified data published"
+              exit 0
+            fi
+            echo "Concurrent repository update; retry $attempt"
+            sleep 3
+          done
+          echo "Unable to publish after retries" >&2
+          exit 1
