@@ -15,4 +15,4 @@
 fetch('./players-kanto2.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{
 const el=document.querySelector('#d2-source-status');if(el&&d&&d.status==='verified'&&Array.isArray(d.players)&&d.players.length>=20){el.classList.remove('wait');el.textContent='取り込み済み '+d.players.length+'名';}
 }).catch(()=>{});
-</script><script defer src="./i18n.js?v=20261028a"></script></body></html>
+</script><script defer src="./i18n.js?v=20261028b"></script></body></html>
