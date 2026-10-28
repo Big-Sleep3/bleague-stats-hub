@@ -37,6 +37,16 @@ class LanguageSwitcherTests(unittest.TestCase):
    self.assertIn('Player Rankings',page.locator('#panelTitle').inner_text())
    self.assertIn('Official data snapshot',page.locator('#sourceInfo').inner_text())
    self.assertIn('Jarrett Culver',page.locator('#tbody').inner_text())
+   # Simulate a verified official name for another player and search it.
+   page.evaluate("EN_OFFICIAL_NAMES['19755']='Keisei Tominaga'")
+   page.evaluate("EN_PLAYER_STARTERS['富永 啓生']='WRONG FIXTURE'")
+   page.evaluate("render()")
+   self.assertIn('Keisei Tominaga',page.locator('#tbody').inner_text())
+   page.locator('#search').fill('Keisei')
+   self.assertGreaterEqual(page.locator('#tbody tr').count(),1)
+   self.assertIn('Keisei Tominaga',page.locator('#tbody').inner_text())
+   page.locator('#search').fill('')
+
    self.assertEqual(page.locator('#search').get_attribute('placeholder'),'Club / Player Name')
    self.assertGreaterEqual(page.locator('#tbody tr').count(),9)
    self.assertFalse(errors,errors)
