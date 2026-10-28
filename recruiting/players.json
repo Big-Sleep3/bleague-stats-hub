@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "asOf": "2026-10-28",
-  "coverage": "関東大学1部 得点上位30名（初期サンプル）",
+  "coverage": "関東大学男子1部・公式掲載 30名（全登録選手ではない）",
   "officialStatsUrl": "https://www.kcbbf.jp/game/stats/type/league/year/2026/league_id/408",
   "players": [
     {
@@ -36,8 +36,22 @@
         "fg2Made": 104,
         "fg2Att": 197,
         "ftMade": 103,
-        "ftAtt": 120
-      }
+        "ftAtt": 120,
+        "two": 0.5279187817258884,
+        "efg": 0.5146396396396397,
+        "fgMade": 187,
+        "fgAtt": 444,
+        "fgAttemptsPerGame": 20.181818181818183,
+        "twoMadePerGame": 4.7272727272727275,
+        "twoAttemptsPerGame": 8.954545454545455,
+        "threeMadePerGame": 3.772727272727273,
+        "freeThrowsMadePerGame": 4.681818181818182,
+        "freeThrowAttemptsPerGame": 5.454545454545454,
+        "stealsPerGame": 1.6363636363636365,
+        "blocksPerGame": 0.6818181818181818,
+        "turnoversPerGame": 2.8636363636363638
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-002",
@@ -71,8 +85,22 @@
         "fg2Made": 166,
         "fg2Att": 276,
         "ftMade": 42,
-        "ftAtt": 61
-      }
+        "ftAtt": 61,
+        "two": 0.6014492753623188,
+        "efg": 0.5911854103343465,
+        "fgMade": 185,
+        "fgAtt": 329,
+        "fgAttemptsPerGame": 14.954545454545455,
+        "twoMadePerGame": 7.545454545454546,
+        "twoAttemptsPerGame": 12.545454545454545,
+        "threeMadePerGame": 0.8636363636363636,
+        "freeThrowsMadePerGame": 1.9090909090909092,
+        "freeThrowAttemptsPerGame": 2.772727272727273,
+        "stealsPerGame": 1.1818181818181819,
+        "blocksPerGame": 0.6363636363636364,
+        "turnoversPerGame": 2.3636363636363638
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-003",
@@ -106,8 +134,22 @@
         "fg2Made": 155,
         "fg2Att": 275,
         "ftMade": 78,
-        "ftAtt": 141
-      }
+        "ftAtt": 141,
+        "two": 0.5636363636363636,
+        "efg": 0.5329153605015674,
+        "fgMade": 165,
+        "fgAtt": 319,
+        "fgAttemptsPerGame": 14.5,
+        "twoMadePerGame": 7.045454545454546,
+        "twoAttemptsPerGame": 12.5,
+        "threeMadePerGame": 0.45454545454545453,
+        "freeThrowsMadePerGame": 3.5454545454545454,
+        "freeThrowAttemptsPerGame": 6.409090909090909,
+        "stealsPerGame": 0.7727272727272727,
+        "blocksPerGame": 2.5,
+        "turnoversPerGame": 2.3636363636363638
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-004",
@@ -141,8 +183,22 @@
         "fg2Made": 98,
         "fg2Att": 208,
         "ftMade": 35,
-        "ftAtt": 44
-      }
+        "ftAtt": 44,
+        "two": 0.47115384615384615,
+        "efg": 0.4578313253012048,
+        "fgMade": 134,
+        "fgAtt": 332,
+        "fgAttemptsPerGame": 15.090909090909092,
+        "twoMadePerGame": 4.454545454545454,
+        "twoAttemptsPerGame": 9.454545454545455,
+        "threeMadePerGame": 1.6363636363636365,
+        "freeThrowsMadePerGame": 1.5909090909090908,
+        "freeThrowAttemptsPerGame": 2,
+        "stealsPerGame": 2.3636363636363638,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 2.1818181818181817
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-005",
@@ -176,8 +232,22 @@
         "fg2Made": 100,
         "fg2Att": 181,
         "ftMade": 40,
-        "ftAtt": 57
-      }
+        "ftAtt": 57,
+        "two": 0.5524861878453039,
+        "efg": 0.5333333333333333,
+        "fgMade": 124,
+        "fgAtt": 255,
+        "fgAttemptsPerGame": 11.590909090909092,
+        "twoMadePerGame": 4.545454545454546,
+        "twoAttemptsPerGame": 8.227272727272727,
+        "threeMadePerGame": 1.0909090909090908,
+        "freeThrowsMadePerGame": 1.8181818181818181,
+        "freeThrowAttemptsPerGame": 2.590909090909091,
+        "stealsPerGame": 0.6818181818181818,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 2.1363636363636362
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-006",
@@ -211,8 +281,22 @@
         "fg2Made": 77,
         "fg2Att": 151,
         "ftMade": 32,
-        "ftAtt": 48
-      }
+        "ftAtt": 48,
+        "two": 0.5099337748344371,
+        "efg": 0.4737827715355805,
+        "fgMade": 110,
+        "fgAtt": 267,
+        "fgAttemptsPerGame": 12.136363636363637,
+        "twoMadePerGame": 3.5,
+        "twoAttemptsPerGame": 6.863636363636363,
+        "threeMadePerGame": 1.5,
+        "freeThrowsMadePerGame": 1.4545454545454546,
+        "freeThrowAttemptsPerGame": 2.1818181818181817,
+        "stealsPerGame": 0.5454545454545454,
+        "blocksPerGame": 0.5454545454545454,
+        "turnoversPerGame": 1.3636363636363635
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-007",
@@ -246,8 +330,22 @@
         "fg2Made": 65,
         "fg2Att": 131,
         "ftMade": 20,
-        "ftAtt": 33
-      }
+        "ftAtt": 33,
+        "two": 0.4961832061068702,
+        "efg": 0.43686006825938567,
+        "fgMade": 107,
+        "fgAtt": 293,
+        "fgAttemptsPerGame": 13.318181818181818,
+        "twoMadePerGame": 2.9545454545454546,
+        "twoAttemptsPerGame": 5.954545454545454,
+        "threeMadePerGame": 1.9090909090909092,
+        "freeThrowsMadePerGame": 0.9090909090909091,
+        "freeThrowAttemptsPerGame": 1.5,
+        "stealsPerGame": 0.45454545454545453,
+        "blocksPerGame": 0.45454545454545453,
+        "turnoversPerGame": 1.8181818181818181
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-008",
@@ -281,8 +379,22 @@
         "fg2Made": 91,
         "fg2Att": 180,
         "ftMade": 43,
-        "ftAtt": 57
-      }
+        "ftAtt": 57,
+        "two": 0.5055555555555555,
+        "efg": 0.4809322033898305,
+        "fgMade": 106,
+        "fgAtt": 236,
+        "fgAttemptsPerGame": 10.727272727272727,
+        "twoMadePerGame": 4.136363636363637,
+        "twoAttemptsPerGame": 8.181818181818182,
+        "threeMadePerGame": 0.6818181818181818,
+        "freeThrowsMadePerGame": 1.9545454545454546,
+        "freeThrowAttemptsPerGame": 2.590909090909091,
+        "stealsPerGame": 1.1363636363636365,
+        "blocksPerGame": 0,
+        "turnoversPerGame": 2.1363636363636362
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-009",
@@ -316,8 +428,22 @@
         "fg2Made": 57,
         "fg2Att": 130,
         "ftMade": 39,
-        "ftAtt": 56
-      }
+        "ftAtt": 56,
+        "two": 0.43846153846153846,
+        "efg": 0.4418604651162791,
+        "fgMade": 95,
+        "fgAtt": 258,
+        "fgAttemptsPerGame": 11.727272727272727,
+        "twoMadePerGame": 2.590909090909091,
+        "twoAttemptsPerGame": 5.909090909090909,
+        "threeMadePerGame": 1.7272727272727273,
+        "freeThrowsMadePerGame": 1.7727272727272727,
+        "freeThrowAttemptsPerGame": 2.5454545454545454,
+        "stealsPerGame": 1.0909090909090908,
+        "blocksPerGame": 0.22727272727272727,
+        "turnoversPerGame": 1.1818181818181819
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-010",
@@ -351,8 +477,22 @@
         "fg2Made": 77,
         "fg2Att": 160,
         "ftMade": 38,
-        "ftAtt": 43
-      }
+        "ftAtt": 43,
+        "two": 0.48125,
+        "efg": 0.4831223628691983,
+        "fgMade": 102,
+        "fgAtt": 237,
+        "fgAttemptsPerGame": 10.772727272727273,
+        "twoMadePerGame": 3.5,
+        "twoAttemptsPerGame": 7.2727272727272725,
+        "threeMadePerGame": 1.1363636363636365,
+        "freeThrowsMadePerGame": 1.7272727272727273,
+        "freeThrowAttemptsPerGame": 1.9545454545454546,
+        "stealsPerGame": 1.4090909090909092,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 1.5454545454545454
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-011",
@@ -386,8 +526,22 @@
         "fg2Made": 96,
         "fg2Att": 188,
         "ftMade": 53,
-        "ftAtt": 70
-      }
+        "ftAtt": 70,
+        "two": 0.5106382978723404,
+        "efg": 0.481651376146789,
+        "fgMade": 102,
+        "fgAtt": 218,
+        "fgAttemptsPerGame": 9.909090909090908,
+        "twoMadePerGame": 4.363636363636363,
+        "twoAttemptsPerGame": 8.545454545454545,
+        "threeMadePerGame": 0.2727272727272727,
+        "freeThrowsMadePerGame": 2.409090909090909,
+        "freeThrowAttemptsPerGame": 3.1818181818181817,
+        "stealsPerGame": 0.8181818181818182,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 1.2272727272727273
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-012",
@@ -421,8 +575,22 @@
         "fg2Made": 56,
         "fg2Att": 123,
         "ftMade": 40,
-        "ftAtt": 50
-      }
+        "ftAtt": 50,
+        "two": 0.45528455284552843,
+        "efg": 0.45510204081632655,
+        "fgMade": 93,
+        "fgAtt": 245,
+        "fgAttemptsPerGame": 11.136363636363637,
+        "twoMadePerGame": 2.5454545454545454,
+        "twoAttemptsPerGame": 5.590909090909091,
+        "threeMadePerGame": 1.6818181818181819,
+        "freeThrowsMadePerGame": 1.8181818181818181,
+        "freeThrowAttemptsPerGame": 2.272727272727273,
+        "stealsPerGame": 0.5909090909090909,
+        "blocksPerGame": 0.13636363636363635,
+        "turnoversPerGame": 1.4545454545454546
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-013",
@@ -456,8 +624,22 @@
         "fg2Made": 70,
         "fg2Att": 141,
         "ftMade": 22,
-        "ftAtt": 33
-      }
+        "ftAtt": 33,
+        "two": 0.49645390070921985,
+        "efg": 0.4723320158102767,
+        "fgMade": 103,
+        "fgAtt": 253,
+        "fgAttemptsPerGame": 11.5,
+        "twoMadePerGame": 3.1818181818181817,
+        "twoAttemptsPerGame": 6.409090909090909,
+        "threeMadePerGame": 1.5,
+        "freeThrowsMadePerGame": 1,
+        "freeThrowAttemptsPerGame": 1.5,
+        "stealsPerGame": 1.1363636363636365,
+        "blocksPerGame": 0.09090909090909091,
+        "turnoversPerGame": 1.5454545454545454
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-014",
@@ -491,8 +673,22 @@
         "fg2Made": 67,
         "fg2Att": 113,
         "ftMade": 36,
-        "ftAtt": 53
-      }
+        "ftAtt": 53,
+        "two": 0.5929203539823009,
+        "efg": 0.5333333333333333,
+        "fgMade": 97,
+        "fgAtt": 210,
+        "fgAttemptsPerGame": 9.545454545454545,
+        "twoMadePerGame": 3.0454545454545454,
+        "twoAttemptsPerGame": 5.136363636363637,
+        "threeMadePerGame": 1.3636363636363635,
+        "freeThrowsMadePerGame": 1.6363636363636365,
+        "freeThrowAttemptsPerGame": 2.409090909090909,
+        "stealsPerGame": 1.0454545454545454,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 1.7727272727272727
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-015",
@@ -526,8 +722,22 @@
         "fg2Made": 78,
         "fg2Att": 186,
         "ftMade": 29,
-        "ftAtt": 40
-      }
+        "ftAtt": 40,
+        "two": 0.41935483870967744,
+        "efg": 0.4676113360323887,
+        "fgMade": 103,
+        "fgAtt": 247,
+        "fgAttemptsPerGame": 11.227272727272727,
+        "twoMadePerGame": 3.5454545454545454,
+        "twoAttemptsPerGame": 8.454545454545455,
+        "threeMadePerGame": 1.1363636363636365,
+        "freeThrowsMadePerGame": 1.3181818181818181,
+        "freeThrowAttemptsPerGame": 1.8181818181818181,
+        "stealsPerGame": 1.4545454545454546,
+        "blocksPerGame": 0,
+        "turnoversPerGame": 1.1818181818181819
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-016",
@@ -561,8 +771,22 @@
         "fg2Made": 94,
         "fg2Att": 158,
         "ftMade": 22,
-        "ftAtt": 33
-      }
+        "ftAtt": 33,
+        "two": 0.5949367088607594,
+        "efg": 0.5547619047619048,
+        "fgMade": 109,
+        "fgAtt": 210,
+        "fgAttemptsPerGame": 9.545454545454545,
+        "twoMadePerGame": 4.2727272727272725,
+        "twoAttemptsPerGame": 7.181818181818182,
+        "threeMadePerGame": 0.6818181818181818,
+        "freeThrowsMadePerGame": 1,
+        "freeThrowAttemptsPerGame": 1.5,
+        "stealsPerGame": 1.3181818181818181,
+        "blocksPerGame": 0.18181818181818182,
+        "turnoversPerGame": 1.0454545454545454
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-017",
@@ -596,8 +820,22 @@
         "fg2Made": 93,
         "fg2Att": 140,
         "ftMade": 28,
-        "ftAtt": 48
-      }
+        "ftAtt": 48,
+        "two": 0.6642857142857143,
+        "efg": 0.5819672131147541,
+        "fgMade": 102,
+        "fgAtt": 183,
+        "fgAttemptsPerGame": 8.318181818181818,
+        "twoMadePerGame": 4.2272727272727275,
+        "twoAttemptsPerGame": 6.363636363636363,
+        "threeMadePerGame": 0.4090909090909091,
+        "freeThrowsMadePerGame": 1.2727272727272727,
+        "freeThrowAttemptsPerGame": 2.1818181818181817,
+        "stealsPerGame": 0.7272727272727273,
+        "blocksPerGame": 0.6363636363636364,
+        "turnoversPerGame": 1.7727272727272727
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-018",
@@ -631,8 +869,22 @@
         "fg2Made": 28,
         "fg2Att": 65,
         "ftMade": 29,
-        "ftAtt": 34
-      }
+        "ftAtt": 34,
+        "two": 0.4307692307692308,
+        "efg": 0.5047619047619047,
+        "fgMade": 80,
+        "fgAtt": 210,
+        "fgAttemptsPerGame": 9.545454545454545,
+        "twoMadePerGame": 1.2727272727272727,
+        "twoAttemptsPerGame": 2.9545454545454546,
+        "threeMadePerGame": 2.3636363636363638,
+        "freeThrowsMadePerGame": 1.3181818181818181,
+        "freeThrowAttemptsPerGame": 1.5454545454545454,
+        "stealsPerGame": 0.5454545454545454,
+        "blocksPerGame": 0,
+        "turnoversPerGame": 2.1818181818181817
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-019",
@@ -666,8 +918,22 @@
         "fg2Made": 19,
         "fg2Att": 38,
         "ftMade": 11,
-        "ftAtt": 12
-      }
+        "ftAtt": 12,
+        "two": 0.5,
+        "efg": 0.5463414634146342,
+        "fgMade": 81,
+        "fgAtt": 205,
+        "fgAttemptsPerGame": 9.318181818181818,
+        "twoMadePerGame": 0.8636363636363636,
+        "twoAttemptsPerGame": 1.7272727272727273,
+        "threeMadePerGame": 2.8181818181818183,
+        "freeThrowsMadePerGame": 0.5,
+        "freeThrowAttemptsPerGame": 0.5454545454545454,
+        "stealsPerGame": 0.5909090909090909,
+        "blocksPerGame": 0.09090909090909091,
+        "turnoversPerGame": 1.2727272727272727
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-020",
@@ -701,8 +967,22 @@
         "fg2Made": 77,
         "fg2Att": 136,
         "ftMade": 29,
-        "ftAtt": 45
-      }
+        "ftAtt": 45,
+        "two": 0.5661764705882353,
+        "efg": 0.4701834862385321,
+        "fgMade": 94,
+        "fgAtt": 218,
+        "fgAttemptsPerGame": 9.909090909090908,
+        "twoMadePerGame": 3.5,
+        "twoAttemptsPerGame": 6.181818181818182,
+        "threeMadePerGame": 0.7727272727272727,
+        "freeThrowsMadePerGame": 1.3181818181818181,
+        "freeThrowAttemptsPerGame": 2.0454545454545454,
+        "stealsPerGame": 0.6363636363636364,
+        "blocksPerGame": 0.3181818181818182,
+        "turnoversPerGame": 0.8636363636363636
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-021",
@@ -736,8 +1016,22 @@
         "fg2Made": 51,
         "fg2Att": 101,
         "ftMade": 32,
-        "ftAtt": 40
-      }
+        "ftAtt": 40,
+        "two": 0.504950495049505,
+        "efg": 0.46919431279620855,
+        "fgMade": 83,
+        "fgAtt": 211,
+        "fgAttemptsPerGame": 9.590909090909092,
+        "twoMadePerGame": 2.3181818181818183,
+        "twoAttemptsPerGame": 4.590909090909091,
+        "threeMadePerGame": 1.4545454545454546,
+        "freeThrowsMadePerGame": 1.4545454545454546,
+        "freeThrowAttemptsPerGame": 1.8181818181818181,
+        "stealsPerGame": 0.9090909090909091,
+        "blocksPerGame": 0,
+        "turnoversPerGame": 1.1818181818181819
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-022",
@@ -771,8 +1065,22 @@
         "fg2Made": 77,
         "fg2Att": 142,
         "ftMade": 23,
-        "ftAtt": 33
-      }
+        "ftAtt": 33,
+        "two": 0.5422535211267606,
+        "efg": 0.4950980392156863,
+        "fgMade": 93,
+        "fgAtt": 204,
+        "fgAttemptsPerGame": 9.272727272727273,
+        "twoMadePerGame": 3.5,
+        "twoAttemptsPerGame": 6.454545454545454,
+        "threeMadePerGame": 0.7272727272727273,
+        "freeThrowsMadePerGame": 1.0454545454545454,
+        "freeThrowAttemptsPerGame": 1.5,
+        "stealsPerGame": 2.5454545454545454,
+        "blocksPerGame": 0.18181818181818182,
+        "turnoversPerGame": 1.1363636363636365
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-023",
@@ -806,8 +1114,22 @@
         "fg2Made": 96,
         "fg2Att": 159,
         "ftMade": 26,
-        "ftAtt": 50
-      }
+        "ftAtt": 50,
+        "two": 0.6037735849056604,
+        "efg": 0.592814371257485,
+        "fgMade": 98,
+        "fgAtt": 167,
+        "fgAttemptsPerGame": 7.590909090909091,
+        "twoMadePerGame": 4.363636363636363,
+        "twoAttemptsPerGame": 7.2272727272727275,
+        "threeMadePerGame": 0.09090909090909091,
+        "freeThrowsMadePerGame": 1.1818181818181819,
+        "freeThrowAttemptsPerGame": 2.272727272727273,
+        "stealsPerGame": 0.4090909090909091,
+        "blocksPerGame": 0.8636363636363636,
+        "turnoversPerGame": 1.2272727272727273
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-024",
@@ -841,8 +1163,22 @@
         "fg2Made": 51,
         "fg2Att": 135,
         "ftMade": 59,
-        "ftAtt": 85
-      }
+        "ftAtt": 85,
+        "two": 0.37777777777777777,
+        "efg": 0.36486486486486486,
+        "fgMade": 71,
+        "fgAtt": 222,
+        "fgAttemptsPerGame": 10.090909090909092,
+        "twoMadePerGame": 2.3181818181818183,
+        "twoAttemptsPerGame": 6.136363636363637,
+        "threeMadePerGame": 0.9090909090909091,
+        "freeThrowsMadePerGame": 2.6818181818181817,
+        "freeThrowAttemptsPerGame": 3.8636363636363638,
+        "stealsPerGame": 0.5909090909090909,
+        "blocksPerGame": 0.09090909090909091,
+        "turnoversPerGame": 1.7272727272727273
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-025",
@@ -876,8 +1212,22 @@
         "fg2Made": 53,
         "fg2Att": 118,
         "ftMade": 32,
-        "ftAtt": 48
-      }
+        "ftAtt": 48,
+        "two": 0.4491525423728814,
+        "efg": 0.41818181818181815,
+        "fgMade": 79,
+        "fgAtt": 220,
+        "fgAttemptsPerGame": 10,
+        "twoMadePerGame": 2.409090909090909,
+        "twoAttemptsPerGame": 5.363636363636363,
+        "threeMadePerGame": 1.1818181818181819,
+        "freeThrowsMadePerGame": 1.4545454545454546,
+        "freeThrowAttemptsPerGame": 2.1818181818181817,
+        "stealsPerGame": 0.5,
+        "blocksPerGame": 0.13636363636363635,
+        "turnoversPerGame": 1.7272727272727273
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-026",
@@ -911,8 +1261,22 @@
         "fg2Made": 42,
         "fg2Att": 93,
         "ftMade": 39,
-        "ftAtt": 44
-      }
+        "ftAtt": 44,
+        "two": 0.45161290322580644,
+        "efg": 0.4194312796208531,
+        "fgMade": 73,
+        "fgAtt": 211,
+        "fgAttemptsPerGame": 9.590909090909092,
+        "twoMadePerGame": 1.9090909090909092,
+        "twoAttemptsPerGame": 4.2272727272727275,
+        "threeMadePerGame": 1.4090909090909092,
+        "freeThrowsMadePerGame": 1.7727272727272727,
+        "freeThrowAttemptsPerGame": 2,
+        "stealsPerGame": 0.9545454545454546,
+        "blocksPerGame": 0.2727272727272727,
+        "turnoversPerGame": 1.4545454545454546
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-027",
@@ -946,8 +1310,22 @@
         "fg2Made": 59,
         "fg2Att": 125,
         "ftMade": 44,
-        "ftAtt": 55
-      }
+        "ftAtt": 55,
+        "two": 0.472,
+        "efg": 0.42676767676767674,
+        "fgMade": 76,
+        "fgAtt": 198,
+        "fgAttemptsPerGame": 9,
+        "twoMadePerGame": 2.6818181818181817,
+        "twoAttemptsPerGame": 5.681818181818182,
+        "threeMadePerGame": 0.7727272727272727,
+        "freeThrowsMadePerGame": 2,
+        "freeThrowAttemptsPerGame": 2.5,
+        "stealsPerGame": 1.2272727272727273,
+        "blocksPerGame": 0.09090909090909091,
+        "turnoversPerGame": 2.1363636363636362
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-028",
@@ -981,8 +1359,22 @@
         "fg2Made": 46,
         "fg2Att": 92,
         "ftMade": 7,
-        "ftAtt": 12
-      }
+        "ftAtt": 12,
+        "two": 0.5,
+        "efg": 0.5441988950276243,
+        "fgMade": 81,
+        "fgAtt": 181,
+        "fgAttemptsPerGame": 8.227272727272727,
+        "twoMadePerGame": 2.090909090909091,
+        "twoAttemptsPerGame": 4.181818181818182,
+        "threeMadePerGame": 1.5909090909090908,
+        "freeThrowsMadePerGame": 0.3181818181818182,
+        "freeThrowAttemptsPerGame": 0.5454545454545454,
+        "stealsPerGame": 0.5,
+        "blocksPerGame": 0.045454545454545456,
+        "turnoversPerGame": 0.5454545454545454
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-029",
@@ -1015,8 +1407,22 @@
         "fg2Made": 83,
         "fg2Att": 153,
         "ftMade": 36,
-        "ftAtt": 64
-      }
+        "ftAtt": 64,
+        "two": 0.5424836601307189,
+        "efg": 0.5424836601307189,
+        "fgMade": 83,
+        "fgAtt": 153,
+        "fgAttemptsPerGame": 6.954545454545454,
+        "twoMadePerGame": 3.772727272727273,
+        "twoAttemptsPerGame": 6.954545454545454,
+        "threeMadePerGame": 0,
+        "freeThrowsMadePerGame": 1.6363636363636365,
+        "freeThrowAttemptsPerGame": 2.909090909090909,
+        "stealsPerGame": 0.8636363636363636,
+        "blocksPerGame": 0.4090909090909091,
+        "turnoversPerGame": 1.5
+      },
+      "league": "関東大学1部"
     },
     {
       "id": "K26-030",
@@ -1050,8 +1456,22 @@
         "fg2Made": 45,
         "fg2Att": 80,
         "ftMade": 9,
-        "ftAtt": 17
-      }
+        "ftAtt": 17,
+        "two": 0.5625,
+        "efg": 0.49740932642487046,
+        "fgMade": 79,
+        "fgAtt": 193,
+        "fgAttemptsPerGame": 8.772727272727273,
+        "twoMadePerGame": 2.0454545454545454,
+        "twoAttemptsPerGame": 3.6363636363636362,
+        "threeMadePerGame": 1.5454545454545454,
+        "freeThrowsMadePerGame": 0.4090909090909091,
+        "freeThrowAttemptsPerGame": 0.7727272727272727,
+        "stealsPerGame": 1.1818181818181819,
+        "blocksPerGame": 0.2727272727272727,
+        "turnoversPerGame": 1.4545454545454546
+      },
+      "league": "関東大学1部"
     }
   ],
   "films": [
@@ -1081,5 +1501,6 @@
       "url": "https://www.youtube.com/watch?v=PISId29ERT4",
       "attribution": "CSPark / YouTube。リンクのみ保持"
     }
-  ]
+  ],
+  "competition": "関東大学男子1部リーグ戦"
 }
