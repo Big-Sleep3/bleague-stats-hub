@@ -3,6 +3,7 @@
 No real Supabase requests: staff authorization & data are mocked in the browser.
 """
 import contextlib
+import json
 import functools
 import http.server
 import threading
@@ -57,7 +58,9 @@ class RecruitingBrowserTests(unittest.TestCase):
     def test_source_status_is_not_falsely_verified(self):
         page=self.browser.new_page()
         page.goto(self.url+"sources.html",wait_until="domcontentloaded")
-        expect(page.locator("#d2-source-status")).to_contain_text("検証待ち")
+        dataset=json.loads((ROOT/"recruiting"/"players-kanto2.json").read_text(encoding="utf-8"))
+        marker="取り込み済み" if dataset.get("status")=="verified" else "検証待ち"
+        expect(page.locator("#d2-source-status")).to_contain_text(marker)
         page.close()
     def test_staff_profile_language_and_film_tags(self):
         page=self.browser.new_page()
@@ -85,7 +88,10 @@ class RecruitingBrowserTests(unittest.TestCase):
                    lambda route:route.fulfill(status=200,content_type="application/javascript",body=fake_auth))
         page.goto(self.url+"staff.html",wait_until="domcontentloaded")
         expect(page.locator("#app")).to_be_visible(timeout=12000)
-        expect(page.locator("#list [data-id]")).to_have_count(30)
+        first=json.loads((ROOT/"recruiting"/"players.json").read_text(encoding="utf-8"))
+        other=json.loads((ROOT/"recruiting"/"players-kanto2.json").read_text(encoding="utf-8"))
+        expected=len(first["players"])+(len(other["players"]) if other.get("status")=="verified" else 0)
+        expect(page.locator("#list [data-id]")).to_have_count(expected)
         page.locator("#list [data-id]").first.click()
         expect(page.locator("#official-full-stats")).to_contain_text("3P%")
         expect(page.locator("#video-tag")).to_be_visible()
