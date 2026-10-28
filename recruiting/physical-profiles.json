@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "asOf": "2026-10-28 14:50 JST",
+  "asOf": "2026-10-28 14:53 JST",
   "coverage": "Sourced basketball player physical measurements. Older measurements labelled by source year.",
   "players": [
     {
@@ -1267,6 +1267,62 @@
       ]
     },
     {
+      "id": "K26D2-E8E7CE5DA518",
+      "name": "ンワンクォチネドゥ ゴッツウィル",
+      "university": "上武大学",
+      "heightEvidence": {
+        "value": 196,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 98,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "C",
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "height": 196,
+      "weight": 98,
+      "position": "C",
+      "grade": 2,
+      "sources": [
+        "https://jobu-basketball.com/rafale/member/"
+      ]
+    },
+    {
+      "id": "K26D2-A1B36621FF93",
+      "name": "ダイラ モゼス ヨラム",
+      "university": "明星大学",
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://meiseiunivbb.com/player",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部 2026公式名鑑",
+        "quality": 2
+      },
+      "grade": 4,
+      "sources": [
+        "https://meiseiunivbb.com/player"
+      ]
+    },
+    {
       "id": "K26D2-BE0634047FBC",
       "name": "金山 颯",
       "university": "筑波大学",
@@ -1395,6 +1451,22 @@
       ]
     },
     {
+      "id": "K26D2-9054E37906E9",
+      "name": "澤口 陽",
+      "university": "順天堂大学",
+      "gradeEvidence": {
+        "value": 1,
+        "source": "https://juntendo-lonelywolves.com/player",
+        "sourceYear": 2026,
+        "publisher": "順天堂大学バスケットボール部 2026公式選手一覧",
+        "quality": 2
+      },
+      "grade": 1,
+      "sources": [
+        "https://juntendo-lonelywolves.com/player"
+      ]
+    },
+    {
       "id": "K26D2-3A9DC26F35B3",
       "name": "権藤 隼斗",
       "university": "明星大学",
@@ -1424,6 +1496,22 @@
       "position": "PG",
       "sources": [
         "https://meiseiunivbb.com/player/detail/id/23506"
+      ]
+    },
+    {
+      "id": "K26D2-E2F0976BDAF1",
+      "name": "宮澤 海輝",
+      "university": "順天堂大学",
+      "gradeEvidence": {
+        "value": 1,
+        "source": "https://juntendo-lonelywolves.com/player",
+        "sourceYear": 2026,
+        "publisher": "順天堂大学バスケットボール部 2026公式選手一覧",
+        "quality": 2
+      },
+      "grade": 1,
+      "sources": [
+        "https://juntendo-lonelywolves.com/player"
       ]
     },
     {
@@ -1496,6 +1584,38 @@
       "position": "SF",
       "sources": [
         "https://shinagawa.cc/3x3-basketball/member/%E5%86%85%E5%B1%B1%E9%81%A5%E6%A8%B9/"
+      ]
+    },
+    {
+      "id": "K26D2-3BB703BB8DA6",
+      "name": "大角 洸碧",
+      "university": "順天堂大学",
+      "heightEvidence": {
+        "value": 188,
+        "source": "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm",
+        "sourceYear": 2025,
+        "publisher": "関東大学バスケットボール連盟 2025年度フレッシュマン・エリートキャンプ",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm",
+        "sourceYear": 2025,
+        "publisher": "関東大学バスケットボール連盟 2025年度フレッシュマン・エリートキャンプ",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm",
+        "sourceYear": 2025,
+        "publisher": "関東大学バスケットボール連盟 2025年度フレッシュマン・エリートキャンプ",
+        "quality": 2
+      },
+      "height": 188,
+      "position": "SG",
+      "grade": 2,
+      "sources": [
+        "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm"
       ]
     },
     {
@@ -1706,9 +1826,81 @@
       "sources": [
         "https://jubf.jp/game/university-detail/id/25/type/rookie/y/2026/s/men"
       ]
+    },
+    {
+      "id": "K26D2-CB702685F674",
+      "name": "藤田 大輝",
+      "university": "駒澤大学",
+      "heightEvidence": {
+        "value": 187,
+        "source": "https://shinagawa.cc/3x3-basketball/member/%E8%97%A4%E7%94%B0%E5%A4%A7%E8%BC%9D/",
+        "sourceYear": 2026,
+        "publisher": "品川CC WILDCATS 2026",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 84,
+        "source": "https://shinagawa.cc/3x3-basketball/member/%E8%97%A4%E7%94%B0%E5%A4%A7%E8%BC%9D/",
+        "sourceYear": 2026,
+        "publisher": "品川CC WILDCATS 2026",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://shinagawa.cc/3x3-basketball/member/%E8%97%A4%E7%94%B0%E5%A4%A7%E8%BC%9D/",
+        "sourceYear": 2026,
+        "publisher": "品川CC WILDCATS 2026",
+        "quality": 2
+      },
+      "height": 187,
+      "weight": 84,
+      "position": "SG",
+      "sources": [
+        "https://shinagawa.cc/3x3-basketball/member/%E8%97%A4%E7%94%B0%E5%A4%A7%E8%BC%9D/"
+      ]
+    },
+    {
+      "id": "K26D2-A400E99BB09D",
+      "name": "楠見 海翔",
+      "university": "上武大学",
+      "heightEvidence": {
+        "value": 180,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 81,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jobu-basketball.com/rafale/member/",
+        "sourceYear": 2026,
+        "publisher": "上武大学男子バスケットボール部 SERPENTS 2026",
+        "quality": 2
+      },
+      "height": 180,
+      "weight": 81,
+      "position": "SG",
+      "grade": 2,
+      "sources": [
+        "https://jobu-basketball.com/rafale/member/"
+      ]
     }
   ],
-  "sourceCount": 248,
+  "sourceCount": 255,
   "warnings": [
     "https://jubf.jp/game/university-detail/id/21/type/intercollege/y/2025/s/men: Not the expected club or roster (0 rows)"
   ]
