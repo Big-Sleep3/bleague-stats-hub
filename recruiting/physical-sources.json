@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "updated": "2026-10-28",
+  "rosterSources": [
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "東海大学",
+      "id": 44
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "明治大学",
+      "id": 2
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "青山学院大学",
+      "id": 9
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "日本大学",
+      "id": 22
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "専修大学",
+      "id": 25
+    },
+    {
+      "year": 2026,
+      "season": "rookie",
+      "university": "東海大学",
+      "id": 44
+    },
+    {
+      "year": 2026,
+      "season": "rookie",
+      "university": "中央大学",
+      "id": 122
+    },
+    {
+      "year": 2026,
+      "season": "rookie",
+      "university": "江戸川大学",
+      "id": 109
+    }
+  ],
+  "curatedProfiles": [
+    {
+      "name": "松本 秦",
+      "university": "早稲田大学",
+      "height": 191,
+      "weight": 88,
+      "position": null,
+      "asOfYear": 2026,
+      "source": "https://www.bleague.jp/roster_detail/?PlayerID=51000562",
+      "publisher": "B.LEAGUE公式選手プロフィール"
+    },
+    {
+      "name": "菅野 陸",
+      "university": "山梨学院大学",
+      "height": 176,
+      "weight": 69,
+      "position": "PG",
+      "asOfYear": 2025,
+      "gradeAtSource": 2,
+      "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+      "publisher": "JUBF World University Basketball Series 2025日本学生選抜"
+    },
+    {
+      "name": "轟 琉維",
+      "university": "東海大学",
+      "height": 169,
+      "weight": 69,
+      "position": "PG",
+      "asOfYear": 2025,
+      "gradeAtSource": 3,
+      "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjgyNDc2ZTRkNDE5YS5wZGY%3D",
+      "publisher": "JUBF 第48回李相佰盃2025選手名簿"
+    }
+  ]
+}
