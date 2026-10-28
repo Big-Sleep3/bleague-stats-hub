@@ -34,20 +34,35 @@ def club_detail(html,abbr):
   return {'abbr':abbr,'gp':int(w+l),'W':int(w),'L':int(l),**v}
  raise ValueError('Missing official 2026-27 BP club averages')
 def english_name(html, japanese_name):
- """Extract official romanized spelling next to Japanese player profile name.
- Return None rather than guessing if this cannot be verified.
+ """Get the official full Roman spelling immediately before the identical JP profile label.
+
+ Span fragments may split first and last names; join only adjacent valid name
+ tokens directly before the same Japanese name. Never use unrelated page words.
  """
- jp=re.sub(r'\s+','',clean(japanese_name))
+ jp=re.sub(r'[\s\u3000]+','',clean(japanese_name))
  if not jp:return None
  soup=BeautifulSoup(html,'html.parser')
  strings=[clean(x) for x in soup.stripped_strings]
- en_pattern=re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ. &'’\-]+$")
- blocked={'B.LEAGUE','B.PREMIER','HOME','AWAY','Player Information','Club Information','Profile'}
+ latin=re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ. &'’\-]+$")
+ blocked={'HOME','AWAY','EN','JP','English','Player','Profile','Position','Club',
+          'Information','Results','Search','Rankings','Stats','B.LEAGUE',
+          'B.PREMIER','Individual','Performance','Season','Team','Number'}
+ def valid_token(x):
+  if not x or len(x)>80 or not latin.fullmatch(x):return False
+  return not any(w in blocked for w in x.split())
  for i,label in enumerate(strings):
-  if re.sub(r'\s+','',label)!=jp:continue
-  for j in range(i-1,max(-1,i-5),-1):
-   candidate=strings[j]
-   if 4<=len(candidate)<=75 and ' ' in candidate and en_pattern.fullmatch(candidate) and candidate not in blocked and len(candidate.split())<=7:
+  if re.sub(r'[\s\u3000]+','',label)!=jp:continue
+  segments=[]
+  for part in reversed(strings[max(0,i-5):i]):
+   if not valid_token(part):break
+   segments.insert(0,part)
+   combined=' '.join(segments)
+   if len(combined)>85 or len(combined.split())>7:
+    segments.pop(0)
+    break
+  for start in range(len(segments)):
+   candidate=' '.join(segments[start:])
+   if 4<=len(candidate)<=85 and 2<=len(candidate.split())<=7:
     return candidate
  return None
 
