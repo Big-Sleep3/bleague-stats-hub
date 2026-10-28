@@ -19,7 +19,7 @@
 <header class="mast"><div class="shell mast-inner"><div class="brand"><div class="brand-emblem">UR</div><div><div class="brand-name">UNIVERSITY RECRUITING HUB</div><small class="brand-sub">PLAYER × STATS × FILM × EVALUATION</small></div></div><div class="mast-status">2026 / KANTO DIV.1 — PROTOTYPE</div></div></header>
 <main class="shell"><div style="display:flex;justify-content:flex-end;padding-top:11px;font-weight:800"><a href="./sources.html" style="margin-right:18px">OFFICIAL LEAGUE SOURCES / 公式ソース</a><a href="./staff.html">STAFF LOGIN / 非公開スカウト評価</a></div>
   <section class="hero"><div><div class="eyebrow">College basketball / Recruiting intelligence</div><h1>Find the next difference maker.</h1><p>大学生の即戦力候補と将来候補を、同じIDで継続追跡。公式スタッツ、公開映像リンク、年度別成長と評価記録をまとめる。</p></div><div class="hero-right"><strong>2026 SEASON SNAPSHOT</strong><span id="snapshot">公式集計 2026-10-28 時点</span><div>初期収録：関東大学1部 得点上位30名</div></div></section>
-  <section id="kpis" class="kpis" aria-label="データベース集計"></section>
+  <section id="kpis" class="kpis" aria-label="データベース集計"></section><div id="division2-note" class="info" style="margin-top:13px">関東2部：公式データ検証待ち。まだ候補人数に加えていないよ。 <a href="./sources.html">公式ソース一覧 ↗</a></div>
   <div class="toolbar"><nav id="tabs" class="tabs" aria-label="ページ選択"><button class="tab active" data-view="overview">OVERVIEW</button><button class="tab" data-view="board">PLAYER BOARD</button><button class="tab" data-view="stats">FULL STATS / 3P%</button><button class="tab" data-view="compare">COMPARE</button><button class="tab" data-view="films">FILM LIBRARY</button><button class="tab" data-view="guide">GUIDE</button></nav><div class="actions"><button class="btn" id="export">評価データを書き出す</button><button class="btn" id="import">バックアップを読み込む</button><input type="file" accept="application/json,.json" id="import-file" hidden></div></div>
   <section id="workspace" aria-live="polite"></section>
   <footer class="footer"><span>非公式の分析用プロトタイプ。公式団体・リーグの運営サイトではありません。数値は競技会と収録時点に依存します。</span><span>Public stats only · Local browser notes never sync automatically</span></footer>
@@ -161,6 +161,11 @@ async function loadPublicLatest(){
       }
     }catch(err){base.division2Status='unavailable';console.warn('Division 2 data not yet verified',err)}
     renderKpis();renderWorkspace();
+    const status=document.querySelector('#division2-note');
+    if(status){
+      const n=base.players.filter(x=>x.league==='関東大学2部').length;
+      status.textContent=n?'関東大学2部：公式検証済み '+n+'名を追加 · 2026リーグ戦の成績':'関東2部：公式データ検証待ち。未確認の数値は表示しないよ。';
+    }
     const x=document.querySelector('.brand-sub');
     if(x)x.textContent='PLAYER × STATS × FILM × EVALUATION · '+payload.asOf;
   }catch(e){console.warn('Using last verified embedded dataset',e)}
