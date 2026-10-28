@@ -55,6 +55,18 @@
       "season": "intercollege",
       "university": "早稲田大学",
       "id": 6
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "山梨学院大学",
+      "id": 204
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "国士舘大学",
+      "id": 48
     }
   ],
   "curatedProfiles": [
@@ -148,6 +160,94 @@
       "university": "早稲田大学",
       "height": 191,
       "weight": 85,
+      "position": "SF",
+      "asOfYear": 2025,
+      "gradeAtSource": 1,
+      "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+      "publisher": "JUBF World University Basketball Series 2025日本学生選抜"
+    },
+    {
+      "name": "スヴェトリシック イゴール",
+      "university": "山梨学院大学",
+      "height": 203,
+      "weight": 108,
+      "position": "PF/C",
+      "asOfYear": 2025,
+      "gradeAtSource": null,
+      "source": "https://northern-happinets.com/news/detail/id%3D19716",
+      "publisher": "秋田ノーザンハピネッツ 2025.12公式発表"
+    },
+    {
+      "name": "中村 千颯",
+      "university": "山梨学院大学",
+      "height": 166,
+      "weight": 65,
+      "position": "PG",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://bojweb.com/?p=7294",
+      "publisher": "BOJweb 2026選手インタビュー"
+    },
+    {
+      "name": "齋藤 晴",
+      "university": "山梨学院大学",
+      "height": 190,
+      "weight": 90,
+      "position": "SF",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+      "publisher": "バスケットボールキング 2026ドラフト志望届リスト"
+    },
+    {
+      "name": "関 峻作",
+      "university": "国士舘大学",
+      "height": 193,
+      "weight": 94,
+      "position": "SF/PF",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+      "publisher": "バスケットボールキング 2026ドラフト志望届リスト"
+    },
+    {
+      "name": "深谷 ナナ",
+      "university": "上武大学",
+      "height": 187,
+      "weight": 80,
+      "position": "SG",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://note.com/ballbeats_jp/n/n3121228af9b9",
+      "publisher": "ballbeats 2026ドラフト選手リスト（独立メディア）"
+    },
+    {
+      "name": "権藤 隼斗",
+      "university": "明星大学",
+      "height": 178,
+      "weight": 75,
+      "position": "PG",
+      "asOfYear": 2026,
+      "gradeAtSource": null,
+      "source": "https://meiseiunivbb.com/player/detail/id/23506",
+      "publisher": "明星大学男子バスケットボール部公式プロフィール"
+    },
+    {
+      "name": "エクプ ハロルド アズカ",
+      "university": "拓殖大学",
+      "height": 200,
+      "weight": 99,
+      "position": null,
+      "asOfYear": 2026,
+      "gradeAtSource": null,
+      "source": "https://www.tu-orangecrushers.com/player/28%E3%83%8F%E3%83%AD%E3%83%AB%E3%83%89%E3%82%A2%E3%82%BA%E3%82%AB/",
+      "publisher": "拓殖大学 Orange Crushers 公式プロフィール"
+    },
+    {
+      "name": "髙田 将吾",
+      "university": "筑波大学",
+      "height": 190,
+      "weight": 80,
       "position": "SF",
       "asOfYear": 2025,
       "gradeAtSource": 1,
