@@ -33,13 +33,34 @@ def club_detail(html,abbr):
   if not 0<w+l<=70 or not isinstance(v['PPG'],float) or not 10<v['PPG']<160:continue
   return {'abbr':abbr,'gp':int(w+l),'W':int(w),'L':int(l),**v}
  raise ValueError('Missing official 2026-27 BP club averages')
+def english_name(html, japanese_name):
+ """Extract official romanized spelling next to Japanese player profile name.
+ Return None rather than guessing if this cannot be verified.
+ """
+ jp=re.sub(r'\s+','',clean(japanese_name))
+ if not jp:return None
+ soup=BeautifulSoup(html,'html.parser')
+ strings=[clean(x) for x in soup.stripped_strings]
+ en_pattern=re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ. &'’\-]+$")
+ blocked={'B.LEAGUE','B.PREMIER','HOME','AWAY','Player Information','Club Information','Profile'}
+ for i,label in enumerate(strings):
+  if re.sub(r'\s+','',label)!=jp:continue
+  for j in range(i-1,max(-1,i-5),-1):
+   candidate=strings[j]
+   if 4<=len(candidate)<=75 and ' ' in candidate and en_pattern.fullmatch(candidate) and candidate not in blocked and len(candidate.split())<=7:
+    return candidate
+ return None
+
 def player_detail(html,club,name,number='',pos='',url=''):
  for row in rows(html):
   if row.get('SEASON')!='2026-27' or row.get('TYPE')!='BP' or not set(PLAYER)<=set(row):continue
   v={k:val(row[k]) for k in PLAYER}
   if not isinstance(v['G'],float) or not 0<v['G']<=65 or not isinstance(v['PPG'],float):continue
   if row.get('CLUB') and row['CLUB']!=club and club not in row['CLUB']:continue
-  return {'club':club,'name':name,'number':number,'pos':pos or row.get('PO',''),'url':url,**v}
+  record={'club':club,'name':name,'number':number,'pos':pos or row.get('PO',''),'url':url,**v}
+  en=english_name(html,name)
+  if en: record['name_en']=en
+  return record
  raise ValueError('Missing official 2026-27 BP player averages')
 def club_urls(html):
  soup=BeautifulSoup(html,'html.parser')
@@ -63,23 +84,9 @@ def roster_links(html):
   number=re.search(r'#\s*(\d{1,2})',label)
   name=re.sub(r'ポジション[：:].*$','',label)
   name=re.sub(r'^\s*(?:#\s*)?\d{1,2}\s+','',name)
-  name=re.sub(r'\s*#\s*\d{1,2}\s*  if not name or len(name)>100:continue
-  entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
-    'number':number[1] if number else '',
-    'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
-  score=int(bool(pos))+int(bool(number))+int(len(name)<35)
-  if pid not in out or out[pid][0]<score:out[pid]=(score,entry)
- return [v[1] for v in out.values()]
-,'',name).strip()
+  name=re.sub(r'\s*#\s*\d{1,2}\s*$','',name).strip()
   name=re.sub(r'^(?:平均得点|平均リバウンド|平均アシスト)\s+','',name)
-  name=re.sub(r'\s*背番号\s*[：:]\s*  if not name or len(name)>100:continue
-  entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
-    'number':number[1] if number else '',
-    'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
-  score=int(bool(pos))+int(bool(number))+int(len(name)<35)
-  if pid not in out or out[pid][0]<score:out[pid]=(score,entry)
- return [v[1] for v in out.values()]
-,'',name)
+  name=re.sub(r'\s*背番号\s*[：:]\s*$','',name)
   name=clean(name)
   if not name or len(name)>100:continue
   entry={'name':name,'pos':pos[0].replace(' ','') if pos else '',
