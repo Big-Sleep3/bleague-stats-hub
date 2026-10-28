@@ -41,3 +41,11 @@ PITP / FBPS / 2NDPTS / PTSOFFTO / POSS は累計÷試合数、%・PACE・RTGは�
 UIのブラウザ動作テスト: `tests/test_i18n_ui.py`。
 
 選手名の英語収集は公式選手詳細ページの実在するローマ字表記を使用。初期の主要選手名は表示側に登録済み。全選手の英語名は完全な選手データ再取得後に `data/stats.json` の `name_en` に反映し、数値に変更がない名前補完だけでは更新通知を発火させない。
+
+## 公式英語選手名の一括補完
+
+英語選手名は `scripts/enrich_english.py` で、公式の英語版・日本語版選手プロフィールの同一選手名を照合して収集する。専用 GitHub Actions `Verify English Player Names` はコード変更時、手動実行時、および日本時間05:43に実行する。全選手の名前は `data/player-names-en.json` に選手ID単位で保存し、`index.html` の英語表示・検索・CSVに反映する。取得失敗・未確認の場合は名前を推測しない。
+
+GitHub Actionsの処理が終わるまでは `data/player-names-en.json` の `verified` が 0 のままのことがある。全選手の名前が確認できたかは `verified` と `total_players` を比較すること。
+
+英語名のみの更新はスタッツの変更番号 `data/last-data-change.json` に影響せず、数値更新通知を発火させない。
