@@ -34,36 +34,38 @@ def club_detail(html,abbr):
   return {'abbr':abbr,'gp':int(w+l),'W':int(w),'L':int(l),**v}
  raise ValueError('Missing official 2026-27 BP club averages')
 def english_name(html, japanese_name):
- """Get the official full Roman spelling immediately before the identical JP profile label.
+ """Use the official profile's player-summary block, never unrelated navigation.
 
- Span fragments may split first and last names; join only adjacent valid name
- tokens directly before the same Japanese name. Never use unrelated page words.
+ The page displays the JP name twice: once in the profile header and again
+ after the Roman name immediately before the career PTS / RB / AS labels.
+ Only the latter is a verified bilingual pair.
  """
  jp=re.sub(r'[\s\u3000]+','',clean(japanese_name))
  if not jp:return None
  soup=BeautifulSoup(html,'html.parser')
  strings=[clean(x) for x in soup.stripped_strings]
  latin=re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ. &'’\-]+$")
- blocked={'HOME','AWAY','EN','JP','English','Player','Profile','Position','Club',
-          'Information','Results','Search','Rankings','Stats','B.LEAGUE',
-          'B.PREMIER','Individual','Performance','Season','Team','Number'}
- def valid_token(x):
-  if not x or len(x)>80 or not latin.fullmatch(x):return False
-  return not any(w in blocked for w in x.split())
+ banned_words={'buy','ticket','tickets','merchandise','information','statistics',
+   'stats','profile','video','videos','home','away','menu','login','watch',
+   'basketball','club','player','players','season','matches','match','news'}
+ def valid(part):
+  if not latin.fullmatch(part) or not 2<=len(part)<=65:return False
+  if any(w.lower().strip(".") in banned_words for w in part.split()):return False
+  return True
  for i,label in enumerate(strings):
   if re.sub(r'[\s\u3000]+','',label)!=jp:continue
-  segments=[]
-  for part in reversed(strings[max(0,i-5):i]):
-   if not valid_token(part):break
-   segments.insert(0,part)
-   combined=' '.join(segments)
-   if len(combined)>85 or len(combined.split())>7:
-    segments.pop(0)
-    break
-  for start in range(len(segments)):
-   candidate=' '.join(segments[start:])
-   if 4<=len(candidate)<=85 and 2<=len(candidate.split())<=7:
-    return candidate
+  # Distinguish the career summary pair from the header with profile details.
+  near=strings[i+1:i+6]
+  if not any(re.match(r'^(?:PTS|RB|AS)\b',x,re.I) for x in near):continue
+  # Roman name is directly adjacent, or split into a small number of spans.
+  tokens=[]
+  for x in reversed(strings[max(0,i-3):i]):
+   if not valid(x):break
+   tokens.insert(0,x)
+  if not tokens:continue
+  candidate=' '.join(tokens)
+  if 2<=len(candidate.split())<=7 and 5<=len(candidate)<=85:
+   return candidate
  return None
 
 def player_detail(html,club,name,number='',pos='',url=''):
