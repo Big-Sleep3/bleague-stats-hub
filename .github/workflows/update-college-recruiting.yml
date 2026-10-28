@@ -20,7 +20,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install 'beautifulsoup4>=4.12,<5'
-      - run: python scripts/update_college_recruiting.py
+      - name: Test parsing and data safeguards
+        run: python -m unittest discover -s tests -p 'test_college_recruiting.py' -v
+      - name: Read verified official statistics
+        run: python scripts/update_college_recruiting.py
       - name: Commit only when official stats changed
         run: |
           if git diff --quiet -- recruiting/players.json; then
