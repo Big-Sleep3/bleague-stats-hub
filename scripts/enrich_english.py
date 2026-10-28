@@ -28,15 +28,30 @@ def pid_of(player):
     return parse_qs(urlparse(url).query).get("PlayerID", [""])[0]
 
 def ascii_name(value):
-    if not isinstance(value, str): return False
+    """Conservative name validation: reject navigation and generic page labels."""
+    if not isinstance(value,str):return False
     value=value.strip()
-    if not 4 <= len(value) <= 85 or not re.fullmatch(r"[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+",value):
+    if not 4<=len(value)<=85 or not re.fullmatch(r"[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+",value):
         return False
     words=value.split()
-    if len(words)<2 or len(words)>7: return False
-    banned={"Player Information","Club Information","B LEAGUE","Player Profile","Individual Performance",
-            "Season Results","Basketball Stats","Sendai 89ERS","Season Stats","B PREMIER"}
-    return value not in banned and all(len(w)<35 for w in words)
+    if not 2<=len(words)<=7 or not all(len(w)<35 for w in words):return False
+    blocked={'buy','ticket','tickets','club','player','players','information','news',
+      'schedule','stats','statistics','basketball','league','game','games',
+      'merchandise','login','log','in','member','members','watch','live',
+      'stream','highlights','results','ranking','rankings','about',
+      'privacy','policy','visit','home','away','next','previous','see','more'}
+    return not any(w.lower().strip(".'’-") in blocked for w in words)
+
+def filter_name_map(candidate, current_ids):
+    """Reject a dataset-wide ingestion failure before publishing any map."""
+    from collections import Counter
+    result={pid:name.strip() for pid,name in candidate.items()
+            if pid in current_ids and ascii_name(name)}
+    counts=Counter(result.values())
+    worst=counts.most_common(1)
+    if worst and worst[0][1]>=5:
+        raise RuntimeError(f"Invalid name map: a single label was repeated {worst[0][1]} times")
+    return result
 
 try:
     from scripts.official_detail import english_name as extract_official_english
@@ -55,6 +70,7 @@ async def enrich():
         if pid:
             work.setdefault(pid,player)
     if len(work)<200:raise RuntimeError("Not enough official player IDs.")
+    known=filter_name_map(known,set(work))
     queue=asyncio.Queue()
     for pid,player in work.items():
         if not known.get(pid):queue.put_nowait((pid,player))
@@ -87,10 +103,11 @@ async def enrich():
         await asyncio.gather(*(worker(i) for i in range(4)))
         await browser.close()
     known.update(discoveries)
+    names=filter_name_map(known,set(work))
     record={"source":"B.LEAGUE official Japanese and English roster profiles",
-        "updated_at":now(),"total_players":len(work),"verified":sum(bool(known.get(k)) for k in work),
-        "pending_count":sum(not bool(known.get(k)) for k in work),
-        "names":{k:known[k] for k in sorted(known) if k in work and ascii_name(known[k])}}
+        "updated_at":now(),"total_players":len(work),"verified":len(names),
+        "pending_count":len(work)-len(names),
+        "names":{k:names[k] for k in sorted(names)}}
     current_names=previous.get("names",{})
     if current_names!=record["names"] or previous.get("total_players")!=len(work):
         OUT.write_text(json.dumps(record,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
