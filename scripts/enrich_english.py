@@ -38,17 +38,10 @@ def ascii_name(value):
             "Season Results","Basketball Stats","Sendai 89ERS","Season Stats","B PREMIER"}
     return value not in banned and all(len(w)<35 for w in words)
 
-def extract_official_english(html, japanese_name):
-    """Match a name directly adjacent to the same Japanese name on its official profile."""
-    soup=BeautifulSoup(html,"html.parser")
-    jp=re.sub(r"[\s\u3000]+","",japanese_name or "")
-    strings=[re.sub(r"\s+"," ",str(x)).strip() for x in soup.stripped_strings]
-    for i, label in enumerate(strings):
-        if re.sub(r"[\s\u3000]+","",label)!=jp: continue
-        for candidate in reversed(strings[max(0,i-3):i]):
-            if ascii_name(candidate):
-                return candidate
-    return None
+try:
+    from scripts.official_detail import english_name as extract_official_english
+except ImportError:
+    from official_detail import english_name as extract_official_english
 
 async def enrich():
     data=json.loads(STATS.read_text(encoding="utf-8"))
