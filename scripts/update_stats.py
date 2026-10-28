@@ -184,6 +184,7 @@ def run(mode='quick',force_players=False):
  status.setdefault('results',{})
  kinds=('advanced','basic') if mode=='quick' else ('players',)
  changed=[]
+ data_dirty=False
  checked=0
  failures=[]
  try:
@@ -211,21 +212,33 @@ def run(mode='quick',force_players=False):
       u=LIST_URL
       official=None
       method='club_detail/roster_detail fallback'
+     enriched_this=False
+     if kind=='players':
+      previous_by_url={p.get('url'):p.get('name_en') for p in data.get('players',[]) if p.get('url') and p.get('name_en')}
+      previous_by_identity={(p.get('club'),p.get('name'),p.get('number')):p.get('name_en') for p in data.get('players',[]) if p.get('name_en')}
+      for player in rows:
+       if not player.get('name_en'):
+        stored=previous_by_url.get(player.get('url')) or previous_by_identity.get((player.get('club'),player.get('name'),player.get('number')))
+        if stored: player['name_en']=stored
+      old_en={p.get('url') or (p.get('club'),p.get('name'),p.get('number')):p.get('name_en') for p in data.get('players',[])}
+      new_en={p.get('url') or (p.get('club'),p.get('name'),p.get('number')):p.get('name_en') for p in rows}
+      enriched_this=old_en!=new_en
      new_sig=signature(rows,kind)
      old_sig=signature(data.get(kind,[]),kind)
      changed_this=new_sig!=old_sig
      checked+=1
-     if changed_this:
+     if changed_this or enriched_this:
+      data_dirty=True
       data[kind]=rows
       data.setdefault('quality',{})[kind]='full'
       data.setdefault('source',{})[kind]=u
       data.setdefault('updated',{})[kind]=official or (now()+' (detail page values; official time not supplied)')
       data.setdefault('retrieved',{})[kind]=now()
       data.setdefault('method',{})[kind]=method
-      changed.append(kind)
+      if changed_this:changed.append(kind)
      status['results'][kind]={'success':True,'rows':len(rows),'changed':changed_this,
         'official_updated':official or data.get('updated',{}).get(kind),
-        'method':method,'checked_at':now()}
+        'method':method,'checked_at':now(),'english_names':sum(bool(p.get('name_en')) for p in rows) if kind=='players' else None}
      print(kind,'CHANGED' if changed_this else 'unchanged',len(rows),flush=True)
     except Exception as e:
      status['results'][kind]={'success':False,'error':str(e)[:500],'checked_at':now()}
@@ -236,9 +249,10 @@ def run(mode='quick',force_players=False):
   status['fatal_error']=str(e)[:500]
   failures.append('fatal')
   print('Fatal:',str(e),file=sys.stderr,flush=True)
- if changed:
+ if data_dirty:
   data['errors']=[k+': '+v.get('error','') for k,v in status['results'].items() if not v.get('success',False)]
   save(STATS,data)
+ if changed:
   note_data_change(data,changed)
  status['last_check_outcome']='ok' if checked==len(kinds) else 'partial_failure'
  save(STATUS,status)
