@@ -33,7 +33,7 @@ const KEY='urh_2026_local_private_v1';
 const METRICS=[['ppg','PPG',1],['rpg','RPG',1],['apg','APG',1],['fg','FG%',100],['two','2P%',100],['three','3P%',100],['threeAttempts','3PA/G',1],['threeMadePerGame','3PM/G',1],['ft','FT%',100],['efg','eFG%',100],['ts','TS%',100],['astTo','AST/TO',1],['stealsPerGame','STL/G',1],['blocksPerGame','BLK/G',1],['turnoversPerGame','TO/G',1],['mpg','MIN/G',1]];
 const EVAL=['SHOOTING','CREATION','PnR / PLAYMAKING','ON-BALL D','TEAM DEFENSE','REBOUND','ATHLETICISM','BASKETBALL IQ','POTENTIAL'];
 const STAGES=['未評価','映像収集','一次評価','追加視察','面談候補','保留','対象外'];
-const state={view:'overview',search:'',cohort:'all',university:'all',position:'all',sort:'ppg',statsLeague:'all',statsSearch:'',statsSort:'ppg',compare:[],selected:null};
+const state={view:'overview',search:'',cohort:'all',university:'all',position:'all',sort:'ppg',statsLeague:'all',statsSearch:'',statsSort:'ppg',statsMinGp:0,statsMin3PA:0,compare:[],selected:null};
 const $=sel=>document.querySelector(sel); const $$=sel=>[...document.querySelectorAll(sel)];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function loadLocal(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch{return {}}}
@@ -99,7 +99,9 @@ function renderFullStats(){
  const leagues=[...new Set(base.players.map(p=>p.league||'関東大学1部'))].sort();
  const q=state.statsSearch.trim().toLowerCase(),lg=state.statsLeague;
  let players=base.players.filter(p=>(lg==='all'||(p.league||'関東大学1部')===lg)
-  &&(!q||(p.name+' '+p.university+' '+p.id).toLowerCase().includes(q)));
+  &&(!q||(p.name+' '+p.university+' '+p.id).toLowerCase().includes(q))
+  &&Number(p.stats?.gp||0)>=state.statsMinGp
+  &&Number(statRaw(p,'threeAttempts')||0)>=state.statsMin3PA);
  const sort=state.statsSort;
  players.sort((a,b)=>(statRaw(b,sort)??-1)-(statRaw(a,sort)??-1));
  return '<div class="panel"><div class="panel-head"><div><div class="panel-title">FULL STATS / SHOOTING / DEFENSE</div>'+
@@ -108,6 +110,12 @@ function renderFullStats(){
  '<div class="filters"><input id="full-search" type="search" class="field search" placeholder="選手・大学名で検索" value="'+esc(state.statsSearch)+'">'+
  '<select id="stats-league" class="field"><option value="all">すべてのリーグ</option>'+
  leagues.map(x=>'<option value="'+esc(x)+'" '+(lg===x?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select>'+
+ '<select id="stats-min-gp" class="field">'+
+ [[0,'ALL GP'],[5,'GP ≥ 5'],[10,'GP ≥ 10'],[15,'GP ≥ 15']]
+ .map(([n,label])=>'<option value="'+n+'" '+(state.statsMinGp===n?'selected':'')+'>'+label+'</option>').join('')+'</select>'+
+ '<select id="stats-min-3pa" class="field">'+
+ [[0,'ALL 3PA/G'],[1,'3PA/G ≥ 1'],[2,'3PA/G ≥ 2'],[3,'3PA/G ≥ 3'],[4,'3PA/G ≥ 4'],[5,'3PA/G ≥ 5']]
+ .map(([n,label])=>'<option value="'+n+'" '+(state.statsMin3PA===n?'selected':'')+'>'+label+'</option>').join('')+'</select>'+
  '<select id="stats-sort" class="field">'+
  [['ppg','PPG'],['three','3P%'],['threeAttempts','3PA/G'],['two','2P%'],['efg','eFG%'],['ts','TS%'],['rpg','RPG'],['apg','APG'],['stealsPerGame','STL/G'],['blocksPerGame','BLK/G']]
  .map(([k,label])=>'<option value="'+k+'" '+(sort===k?'selected':'')+'>'+label+' 順</option>').join('')+
@@ -139,7 +147,7 @@ async function importData(file){if(!file)return;try{if(file.size>2000000)throw n
 // User interactions: event delegation allows tabs, rows and forms to be rerendered safely.
 document.addEventListener('click',e=>{const tab=e.target.closest('[data-view]');if(tab){changeView(tab.dataset.view);return}const go=e.target.closest('[data-goto]');if(go){changeView(go.dataset.goto);return}const open=e.target.closest('[data-open]');if(open){openDrawer(open.dataset.open);return}const remove=e.target.closest('[data-remove]');if(remove){state.compare=state.compare.filter(x=>x!==remove.dataset.remove);renderWorkspace();return}if(e.target.id==='close-drawer'||e.target.id==='backdrop')closeDrawer()});
 document.addEventListener('input',e=>{if(e.target.id==='search'){state.search=e.target.value;updateBoardRows()}if(e.target.id==='full-search'){state.statsSearch=e.target.value;renderWorkspace();const el=document.getElementById('full-search');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length)}}});
-document.addEventListener('change',e=>{const t=e.target;if(t.dataset.compare){selectCompare(t.dataset.compare,t.checked);return}if(['cohort','university','position','sort'].includes(t.id)){state[t.id]=t.value;updateBoardRows()}if(t.id==='stats-league'){state.statsLeague=t.value;renderWorkspace()}if(t.id==='stats-sort'){state.statsSort=t.value;renderWorkspace()}});
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset.compare){selectCompare(t.dataset.compare,t.checked);return}if(['cohort','university','position','sort'].includes(t.id)){state[t.id]=t.value;updateBoardRows()}if(t.id==='stats-league'){state.statsLeague=t.value;renderWorkspace()}if(t.id==='stats-sort'){state.statsSort=t.value;renderWorkspace()}if(t.id==='stats-min-gp'){state.statsMinGp=Number(t.value);renderWorkspace()}if(t.id==='stats-min-3pa'){state.statsMin3PA=Number(t.value);renderWorkspace()}});
 document.addEventListener('submit',e=>{const f=e.target;if(!['scout-form','film-form','history-form'].includes(f.id))return;e.preventDefault();const p=getPlayer(state.selected);if(!p)return;if(f.id==='scout-form')saveScout(f,p);if(f.id==='film-form')saveFilm(f,p);if(f.id==='history-form')saveHistory(f,p)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.selected)closeDrawer()});
 $('#export').addEventListener('click',exportData);$('#import').addEventListener('click',()=>$('#import-file').click());$('#import-file').addEventListener('change',e=>importData(e.target.files[0]));
