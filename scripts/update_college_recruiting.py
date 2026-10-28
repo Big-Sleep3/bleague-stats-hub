@@ -29,6 +29,14 @@ def scrape(html):
             "astTo":ast/tov if tov else None,"mpg":(minute+sec/60)/gp,
             "reb":reb,"ast":ast,"stl":stl,"blk":blk,"tov":tov,
             "threeMade":t3,"threeAtt":a3,"fg2Made":t2,"fg2Att":a2,"ftMade":ftm,"ftAtt":fta}
+            s.update({"two":t2/a2 if a2 else None,"efg":(t2+1.5*t3)/fga if fga else None,
+                "fgMade":t3+t2,"fgAtt":fga,
+                "fgAttemptsPerGame":fga/gp,
+                "twoMadePerGame":t2/gp,"twoAttemptsPerGame":a2/gp,"threeMadePerGame":t3/gp,
+                "freeThrowsMadePerGame":ftm/gp,"freeThrowAttemptsPerGame":fta/gp,
+                "stealsPerGame":stl/gp,"blocksPerGame":blk/gp,"turnoversPerGame":tov/gp,
+                "oreb":off,"dreb":deff,"pf":f,"offensiveReboundsPerGame":off/gp,
+                "defensiveReboundsPerGame":deff/gp,"foulsPerGame":f/gp})
             name,uni=match[1].strip(),match[2].strip()
             rows[(key(name),key(uni))]={"name":name,"university":uni,"region":"関東","stats":s}
         except (ValueError,TypeError,ZeroDivisionError):continue
@@ -49,7 +57,7 @@ def main():
         if prev and (row["stats"]["gp"]<prev["stats"].get("gp",0) or row["stats"]["pts"]<prev["stats"].get("pts",0)):
             raise ValueError("GP/PTS regression for "+row["name"])
         stable=prev.get("id") or "K26-"+hashlib.sha256(("|".join(k)).encode()).hexdigest()[:12].upper()
-        new.append({**row,"id":stable,"position":prev.get("position"),"grade":prev.get("grade"),"height":prev.get("height"),"graduationYear":prev.get("graduationYear")})
+        new.append({**row,"id":stable,"league":"関東大学1部","position":prev.get("position"),"grade":prev.get("grade"),"height":prev.get("height"),"graduationYear":prev.get("graduationYear")})
     updated={**old,"season":2026,"competition":"関東大学男子1部リーグ戦",
         "coverage":"関東大学男子1部・公式掲載 "+str(len(new))+"名（全登録選手ではない）",
         "officialStatsUrl":URL,"players":new}
