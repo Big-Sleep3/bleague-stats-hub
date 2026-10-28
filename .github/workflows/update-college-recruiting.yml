@@ -1,6 +1,11 @@
 name: Update College Recruiting (public stats only)
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/update_college_recruiting.py'
+      - 'tests/test_college_recruiting.py'
+      - '.github/workflows/update-college-recruiting.yml'
   schedule:
     # UTC 08:17-16:47 corresponds to JST 17:17-01:47.
     - cron: '17,47 8-16 * * *'
@@ -34,4 +39,14 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recruiting/players.json
           git commit -m 'data: refresh verified college stats'
-          git push
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "Verified official data published"
+              exit 0
+            fi
+            echo "Concurrent update, retry $attempt"
+            sleep 3
+          done
+          exit 1
