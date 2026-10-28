@@ -5,6 +5,12 @@ class EnglishNameTests(unittest.TestCase):
  def test_official_profile_roman_spelling(self):
   html="""<p>1999年2月20日</p><div>Jarrett Culver</div><h1>ジャレット・カルバー</h1>"""
   self.assertEqual(extract_official_english(html,'ジャレット・カルバー'),'Jarrett Culver')
+ def test_split_roman_name_fragments(self):
+  html='<span>Sergio</span><span>El Darwich</span><h2>セルジオ・エル ダーウィッチ</h2>'
+  self.assertEqual(extract_official_english(html,'セルジオ・エル ダーウィッチ'),'Sergio El Darwich')
+ def test_split_suffix_not_lost(self):
+  html='<span>Trey</span><span>Kell III</span><h2>トレイ・ケル</h2>'
+  self.assertEqual(extract_official_english(html,'トレイ・ケル'),'Trey Kell III')
  def test_japanese_name_with_spaces(self):
   html="""<div>Keisei Tominaga</div><h2>富永 啓生</h2>"""
   self.assertEqual(extract_official_english(html,'富永啓生'),'Keisei Tominaga')
