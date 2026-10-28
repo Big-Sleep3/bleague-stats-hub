@@ -66,7 +66,7 @@ function timeMinutes(v){if(typeof v==='number')return v;const parts=String(v).sp
 function fmt(row,k=metric){const n=metricVal(row,k);if(n==null||!Number.isFinite(n))return '—';if(k==='MIN'||k==='MINPG')return typeof row[k]==='string'?safe(row[k]):n.toFixed(1);let suffix=k.includes('%')?'%':'';return n.toFixed(k==='G'||k==='GS'?0:1)+suffix}
 function orderRows(rows){return [...rows].sort((a,b)=>{const x=metricVal(a),y=metricVal(b);if(x===null&&y===null)return nameOf(a).localeCompare(nameOf(b),'ja');if(x===null)return 1;if(y===null)return -1;const diff=direction==='desc'?y-x:x-y;return Math.abs(diff)>1e-9?diff:nameOf(a).localeCompare(nameOf(b),'ja')})}
 function nameOf(row){return row.name||''}function rankMap(rows){const r=new Map();let last=null,rank=0;rows.forEach((x,i)=>{const n=metricVal(x);if(n!==null){if(last===null||Math.abs(n-last)>1e-9)rank=i+1;last=n;r.set(x,rank)}});return r}
-function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.abbr,t.club,t.number,EN_CLUBS[t.club||t.abbr],EN_SHORT[t.club||t.abbr]].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
+function selection(){let rows=arr();if(tab==='players'){rows=rows.filter(p=>(!club||p.club===club)&&(!position||String(p.pos||'').includes(position)));if(eligible==='leaders'&&data.quality.players==='full'){const gpLookup=Object.fromEntries(data.advanced.map(t=>[t.abbr,t.gp]));rows=rows.filter(p=>p.G!=null&&gpLookup[p.club]&&p.G/gpLookup[p.club]>=.85)}}else if(club){rows=rows.filter(t=>t.abbr===club)}if(q){const l=q.toLowerCase();rows=rows.filter(t=>[t.name,t.name_en,EN_PLAYER_STARTERS[t.name],t.abbr,t.club,t.number,EN_CLUBS[t.club||t.abbr],EN_SHORT[t.club||t.abbr]].some(s=>String(s||'').toLowerCase().includes(l)))}return rows}
 function renderControls(){const available=metrics();if(!available.some(m=>m[0]===metric))metric=tab==='advanced'?'PITP':tab==='basic'?'PPG':'PPG';$('metric').innerHTML=available.map(m=>`<option value="${safe(m[0])}">${safe(m[0])} — ${safe(m[1])}</option>`).join('');$('metric').value=metric;
 const groups=['全項目',...new Set(available.map(m=>m[2]))];if(!groups.includes(group))group='全項目';$('chips').innerHTML=groups.map(g=>`<button class="chip ${group===g?'active':''}" data-group="${safe(g)}">${safe(g)}</button>`).join('');$('modeWrap').classList.toggle('hidden',tab!=='advanced');$('modeAvg').classList.toggle('active',mode==='avg');$('modeTotal').classList.toggle('active',mode==='total');$('eligibleWrap').classList.toggle('hidden',tab!=='players');$('positionWrap').classList.toggle('hidden',tab!=='players');
 const clubs=[...data.advanced].sort((a,b)=>a.name.localeCompare(b.name,'ja'));$('club').innerHTML='<option value="">全クラブ</option>'+clubs.map(t=>`<option value="${safe(t.abbr)}">${safe(t.name)}</option>`).join('');$('club').value=club;$('eligible').value=eligible;$('position').value=position;$('search').value=q;$('sortToggle').textContent=direction==='desc'?'↓ 高い順':'↑ 低い順';
@@ -131,14 +131,14 @@ function render(){renderHealth();if(tab==='compare'){renderCompare();return;}
  $('rankingPanel').style.display='';$('warning').style.display='';$('cards').style.display='';$('rankingTable').style.display='';$('compareView').style.display='none';renderControls();const base=orderRows(arr()), rank=rankMap(base),rows=orderRows(selection());let cols=metrics().filter(m=>group==='全項目'||m[2]===group);if(!cols.some(m=>m[0]===metric))cols=[meta(metric),...cols];
 const hdr1=tab==='players'?'<th>順位</th><th>選手</th><th>クラブ</th><th>POS</th>':'<th>順位</th><th>クラブ</th><th>GP</th>';
 $('thead').innerHTML='<tr>'+hdr1+cols.map(m=>`<th class="${m[0]===metric?'sel':''}"><button type="button" data-sort="${safe(m[0])}" title="${safe(m[1])}">${safe(m[0])}${m[0]===metric?(direction==='desc'?' ↓':' ↑'):''}</button></th>`).join('')+'</tr>';
-$('tbody').innerHTML=rows.length?rows.map(r=>{const rankCell=rank.has(r)?String(rank.get(r)):'—';const name=tab==='players'&&r.url?`<a href="${safe(r.url)}" target="_blank" rel="noopener">${safe(r.name)}</a>`:safe(r.name);const left=tab==='players'?`<td class="rank">${rankCell}</td><td class="name">${name}${r.number!==undefined?` <small>#${safe(r.number)}</small>`:''}</td><td>${safe(r.club)}</td><td>${safe(r.pos||'—')}</td>`:`<td class="rank">${rankCell}</td><td class="name">${name} <small>${safe(r.abbr)}</small></td><td>${r.gp??'—'}</td>`;return `<tr class="${r.abbr==='信州'||r.club==='信州'?'highlight':''}">${left}${cols.map(m=>`<td class="${m[0]===metric?'sel':''}">${fmt(r,m[0])}</td>`).join('')}</tr>`}).join(''):`<tr><td class="empty" colspan="${cols.length+(tab==='players'?4:3)}">データがまだ取得されていません。上の公式リンクも参照してね。</td></tr>`;
+$('tbody').innerHTML=rows.length?rows.map(r=>{const rankCell=rank.has(r)?String(rank.get(r)):'—';const label=tab==='players'?displayPlayerName(r):language==='en'?(EN_CLUBS[r.abbr]||r.name):r.name;const name=tab==='players'&&r.url?`<a href="${safe(r.url)}" target="_blank" rel="noopener">${safe(label)}</a>`:safe(label);const left=tab==='players'?`<td class="rank">${rankCell}</td><td class="name">${name}${r.number!==undefined?` <small>#${safe(r.number)}</small>`:''}</td><td>${safe(r.club)}</td><td>${safe(r.pos||'—')}</td>`:`<td class="rank">${rankCell}</td><td class="name">${name} <small>${safe(r.abbr)}</small></td><td>${r.gp??'—'}</td>`;return `<tr class="${r.abbr==='信州'||r.club==='信州'?'highlight':''}">${left}${cols.map(m=>`<td class="${m[0]===metric?'sel':''}">${fmt(r,m[0])}</td>`).join('')}</tr>`}).join(''):`<tr><td class="empty" colspan="${cols.length+(tab==='players'?4:3)}">データがまだ取得されていません。上の公式リンクも参照してね。</td></tr>`;
 $('tableTitle').textContent=`${tab==='players'?'個人':'クラブ'}ランキング｜${metric}`;$('tableInfo').textContent=`${rows.length} / ${arr().length} ${tab==='players'?'選手':'クラブ'} ｜ 指標名の列を押すとその数値で並べ替え ｜ 表は左右にスクロール可能`;
 const top=base.find(r=>metricVal(r)!=null);const vals=base.map(x=>metricVal(x)).filter(x=>x!==null);const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;const shin=tab==='players'?null:data.advanced.find(x=>x.abbr==='信州');const srow=tab==='advanced'?shin:tab==='basic'?data.basic.find(x=>x.abbr==='信州'):null;function set(n,title,value,desc){$('lbl'+n).textContent=title;$('val'+n).textContent=value;$('sub'+n).textContent=desc}
-set(1,direction==='desc'?'LEAGUE LEADER':'LEAGUE LOWEST',top?fmt(top):'—',top?(tab==='players'?top.name:top.abbr):'未取得');
+set(1,direction==='desc'?'LEAGUE LEADER':'LEAGUE LOWEST',top?fmt(top):'—',top?(tab==='players'?displayPlayerName(top):top.abbr):'未取得');
 if(tab==='players')set(2,'収録されている個人成績',data.quality.players==='full'?`${data.players.length}人`:`${data.players.length}人のみ`,data.quality.players==='full'?'全選手を対象':'公式リーダーズ抜粋');else set(2,'信州のリーグ順位',srow&&rank.has(srow)?rank.get(srow)+' 位':'—',srow?`信州 ${fmt(srow)}`:'未取得');
 set(3,'リーグ平均値',avg===null?'—':avg.toFixed(1)+(metric.includes('%')?'%':''),vals.length+' 件の数値の平均');set(4,'対象の件数',rows.length+' 件',tab==='advanced'&&mode==='avg'?'PITP等は1試合あたり':tab==='players'?'検索・出場率条件を適用':'表示範囲の件数');
-$('sourceInfo').textContent='保存スナップショット / '+(data.updated?.[tab]||'未取得');}
-function downloadCSV(){const rows=orderRows(selection()), ms=metrics(), headings=language==='en'?['Rank',tab==='players'?'Player':'Club',...(tab==='players'?['Club','Position','Jersey #']:['Abbr.','GP']),...ms.map(m=>m[0])]:['順位',tab==='players'?'選手':'クラブ',...(tab==='players'?['所属クラブ','ポジション','背番号']:['略称','GP']),...ms.map(m=>m[0])],ranks=rankMap(orderRows(arr()));const lines=[headings,...rows.map(x=>[ranks.get(x)||'',language==='en'&&tab!=='players'?findEnglishClub(x.name):x.name,...(tab==='players'?[language==='en'?(EN_CLUBS[x.club]||x.club):x.club,x.pos||'',x.number||'']:[language==='en'?(EN_SHORT[x.abbr]||x.abbr):x.abbr,x.gp]),...ms.map(m=>fmt(x,m[0]))])];const out='\ufeff'+lines.map(line=>line.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob([out],{type:'text/csv;charset=utf-8'}));a.href=url;a.download=`BPREMIER_2026-27_${tab}_${mode}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+$('sourceInfo').textContent=(language==='en'?'Official data snapshot / ':'保存スナップショット / ')+(data.updated?.[tab]||'未取得');}
+function downloadCSV(){const rows=orderRows(selection()), ms=metrics(), headings=language==='en'?['Rank',tab==='players'?'Player':'Club',...(tab==='players'?['Club','Position','Jersey #']:['Abbr.','GP']),...ms.map(m=>m[0])]:['順位',tab==='players'?'選手':'クラブ',...(tab==='players'?['所属クラブ','ポジション','背番号']:['略称','GP']),...ms.map(m=>m[0])],ranks=rankMap(orderRows(arr()));const lines=[headings,...rows.map(x=>[ranks.get(x)||'',language==='en'?(tab==='players'?displayPlayerName(x):findEnglishClub(x.name)):x.name,...(tab==='players'?[language==='en'?(EN_CLUBS[x.club]||x.club):x.club,x.pos||'',x.number||'']:[language==='en'?(EN_SHORT[x.abbr]||x.abbr):x.abbr,x.gp]),...ms.map(m=>fmt(x,m[0]))])];const out='\ufeff'+lines.map(line=>line.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob([out],{type:'text/csv;charset=utf-8'}));a.href=url;a.download=`BPREMIER_2026-27_${tab}_${mode}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function setTab(t){tab=t;group='全項目';metric=t==='advanced'?'PITP':'PPG';club='';q='';direction='desc';render()}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 ['compareA','compareB','compareType','compareMode'].forEach(id=>$(id).addEventListener('change',e=>{if(id==='compareA')compareA=e.target.value;if(id==='compareB')compareB=e.target.value;if(id==='compareType')compareType=e.target.value;if(id==='compareMode')compareMode=e.target.value;render()}));
@@ -164,6 +164,42 @@ const EN_SHORT={
  '名古屋D':'Nagoya D','滋賀':'Shiga','京都':'Kyoto','大阪':'Osaka',
  '神戸':'Kobe','島根':'Shimane','広島':'Hiroshima','佐賀':'Saga','長崎':'Nagasaki','琉球':'Ryukyu'
 };
+const EN_PLAYER_STARTERS={
+ 'ジャレット・カルバー':'Jarrett Culver',
+ 'キヨンテ・ジョンソン':'Kiyonte Johnson',
+ '富永 啓生':'Keisei Tominaga',
+ 'ネイト・ウィリアムズ':'Nate Williams',
+ 'ザック・オーガスト':'Zach Auguste',
+ 'マーク・スミス':'Mark Smith',
+ 'ナシール・リトル':'Nassir Little',
+ 'ブライアン・アンゴラ':'Brian Angola',
+ 'スタンリー・ジョンソン':'Stanley Johnson',
+ 'コフィ・コーバーン':'Kofi Coburn',
+ 'ヨーリ・チャイルズ':'Yori Childs',
+ 'デクスター・デニス':'Dexter Dennis',
+ 'トレイ・ケル':'Trey Kell',
+ 'ヴィック・ロー':'Vic Law',
+ 'クリストファー・スミス':'Christopher Smith',
+ 'キーボン・ハリス':'Kevon Harris',
+ 'マーカス・リー':'Marcus Lee',
+ '齋藤 拓実':'Takumi Saito',
+ 'アンジェロ・カロイアロ':'Angelo Caloiaro',
+ 'アーロン・ヘンリー':'Aaron Henry',
+ 'スコット・エサトン':'Scott Eatherton',
+ 'ジョシュ・ホーキンソン':'Josh Hawkinson',
+ 'ルーク・メイ':'Luke Maye',
+ 'チャールズ・ジャクソン':'Charles Jackson',
+ 'ドウェイン・エバンス':'Dwayne Evans',
+ 'ジャレル・ブラントリー':'Jarrell Brantley',
+ 'ダバンテ・ガードナー':'Davante Gardner',
+ 'マイク・コッツァー':'Mike Kotsar',
+ 'アイザイア・リバース':'Isaiah Livers',
+ '大浦 颯太':'Sota Oura'
+};
+function displayPlayerName(p){
+ if(!p)return '';
+ return language==='en'?(p.name_en||EN_PLAYER_STARTERS[p.name]||p.name):p.name;
+}
 const EN_METRICS={
  '2NDPTS':'Second-Chance Points','FBPS':'Fast-Break Points','PITP':'Points in the Paint',
  'PTSOFFTO':'Points off Turnovers','%PTSFT':'% of Points from FT','%PTSPITP':'% of Points in Paint',
@@ -283,6 +319,7 @@ Object.assign(EN_TEXT,{
  '全選手を対象':'All players included','個人抜粋':'Player sample',
  '公式掲載値':'Official published values',
  '更新履歴を取得できません':'Update history unavailable',
+ '保存スナップショット':'Saved Snapshot',
  '公式 成績詳細':'Official Stats'
 });
 const textCache=new WeakMap();
