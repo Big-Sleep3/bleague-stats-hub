@@ -56,7 +56,7 @@ def english_name(html, japanese_name):
   if re.sub(r'[\s\u3000]+','',label)!=jp:continue
   # Distinguish the career summary pair from the header with profile details.
   near=strings[i+1:i+6]
-  if not any(re.match(r'^(?:PTS|RB|AS)\b',x,re.I) for x in near):continue
+  if not any(re.match(r'^(?:PTS|PPG)\b',x,re.I) for x in near):continue
   # Roman name is directly adjacent, or split into a small number of spans.
   tokens=[]
   for x in reversed(strings[max(0,i-3):i]):
