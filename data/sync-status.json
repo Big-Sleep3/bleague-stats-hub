@@ -1,17 +1,21 @@
 {
-  "last_attempt": "2026-10-28 03:32 JST",
+  "last_attempt": "2026-10-28 09:55 JST",
   "results": {
     "advanced": {
       "success": true,
       "rows": 26,
-      "updated": "2026-10-26 02:24 JST",
-      "method": "leaderboard"
+      "changed": true,
+      "official_updated": "2026-10-26 02:24 JST",
+      "method": "leaderboard",
+      "checked_at": "2026-10-28 09:55 JST"
     },
     "basic": {
       "success": true,
       "rows": 26,
-      "updated": "2026-10-26 02:24 JST",
-      "method": "leaderboard"
+      "changed": true,
+      "official_updated": "2026-10-26 02:24 JST",
+      "method": "leaderboard",
+      "checked_at": "2026-10-28 09:55 JST"
     },
     "players": {
       "success": true,
@@ -20,5 +24,6 @@
       "method": "club_detail/roster_detail fallback"
     }
   },
-  "notes": "Incomplete sources are never accepted; previous validated values remain."
+  "notes": "Official changes are detected from data values. Failed/partial extractions are rejected.",
+  "last_check_outcome": "ok"
 }
