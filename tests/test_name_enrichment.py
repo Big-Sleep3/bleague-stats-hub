@@ -1,5 +1,5 @@
 import unittest
-from scripts.enrich_english import extract_official_english, pid_of, ascii_name, filter_name_map
+from scripts.enrich_english import extract_official_english, pid_of, ascii_name, filter_name_map, profile_urls
 
 class EnglishNameTests(unittest.TestCase):
  def test_official_profile_roman_spelling(self):
@@ -11,6 +11,14 @@ class EnglishNameTests(unittest.TestCase):
  def test_split_suffix_not_lost(self):
   html='<span>Trey</span><span>Kell III</span><h2>トレイ・ケル</h2><div>PTS Total Points</div>'
   self.assertEqual(extract_official_english(html,'トレイ・ケル'),'Trey Kell III')
+ def test_bilingual_japanese_profile_fetched_before_english_only_profile(self):
+  self.assertEqual(profile_urls('19755'),(
+   'https://www.bleague.jp/roster_detail/?PlayerID=19755',
+   'https://www.bleague.jp/en/roster_detail/?PlayerID=19755'))
+  en='<h1>Keisei Tominaga</h1><div>Keisei Tominaga</div><div>PPG Points</div>'
+  ja='<h1>富永 啓生</h1><div>Keisei Tominaga</div><h2>富永 啓生</h2><div>PPG 平均得点数</div>'
+  self.assertIsNone(extract_official_english(en,'富永 啓生'))
+  self.assertEqual(extract_official_english(ja,'富永 啓生'),'Keisei Tominaga')
  def test_current_japanese_profile_uses_ppg(self):
   html='<header>富永 啓生</header><div>Keisei Tominaga</div><h2>富永 啓生</h2><div>PPG 平均得点数</div>'
   self.assertEqual(extract_official_english(html,'富永 啓生'),'Keisei Tominaga')
