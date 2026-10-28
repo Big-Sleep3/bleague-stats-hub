@@ -67,6 +67,18 @@
       "season": "intercollege",
       "university": "国士舘大学",
       "id": 48
+    },
+    {
+      "year": 2025,
+      "season": "intercollege",
+      "university": "法政大学",
+      "id": 21
+    },
+    {
+      "year": 2026,
+      "season": "rookie",
+      "university": "専修大学",
+      "id": 25
     }
   ],
   "curatedProfiles": [
@@ -253,6 +265,83 @@
       "gradeAtSource": 1,
       "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
       "publisher": "JUBF World University Basketball Series 2025日本学生選抜"
+    },
+    {
+      "name": "佐藤 拓海",
+      "university": "立教大学",
+      "height": 188,
+      "weight": 83,
+      "position": "PF",
+      "asOfYear": 2026,
+      "gradeAtSource": null,
+      "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
+      "publisher": "立教大学男子バスケットボール部公式プロフィール"
+    },
+    {
+      "name": "内山 遥樹",
+      "university": "駒澤大学",
+      "height": 184,
+      "weight": 86,
+      "position": "SF",
+      "asOfYear": 2026,
+      "gradeAtSource": null,
+      "source": "https://shinagawa.cc/3x3-basketball/member/%E5%86%85%E5%B1%B1%E9%81%A5%E6%A8%B9/",
+      "publisher": "品川CC WILDCATS 2026選手プロフィール"
+    },
+    {
+      "name": "柳澤 舜",
+      "university": "東洋大学",
+      "height": 177,
+      "weight": 76,
+      "position": "PG/SG",
+      "asOfYear": 2026,
+      "gradeAtSource": 4,
+      "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+      "publisher": "バスケットボールキング 2026ドラフト志望者リスト"
+    },
+    {
+      "name": "金山 颯",
+      "university": "筑波大学",
+      "height": 179,
+      "weight": 67,
+      "position": "PG",
+      "asOfYear": 2026,
+      "gradeAtSource": 1,
+      "source": "https://bojweb.com/?p=7400",
+      "publisher": "BOJweb 2026大学リーグ選手インタビュー"
+    },
+    {
+      "name": "キング 太",
+      "university": "専修大学",
+      "height": 182,
+      "weight": null,
+      "position": "G",
+      "asOfYear": 2026,
+      "gradeAtSource": 1,
+      "source": "https://www.jubf.jp/game/university-detail/id/25/type/rookie/y/2026/s/men",
+      "publisher": "JUBF 2026新人インカレ選手登録"
+    },
+    {
+      "name": "八重沢 連",
+      "university": "法政大学",
+      "height": 190,
+      "weight": null,
+      "position": "PF",
+      "asOfYear": 2024,
+      "gradeAtSource": 2,
+      "source": "https://jubf.jp/game/university-detail/id/21/type/intercollege/y/2024/s/men",
+      "publisher": "JUBF 2024インカレ登録名簿"
+    },
+    {
+      "name": "アデツツ デイビット アラバ",
+      "university": "江戸川大学",
+      "height": 196,
+      "weight": null,
+      "position": null,
+      "asOfYear": 2024,
+      "gradeAtSource": null,
+      "source": "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/",
+      "publisher": "JBA 2024-25天皇杯登録ロスター"
     }
   ],
   "directorySources": [
