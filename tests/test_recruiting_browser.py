@@ -42,13 +42,13 @@ class RecruitingBrowserTests(unittest.TestCase):
         expect(page.locator("th",has_text="3P%")).to_have_count(1)
         page.locator("#stats-league").select_option("関東大学1部")
         page.locator("#full-search").fill("松本")
-        expect(page.locator("tbody tr")).to_have_count(1)
-        row=page.locator("tbody tr").first
+        expect(page.locator("#workspace .data-table tbody tr")).to_have_count(1)
+        row=page.locator("#workspace .data-table tbody tr").first
         self.assertIn("33.6%",row.inner_text())
         row.locator("button[data-open]").click()
         page.locator("#stats-min-gp").select_option("10")
         page.locator("#stats-min-3pa").select_option("5")
-        expect(page.locator("tbody tr")).to_have_count(1)
+        expect(page.locator("#workspace .data-table tbody tr")).to_have_count(1)
         with page.expect_download() as event:
             page.locator("#export-stats-csv").click()
         csv=Path(event.value.path()).read_text(encoding="utf-8-sig")
