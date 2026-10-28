@@ -1,5 +1,5 @@
 {
-  "last_attempt": "2026-10-28 09:55 JST",
+  "last_attempt": "2026-10-28 09:56 JST",
   "results": {
     "advanced": {
       "success": true,
@@ -20,8 +20,11 @@
     "players": {
       "success": true,
       "rows": 332,
-      "updated": "2026-10-28 03:40 JST (club/player detail pages)",
-      "method": "club_detail/roster_detail fallback"
+      "changed": true,
+      "official_updated": "2026-10-28 10:06 JST (detail page values; official time not supplied)",
+      "method": "club_detail/roster_detail fallback",
+      "checked_at": "2026-10-28 10:06 JST",
+      "english_names": 23
     }
   },
   "notes": "Official changes are detected from data values. Failed/partial extractions are rejected.",
