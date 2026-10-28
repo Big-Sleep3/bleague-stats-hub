@@ -21,3 +21,12 @@ IMPORTANT: GitHub Pages HTML, scripts and public player stats are public even if
 The college federation website may change its layout, so monitor failed Actions. Review permissions/terms before sharing film links, and do not publish nonpublic personal information in GitHub commits.
 
 Security hardening (2026-10-28): authorization function is in a non-API-exposed `recruiting_private` schema; sign-in disables self-signup (`shouldCreateUser:false`). Ensure `recruiting_private` is NOT added to Supabase API exposed schemas. Confirm RLS deny/allow with actual test users before sharing private notes.
+
+## 2026-10-28 — bilingual, cross-league manual intake, shared film
+
+- Public recruiting page and protected staff portal include a **日本語 / English** switch. Locale persists in browser storage. Only UI labels are translated; official Japanese player names are intentionally preserved until verified English spellings exist. The same evaluation keys/grade values are saved regardless of display language.
+- `recruiting/sources.html` links to verified official Kanto and Kansai tournament pages. This is **source discovery, not automatic numerical import**. As of this version, scheduled player statistics ingestion still covers **Kanto D1 only**. No fabricated figures or unverified roster entries.
+- Apply `recruiting/schema-prospects.sql` once on top of `schema.sql`. Adds RLS-protected `recruiting_prospects` for staff-only candidates across other leagues, with stable manual UUID-based IDs. Missing statistics are displayed as em dashes, not 0.
+- STAFF screen: add prospect (university, league, class year, position, height) and search a team-shared **film link library** by player, school, type, opponent, tag, or timecode. Film entries are in the protected `recruiting_notes.payload.films`; **video media itself is not copied or hosted**.
+- Security check: confirmed approved staff insert and unapproved insert/SELECT rejection under simulated authenticated database roles. Browser magic-link, GitHub Pages deployment, and two-user sync still require real-browser verification.
+- All initial source links and media remain external. Data protection depends on Supabase RLS, not public GitHub Pages HTML. Do not commit private evaluations, credentials, or restricted film to GitHub.
