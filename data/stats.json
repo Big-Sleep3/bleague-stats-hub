@@ -5,7 +5,7 @@
   "updated": {
     "advanced": "2026-10-26 02:24 JST",
     "basic": "2026-10-26 02:24 JST",
-    "players": "2026-10-28 11:06 JST (detail page values; official time not supplied)"
+    "players": "2026-10-28 11:17 JST (detail page values; official time not supplied)"
   },
   "quality": {
     "advanced": "full",
@@ -1507,7 +1507,8 @@
       "FPG": 2.2,
       "FDPG": 7.2,
       "EFFPG": 25.6,
-      "+/-": 4.3
+      "+/-": 4.3,
+      "name_en": "Keisei Tominaga"
     },
     {
       "club": "北海道",
@@ -1543,7 +1544,8 @@
       "FPG": 3.0,
       "FDPG": 3.4,
       "EFFPG": 19.9,
-      "+/-": 7.0
+      "+/-": 7.0,
+      "name_en": "John Harrar"
     },
     {
       "club": "北海道",
@@ -1579,295 +1581,8 @@
       "FPG": 2.2,
       "FDPG": 0.6,
       "EFFPG": 3.8,
-      "+/-": 0.1
-    },
-    {
-      "club": "北海道",
-      "name": "マークイーズ・ボールデン",
-      "number": "7",
-      "pos": "C/PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000637",
-      "G": 9.0,
-      "GS": 7.0,
-      "MIN": "250:42",
-      "MINPG": "27:51",
-      "PPG": 16.2,
-      "FGMPG": 6.1,
-      "FGAPG": 11.6,
-      "FG%": 52.9,
-      "2FGMPG": 5.0,
-      "2FGAPG": 8.2,
-      "2FG%": 60.8,
-      "3FGMPG": 1.1,
-      "3FGAPG": 3.3,
-      "3FG%": 33.3,
-      "FTMPG": 2.9,
-      "FTAPG": 4.1,
-      "FT%": 70.3,
-      "ORPG": 1.6,
-      "DRPG": 5.8,
-      "RPG": 7.3,
-      "APG": 1.4,
-      "TOPG": 1.7,
-      "STPG": 0.3,
-      "BSPG": 0.8,
-      "BSRPG": 0.3,
-      "FPG": 1.3,
-      "FDPG": 3.2,
-      "EFFPG": 19.3,
-      "+/-": -1.2
-    },
-    {
-      "club": "北海道",
-      "name": "市場 脩斗",
-      "number": "12",
-      "pos": "PG/SG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000446",
-      "G": 9.0,
-      "GS": 1.0,
-      "MIN": "161:21",
-      "MINPG": "17:55",
-      "PPG": 5.9,
-      "FGMPG": 1.7,
-      "FGAPG": 5.0,
-      "FG%": 33.3,
-      "2FGMPG": 0.8,
-      "2FGAPG": 2.1,
-      "2FG%": 36.8,
-      "3FGMPG": 0.9,
-      "3FGAPG": 2.9,
-      "3FG%": 30.8,
-      "FTMPG": 1.7,
-      "FTAPG": 2.7,
-      "FT%": 62.5,
-      "ORPG": 0.1,
-      "DRPG": 1.0,
-      "RPG": 1.1,
-      "APG": 2.3,
-      "TOPG": 1.9,
-      "STPG": 0.4,
-      "BSPG": 0.1,
-      "BSRPG": 0.1,
-      "FPG": 2.7,
-      "FDPG": 2.2,
-      "EFFPG": 3.1,
-      "+/-": -0.9
-    },
-    {
-      "club": "北海道",
-      "name": "ゲイリー・クラーク",
-      "number": "3",
-      "pos": "PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000406",
-      "G": 9.0,
-      "GS": 9.0,
-      "MIN": "260:59",
-      "MINPG": "28:59",
-      "PPG": 16.1,
-      "FGMPG": 6.2,
-      "FGAPG": 11.4,
-      "FG%": 54.4,
-      "2FGMPG": 4.4,
-      "2FGAPG": 6.7,
-      "2FG%": 66.7,
-      "3FGMPG": 1.8,
-      "3FGAPG": 4.8,
-      "3FG%": 37.2,
-      "FTMPG": 1.9,
-      "FTAPG": 2.0,
-      "FT%": 94.4,
-      "ORPG": 2.2,
-      "DRPG": 6.6,
-      "RPG": 8.8,
-      "APG": 3.4,
-      "TOPG": 2.2,
-      "STPG": 0.9,
-      "BSPG": 0.9,
-      "BSRPG": 0.3,
-      "FPG": 2.7,
-      "FDPG": 2.0,
-      "EFFPG": 21.4,
-      "+/-": 5.1
-    },
-    {
-      "club": "北海道",
-      "name": "菊地 広人",
-      "number": "6",
-      "pos": "PG/SG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000350",
-      "G": 9.0,
-      "GS": 0.0,
-      "MIN": "84:44",
-      "MINPG": "9:24",
-      "PPG": 3.3,
-      "FGMPG": 1.0,
-      "FGAPG": 2.3,
-      "FG%": 42.9,
-      "2FGMPG": 0.6,
-      "2FGAPG": 0.7,
-      "2FG%": 83.3,
-      "3FGMPG": 0.4,
-      "3FGAPG": 1.7,
-      "3FG%": 26.7,
-      "FTMPG": 0.9,
-      "FTAPG": 1.0,
-      "FT%": 88.9,
-      "ORPG": 0.3,
-      "DRPG": 0.3,
-      "RPG": 0.7,
-      "APG": 1.0,
-      "TOPG": 0.2,
-      "STPG": 0.2,
-      "BSPG": 0.1,
-      "BSRPG": 0.0,
-      "FPG": 1.9,
-      "FDPG": 0.6,
-      "EFFPG": 2.3,
-      "+/-": 0.7
-    },
-    {
-      "club": "北海道",
-      "name": "木林 優",
-      "number": "8",
-      "pos": "PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000349",
-      "G": 8.0,
-      "GS": 0.0,
-      "MIN": "28:37",
-      "MINPG": "3:34",
-      "PPG": 1.9,
-      "FGMPG": 0.9,
-      "FGAPG": 1.3,
-      "FG%": 70.0,
-      "2FGMPG": 0.9,
-      "2FGAPG": 1.3,
-      "2FG%": 70.0,
-      "3FGMPG": 0.0,
-      "3FGAPG": 0.0,
-      "3FG%": 0.0,
-      "FTMPG": 0.1,
-      "FTAPG": 0.1,
-      "FT%": 100.0,
-      "ORPG": 0.4,
-      "DRPG": 0.3,
-      "RPG": 0.6,
-      "APG": 0.3,
-      "TOPG": 0.1,
-      "STPG": 0.0,
-      "BSPG": 0.1,
-      "BSRPG": 0.1,
-      "FPG": 0.5,
-      "FDPG": 0.3,
-      "EFFPG": 2.0,
-      "+/-": -1.6
-    },
-    {
-      "club": "北海道",
-      "name": "松崎 裕樹",
-      "number": "24",
-      "pos": "SG/SF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000227",
-      "G": 8.0,
-      "GS": 0.0,
-      "MIN": "40:58",
-      "MINPG": "5:07",
-      "PPG": 0.6,
-      "FGMPG": 0.3,
-      "FGAPG": 0.6,
-      "FG%": 40.0,
-      "2FGMPG": 0.1,
-      "2FGAPG": 0.4,
-      "2FG%": 33.3,
-      "3FGMPG": 0.1,
-      "3FGAPG": 0.3,
-      "3FG%": 50.0,
-      "FTMPG": 0.0,
-      "FTAPG": 0.3,
-      "FT%": 0.0,
-      "ORPG": 0.3,
-      "DRPG": 0.8,
-      "RPG": 1.0,
-      "APG": 0.5,
-      "TOPG": 0.1,
-      "STPG": 0.0,
-      "BSPG": 0.0,
-      "BSRPG": 0.0,
-      "FPG": 1.0,
-      "FDPG": 0.1,
-      "EFFPG": 0.5,
-      "+/-": 3.6
-    },
-    {
-      "club": "北海道",
-      "name": "ドワイト・ラモス",
-      "number": "2",
-      "pos": "SG/SF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000102",
-      "G": 9.0,
-      "GS": 8.0,
-      "MIN": "210:51",
-      "MINPG": "23:25",
-      "PPG": 10.9,
-      "FGMPG": 4.0,
-      "FGAPG": 8.3,
-      "FG%": 48.0,
-      "2FGMPG": 2.6,
-      "2FGAPG": 4.8,
-      "2FG%": 53.5,
-      "3FGMPG": 1.4,
-      "3FGAPG": 3.6,
-      "3FG%": 40.6,
-      "FTMPG": 1.4,
-      "FTAPG": 2.0,
-      "FT%": 72.2,
-      "ORPG": 0.9,
-      "DRPG": 2.1,
-      "RPG": 3.0,
-      "APG": 2.2,
-      "TOPG": 0.8,
-      "STPG": 1.0,
-      "BSPG": 0.3,
-      "BSRPG": 0.4,
-      "FPG": 2.2,
-      "FDPG": 1.7,
-      "EFFPG": 10.8,
-      "+/-": -5.0
-    },
-    {
-      "club": "北海道",
-      "name": "内藤 耀悠",
-      "number": "18",
-      "pos": "SF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000202",
-      "G": 8.0,
-      "GS": 0.0,
-      "MIN": "50:00",
-      "MINPG": "6:15",
-      "PPG": 1.4,
-      "FGMPG": 0.5,
-      "FGAPG": 1.1,
-      "FG%": 44.4,
-      "2FGMPG": 0.4,
-      "2FGAPG": 0.6,
-      "2FG%": 60.0,
-      "3FGMPG": 0.1,
-      "3FGAPG": 0.5,
-      "3FG%": 25.0,
-      "FTMPG": 0.3,
-      "FTAPG": 0.5,
-      "FT%": 50.0,
-      "ORPG": 0.4,
-      "DRPG": 0.3,
-      "RPG": 0.6,
-      "APG": 1.5,
-      "TOPG": 0.5,
-      "STPG": 0.1,
-      "BSPG": 0.0,
-      "BSRPG": 0.1,
-      "FPG": 1.4,
-      "FDPG": 0.4,
-      "EFFPG": 1.1,
-      "+/-": 1.4
+      "+/-": 0.1,
+      "name_en": "Ren Shimatani"
     },
     {
       "club": "北海道",
@@ -1903,7 +1618,230 @@
       "FPG": 0.6,
       "FDPG": 0.0,
       "EFFPG": 0.4,
-      "+/-": 3.1
+      "+/-": 3.1,
+      "name_en": "Kohei Sekino"
+    },
+    {
+      "club": "北海道",
+      "name": "ドワイト・ラモス",
+      "number": "2",
+      "pos": "SG/SF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000102",
+      "G": 9.0,
+      "GS": 8.0,
+      "MIN": "210:51",
+      "MINPG": "23:25",
+      "PPG": 10.9,
+      "FGMPG": 4.0,
+      "FGAPG": 8.3,
+      "FG%": 48.0,
+      "2FGMPG": 2.6,
+      "2FGAPG": 4.8,
+      "2FG%": 53.5,
+      "3FGMPG": 1.4,
+      "3FGAPG": 3.6,
+      "3FG%": 40.6,
+      "FTMPG": 1.4,
+      "FTAPG": 2.0,
+      "FT%": 72.2,
+      "ORPG": 0.9,
+      "DRPG": 2.1,
+      "RPG": 3.0,
+      "APG": 2.2,
+      "TOPG": 0.8,
+      "STPG": 1.0,
+      "BSPG": 0.3,
+      "BSRPG": 0.4,
+      "FPG": 2.2,
+      "FDPG": 1.7,
+      "EFFPG": 10.8,
+      "+/-": -5.0,
+      "name_en": "Dwight Ramos"
+    },
+    {
+      "club": "北海道",
+      "name": "ゲイリー・クラーク",
+      "number": "3",
+      "pos": "PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000406",
+      "G": 9.0,
+      "GS": 9.0,
+      "MIN": "260:59",
+      "MINPG": "28:59",
+      "PPG": 16.1,
+      "FGMPG": 6.2,
+      "FGAPG": 11.4,
+      "FG%": 54.4,
+      "2FGMPG": 4.4,
+      "2FGAPG": 6.7,
+      "2FG%": 66.7,
+      "3FGMPG": 1.8,
+      "3FGAPG": 4.8,
+      "3FG%": 37.2,
+      "FTMPG": 1.9,
+      "FTAPG": 2.0,
+      "FT%": 94.4,
+      "ORPG": 2.2,
+      "DRPG": 6.6,
+      "RPG": 8.8,
+      "APG": 3.4,
+      "TOPG": 2.2,
+      "STPG": 0.9,
+      "BSPG": 0.9,
+      "BSRPG": 0.3,
+      "FPG": 2.7,
+      "FDPG": 2.0,
+      "EFFPG": 21.4,
+      "+/-": 5.1,
+      "name_en": "Gary Clark"
+    },
+    {
+      "club": "北海道",
+      "name": "菊地 広人",
+      "number": "6",
+      "pos": "PG/SG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000350",
+      "G": 9.0,
+      "GS": 0.0,
+      "MIN": "84:44",
+      "MINPG": "9:24",
+      "PPG": 3.3,
+      "FGMPG": 1.0,
+      "FGAPG": 2.3,
+      "FG%": 42.9,
+      "2FGMPG": 0.6,
+      "2FGAPG": 0.7,
+      "2FG%": 83.3,
+      "3FGMPG": 0.4,
+      "3FGAPG": 1.7,
+      "3FG%": 26.7,
+      "FTMPG": 0.9,
+      "FTAPG": 1.0,
+      "FT%": 88.9,
+      "ORPG": 0.3,
+      "DRPG": 0.3,
+      "RPG": 0.7,
+      "APG": 1.0,
+      "TOPG": 0.2,
+      "STPG": 0.2,
+      "BSPG": 0.1,
+      "BSRPG": 0.0,
+      "FPG": 1.9,
+      "FDPG": 0.6,
+      "EFFPG": 2.3,
+      "+/-": 0.7,
+      "name_en": "Hiroto Kikuchi"
+    },
+    {
+      "club": "北海道",
+      "name": "マークイーズ・ボールデン",
+      "number": "7",
+      "pos": "C/PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000637",
+      "G": 9.0,
+      "GS": 7.0,
+      "MIN": "250:42",
+      "MINPG": "27:51",
+      "PPG": 16.2,
+      "FGMPG": 6.1,
+      "FGAPG": 11.6,
+      "FG%": 52.9,
+      "2FGMPG": 5.0,
+      "2FGAPG": 8.2,
+      "2FG%": 60.8,
+      "3FGMPG": 1.1,
+      "3FGAPG": 3.3,
+      "3FG%": 33.3,
+      "FTMPG": 2.9,
+      "FTAPG": 4.1,
+      "FT%": 70.3,
+      "ORPG": 1.6,
+      "DRPG": 5.8,
+      "RPG": 7.3,
+      "APG": 1.4,
+      "TOPG": 1.7,
+      "STPG": 0.3,
+      "BSPG": 0.8,
+      "BSRPG": 0.3,
+      "FPG": 1.3,
+      "FDPG": 3.2,
+      "EFFPG": 19.3,
+      "+/-": -1.2,
+      "name_en": "Marques Bolden"
+    },
+    {
+      "club": "北海道",
+      "name": "木林 優",
+      "number": "8",
+      "pos": "PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000349",
+      "G": 8.0,
+      "GS": 0.0,
+      "MIN": "28:37",
+      "MINPG": "3:34",
+      "PPG": 1.9,
+      "FGMPG": 0.9,
+      "FGAPG": 1.3,
+      "FG%": 70.0,
+      "2FGMPG": 0.9,
+      "2FGAPG": 1.3,
+      "2FG%": 70.0,
+      "3FGMPG": 0.0,
+      "3FGAPG": 0.0,
+      "3FG%": 0.0,
+      "FTMPG": 0.1,
+      "FTAPG": 0.1,
+      "FT%": 100.0,
+      "ORPG": 0.4,
+      "DRPG": 0.3,
+      "RPG": 0.6,
+      "APG": 0.3,
+      "TOPG": 0.1,
+      "STPG": 0.0,
+      "BSPG": 0.1,
+      "BSRPG": 0.1,
+      "FPG": 0.5,
+      "FDPG": 0.3,
+      "EFFPG": 2.0,
+      "+/-": -1.6,
+      "name_en": "Yu Kibayashi"
+    },
+    {
+      "club": "北海道",
+      "name": "市場 脩斗",
+      "number": "12",
+      "pos": "PG/SG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000446",
+      "G": 9.0,
+      "GS": 1.0,
+      "MIN": "161:21",
+      "MINPG": "17:55",
+      "PPG": 5.9,
+      "FGMPG": 1.7,
+      "FGAPG": 5.0,
+      "FG%": 33.3,
+      "2FGMPG": 0.8,
+      "2FGAPG": 2.1,
+      "2FG%": 36.8,
+      "3FGMPG": 0.9,
+      "3FGAPG": 2.9,
+      "3FG%": 30.8,
+      "FTMPG": 1.7,
+      "FTAPG": 2.7,
+      "FT%": 62.5,
+      "ORPG": 0.1,
+      "DRPG": 1.0,
+      "RPG": 1.1,
+      "APG": 2.3,
+      "TOPG": 1.9,
+      "STPG": 0.4,
+      "BSPG": 0.1,
+      "BSRPG": 0.1,
+      "FPG": 2.7,
+      "FDPG": 2.2,
+      "EFFPG": 3.1,
+      "+/-": -0.9,
+      "name_en": "Shuto Ichiba"
     },
     {
       "club": "北海道",
@@ -1939,7 +1877,82 @@
       "FPG": 1.1,
       "FDPG": 0.3,
       "EFFPG": 1.7,
-      "+/-": 3.8
+      "+/-": 3.8,
+      "name_en": "Yuta Osaki"
+    },
+    {
+      "club": "北海道",
+      "name": "内藤 耀悠",
+      "number": "18",
+      "pos": "SF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000202",
+      "G": 8.0,
+      "GS": 0.0,
+      "MIN": "50:00",
+      "MINPG": "6:15",
+      "PPG": 1.4,
+      "FGMPG": 0.5,
+      "FGAPG": 1.1,
+      "FG%": 44.4,
+      "2FGMPG": 0.4,
+      "2FGAPG": 0.6,
+      "2FG%": 60.0,
+      "3FGMPG": 0.1,
+      "3FGAPG": 0.5,
+      "3FG%": 25.0,
+      "FTMPG": 0.3,
+      "FTAPG": 0.5,
+      "FT%": 50.0,
+      "ORPG": 0.4,
+      "DRPG": 0.3,
+      "RPG": 0.6,
+      "APG": 1.5,
+      "TOPG": 0.5,
+      "STPG": 0.1,
+      "BSPG": 0.0,
+      "BSRPG": 0.1,
+      "FPG": 1.4,
+      "FDPG": 0.4,
+      "EFFPG": 1.1,
+      "+/-": 1.4,
+      "name_en": "Teruchika Naito"
+    },
+    {
+      "club": "北海道",
+      "name": "松崎 裕樹",
+      "number": "24",
+      "pos": "SG/SF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000227",
+      "G": 8.0,
+      "GS": 0.0,
+      "MIN": "40:58",
+      "MINPG": "5:07",
+      "PPG": 0.6,
+      "FGMPG": 0.3,
+      "FGAPG": 0.6,
+      "FG%": 40.0,
+      "2FGMPG": 0.1,
+      "2FGAPG": 0.4,
+      "2FG%": 33.3,
+      "3FGMPG": 0.1,
+      "3FGAPG": 0.3,
+      "3FG%": 50.0,
+      "FTMPG": 0.0,
+      "FTAPG": 0.3,
+      "FT%": 0.0,
+      "ORPG": 0.3,
+      "DRPG": 0.8,
+      "RPG": 1.0,
+      "APG": 0.5,
+      "TOPG": 0.1,
+      "STPG": 0.0,
+      "BSPG": 0.0,
+      "BSRPG": 0.0,
+      "FPG": 1.0,
+      "FDPG": 0.1,
+      "EFFPG": 0.5,
+      "+/-": 3.6,
+      "name_en": "Hiroki Matsuzaki"
     },
     {
       "club": "仙台",
@@ -1975,7 +1988,8 @@
       "FPG": 1.8,
       "FDPG": 6.4,
       "EFFPG": 27.8,
-      "+/-": 9.8
+      "+/-": 9.8,
+      "name_en": "Jarrett Culver"
     },
     {
       "club": "仙台",
@@ -2011,7 +2025,8 @@
       "FPG": 1.8,
       "FDPG": 3.3,
       "EFFPG": 18.8,
-      "+/-": 7.3
+      "+/-": 7.3,
+      "name_en": "Sergio El Darwich"
     },
     {
       "club": "仙台",
@@ -2047,7 +2062,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": -0.5,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Kosei Niinuma"
     },
     {
       "club": "仙台",
@@ -2083,7 +2099,8 @@
       "FPG": 1.8,
       "FDPG": 4.1,
       "EFFPG": 23.7,
-      "+/-": 7.9
+      "+/-": 7.9,
+      "name_en": "Jake Layman"
     },
     {
       "club": "仙台",
@@ -2119,7 +2136,8 @@
       "FPG": 2.5,
       "FDPG": 2.0,
       "EFFPG": 15.5,
-      "+/-": 8.4
+      "+/-": 8.4,
+      "name_en": "Nathan Boothe"
     },
     {
       "club": "仙台",
@@ -2155,7 +2173,8 @@
       "FPG": 0.8,
       "FDPG": 0.8,
       "EFFPG": 6.2,
-      "+/-": 1.8
+      "+/-": 1.8,
+      "name_en": "Kazuma Okajima"
     },
     {
       "club": "仙台",
@@ -2191,7 +2210,8 @@
       "FPG": 0.3,
       "FDPG": 0.0,
       "EFFPG": -0.3,
-      "+/-": -2.0
+      "+/-": -2.0,
+      "name_en": "Masato Abe"
     },
     {
       "club": "仙台",
@@ -2227,7 +2247,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": -0.1,
-      "+/-": -4.0
+      "+/-": -4.0,
+      "name_en": "Ryota Hanzawa"
     },
     {
       "club": "仙台",
@@ -2263,7 +2284,8 @@
       "FPG": 0.8,
       "FDPG": 0.3,
       "EFFPG": 0.8,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Shota Watanabe"
     },
     {
       "club": "仙台",
@@ -2299,7 +2321,8 @@
       "FPG": 0.7,
       "FDPG": 0.0,
       "EFFPG": 0.7,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Masaharu Kataoka"
     },
     {
       "club": "仙台",
@@ -2335,7 +2358,8 @@
       "FPG": 1.3,
       "FDPG": 0.5,
       "EFFPG": 4.3,
-      "+/-": -2.2
+      "+/-": -2.2,
+      "name_en": "Avi Koki Schafer"
     },
     {
       "club": "仙台",
@@ -2371,7 +2395,8 @@
       "FPG": 2.1,
       "FDPG": 0.2,
       "EFFPG": 1.3,
-      "+/-": -1.3
+      "+/-": -1.3,
+      "name_en": "Yusei Sugiura"
     },
     {
       "club": "仙台",
@@ -2407,7 +2432,8 @@
       "FPG": 2.4,
       "FDPG": 0.5,
       "EFFPG": 4.1,
-      "+/-": 8.3
+      "+/-": 8.3,
+      "name_en": "Seiya Funyu"
     },
     {
       "club": "秋田",
@@ -2443,7 +2469,8 @@
       "FPG": 2.6,
       "FDPG": 7.6,
       "EFFPG": 28.4,
-      "+/-": -4.7
+      "+/-": -4.7,
+      "name_en": "Mark Smith"
     },
     {
       "club": "秋田",
@@ -2479,7 +2506,8 @@
       "FPG": 1.9,
       "FDPG": 3.1,
       "EFFPG": 22.0,
-      "+/-": -4.6
+      "+/-": -4.6,
+      "name_en": "Yanni Wetzell"
     },
     {
       "club": "秋田",
@@ -2515,7 +2543,8 @@
       "FPG": 1.6,
       "FDPG": 0.8,
       "EFFPG": 2.8,
-      "+/-": 2.6
+      "+/-": 2.6,
+      "name_en": "Takuya Nakayama"
     },
     {
       "club": "秋田",
@@ -2551,7 +2580,8 @@
       "FPG": 2.6,
       "FDPG": 1.3,
       "EFFPG": 8.5,
-      "+/-": -4.8
+      "+/-": -4.8,
+      "name_en": "Baiqing Zhao"
     },
     {
       "club": "秋田",
@@ -2587,7 +2617,8 @@
       "FPG": 1.8,
       "FDPG": 0.9,
       "EFFPG": 2.1,
-      "+/-": -4.7
+      "+/-": -4.7,
+      "name_en": "Yori Iwaya"
     },
     {
       "club": "秋田",
@@ -2623,7 +2654,8 @@
       "FPG": 0.4,
       "FDPG": 0.0,
       "EFFPG": 0.8,
-      "+/-": -2.4
+      "+/-": -2.4,
+      "name_en": "Naohide Hotta"
     },
     {
       "club": "秋田",
@@ -2659,7 +2691,8 @@
       "FPG": 1.3,
       "FDPG": 0.6,
       "EFFPG": 0.5,
-      "+/-": -3.1
+      "+/-": -3.1,
+      "name_en": "Taiyo Motoda"
     },
     {
       "club": "秋田",
@@ -2695,7 +2728,8 @@
       "FPG": 2.5,
       "FDPG": 0.7,
       "EFFPG": 3.8,
-      "+/-": -1.1
+      "+/-": -1.1,
+      "name_en": "Troy Murphy Jr."
     },
     {
       "club": "秋田",
@@ -2731,7 +2765,8 @@
       "FPG": 2.0,
       "FDPG": 2.3,
       "EFFPG": 10.5,
-      "+/-": -3.4
+      "+/-": -3.4,
+      "name_en": "Reid Travis"
     },
     {
       "club": "秋田",
@@ -2767,7 +2802,8 @@
       "FPG": 0.0,
       "FDPG": 1.0,
       "EFFPG": -2.0,
-      "+/-": -13.0
+      "+/-": -13.0,
+      "name_en": "Tsubasa Kurihara"
     },
     {
       "club": "秋田",
@@ -2803,7 +2839,8 @@
       "FPG": 3.0,
       "FDPG": 1.6,
       "EFFPG": 3.7,
-      "+/-": -5.3
+      "+/-": -5.3,
+      "name_en": "Raita Akaho"
     },
     {
       "club": "秋田",
@@ -2839,7 +2876,8 @@
       "FPG": 1.5,
       "FDPG": 1.1,
       "EFFPG": 5.0,
-      "+/-": -3.6
+      "+/-": -3.6,
+      "name_en": "Shigehiro Taguchi"
     },
     {
       "club": "茨城",
@@ -2875,7 +2913,8 @@
       "FPG": 2.5,
       "FDPG": 5.6,
       "EFFPG": 26.2,
-      "+/-": 4.7
+      "+/-": 4.7,
+      "name_en": "Vic Law"
     },
     {
       "club": "茨城",
@@ -2911,7 +2950,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": -0.5,
-      "+/-": -5.5
+      "+/-": -5.5,
+      "name_en": "Kotaro Hisaoka"
     },
     {
       "club": "茨城",
@@ -2947,7 +2987,8 @@
       "FPG": 1.0,
       "FDPG": 0.0,
       "EFFPG": 0.7,
-      "+/-": -4.7
+      "+/-": -4.7,
+      "name_en": "Genki Kojima"
     },
     {
       "club": "茨城",
@@ -2983,7 +3024,8 @@
       "FPG": 0.4,
       "FDPG": 0.0,
       "EFFPG": -0.5,
-      "+/-": -0.5
+      "+/-": -0.5,
+      "name_en": "Kento Akama"
     },
     {
       "club": "茨城",
@@ -3019,7 +3061,8 @@
       "FPG": 1.3,
       "FDPG": 0.5,
       "EFFPG": 0.5,
-      "+/-": 0.7
+      "+/-": 0.7,
+      "name_en": "Ru Jingaoka"
     },
     {
       "club": "茨城",
@@ -3055,7 +3098,8 @@
       "FPG": 3.3,
       "FDPG": 2.7,
       "EFFPG": 14.1,
-      "+/-": 0.9
+      "+/-": 0.9,
+      "name_en": "Finn Delany"
     },
     {
       "club": "茨城",
@@ -3091,7 +3135,8 @@
       "FPG": 2.9,
       "FDPG": 4.1,
       "EFFPG": 17.6,
-      "+/-": 3.3
+      "+/-": 3.3,
+      "name_en": "Tim Soares"
     },
     {
       "club": "茨城",
@@ -3127,7 +3172,8 @@
       "FPG": 2.0,
       "FDPG": 0.9,
       "EFFPG": 7.1,
-      "+/-": 0.8
+      "+/-": 0.8,
+      "name_en": "Ray Parks Jr."
     },
     {
       "club": "茨城",
@@ -3163,7 +3209,8 @@
       "FPG": 0.9,
       "FDPG": 0.3,
       "EFFPG": 0.9,
-      "+/-": 2.4
+      "+/-": 2.4,
+      "name_en": "Hugh Watanabe"
     },
     {
       "club": "茨城",
@@ -3199,7 +3246,8 @@
       "FPG": 3.1,
       "FDPG": 2.3,
       "EFFPG": 8.3,
-      "+/-": 3.0
+      "+/-": 3.0,
+      "name_en": "Hirotaka Yoshii"
     },
     {
       "club": "茨城",
@@ -3235,7 +3283,8 @@
       "FPG": 1.4,
       "FDPG": 0.8,
       "EFFPG": 2.7,
-      "+/-": -3.3
+      "+/-": -3.3,
+      "name_en": "Kohei Fukuzawa"
     },
     {
       "club": "茨城",
@@ -3271,7 +3320,8 @@
       "FPG": 2.8,
       "FDPG": 1.6,
       "EFFPG": 7.4,
-      "+/-": 3.1
+      "+/-": 3.1,
+      "name_en": "Reo Maeda"
     },
     {
       "club": "茨城",
@@ -3307,7 +3357,8 @@
       "FPG": 2.5,
       "FDPG": 1.3,
       "EFFPG": 5.8,
-      "+/-": 1.5
+      "+/-": 1.5,
+      "name_en": "Noboru Hasegawa"
     },
     {
       "club": "宇都宮",
@@ -3343,331 +3394,8 @@
       "FPG": 1.9,
       "FDPG": 6.7,
       "EFFPG": 25.8,
-      "+/-": 0.6
-    },
-    {
-      "club": "宇都宮",
-      "name": "星川 開聖",
-      "number": "17",
-      "pos": "SF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000461",
-      "G": 2.0,
-      "GS": 0.0,
-      "MIN": "18:42",
-      "MINPG": "9:21",
-      "PPG": 1.5,
-      "FGMPG": 0.5,
-      "FGAPG": 3.0,
-      "FG%": 16.7,
-      "2FGMPG": 0.0,
-      "2FGAPG": 1.0,
-      "2FG%": 0.0,
-      "3FGMPG": 0.5,
-      "3FGAPG": 2.0,
-      "3FG%": 25.0,
-      "FTMPG": 0.0,
-      "FTAPG": 0.0,
-      "FT%": 0.0,
-      "ORPG": 0.5,
-      "DRPG": 0.5,
-      "RPG": 1.0,
-      "APG": 1.0,
-      "TOPG": 0.0,
-      "STPG": 0.0,
-      "BSPG": 0.0,
-      "BSRPG": 0.0,
-      "FPG": 1.0,
-      "FDPG": 0.0,
-      "EFFPG": 0.0,
-      "+/-": 0.0
-    },
-    {
-      "club": "宇都宮",
-      "name": "オーティス・フレイジャー",
-      "number": "23",
-      "pos": "SF/PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000623",
-      "G": 9.0,
-      "GS": 3.0,
-      "MIN": "212:18",
-      "MINPG": "23:35",
-      "PPG": 12.1,
-      "FGMPG": 4.8,
-      "FGAPG": 10.2,
-      "FG%": 46.7,
-      "2FGMPG": 3.6,
-      "2FGAPG": 6.8,
-      "2FG%": 52.5,
-      "3FGMPG": 1.2,
-      "3FGAPG": 3.4,
-      "3FG%": 35.5,
-      "FTMPG": 1.3,
-      "FTAPG": 1.9,
-      "FT%": 70.6,
-      "ORPG": 2.1,
-      "DRPG": 2.3,
-      "RPG": 4.4,
-      "APG": 1.4,
-      "TOPG": 1.4,
-      "STPG": 1.7,
-      "BSPG": 0.4,
-      "BSRPG": 0.2,
-      "FPG": 2.7,
-      "FDPG": 2.0,
-      "EFFPG": 11.8,
-      "+/-": 1.3
-    },
-    {
-      "club": "宇都宮",
-      "name": "小川 敦也",
-      "number": "7",
-      "pos": "PG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000228",
-      "G": 11.0,
-      "GS": 10.0,
-      "MIN": "240:55",
-      "MINPG": "21:54",
-      "PPG": 8.6,
-      "FGMPG": 3.5,
-      "FGAPG": 7.6,
-      "FG%": 45.2,
-      "2FGMPG": 2.7,
-      "2FGAPG": 4.5,
-      "2FG%": 60.0,
-      "3FGMPG": 0.7,
-      "3FGAPG": 3.1,
-      "3FG%": 23.5,
-      "FTMPG": 0.9,
-      "FTAPG": 1.1,
-      "FT%": 83.3,
-      "ORPG": 0.3,
-      "DRPG": 2.4,
-      "RPG": 2.6,
-      "APG": 3.8,
-      "TOPG": 1.5,
-      "STPG": 0.4,
-      "BSPG": 0.0,
-      "BSRPG": 0.2,
-      "FPG": 2.1,
-      "FDPG": 1.4,
-      "EFFPG": 8.6,
-      "+/-": -1.9
-    },
-    {
-      "club": "宇都宮",
-      "name": "アイザック・フォトゥ",
-      "number": "42",
-      "pos": "PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=5100000081",
-      "G": 10.0,
-      "GS": 10.0,
-      "MIN": "283:50",
-      "MINPG": "28:23",
-      "PPG": 14.0,
-      "FGMPG": 5.6,
-      "FGAPG": 8.7,
-      "FG%": 64.4,
-      "2FGMPG": 4.8,
-      "2FGAPG": 6.7,
-      "2FG%": 71.6,
-      "3FGMPG": 0.8,
-      "3FGAPG": 2.0,
-      "3FG%": 40.0,
-      "FTMPG": 2.0,
-      "FTAPG": 2.9,
-      "FT%": 69.0,
-      "ORPG": 1.9,
-      "DRPG": 4.0,
-      "RPG": 5.9,
-      "APG": 2.2,
-      "TOPG": 1.0,
-      "STPG": 0.6,
-      "BSPG": 0.0,
-      "BSRPG": 0.3,
-      "FPG": 1.2,
-      "FDPG": 3.7,
-      "EFFPG": 19.9,
-      "+/-": 1.8
-    },
-    {
-      "club": "宇都宮",
-      "name": "市岡 ショーン",
-      "number": "32",
-      "pos": "C/PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8597",
-      "G": 4.0,
-      "GS": 0.0,
-      "MIN": "25:05",
-      "MINPG": "6:16",
-      "PPG": 0.8,
-      "FGMPG": 0.3,
-      "FGAPG": 0.5,
-      "FG%": 50.0,
-      "2FGMPG": 0.3,
-      "2FGAPG": 0.5,
-      "2FG%": 50.0,
-      "3FGMPG": 0.0,
-      "3FGAPG": 0.0,
-      "3FG%": 0.0,
-      "FTMPG": 0.3,
-      "FTAPG": 0.5,
-      "FT%": 50.0,
-      "ORPG": 0.5,
-      "DRPG": 0.8,
-      "RPG": 1.3,
-      "APG": 0.5,
-      "TOPG": 0.3,
-      "STPG": 0.0,
-      "BSPG": 0.0,
-      "BSRPG": 0.0,
-      "FPG": 1.8,
-      "FDPG": 0.3,
-      "EFFPG": 0.3,
-      "+/-": -4.5
-    },
-    {
-      "club": "宇都宮",
-      "name": "高島 紳司",
-      "number": "12",
-      "pos": "SG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=5100000036",
-      "G": 11.0,
-      "GS": 11.0,
-      "MIN": "190:06",
-      "MINPG": "17:16",
-      "PPG": 1.6,
-      "FGMPG": 0.5,
-      "FGAPG": 3.2,
-      "FG%": 17.1,
-      "2FGMPG": 0.2,
-      "2FGAPG": 1.0,
-      "2FG%": 18.2,
-      "3FGMPG": 0.4,
-      "3FGAPG": 2.2,
-      "3FG%": 16.7,
-      "FTMPG": 0.2,
-      "FTAPG": 0.2,
-      "FT%": 100.0,
-      "ORPG": 0.6,
-      "DRPG": 1.3,
-      "RPG": 1.8,
-      "APG": 1.0,
-      "TOPG": 0.4,
-      "STPG": 0.7,
-      "BSPG": 0.0,
-      "BSRPG": 0.2,
-      "FPG": 1.8,
-      "FDPG": 0.3,
-      "EFFPG": 0.5,
-      "+/-": -1.8
-    },
-    {
-      "club": "宇都宮",
-      "name": "荒川 颯",
-      "number": "24",
-      "pos": "PG/SG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=30458",
-      "G": 9.0,
-      "GS": 0.0,
-      "MIN": "59:53",
-      "MINPG": "6:39",
-      "PPG": 3.0,
-      "FGMPG": 1.0,
-      "FGAPG": 3.0,
-      "FG%": 33.3,
-      "2FGMPG": 0.1,
-      "2FGAPG": 0.3,
-      "2FG%": 33.3,
-      "3FGMPG": 0.9,
-      "3FGAPG": 2.7,
-      "3FG%": 33.3,
-      "FTMPG": 0.1,
-      "FTAPG": 0.3,
-      "FT%": 33.3,
-      "ORPG": 0.1,
-      "DRPG": 0.8,
-      "RPG": 0.9,
-      "APG": 0.6,
-      "TOPG": 0.9,
-      "STPG": 0.3,
-      "BSPG": 0.0,
-      "BSRPG": 0.0,
-      "FPG": 0.8,
-      "FDPG": 0.1,
-      "EFFPG": 1.0,
-      "+/-": -5.2
-    },
-    {
-      "club": "宇都宮",
-      "name": "ギャビン・エドワーズ",
-      "number": "33",
-      "pos": "PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8593",
-      "G": 11.0,
-      "GS": 8.0,
-      "MIN": "235:28",
-      "MINPG": "21:24",
-      "PPG": 9.6,
-      "FGMPG": 3.1,
-      "FGAPG": 6.6,
-      "FG%": 46.6,
-      "2FGMPG": 2.2,
-      "2FGAPG": 3.2,
-      "2FG%": 68.6,
-      "3FGMPG": 0.9,
-      "3FGAPG": 3.5,
-      "3FG%": 26.3,
-      "FTMPG": 2.5,
-      "FTAPG": 3.9,
-      "FT%": 62.8,
-      "ORPG": 1.0,
-      "DRPG": 3.0,
-      "RPG": 4.0,
-      "APG": 1.6,
-      "TOPG": 1.4,
-      "STPG": 0.8,
-      "BSPG": 0.5,
-      "BSRPG": 0.1,
-      "FPG": 2.4,
-      "FDPG": 3.7,
-      "EFFPG": 11.3,
-      "+/-": -2.5
-    },
-    {
-      "club": "宇都宮",
-      "name": "竹内 公輔",
-      "number": "10",
-      "pos": "C/PF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8726",
-      "G": 11.0,
-      "GS": 1.0,
-      "MIN": "126:47",
-      "MINPG": "11:31",
-      "PPG": 3.0,
-      "FGMPG": 1.1,
-      "FGAPG": 1.8,
-      "FG%": 60.0,
-      "2FGMPG": 1.0,
-      "2FGAPG": 1.5,
-      "2FG%": 68.8,
-      "3FGMPG": 0.1,
-      "3FGAPG": 0.4,
-      "3FG%": 25.0,
-      "FTMPG": 0.7,
-      "FTAPG": 0.9,
-      "FT%": 80.0,
-      "ORPG": 1.0,
-      "DRPG": 1.2,
-      "RPG": 2.2,
-      "APG": 0.6,
-      "TOPG": 0.3,
-      "STPG": 0.1,
-      "BSPG": 0.4,
-      "BSRPG": 0.0,
-      "FPG": 0.9,
-      "FDPG": 0.6,
-      "EFFPG": 4.6,
-      "+/-": 0.0
+      "+/-": 0.6,
+      "name_en": "Trey Kell III"
     },
     {
       "club": "宇都宮",
@@ -3703,79 +3431,45 @@
       "FPG": 2.7,
       "FDPG": 2.7,
       "EFFPG": 7.3,
-      "+/-": 6.5
+      "+/-": 6.5,
+      "name_en": "Makoto Hiejima"
     },
     {
       "club": "宇都宮",
-      "name": "鵤 誠司",
-      "number": "18",
+      "name": "小川 敦也",
+      "number": "7",
       "pos": "PG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8529",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000228",
       "G": 11.0,
-      "GS": 0.0,
-      "MIN": "174:26",
-      "MINPG": "15:51",
-      "PPG": 3.7,
-      "FGMPG": 1.3,
-      "FGAPG": 3.5,
-      "FG%": 36.8,
-      "2FGMPG": 0.5,
-      "2FGAPG": 1.2,
-      "2FG%": 46.2,
+      "GS": 10.0,
+      "MIN": "240:55",
+      "MINPG": "21:54",
+      "PPG": 8.6,
+      "FGMPG": 3.5,
+      "FGAPG": 7.6,
+      "FG%": 45.2,
+      "2FGMPG": 2.7,
+      "2FGAPG": 4.5,
+      "2FG%": 60.0,
       "3FGMPG": 0.7,
-      "3FGAPG": 2.3,
-      "3FG%": 32.0,
-      "FTMPG": 0.5,
-      "FTAPG": 0.5,
+      "3FGAPG": 3.1,
+      "3FG%": 23.5,
+      "FTMPG": 0.9,
+      "FTAPG": 1.1,
       "FT%": 83.3,
-      "ORPG": 0.4,
-      "DRPG": 1.9,
-      "RPG": 2.3,
-      "APG": 1.7,
-      "TOPG": 1.2,
+      "ORPG": 0.3,
+      "DRPG": 2.4,
+      "RPG": 2.6,
+      "APG": 3.8,
+      "TOPG": 1.5,
       "STPG": 0.4,
-      "BSPG": 0.2,
-      "BSRPG": 0.1,
-      "FPG": 2.1,
-      "FDPG": 0.6,
-      "EFFPG": 3.3,
-      "+/-": 2.5
-    },
-    {
-      "club": "宇都宮",
-      "name": "渡邉 裕規",
-      "number": "13",
-      "pos": "PG",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8499",
-      "G": 2.0,
-      "GS": 0.0,
-      "MIN": "7:21",
-      "MINPG": "3:40",
-      "PPG": 0.0,
-      "FGMPG": 0.0,
-      "FGAPG": 1.0,
-      "FG%": 0.0,
-      "2FGMPG": 0.0,
-      "2FGAPG": 0.0,
-      "2FG%": 0.0,
-      "3FGMPG": 0.0,
-      "3FGAPG": 1.0,
-      "3FG%": 0.0,
-      "FTMPG": 0.0,
-      "FTAPG": 0.0,
-      "FT%": 0.0,
-      "ORPG": 0.0,
-      "DRPG": 0.5,
-      "RPG": 0.5,
-      "APG": 0.0,
-      "TOPG": 0.5,
-      "STPG": 0.0,
       "BSPG": 0.0,
-      "BSRPG": 0.0,
-      "FPG": 0.0,
-      "FDPG": 0.0,
-      "EFFPG": -1.0,
-      "+/-": -6.5
+      "BSRPG": 0.2,
+      "FPG": 2.1,
+      "FDPG": 1.4,
+      "EFFPG": 8.6,
+      "+/-": -1.9,
+      "name_en": "Atsuya Ogawa"
     },
     {
       "club": "宇都宮",
@@ -3811,7 +3505,378 @@
       "FPG": 1.4,
       "FDPG": 0.1,
       "EFFPG": 1.2,
-      "+/-": -2.1
+      "+/-": -2.1,
+      "name_en": "Yusuke Endo"
+    },
+    {
+      "club": "宇都宮",
+      "name": "竹内 公輔",
+      "number": "10",
+      "pos": "C/PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8726",
+      "G": 11.0,
+      "GS": 1.0,
+      "MIN": "126:47",
+      "MINPG": "11:31",
+      "PPG": 3.0,
+      "FGMPG": 1.1,
+      "FGAPG": 1.8,
+      "FG%": 60.0,
+      "2FGMPG": 1.0,
+      "2FGAPG": 1.5,
+      "2FG%": 68.8,
+      "3FGMPG": 0.1,
+      "3FGAPG": 0.4,
+      "3FG%": 25.0,
+      "FTMPG": 0.7,
+      "FTAPG": 0.9,
+      "FT%": 80.0,
+      "ORPG": 1.0,
+      "DRPG": 1.2,
+      "RPG": 2.2,
+      "APG": 0.6,
+      "TOPG": 0.3,
+      "STPG": 0.1,
+      "BSPG": 0.4,
+      "BSRPG": 0.0,
+      "FPG": 0.9,
+      "FDPG": 0.6,
+      "EFFPG": 4.6,
+      "+/-": 0.0,
+      "name_en": "Kosuke Takeuchi"
+    },
+    {
+      "club": "宇都宮",
+      "name": "高島 紳司",
+      "number": "12",
+      "pos": "SG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=5100000036",
+      "G": 11.0,
+      "GS": 11.0,
+      "MIN": "190:06",
+      "MINPG": "17:16",
+      "PPG": 1.6,
+      "FGMPG": 0.5,
+      "FGAPG": 3.2,
+      "FG%": 17.1,
+      "2FGMPG": 0.2,
+      "2FGAPG": 1.0,
+      "2FG%": 18.2,
+      "3FGMPG": 0.4,
+      "3FGAPG": 2.2,
+      "3FG%": 16.7,
+      "FTMPG": 0.2,
+      "FTAPG": 0.2,
+      "FT%": 100.0,
+      "ORPG": 0.6,
+      "DRPG": 1.3,
+      "RPG": 1.8,
+      "APG": 1.0,
+      "TOPG": 0.4,
+      "STPG": 0.7,
+      "BSPG": 0.0,
+      "BSRPG": 0.2,
+      "FPG": 1.8,
+      "FDPG": 0.3,
+      "EFFPG": 0.5,
+      "+/-": -1.8,
+      "name_en": "Shinji Takashima"
+    },
+    {
+      "club": "宇都宮",
+      "name": "渡邉 裕規",
+      "number": "13",
+      "pos": "PG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8499",
+      "G": 2.0,
+      "GS": 0.0,
+      "MIN": "7:21",
+      "MINPG": "3:40",
+      "PPG": 0.0,
+      "FGMPG": 0.0,
+      "FGAPG": 1.0,
+      "FG%": 0.0,
+      "2FGMPG": 0.0,
+      "2FGAPG": 0.0,
+      "2FG%": 0.0,
+      "3FGMPG": 0.0,
+      "3FGAPG": 1.0,
+      "3FG%": 0.0,
+      "FTMPG": 0.0,
+      "FTAPG": 0.0,
+      "FT%": 0.0,
+      "ORPG": 0.0,
+      "DRPG": 0.5,
+      "RPG": 0.5,
+      "APG": 0.0,
+      "TOPG": 0.5,
+      "STPG": 0.0,
+      "BSPG": 0.0,
+      "BSRPG": 0.0,
+      "FPG": 0.0,
+      "FDPG": 0.0,
+      "EFFPG": -1.0,
+      "+/-": -6.5,
+      "name_en": "Hironori Watanabe"
+    },
+    {
+      "club": "宇都宮",
+      "name": "星川 開聖",
+      "number": "17",
+      "pos": "SF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000461",
+      "G": 2.0,
+      "GS": 0.0,
+      "MIN": "18:42",
+      "MINPG": "9:21",
+      "PPG": 1.5,
+      "FGMPG": 0.5,
+      "FGAPG": 3.0,
+      "FG%": 16.7,
+      "2FGMPG": 0.0,
+      "2FGAPG": 1.0,
+      "2FG%": 0.0,
+      "3FGMPG": 0.5,
+      "3FGAPG": 2.0,
+      "3FG%": 25.0,
+      "FTMPG": 0.0,
+      "FTAPG": 0.0,
+      "FT%": 0.0,
+      "ORPG": 0.5,
+      "DRPG": 0.5,
+      "RPG": 1.0,
+      "APG": 1.0,
+      "TOPG": 0.0,
+      "STPG": 0.0,
+      "BSPG": 0.0,
+      "BSRPG": 0.0,
+      "FPG": 1.0,
+      "FDPG": 0.0,
+      "EFFPG": 0.0,
+      "+/-": 0.0,
+      "name_en": "Kaisei Hoshikawa"
+    },
+    {
+      "club": "宇都宮",
+      "name": "鵤 誠司",
+      "number": "18",
+      "pos": "PG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8529",
+      "G": 11.0,
+      "GS": 0.0,
+      "MIN": "174:26",
+      "MINPG": "15:51",
+      "PPG": 3.7,
+      "FGMPG": 1.3,
+      "FGAPG": 3.5,
+      "FG%": 36.8,
+      "2FGMPG": 0.5,
+      "2FGAPG": 1.2,
+      "2FG%": 46.2,
+      "3FGMPG": 0.7,
+      "3FGAPG": 2.3,
+      "3FG%": 32.0,
+      "FTMPG": 0.5,
+      "FTAPG": 0.5,
+      "FT%": 83.3,
+      "ORPG": 0.4,
+      "DRPG": 1.9,
+      "RPG": 2.3,
+      "APG": 1.7,
+      "TOPG": 1.2,
+      "STPG": 0.4,
+      "BSPG": 0.2,
+      "BSRPG": 0.1,
+      "FPG": 2.1,
+      "FDPG": 0.6,
+      "EFFPG": 3.3,
+      "+/-": 2.5,
+      "name_en": "Seiji Ikaruga"
+    },
+    {
+      "club": "宇都宮",
+      "name": "オーティス・フレイジャー",
+      "number": "23",
+      "pos": "SF/PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000623",
+      "G": 9.0,
+      "GS": 3.0,
+      "MIN": "212:18",
+      "MINPG": "23:35",
+      "PPG": 12.1,
+      "FGMPG": 4.8,
+      "FGAPG": 10.2,
+      "FG%": 46.7,
+      "2FGMPG": 3.6,
+      "2FGAPG": 6.8,
+      "2FG%": 52.5,
+      "3FGMPG": 1.2,
+      "3FGAPG": 3.4,
+      "3FG%": 35.5,
+      "FTMPG": 1.3,
+      "FTAPG": 1.9,
+      "FT%": 70.6,
+      "ORPG": 2.1,
+      "DRPG": 2.3,
+      "RPG": 4.4,
+      "APG": 1.4,
+      "TOPG": 1.4,
+      "STPG": 1.7,
+      "BSPG": 0.4,
+      "BSRPG": 0.2,
+      "FPG": 2.7,
+      "FDPG": 2.0,
+      "EFFPG": 11.8,
+      "+/-": 1.3,
+      "name_en": "Otis Frazier III"
+    },
+    {
+      "club": "宇都宮",
+      "name": "荒川 颯",
+      "number": "24",
+      "pos": "PG/SG",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=30458",
+      "G": 9.0,
+      "GS": 0.0,
+      "MIN": "59:53",
+      "MINPG": "6:39",
+      "PPG": 3.0,
+      "FGMPG": 1.0,
+      "FGAPG": 3.0,
+      "FG%": 33.3,
+      "2FGMPG": 0.1,
+      "2FGAPG": 0.3,
+      "2FG%": 33.3,
+      "3FGMPG": 0.9,
+      "3FGAPG": 2.7,
+      "3FG%": 33.3,
+      "FTMPG": 0.1,
+      "FTAPG": 0.3,
+      "FT%": 33.3,
+      "ORPG": 0.1,
+      "DRPG": 0.8,
+      "RPG": 0.9,
+      "APG": 0.6,
+      "TOPG": 0.9,
+      "STPG": 0.3,
+      "BSPG": 0.0,
+      "BSRPG": 0.0,
+      "FPG": 0.8,
+      "FDPG": 0.1,
+      "EFFPG": 1.0,
+      "+/-": -5.2,
+      "name_en": "Hayate Arakawa"
+    },
+    {
+      "club": "宇都宮",
+      "name": "市岡 ショーン",
+      "number": "32",
+      "pos": "C/PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8597",
+      "G": 4.0,
+      "GS": 0.0,
+      "MIN": "25:05",
+      "MINPG": "6:16",
+      "PPG": 0.8,
+      "FGMPG": 0.3,
+      "FGAPG": 0.5,
+      "FG%": 50.0,
+      "2FGMPG": 0.3,
+      "2FGAPG": 0.5,
+      "2FG%": 50.0,
+      "3FGMPG": 0.0,
+      "3FGAPG": 0.0,
+      "3FG%": 0.0,
+      "FTMPG": 0.3,
+      "FTAPG": 0.5,
+      "FT%": 50.0,
+      "ORPG": 0.5,
+      "DRPG": 0.8,
+      "RPG": 1.3,
+      "APG": 0.5,
+      "TOPG": 0.3,
+      "STPG": 0.0,
+      "BSPG": 0.0,
+      "BSRPG": 0.0,
+      "FPG": 1.8,
+      "FDPG": 0.3,
+      "EFFPG": 0.3,
+      "+/-": -4.5,
+      "name_en": "Sean Ichioka"
+    },
+    {
+      "club": "宇都宮",
+      "name": "ギャビン・エドワーズ",
+      "number": "33",
+      "pos": "PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=8593",
+      "G": 11.0,
+      "GS": 8.0,
+      "MIN": "235:28",
+      "MINPG": "21:24",
+      "PPG": 9.6,
+      "FGMPG": 3.1,
+      "FGAPG": 6.6,
+      "FG%": 46.6,
+      "2FGMPG": 2.2,
+      "2FGAPG": 3.2,
+      "2FG%": 68.6,
+      "3FGMPG": 0.9,
+      "3FGAPG": 3.5,
+      "3FG%": 26.3,
+      "FTMPG": 2.5,
+      "FTAPG": 3.9,
+      "FT%": 62.8,
+      "ORPG": 1.0,
+      "DRPG": 3.0,
+      "RPG": 4.0,
+      "APG": 1.6,
+      "TOPG": 1.4,
+      "STPG": 0.8,
+      "BSPG": 0.5,
+      "BSRPG": 0.1,
+      "FPG": 2.4,
+      "FDPG": 3.7,
+      "EFFPG": 11.3,
+      "+/-": -2.5,
+      "name_en": "Gavin Edwards"
+    },
+    {
+      "club": "宇都宮",
+      "name": "アイザック・フォトゥ",
+      "number": "42",
+      "pos": "PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=5100000081",
+      "G": 10.0,
+      "GS": 10.0,
+      "MIN": "283:50",
+      "MINPG": "28:23",
+      "PPG": 14.0,
+      "FGMPG": 5.6,
+      "FGAPG": 8.7,
+      "FG%": 64.4,
+      "2FGMPG": 4.8,
+      "2FGAPG": 6.7,
+      "2FG%": 71.6,
+      "3FGMPG": 0.8,
+      "3FGAPG": 2.0,
+      "3FG%": 40.0,
+      "FTMPG": 2.0,
+      "FTAPG": 2.9,
+      "FT%": 69.0,
+      "ORPG": 1.9,
+      "DRPG": 4.0,
+      "RPG": 5.9,
+      "APG": 2.2,
+      "TOPG": 1.0,
+      "STPG": 0.6,
+      "BSPG": 0.0,
+      "BSRPG": 0.3,
+      "FPG": 1.2,
+      "FDPG": 3.7,
+      "EFFPG": 19.9,
+      "+/-": 1.8,
+      "name_en": "Isaac Fotu"
     },
     {
       "club": "群馬",
@@ -3847,7 +3912,8 @@
       "FPG": 3.1,
       "FDPG": 4.6,
       "EFFPG": 20.4,
-      "+/-": 7.1
+      "+/-": 7.1,
+      "name_en": "Stanley Johnson"
     },
     {
       "club": "群馬",
@@ -3883,7 +3949,8 @@
       "FPG": 3.3,
       "FDPG": 6.9,
       "EFFPG": 25.2,
-      "+/-": 3.5
+      "+/-": 3.5,
+      "name_en": "Kerry Blackshear Jr"
     },
     {
       "club": "群馬",
@@ -3919,7 +3986,8 @@
       "FPG": 0.7,
       "FDPG": 0.0,
       "EFFPG": 0.8,
-      "+/-": 0.6
+      "+/-": 0.6,
+      "name_en": "Keita Tsurumaki"
     },
     {
       "club": "群馬",
@@ -3955,7 +4023,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": 1.5,
-      "+/-": 3.5
+      "+/-": 3.5,
+      "name_en": "Daichi Taniguchi"
     },
     {
       "club": "群馬",
@@ -3991,7 +4060,8 @@
       "FPG": 2.8,
       "FDPG": 1.8,
       "EFFPG": 9.7,
-      "+/-": 0.2
+      "+/-": 0.2,
+      "name_en": "A.J. Edu"
     },
     {
       "club": "群馬",
@@ -4027,7 +4097,8 @@
       "FPG": 0.6,
       "FDPG": 0.1,
       "EFFPG": 1.1,
-      "+/-": 0.8
+      "+/-": 0.8,
+      "name_en": "Kenny Asano"
     },
     {
       "club": "群馬",
@@ -4063,7 +4134,8 @@
       "FPG": 2.2,
       "FDPG": 1.6,
       "EFFPG": 3.9,
-      "+/-": 1.6
+      "+/-": 1.6,
+      "name_en": "Takuto Nakamura"
     },
     {
       "club": "群馬",
@@ -4099,7 +4171,8 @@
       "FPG": 1.7,
       "FDPG": 3.5,
       "EFFPG": 14.6,
-      "+/-": -0.3
+      "+/-": -0.3,
+      "name_en": "Trey Jones"
     },
     {
       "club": "群馬",
@@ -4135,7 +4208,8 @@
       "FPG": 0.9,
       "FDPG": 0.4,
       "EFFPG": -0.7,
-      "+/-": 1.5
+      "+/-": 1.5,
+      "name_en": "Naoto Tsuji"
     },
     {
       "club": "群馬",
@@ -4171,7 +4245,8 @@
       "FPG": 1.7,
       "FDPG": 1.7,
       "EFFPG": 5.3,
-      "+/-": -0.4
+      "+/-": -0.4,
+      "name_en": "Yuma Fujii"
     },
     {
       "club": "群馬",
@@ -4207,7 +4282,8 @@
       "FPG": 2.0,
       "FDPG": 1.0,
       "EFFPG": 4.8,
-      "+/-": 4.3
+      "+/-": 4.3,
+      "name_en": "Koh Flippin"
     },
     {
       "club": "群馬",
@@ -4243,7 +4319,8 @@
       "FPG": 1.5,
       "FDPG": 0.1,
       "EFFPG": 6.1,
-      "+/-": 1.0
+      "+/-": 1.0,
+      "name_en": "Kazuki Hosokawa"
     },
     {
       "club": "A千葉",
@@ -4279,7 +4356,8 @@
       "FPG": 2.1,
       "FDPG": 5.0,
       "EFFPG": 23.8,
-      "+/-": -7.8
+      "+/-": -7.8,
+      "name_en": "D.J. Newbill"
     },
     {
       "club": "A千葉",
@@ -4315,7 +4393,8 @@
       "FPG": 1.5,
       "FDPG": 2.8,
       "EFFPG": 23.3,
-      "+/-": -2.0
+      "+/-": -2.0,
+      "name_en": "Kai Sotto"
     },
     {
       "club": "A千葉",
@@ -4351,7 +4430,8 @@
       "FPG": 2.4,
       "FDPG": 0.0,
       "EFFPG": 2.8,
-      "+/-": -8.8
+      "+/-": -8.8,
+      "name_en": "Naoya Kumagae"
     },
     {
       "club": "A千葉",
@@ -4387,7 +4467,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": 0.0,
-      "+/-": -1.2
+      "+/-": -1.2,
+      "name_en": "Tomoya Hasegawa"
     },
     {
       "club": "A千葉",
@@ -4423,7 +4504,8 @@
       "FPG": 0.3,
       "FDPG": 0.1,
       "EFFPG": 0.0,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Blake Aoki"
     },
     {
       "club": "A千葉",
@@ -4459,7 +4541,8 @@
       "FPG": 3.0,
       "FDPG": 1.7,
       "EFFPG": 7.7,
-      "+/-": -3.8
+      "+/-": -3.8,
+      "name_en": "Kotetsu Kurokawa"
     },
     {
       "club": "A千葉",
@@ -4495,7 +4578,8 @@
       "FPG": 2.0,
       "FDPG": 0.3,
       "EFFPG": -1.0,
-      "+/-": -2.6
+      "+/-": -2.6,
+      "name_en": "Leon Watanabe"
     },
     {
       "club": "A千葉",
@@ -4531,7 +4615,8 @@
       "FPG": 2.6,
       "FDPG": 4.8,
       "EFFPG": 21.7,
-      "+/-": -7.1
+      "+/-": -7.1,
+      "name_en": "Dererk Pardon"
     },
     {
       "club": "A千葉",
@@ -4567,7 +4652,8 @@
       "FPG": 2.2,
       "FDPG": 0.6,
       "EFFPG": 1.0,
-      "+/-": -5.5
+      "+/-": -5.5,
+      "name_en": "Takaaki Kida"
     },
     {
       "club": "A千葉",
@@ -4603,7 +4689,8 @@
       "FPG": 2.6,
       "FDPG": 1.1,
       "EFFPG": 5.0,
-      "+/-": -5.5
+      "+/-": -5.5,
+      "name_en": "Kei Sugimoto"
     },
     {
       "club": "A千葉",
@@ -4639,7 +4726,8 @@
       "FPG": 1.3,
       "FDPG": 1.2,
       "EFFPG": 9.8,
-      "+/-": -2.7
+      "+/-": -2.7,
+      "name_en": "Seiya Ando"
     },
     {
       "club": "A千葉",
@@ -4675,7 +4763,8 @@
       "FPG": 4.0,
       "FDPG": 3.7,
       "EFFPG": 7.3,
-      "+/-": -6.0
+      "+/-": -6.0,
+      "name_en": "Alex Davis"
     },
     {
       "club": "千葉J",
@@ -4711,7 +4800,8 @@
       "FPG": 2.6,
       "FDPG": 5.4,
       "EFFPG": 23.0,
-      "+/-": -6.3
+      "+/-": -6.3,
+      "name_en": "Nate Williams"
     },
     {
       "club": "千葉J",
@@ -4747,7 +4837,8 @@
       "FPG": 2.8,
       "FDPG": 1.6,
       "EFFPG": 14.7,
-      "+/-": -4.3
+      "+/-": -4.3,
+      "name_en": "Luke Maye"
     },
     {
       "club": "千葉J",
@@ -4783,7 +4874,8 @@
       "FPG": 2.4,
       "FDPG": 3.1,
       "EFFPG": 10.6,
-      "+/-": -3.7
+      "+/-": -3.7,
+      "name_en": "Riku Segawa"
     },
     {
       "club": "千葉J",
@@ -4819,7 +4911,8 @@
       "FPG": 1.0,
       "FDPG": 0.3,
       "EFFPG": 0.0,
-      "+/-": -11.0
+      "+/-": -11.0,
+      "name_en": "Naoki Tashiro"
     },
     {
       "club": "千葉J",
@@ -4855,7 +4948,8 @@
       "FPG": 4.0,
       "FDPG": 2.8,
       "EFFPG": 6.0,
-      "+/-": -9.2
+      "+/-": -9.2,
+      "name_en": "LG Gill"
     },
     {
       "club": "千葉J",
@@ -4891,7 +4985,8 @@
       "FPG": 0.0,
       "FDPG": 0.3,
       "EFFPG": 0.7,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Kotaro Fukami"
     },
     {
       "club": "千葉J",
@@ -4927,7 +5022,8 @@
       "FPG": 1.2,
       "FDPG": 0.2,
       "EFFPG": -0.6,
-      "+/-": -3.0
+      "+/-": -3.0,
+      "name_en": "Kai Sugawara"
     },
     {
       "club": "千葉J",
@@ -4963,7 +5059,8 @@
       "FPG": 0.4,
       "FDPG": 0.0,
       "EFFPG": -0.4,
-      "+/-": -1.3
+      "+/-": -1.3,
+      "name_en": "Gaku Arao"
     },
     {
       "club": "千葉J",
@@ -4999,7 +5096,8 @@
       "FPG": 1.0,
       "FDPG": 0.0,
       "EFFPG": -1.0,
-      "+/-": -16.0
+      "+/-": -16.0,
+      "name_en": "Matt Costello"
     },
     {
       "club": "千葉J",
@@ -5035,7 +5133,8 @@
       "FPG": 1.1,
       "FDPG": 3.4,
       "EFFPG": 17.3,
-      "+/-": -3.1
+      "+/-": -3.1,
+      "name_en": "Yuta Watanabe"
     },
     {
       "club": "千葉J",
@@ -5071,7 +5170,8 @@
       "FPG": 1.9,
       "FDPG": 0.2,
       "EFFPG": -0.9,
-      "+/-": -2.2
+      "+/-": -2.2,
+      "name_en": "Takumi Sato"
     },
     {
       "club": "千葉J",
@@ -5107,7 +5207,8 @@
       "FPG": 1.2,
       "FDPG": 1.0,
       "EFFPG": 7.8,
-      "+/-": -6.3
+      "+/-": -6.3,
+      "name_en": "Ren Kanechika"
     },
     {
       "club": "千葉J",
@@ -5143,7 +5244,8 @@
       "FPG": 1.8,
       "FDPG": 1.0,
       "EFFPG": 4.0,
-      "+/-": 2.1
+      "+/-": 2.1,
+      "name_en": "Nyika Williams"
     },
     {
       "club": "千葉J",
@@ -5179,7 +5281,8 @@
       "FPG": 2.0,
       "FDPG": 2.1,
       "EFFPG": 11.5,
-      "+/-": -5.4
+      "+/-": -5.4,
+      "name_en": "Yuki Togashi"
     },
     {
       "club": "千葉J",
@@ -5215,7 +5318,8 @@
       "FPG": 1.6,
       "FDPG": 2.1,
       "EFFPG": 5.6,
-      "+/-": -4.2
+      "+/-": -4.2,
+      "name_en": "Shuta Hara"
     },
     {
       "club": "A東京",
@@ -5251,7 +5355,8 @@
       "FPG": 1.3,
       "FDPG": 5.4,
       "EFFPG": 27.4,
-      "+/-": 10.5
+      "+/-": 10.5,
+      "name_en": "Keyontae Johnson"
     },
     {
       "club": "A東京",
@@ -5287,7 +5392,8 @@
       "FPG": 2.3,
       "FDPG": 2.7,
       "EFFPG": 17.1,
-      "+/-": 8.0
+      "+/-": 8.0,
+      "name_en": "Ryan Rossiter"
     },
     {
       "club": "A東京",
@@ -5323,7 +5429,8 @@
       "FPG": 3.0,
       "FDPG": 5.3,
       "EFFPG": 30.0,
-      "+/-": -6.3
+      "+/-": -6.3,
+      "name_en": "Lachlan Olbrich"
     },
     {
       "club": "A東京",
@@ -5359,7 +5466,8 @@
       "FPG": 1.8,
       "FDPG": 5.2,
       "EFFPG": 18.6,
-      "+/-": 1.8
+      "+/-": 1.8,
+      "name_en": "Dejon Jarreau"
     },
     {
       "club": "A東京",
@@ -5395,7 +5503,8 @@
       "FPG": 2.2,
       "FDPG": 2.0,
       "EFFPG": 2.3,
-      "+/-": 2.8
+      "+/-": 2.8,
+      "name_en": "Hiromu Nakamura"
     },
     {
       "club": "A東京",
@@ -5431,7 +5540,8 @@
       "FPG": 1.1,
       "FDPG": 0.4,
       "EFFPG": 1.8,
-      "+/-": 1.9
+      "+/-": 1.9,
+      "name_en": "Ryo Iida"
     },
     {
       "club": "A東京",
@@ -5467,7 +5577,8 @@
       "FPG": 1.8,
       "FDPG": 2.8,
       "EFFPG": 19.8,
-      "+/-": 11.6
+      "+/-": 11.6,
+      "name_en": "D.J. Hogg"
     },
     {
       "club": "A東京",
@@ -5503,7 +5614,8 @@
       "FPG": 0.7,
       "FDPG": 0.6,
       "EFFPG": 1.4,
-      "+/-": -2.8
+      "+/-": -2.8,
+      "name_en": "Sota Okura"
     },
     {
       "club": "A東京",
@@ -5539,7 +5651,8 @@
       "FPG": 1.5,
       "FDPG": 1.1,
       "EFFPG": 6.0,
-      "+/-": 8.3
+      "+/-": 8.3,
+      "name_en": "Shuto Ando"
     },
     {
       "club": "A東京",
@@ -5575,7 +5688,8 @@
       "FPG": 1.8,
       "FDPG": 2.3,
       "EFFPG": 8.0,
-      "+/-": 2.8
+      "+/-": 2.8,
+      "name_en": "Taiki Osakabe"
     },
     {
       "club": "A東京",
@@ -5611,7 +5725,8 @@
       "FPG": 1.8,
       "FDPG": 0.4,
       "EFFPG": 3.8,
-      "+/-": 2.7
+      "+/-": 2.7,
+      "name_en": "Gen Hiraiwa"
     },
     {
       "club": "A東京",
@@ -5647,7 +5762,8 @@
       "FPG": 2.2,
       "FDPG": 1.1,
       "EFFPG": 4.8,
-      "+/-": 4.3
+      "+/-": 4.3,
+      "name_en": "Zack Baranski"
     },
     {
       "club": "A東京",
@@ -5683,7 +5799,8 @@
       "FPG": 2.0,
       "FDPG": 1.8,
       "EFFPG": 6.8,
-      "+/-": 9.3
+      "+/-": 9.3,
+      "name_en": "Kai Toews"
     },
     {
       "club": "東京SR",
@@ -5719,7 +5836,8 @@
       "FPG": 1.9,
       "FDPG": 3.7,
       "EFFPG": 22.1,
-      "+/-": 12.4
+      "+/-": 12.4,
+      "name_en": "Rawle Alkins"
     },
     {
       "club": "東京SR",
@@ -5755,7 +5873,8 @@
       "FPG": 1.8,
       "FDPG": 4.5,
       "EFFPG": 25.1,
-      "+/-": 9.1
+      "+/-": 9.1,
+      "name_en": "Josh Hawkinson"
     },
     {
       "club": "東京SR",
@@ -5791,7 +5910,8 @@
       "FPG": 1.8,
       "FDPG": 2.1,
       "EFFPG": 10.9,
-      "+/-": 10.0
+      "+/-": 10.0,
+      "name_en": "John Lawrence Harper Jr."
     },
     {
       "club": "東京SR",
@@ -5827,7 +5947,8 @@
       "FPG": 1.8,
       "FDPG": 1.0,
       "EFFPG": 5.0,
-      "+/-": 7.4
+      "+/-": 7.4,
+      "name_en": "Reiya Nozaki"
     },
     {
       "club": "東京SR",
@@ -5863,7 +5984,8 @@
       "FPG": 0.7,
       "FDPG": 0.2,
       "EFFPG": 1.3,
-      "+/-": 2.8
+      "+/-": 2.8,
+      "name_en": "Yuya Nagayoshi"
     },
     {
       "club": "東京SR",
@@ -5899,7 +6021,8 @@
       "FPG": 2.5,
       "FDPG": 3.3,
       "EFFPG": 12.4,
-      "+/-": 7.9
+      "+/-": 7.9,
+      "name_en": "Bryson Williams"
     },
     {
       "club": "東京SR",
@@ -5935,7 +6058,8 @@
       "FPG": 1.9,
       "FDPG": 0.3,
       "EFFPG": 2.9,
-      "+/-": 4.3
+      "+/-": 4.3,
+      "name_en": "Ibu Yamazaki"
     },
     {
       "club": "東京SR",
@@ -5971,7 +6095,8 @@
       "FPG": 1.5,
       "FDPG": 0.7,
       "EFFPG": 1.8,
-      "+/-": 1.3
+      "+/-": 1.3,
+      "name_en": "Sogo Yamagiwa"
     },
     {
       "club": "東京SR",
@@ -6007,7 +6132,8 @@
       "FPG": 1.9,
       "FDPG": 2.0,
       "EFFPG": 16.7,
-      "+/-": 9.9
+      "+/-": 9.9,
+      "name_en": "Donte Grantham"
     },
     {
       "club": "東京SR",
@@ -6043,7 +6169,8 @@
       "FPG": 0.4,
       "FDPG": 0.5,
       "EFFPG": 2.0,
-      "+/-": 0.8
+      "+/-": 0.8,
+      "name_en": "Toyoshige Kano"
     },
     {
       "club": "東京SR",
@@ -6079,7 +6206,8 @@
       "FPG": 2.0,
       "FDPG": 1.0,
       "EFFPG": 4.5,
-      "+/-": 2.4
+      "+/-": 2.4,
+      "name_en": "Leo Vendrame"
     },
     {
       "club": "東京SR",
@@ -6115,7 +6243,8 @@
       "FPG": 1.5,
       "FDPG": 0.5,
       "EFFPG": 4.8,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Daiki Tanaka"
     },
     {
       "club": "川崎",
@@ -6151,7 +6280,8 @@
       "FPG": 2.6,
       "FDPG": 6.3,
       "EFFPG": 24.8,
-      "+/-": -8.9
+      "+/-": -8.9,
+      "name_en": "Jaedon LeDee"
     },
     {
       "club": "川崎",
@@ -6187,7 +6317,8 @@
       "FPG": 1.5,
       "FDPG": 2.5,
       "EFFPG": 20.3,
-      "+/-": -1.1
+      "+/-": -1.1,
+      "name_en": "Alex Kirk"
     },
     {
       "club": "川崎",
@@ -6223,7 +6354,8 @@
       "FPG": 2.6,
       "FDPG": 2.7,
       "EFFPG": 12.4,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Muhammad-Ali Abdur-Rahkman"
     },
     {
       "club": "川崎",
@@ -6259,7 +6391,8 @@
       "FPG": 0.0,
       "FDPG": 0.5,
       "EFFPG": -1.0,
-      "+/-": -1.0
+      "+/-": -1.0,
+      "name_en": "Kengo Nomoto"
     },
     {
       "club": "川崎",
@@ -6295,7 +6428,8 @@
       "FPG": 2.4,
       "FDPG": 0.9,
       "EFFPG": 0.4,
-      "+/-": 0.8
+      "+/-": 0.8,
+      "name_en": "Jaheru Ryuto Yamauchi"
     },
     {
       "club": "川崎",
@@ -6331,7 +6465,8 @@
       "FPG": 0.4,
       "FDPG": 0.0,
       "EFFPG": -0.4,
-      "+/-": -1.9
+      "+/-": -1.9,
+      "name_en": "Roy Hideki Igwe"
     },
     {
       "club": "川崎",
@@ -6367,7 +6502,8 @@
       "FPG": 1.8,
       "FDPG": 1.0,
       "EFFPG": 3.8,
-      "+/-": -0.3
+      "+/-": -0.3,
+      "name_en": "Reoto Yonesu"
     },
     {
       "club": "川崎",
@@ -6403,7 +6539,8 @@
       "FPG": 1.5,
       "FDPG": 0.6,
       "EFFPG": 5.8,
-      "+/-": -4.5
+      "+/-": -4.5,
+      "name_en": "Hirohide Araya"
     },
     {
       "club": "川崎",
@@ -6439,7 +6576,8 @@
       "FPG": 2.3,
       "FDPG": 2.9,
       "EFFPG": 16.6,
-      "+/-": -2.0
+      "+/-": -2.0,
+      "name_en": "Matt Bonds"
     },
     {
       "club": "川崎",
@@ -6475,7 +6613,8 @@
       "FPG": 2.3,
       "FDPG": 1.8,
       "EFFPG": 6.9,
-      "+/-": -0.2
+      "+/-": -0.2,
+      "name_en": "Shun Matsuyama"
     },
     {
       "club": "川崎",
@@ -6511,7 +6650,8 @@
       "FPG": 0.8,
       "FDPG": 0.0,
       "EFFPG": 0.3,
-      "+/-": 1.2
+      "+/-": 1.2,
+      "name_en": "Takumi Hasegawa"
     },
     {
       "club": "川崎",
@@ -6547,7 +6687,8 @@
       "FPG": 1.9,
       "FDPG": 0.8,
       "EFFPG": -0.4,
-      "+/-": -3.5
+      "+/-": -3.5,
+      "name_en": "Ryusei Shinoyama"
     },
     {
       "club": "川崎",
@@ -6583,7 +6724,8 @@
       "FPG": 0.7,
       "FDPG": 0.1,
       "EFFPG": -0.2,
-      "+/-": -0.6
+      "+/-": -0.6,
+      "name_en": "Shota Tsuyama"
     },
     {
       "club": "横浜BC",
@@ -6619,7 +6761,8 @@
       "FPG": 2.6,
       "FDPG": 3.4,
       "EFFPG": 16.0,
-      "+/-": -3.6
+      "+/-": -3.6,
+      "name_en": "Isaiah Livers"
     },
     {
       "club": "横浜BC",
@@ -6655,7 +6798,8 @@
       "FPG": 2.3,
       "FDPG": 3.9,
       "EFFPG": 23.4,
-      "+/-": -2.3
+      "+/-": -2.3,
+      "name_en": "Maik Kotsar"
     },
     {
       "club": "横浜BC",
@@ -6691,7 +6835,8 @@
       "FPG": 2.3,
       "FDPG": 2.3,
       "EFFPG": 9.1,
-      "+/-": -0.8
+      "+/-": -0.8,
+      "name_en": "Narito Namizato"
     },
     {
       "club": "横浜BC",
@@ -6727,7 +6872,8 @@
       "FPG": 2.1,
       "FDPG": 2.5,
       "EFFPG": 10.1,
-      "+/-": -5.5
+      "+/-": -5.5,
+      "name_en": "James Bell"
     },
     {
       "club": "横浜BC",
@@ -6763,7 +6909,8 @@
       "FPG": 2.1,
       "FDPG": 1.3,
       "EFFPG": 4.6,
-      "+/-": 0.8
+      "+/-": 0.8,
+      "name_en": "Koya Sudo"
     },
     {
       "club": "横浜BC",
@@ -6799,7 +6946,8 @@
       "FPG": 2.5,
       "FDPG": 4.0,
       "EFFPG": 14.5,
-      "+/-": -7.5
+      "+/-": -7.5,
+      "name_en": "Kameron McGusty"
     },
     {
       "club": "横浜BC",
@@ -6835,7 +6983,8 @@
       "FPG": 2.7,
       "FDPG": 1.4,
       "EFFPG": 7.6,
-      "+/-": -3.8
+      "+/-": -3.8,
+      "name_en": "Gakuto Arai"
     },
     {
       "club": "横浜BC",
@@ -6871,7 +7020,8 @@
       "FPG": 1.0,
       "FDPG": 0.1,
       "EFFPG": 0.6,
-      "+/-": -1.9
+      "+/-": -1.9,
+      "name_en": "Kanta Maeno"
     },
     {
       "club": "横浜BC",
@@ -6907,7 +7057,8 @@
       "FPG": 3.1,
       "FDPG": 2.0,
       "EFFPG": 6.8,
-      "+/-": -8.3
+      "+/-": -8.3,
+      "name_en": "Kyle Richardson"
     },
     {
       "club": "横浜BC",
@@ -6943,7 +7094,8 @@
       "FPG": 1.0,
       "FDPG": 0.5,
       "EFFPG": 7.5,
-      "+/-": 1.0
+      "+/-": 1.0,
+      "name_en": "Kai King"
     },
     {
       "club": "横浜BC",
@@ -6979,7 +7131,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": 0.5,
-      "+/-": -0.5
+      "+/-": -0.5,
+      "name_en": "Kenta Whitaker"
     },
     {
       "club": "横浜BC",
@@ -7015,7 +7168,8 @@
       "FPG": 2.9,
       "FDPG": 1.9,
       "EFFPG": 4.8,
-      "+/-": -4.4
+      "+/-": -4.4,
+      "name_en": "Takuma Sato"
     },
     {
       "club": "横浜BC",
@@ -7051,7 +7205,8 @@
       "FPG": 3.0,
       "FDPG": 0.7,
       "EFFPG": 1.8,
-      "+/-": -4.8
+      "+/-": -4.8,
+      "name_en": "Kenta Morii"
     },
     {
       "club": "富山",
@@ -7087,7 +7242,8 @@
       "FPG": 2.2,
       "FDPG": 8.5,
       "EFFPG": 26.5,
-      "+/-": -0.7
+      "+/-": -0.7,
+      "name_en": "Braian Angola"
     },
     {
       "club": "富山",
@@ -7123,7 +7279,8 @@
       "FPG": 2.1,
       "FDPG": 4.4,
       "EFFPG": 16.9,
-      "+/-": -4.1
+      "+/-": -4.1,
+      "name_en": "Darral Willis JR"
     },
     {
       "club": "富山",
@@ -7159,7 +7316,8 @@
       "FPG": 3.2,
       "FDPG": 3.6,
       "EFFPG": 16.1,
-      "+/-": -0.7
+      "+/-": -0.7,
+      "name_en": "Aamir Simms"
     },
     {
       "club": "富山",
@@ -7195,7 +7353,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": 0.0,
-      "+/-": -8.0
+      "+/-": -8.0,
+      "name_en": "Towa Izumi"
     },
     {
       "club": "富山",
@@ -7231,7 +7390,8 @@
       "FPG": 1.9,
       "FDPG": 0.9,
       "EFFPG": 1.6,
-      "+/-": -2.1
+      "+/-": -2.1,
+      "name_en": "Haruaki Tanaka"
     },
     {
       "club": "富山",
@@ -7267,7 +7427,8 @@
       "FPG": 2.6,
       "FDPG": 2.3,
       "EFFPG": 6.9,
-      "+/-": 0.7
+      "+/-": 0.7,
+      "name_en": "Yuzo Okada"
     },
     {
       "club": "富山",
@@ -7303,7 +7464,8 @@
       "FPG": 1.2,
       "FDPG": 0.3,
       "EFFPG": 0.9,
-      "+/-": -1.5
+      "+/-": -1.5,
+      "name_en": "Yoshiyuki Nozaki"
     },
     {
       "club": "富山",
@@ -7339,7 +7501,8 @@
       "FPG": 1.2,
       "FDPG": 0.3,
       "EFFPG": 0.6,
-      "+/-": -2.9
+      "+/-": -2.9,
+      "name_en": "Kazuki Miyamoto"
     },
     {
       "club": "富山",
@@ -7375,7 +7538,8 @@
       "FPG": 1.3,
       "FDPG": 0.3,
       "EFFPG": -0.6,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Kaito Morizane"
     },
     {
       "club": "富山",
@@ -7411,7 +7575,8 @@
       "FPG": 2.1,
       "FDPG": 0.9,
       "EFFPG": 5.0,
-      "+/-": 1.0
+      "+/-": 1.0,
+      "name_en": "Faraz Rashid"
     },
     {
       "club": "富山",
@@ -7447,7 +7612,8 @@
       "FPG": 2.8,
       "FDPG": 0.6,
       "EFFPG": 1.2,
-      "+/-": -6.0
+      "+/-": -6.0,
+      "name_en": "Daichi Kuzuhara"
     },
     {
       "club": "富山",
@@ -7483,7 +7649,8 @@
       "FPG": 2.7,
       "FDPG": 3.0,
       "EFFPG": 8.5,
-      "+/-": 2.2
+      "+/-": 2.2,
+      "name_en": "Thirdy Ravena"
     },
     {
       "club": "富山",
@@ -7519,7 +7686,8 @@
       "FPG": 1.3,
       "FDPG": 1.0,
       "EFFPG": 0.7,
-      "+/-": -3.1
+      "+/-": -3.1,
+      "name_en": "Naoki Uto"
     },
     {
       "club": "信州",
@@ -7555,7 +7723,8 @@
       "FPG": 3.4,
       "FDPG": 5.8,
       "EFFPG": 20.8,
-      "+/-": 2.2
+      "+/-": 2.2,
+      "name_en": "Kevon Harris"
     },
     {
       "club": "信州",
@@ -7591,7 +7760,8 @@
       "FPG": 2.6,
       "FDPG": 2.3,
       "EFFPG": 17.6,
-      "+/-": 3.2
+      "+/-": 3.2,
+      "name_en": "Marcus Lee"
     },
     {
       "club": "信州",
@@ -7627,7 +7797,8 @@
       "FPG": 2.1,
       "FDPG": 0.5,
       "EFFPG": 1.5,
-      "+/-": 0.2
+      "+/-": 0.2,
+      "name_en": "Akitoshi Oguri"
     },
     {
       "club": "信州",
@@ -7663,7 +7834,8 @@
       "FPG": 2.1,
       "FDPG": 4.8,
       "EFFPG": 23.4,
-      "+/-": -0.2
+      "+/-": -0.2,
+      "name_en": "Mike Daum"
     },
     {
       "club": "信州",
@@ -7699,7 +7871,8 @@
       "FPG": 0.2,
       "FDPG": 0.0,
       "EFFPG": 0.2,
-      "+/-": -1.8
+      "+/-": -1.8,
+      "name_en": "Daniel Kato"
     },
     {
       "club": "信州",
@@ -7735,7 +7908,8 @@
       "FPG": 1.3,
       "FDPG": 0.1,
       "EFFPG": 1.2,
-      "+/-": -3.3
+      "+/-": -3.3,
+      "name_en": "Susumu Tokairin"
     },
     {
       "club": "信州",
@@ -7771,7 +7945,8 @@
       "FPG": 1.5,
       "FDPG": 0.7,
       "EFFPG": 1.5,
-      "+/-": 0.5
+      "+/-": 0.5,
+      "name_en": "Kyosuke Hoshino"
     },
     {
       "club": "信州",
@@ -7807,7 +7982,8 @@
       "FPG": 1.8,
       "FDPG": 0.5,
       "EFFPG": 2.4,
-      "+/-": -4.9
+      "+/-": -4.9,
+      "name_en": "Marcus Kaishu Tobin"
     },
     {
       "club": "信州",
@@ -7843,7 +8019,8 @@
       "FPG": 1.2,
       "FDPG": 1.2,
       "EFFPG": 4.3,
-      "+/-": -5.4
+      "+/-": -5.4,
+      "name_en": "Daiki Tsuchiya"
     },
     {
       "club": "信州",
@@ -7879,7 +8056,8 @@
       "FPG": 2.3,
       "FDPG": 0.9,
       "EFFPG": 2.2,
-      "+/-": -5.7
+      "+/-": -5.7,
+      "name_en": "Tshilidzi Kawata"
     },
     {
       "club": "信州",
@@ -7915,7 +8093,8 @@
       "FPG": 2.1,
       "FDPG": 2.5,
       "EFFPG": 8.6,
-      "+/-": -3.3
+      "+/-": -3.3,
+      "name_en": "Eliet Donley"
     },
     {
       "club": "信州",
@@ -7951,7 +8130,8 @@
       "FPG": 1.9,
       "FDPG": 1.2,
       "EFFPG": 3.3,
-      "+/-": -2.2
+      "+/-": -2.2,
+      "name_en": "Takatoshi Furukawa"
     },
     {
       "club": "三遠",
@@ -7987,7 +8167,8 @@
       "FPG": 2.7,
       "FDPG": 4.8,
       "EFFPG": 19.5,
-      "+/-": 7.3
+      "+/-": 7.3,
+      "name_en": "Vitto Brown"
     },
     {
       "club": "三遠",
@@ -8023,7 +8204,8 @@
       "FPG": 1.5,
       "FDPG": 1.0,
       "EFFPG": 11.8,
-      "+/-": 4.8
+      "+/-": 4.8,
+      "name_en": "Josh Harrellson"
     },
     {
       "club": "三遠",
@@ -8059,7 +8241,8 @@
       "FPG": 2.0,
       "FDPG": 3.7,
       "EFFPG": 14.3,
-      "+/-": 3.7
+      "+/-": 3.7,
+      "name_en": "Ryusei Sasaki"
     },
     {
       "club": "三遠",
@@ -8095,7 +8278,8 @@
       "FPG": 2.0,
       "FDPG": 0.0,
       "EFFPG": -2.0,
-      "+/-": 4.0
+      "+/-": 4.0,
+      "name_en": "Junior Kodama"
     },
     {
       "club": "三遠",
@@ -8131,7 +8315,8 @@
       "FPG": 1.5,
       "FDPG": 0.0,
       "EFFPG": -1.5,
-      "+/-": 3.8
+      "+/-": 3.8,
+      "name_en": "Hideya Asai"
     },
     {
       "club": "三遠",
@@ -8167,7 +8352,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": 0.0,
-      "+/-": 4.0
+      "+/-": 4.0,
+      "name_en": "Noriyuki Sugasawa"
     },
     {
       "club": "三遠",
@@ -8203,7 +8389,8 @@
       "FPG": 2.7,
       "FDPG": 4.7,
       "EFFPG": 21.7,
-      "+/-": 7.2
+      "+/-": 7.2,
+      "name_en": "Jake Van Tubbergen"
     },
     {
       "club": "三遠",
@@ -8239,7 +8426,8 @@
       "FPG": 3.3,
       "FDPG": 2.7,
       "EFFPG": 15.7,
-      "+/-": 6.0
+      "+/-": 6.0,
+      "name_en": "Terence Davis"
     },
     {
       "club": "三遠",
@@ -8275,7 +8463,8 @@
       "FPG": 1.3,
       "FDPG": 0.3,
       "EFFPG": 1.5,
-      "+/-": -0.2
+      "+/-": -0.2,
+      "name_en": "Dai Nemoto"
     },
     {
       "club": "三遠",
@@ -8311,7 +8500,8 @@
       "FPG": 1.8,
       "FDPG": 3.8,
       "EFFPG": 11.5,
-      "+/-": 7.7
+      "+/-": 7.7,
+      "name_en": "Hayato Wakugawa"
     },
     {
       "club": "三遠",
@@ -8347,7 +8537,8 @@
       "FPG": 1.8,
       "FDPG": 1.0,
       "EFFPG": 0.0,
-      "+/-": 2.0
+      "+/-": 2.0,
+      "name_en": "Hikaru Futagami"
     },
     {
       "club": "三遠",
@@ -8383,7 +8574,8 @@
       "FPG": 2.0,
       "FDPG": 0.0,
       "EFFPG": -1.0,
-      "+/-": 2.5
+      "+/-": 2.5,
+      "name_en": "Tatsumi Yu"
     },
     {
       "club": "三遠",
@@ -8419,7 +8611,8 @@
       "FPG": 2.5,
       "FDPG": 0.2,
       "EFFPG": 3.3,
-      "+/-": 2.5
+      "+/-": 2.5,
+      "name_en": "Kazuma Tsuya"
     },
     {
       "club": "三河",
@@ -8455,7 +8648,8 @@
       "FPG": 2.3,
       "FDPG": 2.9,
       "EFFPG": 20.1,
-      "+/-": 11.7
+      "+/-": 11.7,
+      "name_en": "Davante Gardner"
     },
     {
       "club": "三河",
@@ -8491,7 +8685,8 @@
       "FPG": 2.3,
       "FDPG": 5.4,
       "EFFPG": 25.1,
-      "+/-": 10.4
+      "+/-": 10.4,
+      "name_en": "Sean O'mara"
     },
     {
       "club": "三河",
@@ -8527,7 +8722,8 @@
       "FPG": 3.0,
       "FDPG": 0.0,
       "EFFPG": 0.0,
-      "+/-": 4.0
+      "+/-": 4.0,
+      "name_en": "Shogo Taira"
     },
     {
       "club": "三河",
@@ -8563,7 +8759,8 @@
       "FPG": 1.0,
       "FDPG": 0.0,
       "EFFPG": 13.0,
-      "+/-": 26.0
+      "+/-": 26.0,
+      "name_en": "Kosuke Ishii"
     },
     {
       "club": "三河",
@@ -8599,7 +8796,8 @@
       "FPG": 1.0,
       "FDPG": 0.3,
       "EFFPG": 1.0,
-      "+/-": 2.7
+      "+/-": 2.7,
+      "name_en": "Akihisa Kosaka"
     },
     {
       "club": "三河",
@@ -8635,7 +8833,8 @@
       "FPG": 1.6,
       "FDPG": 3.7,
       "EFFPG": 16.4,
-      "+/-": 2.3
+      "+/-": 2.3,
+      "name_en": "Aaron White"
     },
     {
       "club": "三河",
@@ -8671,7 +8870,8 @@
       "FPG": 1.7,
       "FDPG": 3.0,
       "EFFPG": 13.9,
-      "+/-": 13.3
+      "+/-": 13.3,
+      "name_en": "Yudai Nishida"
     },
     {
       "club": "三河",
@@ -8707,7 +8907,8 @@
       "FPG": 1.9,
       "FDPG": 2.6,
       "EFFPG": 5.3,
-      "+/-": 4.9
+      "+/-": 4.9,
+      "name_en": "Satoshi Nagano"
     },
     {
       "club": "三河",
@@ -8743,7 +8944,8 @@
       "FPG": 1.7,
       "FDPG": 0.4,
       "EFFPG": 5.1,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Thomas Kennedy"
     },
     {
       "club": "三河",
@@ -8779,7 +8981,8 @@
       "FPG": 2.3,
       "FDPG": 1.6,
       "EFFPG": 4.3,
-      "+/-": 8.4
+      "+/-": 8.4,
+      "name_en": "Yutaro Suda"
     },
     {
       "club": "三河",
@@ -8815,7 +9018,8 @@
       "FPG": 2.3,
       "FDPG": 0.8,
       "EFFPG": 3.2,
-      "+/-": -0.5
+      "+/-": -0.5,
+      "name_en": "Ryogo Sumino"
     },
     {
       "club": "三河",
@@ -8851,7 +9055,8 @@
       "FPG": 2.6,
       "FDPG": 2.3,
       "EFFPG": 7.6,
-      "+/-": 8.6
+      "+/-": 8.6,
+      "name_en": "Yoshiaki Kubota"
     },
     {
       "club": "名古屋D",
@@ -8887,7 +9092,8 @@
       "FPG": 2.4,
       "FDPG": 4.7,
       "EFFPG": 20.7,
-      "+/-": 14.0
+      "+/-": 14.0,
+      "name_en": "Aaron Henry"
     },
     {
       "club": "名古屋D",
@@ -8923,7 +9129,8 @@
       "FPG": 2.1,
       "FDPG": 3.7,
       "EFFPG": 23.6,
-      "+/-": 9.7
+      "+/-": 9.7,
+      "name_en": "Scott Eatherton"
     },
     {
       "club": "名古屋D",
@@ -8959,7 +9166,8 @@
       "FPG": 1.4,
       "FDPG": 4.9,
       "EFFPG": 21.9,
-      "+/-": 15.4
+      "+/-": 15.4,
+      "name_en": "Takumi Saito"
     },
     {
       "club": "名古屋D",
@@ -8995,7 +9203,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": 0.5,
-      "+/-": 0.5
+      "+/-": 0.5,
+      "name_en": "Eita Wakano"
     },
     {
       "club": "名古屋D",
@@ -9031,7 +9240,8 @@
       "FPG": 2.1,
       "FDPG": 1.0,
       "EFFPG": 4.4,
-      "+/-": 7.6
+      "+/-": 7.6,
+      "name_en": "Quentin Millora-Brown"
     },
     {
       "club": "名古屋D",
@@ -9067,7 +9277,8 @@
       "FPG": 0.2,
       "FDPG": 0.0,
       "EFFPG": 0.6,
-      "+/-": 2.6
+      "+/-": 2.6,
+      "name_en": "Jake koki Holtz"
     },
     {
       "club": "名古屋D",
@@ -9103,7 +9314,8 @@
       "FPG": 0.3,
       "FDPG": 0.0,
       "EFFPG": -0.4,
-      "+/-": -0.6
+      "+/-": -0.6,
+      "name_en": "Hiyuu Ozawa"
     },
     {
       "club": "名古屋D",
@@ -9139,7 +9351,8 @@
       "FPG": 1.9,
       "FDPG": 2.0,
       "EFFPG": 13.3,
-      "+/-": 13.4
+      "+/-": 13.4,
+      "name_en": "Ryan Luther"
     },
     {
       "club": "名古屋D",
@@ -9175,7 +9388,8 @@
       "FPG": 1.4,
       "FDPG": 1.4,
       "EFFPG": 8.3,
-      "+/-": 4.1
+      "+/-": 4.1,
+      "name_en": "Taketo Kato"
     },
     {
       "club": "名古屋D",
@@ -9211,7 +9425,8 @@
       "FPG": 1.2,
       "FDPG": 0.6,
       "EFFPG": -1.6,
-      "+/-": -1.6
+      "+/-": -1.6,
+      "name_en": "Tenketsu Harimoto"
     },
     {
       "club": "名古屋D",
@@ -9247,7 +9462,8 @@
       "FPG": 1.1,
       "FDPG": 0.3,
       "EFFPG": 6.6,
-      "+/-": 9.4
+      "+/-": 9.4,
+      "name_en": "Taito Nakahigashi"
     },
     {
       "club": "名古屋D",
@@ -9283,7 +9499,8 @@
       "FPG": 1.7,
       "FDPG": 1.0,
       "EFFPG": 5.0,
-      "+/-": 3.6
+      "+/-": 3.6,
+      "name_en": "Isaiah Murphy"
     },
     {
       "club": "名古屋D",
@@ -9319,7 +9536,8 @@
       "FPG": 1.3,
       "FDPG": 0.7,
       "EFFPG": 6.1,
-      "+/-": 8.1
+      "+/-": 8.1,
+      "name_en": "Keita Imamura"
     },
     {
       "club": "滋賀",
@@ -9355,7 +9573,8 @@
       "FPG": 3.1,
       "FDPG": 7.9,
       "EFFPG": 30.6,
-      "+/-": -0.9
+      "+/-": -0.9,
+      "name_en": "Zach Auguste"
     },
     {
       "club": "滋賀",
@@ -9391,7 +9610,8 @@
       "FPG": 2.6,
       "FDPG": 1.8,
       "EFFPG": 9.3,
-      "+/-": 1.4
+      "+/-": 1.4,
+      "name_en": "Daichi Nomoto"
     },
     {
       "club": "滋賀",
@@ -9427,7 +9647,8 @@
       "FPG": 0.5,
       "FDPG": 0.0,
       "EFFPG": -3.0,
-      "+/-": -2.5
+      "+/-": -2.5,
+      "name_en": "Louieseandrey Sato"
     },
     {
       "club": "滋賀",
@@ -9463,7 +9684,8 @@
       "FPG": 2.0,
       "FDPG": 0.3,
       "EFFPG": 1.8,
-      "+/-": 4.0
+      "+/-": 4.0,
+      "name_en": "Taiga Jack Komamizu"
     },
     {
       "club": "滋賀",
@@ -9499,7 +9721,8 @@
       "FPG": 2.4,
       "FDPG": 5.4,
       "EFFPG": 22.9,
-      "+/-": 4.0
+      "+/-": 4.0,
+      "name_en": "Xavier Sneed"
     },
     {
       "club": "滋賀",
@@ -9535,7 +9758,8 @@
       "FPG": 1.9,
       "FDPG": 0.8,
       "EFFPG": 4.0,
-      "+/-": -2.7
+      "+/-": -2.7,
+      "name_en": "Tyrell Taku Sudo"
     },
     {
       "club": "滋賀",
@@ -9571,7 +9795,8 @@
       "FPG": 1.1,
       "FDPG": 0.1,
       "EFFPG": -1.3,
-      "+/-": -4.1
+      "+/-": -4.1,
+      "name_en": "Yosei Nishida"
     },
     {
       "club": "滋賀",
@@ -9607,7 +9832,8 @@
       "FPG": 2.5,
       "FDPG": 0.5,
       "EFFPG": 7.5,
-      "+/-": 0.3
+      "+/-": 0.3,
+      "name_en": "Ai-Che Yu"
     },
     {
       "club": "滋賀",
@@ -9643,7 +9869,8 @@
       "FPG": 1.4,
       "FDPG": 0.0,
       "EFFPG": 0.7,
-      "+/-": 2.1
+      "+/-": 2.1,
+      "name_en": "Shintaro Ehara"
     },
     {
       "club": "滋賀",
@@ -9679,7 +9906,8 @@
       "FPG": 3.6,
       "FDPG": 3.3,
       "EFFPG": 16.1,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Ryan Kriener"
     },
     {
       "club": "滋賀",
@@ -9715,7 +9943,8 @@
       "FPG": 1.9,
       "FDPG": 1.1,
       "EFFPG": 6.8,
-      "+/-": -1.9
+      "+/-": -1.9,
+      "name_en": "Hayate Komasawa"
     },
     {
       "club": "滋賀",
@@ -9751,7 +9980,8 @@
       "FPG": 1.6,
       "FDPG": 1.0,
       "EFFPG": 2.3,
-      "+/-": 3.9
+      "+/-": 3.9,
+      "name_en": "Taiki Okada"
     },
     {
       "club": "滋賀",
@@ -9787,7 +10017,8 @@
       "FPG": 0.3,
       "FDPG": 0.3,
       "EFFPG": 0.6,
-      "+/-": -1.4
+      "+/-": -1.4,
+      "name_en": "Takanori Tahara"
     },
     {
       "club": "京都",
@@ -9823,7 +10054,8 @@
       "FPG": 3.0,
       "FDPG": 5.4,
       "EFFPG": 31.2,
-      "+/-": 6.4
+      "+/-": 6.4,
+      "name_en": "Charles Jackson"
     },
     {
       "club": "京都",
@@ -9859,7 +10091,8 @@
       "FPG": 1.6,
       "FDPG": 4.6,
       "EFFPG": 27.0,
-      "+/-": 10.0
+      "+/-": 10.0,
+      "name_en": "Angelo Caloiaro"
     },
     {
       "club": "京都",
@@ -9895,7 +10128,8 @@
       "FPG": 1.9,
       "FDPG": 1.6,
       "EFFPG": 6.8,
-      "+/-": -0.1
+      "+/-": -0.1,
+      "name_en": "Michael Phillips"
     },
     {
       "club": "京都",
@@ -9931,7 +10165,8 @@
       "FPG": 1.3,
       "FDPG": 2.3,
       "EFFPG": 10.1,
-      "+/-": 4.2
+      "+/-": 4.2,
+      "name_en": "Demetre Rivers"
     },
     {
       "club": "京都",
@@ -9967,7 +10202,8 @@
       "FPG": 1.1,
       "FDPG": 0.4,
       "EFFPG": 2.0,
-      "+/-": 3.2
+      "+/-": 3.2,
+      "name_en": "Shuma Nishibe"
     },
     {
       "club": "京都",
@@ -10003,7 +10239,8 @@
       "FPG": 0.9,
       "FDPG": 0.7,
       "EFFPG": 2.1,
-      "+/-": 0.3
+      "+/-": 0.3,
+      "name_en": "Kanta Mizuno"
     },
     {
       "club": "京都",
@@ -10039,7 +10276,8 @@
       "FPG": 2.2,
       "FDPG": 1.0,
       "EFFPG": 6.8,
-      "+/-": 8.3
+      "+/-": 8.3,
+      "name_en": "Leon Shibuta"
     },
     {
       "club": "京都",
@@ -10075,7 +10313,8 @@
       "FPG": 1.9,
       "FDPG": 0.6,
       "EFFPG": 2.7,
-      "+/-": 4.3
+      "+/-": 4.3,
+      "name_en": "Mone Alex Hall"
     },
     {
       "club": "京都",
@@ -10111,7 +10350,8 @@
       "FPG": 2.4,
       "FDPG": 0.1,
       "EFFPG": 2.4,
-      "+/-": 4.7
+      "+/-": 4.7,
+      "name_en": "Ryunosuke Watanabe"
     },
     {
       "club": "京都",
@@ -10147,7 +10387,8 @@
       "FPG": 1.6,
       "FDPG": 3.4,
       "EFFPG": 7.8,
-      "+/-": 5.3
+      "+/-": 5.3,
+      "name_en": "Ryuichi Kishimoto"
     },
     {
       "club": "京都",
@@ -10183,7 +10424,8 @@
       "FPG": 1.9,
       "FDPG": 0.1,
       "EFFPG": 0.6,
-      "+/-": 1.2
+      "+/-": 1.2,
+      "name_en": "Hayato Kawashima"
     },
     {
       "club": "京都",
@@ -10219,7 +10461,8 @@
       "FPG": 1.1,
       "FDPG": 2.2,
       "EFFPG": 6.1,
-      "+/-": 4.5
+      "+/-": 4.5,
+      "name_en": "Satoru Maeta"
     },
     {
       "club": "大阪",
@@ -10255,7 +10498,8 @@
       "FPG": 2.0,
       "FDPG": 5.0,
       "EFFPG": 23.6,
-      "+/-": -4.8
+      "+/-": -4.8,
+      "name_en": "Sebastian Saiz"
     },
     {
       "club": "大阪",
@@ -10291,7 +10535,8 @@
       "FPG": 1.8,
       "FDPG": 4.9,
       "EFFPG": 17.3,
-      "+/-": -14.1
+      "+/-": -14.1,
+      "name_en": "James Palmer Jr."
     },
     {
       "club": "大阪",
@@ -10327,7 +10572,8 @@
       "FPG": 1.4,
       "FDPG": 1.1,
       "EFFPG": 2.1,
-      "+/-": -19.8
+      "+/-": -19.8,
+      "name_en": "Hayato Maki"
     },
     {
       "club": "大阪",
@@ -10363,7 +10609,8 @@
       "FPG": 2.6,
       "FDPG": 1.3,
       "EFFPG": 4.7,
-      "+/-": -6.1
+      "+/-": -6.1,
+      "name_en": "Damonte Dodd"
     },
     {
       "club": "大阪",
@@ -10399,7 +10646,8 @@
       "FPG": 2.3,
       "FDPG": 1.4,
       "EFFPG": 6.7,
-      "+/-": -8.6
+      "+/-": -8.6,
+      "name_en": "Kyo-chang Song"
     },
     {
       "club": "大阪",
@@ -10435,7 +10683,8 @@
       "FPG": 1.3,
       "FDPG": 0.0,
       "EFFPG": 0.0,
-      "+/-": -5.3
+      "+/-": -5.3,
+      "name_en": "Takeshi Sato"
     },
     {
       "club": "大阪",
@@ -10471,7 +10720,8 @@
       "FPG": 3.3,
       "FDPG": 1.9,
       "EFFPG": 4.3,
-      "+/-": -8.6
+      "+/-": -8.6,
+      "name_en": "Kaisei Takahashi"
     },
     {
       "club": "大阪",
@@ -10507,7 +10757,8 @@
       "FPG": 2.7,
       "FDPG": 0.4,
       "EFFPG": 1.0,
-      "+/-": -10.7
+      "+/-": -10.7,
+      "name_en": "Yoshiya Uematsu"
     },
     {
       "club": "大阪",
@@ -10543,7 +10794,8 @@
       "FPG": 2.0,
       "FDPG": 1.8,
       "EFFPG": 2.7,
-      "+/-": -9.4
+      "+/-": -9.4,
+      "name_en": "Seiga Sakamoto"
     },
     {
       "club": "大阪",
@@ -10579,7 +10831,8 @@
       "FPG": 1.2,
       "FDPG": 1.1,
       "EFFPG": 6.2,
-      "+/-": -5.6
+      "+/-": -5.6,
+      "name_en": "Makoto Kinoshita"
     },
     {
       "club": "大阪",
@@ -10615,7 +10868,8 @@
       "FPG": 2.9,
       "FDPG": 2.7,
       "EFFPG": 6.7,
-      "+/-": -9.1
+      "+/-": -9.1,
+      "name_en": "Joji Takeuchi"
     },
     {
       "club": "神戸",
@@ -10651,7 +10905,8 @@
       "FPG": 2.0,
       "FDPG": 7.0,
       "EFFPG": 27.2,
-      "+/-": -5.6
+      "+/-": -5.6,
+      "name_en": "Yoeli Childs"
     },
     {
       "club": "神戸",
@@ -10687,7 +10942,8 @@
       "FPG": 2.7,
       "FDPG": 3.6,
       "EFFPG": 23.5,
-      "+/-": -4.5
+      "+/-": -4.5,
+      "name_en": "Fardaws Aimaq"
     },
     {
       "club": "神戸",
@@ -10723,7 +10979,8 @@
       "FPG": 3.5,
       "FDPG": 3.0,
       "EFFPG": 7.7,
-      "+/-": -3.8
+      "+/-": -3.8,
+      "name_en": "Shuto Terazono"
     },
     {
       "club": "神戸",
@@ -10759,7 +11016,8 @@
       "FPG": 0.3,
       "FDPG": 0.3,
       "EFFPG": -0.7,
-      "+/-": -0.3
+      "+/-": -0.3,
+      "name_en": "Michiya Nakajima"
     },
     {
       "club": "神戸",
@@ -10795,7 +11053,8 @@
       "FPG": 2.4,
       "FDPG": 2.5,
       "EFFPG": 11.3,
-      "+/-": -6.1
+      "+/-": -6.1,
+      "name_en": "Jalen McDaniels"
     },
     {
       "club": "神戸",
@@ -10831,7 +11090,8 @@
       "FPG": 1.3,
       "FDPG": 0.3,
       "EFFPG": 0.0,
-      "+/-": -4.0
+      "+/-": -4.0,
+      "name_en": "Lucas Saleh"
     },
     {
       "club": "神戸",
@@ -10867,7 +11127,8 @@
       "FPG": 1.6,
       "FDPG": 0.1,
       "EFFPG": -0.5,
-      "+/-": -0.5
+      "+/-": -0.5,
+      "name_en": "Keigo Kimura"
     },
     {
       "club": "神戸",
@@ -10903,7 +11164,8 @@
       "FPG": 2.4,
       "FDPG": 1.7,
       "EFFPG": 6.2,
-      "+/-": -3.5
+      "+/-": -3.5,
+      "name_en": "Asato Ogawa"
     },
     {
       "club": "神戸",
@@ -10939,7 +11201,8 @@
       "FPG": 2.2,
       "FDPG": 0.7,
       "EFFPG": 2.1,
-      "+/-": -3.2
+      "+/-": -3.2,
+      "name_en": "Ryuya Kaneda"
     },
     {
       "club": "神戸",
@@ -10975,7 +11238,8 @@
       "FPG": 1.6,
       "FDPG": 1.0,
       "EFFPG": 3.0,
-      "+/-": -5.5
+      "+/-": -5.5,
+      "name_en": "Hayato Yamaguchi"
     },
     {
       "club": "神戸",
@@ -11011,7 +11275,8 @@
       "FPG": 0.8,
       "FDPG": 0.6,
       "EFFPG": 0.3,
-      "+/-": -4.9
+      "+/-": -4.9,
+      "name_en": "Allen Hachimura"
     },
     {
       "club": "神戸",
@@ -11047,7 +11312,8 @@
       "FPG": 0.6,
       "FDPG": 0.2,
       "EFFPG": 1.7,
-      "+/-": 1.4
+      "+/-": 1.4,
+      "name_en": "Tsukasa Nakano"
     },
     {
       "club": "島根",
@@ -11083,7 +11349,8 @@
       "FPG": 1.6,
       "FDPG": 3.5,
       "EFFPG": 16.3,
-      "+/-": 1.3
+      "+/-": 1.3,
+      "name_en": "Dexter Dennis"
     },
     {
       "club": "島根",
@@ -11119,7 +11386,8 @@
       "FPG": 2.0,
       "FDPG": 4.1,
       "EFFPG": 27.1,
-      "+/-": 7.2
+      "+/-": 7.2,
+      "name_en": "Nick Kay"
     },
     {
       "club": "島根",
@@ -11155,7 +11423,8 @@
       "FPG": 3.0,
       "FDPG": 4.6,
       "EFFPG": 18.4,
-      "+/-": 4.1
+      "+/-": 4.1,
+      "name_en": "Yuta Okada"
     },
     {
       "club": "島根",
@@ -11191,7 +11460,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": -1.0,
-      "+/-": -8.0
+      "+/-": -8.0,
+      "name_en": "Fumiya Iio"
     },
     {
       "club": "島根",
@@ -11227,7 +11497,8 @@
       "FPG": 2.6,
       "FDPG": 1.0,
       "EFFPG": 0.0,
-      "+/-": -8.8
+      "+/-": -8.8,
+      "name_en": "Anthony Sho Sukegawa"
     },
     {
       "club": "島根",
@@ -11263,7 +11534,8 @@
       "FPG": 1.3,
       "FDPG": 0.6,
       "EFFPG": 0.6,
-      "+/-": -5.9
+      "+/-": -5.9,
+      "name_en": "Shota Arai"
     },
     {
       "club": "島根",
@@ -11299,7 +11571,8 @@
       "FPG": 1.5,
       "FDPG": 0.3,
       "EFFPG": 0.9,
-      "+/-": -1.2
+      "+/-": -1.2,
+      "name_en": "Mark AlKhoury"
     },
     {
       "club": "島根",
@@ -11335,7 +11608,8 @@
       "FPG": 1.7,
       "FDPG": 0.8,
       "EFFPG": 2.7,
-      "+/-": -4.3
+      "+/-": -4.3,
+      "name_en": "Taichi Nakamura"
     },
     {
       "club": "島根",
@@ -11371,7 +11645,8 @@
       "FPG": 3.4,
       "FDPG": 1.1,
       "EFFPG": 1.7,
-      "+/-": 5.0
+      "+/-": 5.0,
+      "name_en": "Shunsuke Ueda"
     },
     {
       "club": "島根",
@@ -11407,7 +11682,8 @@
       "FPG": 0.7,
       "FDPG": 0.7,
       "EFFPG": 2.0,
-      "+/-": -0.8
+      "+/-": -0.8,
+      "name_en": "Soichiro Inoue"
     },
     {
       "club": "島根",
@@ -11443,7 +11719,8 @@
       "FPG": 2.5,
       "FDPG": 2.0,
       "EFFPG": 15.2,
-      "+/-": -4.8
+      "+/-": -4.8,
+      "name_en": "Jordan Heath"
     },
     {
       "club": "島根",
@@ -11479,7 +11756,8 @@
       "FPG": 2.1,
       "FDPG": 0.4,
       "EFFPG": 0.9,
-      "+/-": -1.4
+      "+/-": -1.4,
+      "name_en": "Ryosuke Shirahama"
     },
     {
       "club": "島根",
@@ -11515,7 +11793,8 @@
       "FPG": 0.8,
       "FDPG": 0.5,
       "EFFPG": 1.0,
-      "+/-": -2.5
+      "+/-": -2.5,
+      "name_en": "Yuto Nohmi"
     },
     {
       "club": "広島",
@@ -11551,7 +11830,8 @@
       "FPG": 2.0,
       "FDPG": 5.4,
       "EFFPG": 31.3,
-      "+/-": 8.9
+      "+/-": 8.9,
+      "name_en": "Kofi Cockburn"
     },
     {
       "club": "広島",
@@ -11587,7 +11867,8 @@
       "FPG": 1.4,
       "FDPG": 5.8,
       "EFFPG": 27.1,
-      "+/-": 12.9
+      "+/-": 12.9,
+      "name_en": "Dwayne Evans II"
     },
     {
       "club": "広島",
@@ -11623,7 +11904,8 @@
       "FPG": 0.5,
       "FDPG": 0.3,
       "EFFPG": -1.0,
-      "+/-": -2.8
+      "+/-": -2.8,
+      "name_en": "Toshiki Kamisawa"
     },
     {
       "club": "広島",
@@ -11659,7 +11941,8 @@
       "FPG": 1.9,
       "FDPG": 0.5,
       "EFFPG": 1.3,
-      "+/-": -0.5
+      "+/-": -0.5,
+      "name_en": "Ryo Terashima"
     },
     {
       "club": "広島",
@@ -11695,7 +11978,8 @@
       "FPG": 0.4,
       "FDPG": 0.3,
       "EFFPG": -0.6,
-      "+/-": 2.3
+      "+/-": 2.3,
+      "name_en": "Haruya Matsuno"
     },
     {
       "club": "広島",
@@ -11731,7 +12015,8 @@
       "FPG": 2.4,
       "FDPG": 1.0,
       "EFFPG": 7.7,
-      "+/-": 9.4
+      "+/-": 9.4,
+      "name_en": "Ryosei Sato"
     },
     {
       "club": "広島",
@@ -11767,7 +12052,8 @@
       "FPG": 2.9,
       "FDPG": 0.9,
       "EFFPG": 3.6,
-      "+/-": 6.1
+      "+/-": 6.1,
+      "name_en": "Keijiro Mitani"
     },
     {
       "club": "広島",
@@ -11803,7 +12089,8 @@
       "FPG": 2.6,
       "FDPG": 5.8,
       "EFFPG": 20.4,
-      "+/-": 11.3
+      "+/-": 11.3,
+      "name_en": "Christopher Smith"
     },
     {
       "club": "広島",
@@ -11839,7 +12126,8 @@
       "FPG": 0.6,
       "FDPG": 0.3,
       "EFFPG": 0.1,
-      "+/-": -0.9
+      "+/-": -0.9,
+      "name_en": "Kaine Roberts"
     },
     {
       "club": "広島",
@@ -11875,7 +12163,8 @@
       "FPG": 2.9,
       "FDPG": 0.3,
       "EFFPG": 2.1,
-      "+/-": 7.3
+      "+/-": 7.3,
+      "name_en": "Ryo Yamazaki"
     },
     {
       "club": "広島",
@@ -11911,7 +12200,8 @@
       "FPG": 2.0,
       "FDPG": 1.7,
       "EFFPG": 15.5,
-      "+/-": 13.1
+      "+/-": 13.1,
+      "name_en": "Nick Mayo"
     },
     {
       "club": "広島",
@@ -11947,7 +12237,8 @@
       "FPG": 1.9,
       "FDPG": 1.0,
       "EFFPG": 2.3,
-      "+/-": 2.3
+      "+/-": 2.3,
+      "name_en": "Tatsuya Ito"
     },
     {
       "club": "広島",
@@ -11983,7 +12274,8 @@
       "FPG": 1.1,
       "FDPG": 0.1,
       "EFFPG": 2.1,
-      "+/-": -3.3
+      "+/-": -3.3,
+      "name_en": "Kevin Hareyama"
     },
     {
       "club": "佐賀",
@@ -12019,7 +12311,8 @@
       "FPG": 2.3,
       "FDPG": 4.9,
       "EFFPG": 22.1,
-      "+/-": -15.8
+      "+/-": -15.8,
+      "name_en": "Nassir Little"
     },
     {
       "club": "佐賀",
@@ -12055,7 +12348,8 @@
       "FPG": 2.3,
       "FDPG": 3.4,
       "EFFPG": 15.9,
-      "+/-": -10.6
+      "+/-": -10.6,
+      "name_en": "David Dudzinski"
     },
     {
       "club": "佐賀",
@@ -12091,7 +12385,8 @@
       "FPG": 3.1,
       "FDPG": 1.3,
       "EFFPG": 6.9,
-      "+/-": -14.2
+      "+/-": -14.2,
+      "name_en": "Taiki Sumida"
     },
     {
       "club": "佐賀",
@@ -12127,7 +12422,8 @@
       "FPG": 1.0,
       "FDPG": 4.5,
       "EFFPG": 9.0,
-      "+/-": -11.5
+      "+/-": -11.5,
+      "name_en": "Christopher Olivier"
     },
     {
       "club": "佐賀",
@@ -12163,7 +12459,8 @@
       "FPG": 0.3,
       "FDPG": 0.3,
       "EFFPG": 1.6,
-      "+/-": -0.3
+      "+/-": -0.3,
+      "name_en": "Futa Takedomi"
     },
     {
       "club": "佐賀",
@@ -12199,7 +12496,8 @@
       "FPG": 0.8,
       "FDPG": 0.2,
       "EFFPG": 1.8,
-      "+/-": -9.8
+      "+/-": -9.8,
+      "name_en": "Kosuke Hashimoto"
     },
     {
       "club": "佐賀",
@@ -12235,7 +12533,8 @@
       "FPG": 2.3,
       "FDPG": 1.4,
       "EFFPG": 4.3,
-      "+/-": -7.4
+      "+/-": -7.4,
+      "name_en": "Derrick Michael Xzavierro"
     },
     {
       "club": "佐賀",
@@ -12271,7 +12570,8 @@
       "FPG": 1.9,
       "FDPG": 4.1,
       "EFFPG": 21.0,
-      "+/-": -10.6
+      "+/-": -10.6,
+      "name_en": "Damyean Dotson"
     },
     {
       "club": "佐賀",
@@ -12307,7 +12607,8 @@
       "FPG": 2.2,
       "FDPG": 0.3,
       "EFFPG": -2.2,
-      "+/-": -7.0
+      "+/-": -7.0,
+      "name_en": "Toshiki Tomiyama"
     },
     {
       "club": "佐賀",
@@ -12343,7 +12644,8 @@
       "FPG": 1.6,
       "FDPG": 0.7,
       "EFFPG": 1.1,
-      "+/-": -4.1
+      "+/-": -4.1,
+      "name_en": "Sori Uchio"
     },
     {
       "club": "佐賀",
@@ -12379,7 +12681,8 @@
       "FPG": 2.1,
       "FDPG": 0.7,
       "EFFPG": 0.2,
-      "+/-": -6.7
+      "+/-": -6.7,
+      "name_en": "Ryota Inoue"
     },
     {
       "club": "佐賀",
@@ -12415,7 +12718,8 @@
       "FPG": 1.6,
       "FDPG": 1.1,
       "EFFPG": 3.8,
-      "+/-": -4.9
+      "+/-": -4.9,
+      "name_en": "Atsuki Kishida"
     },
     {
       "club": "佐賀",
@@ -12451,7 +12755,8 @@
       "FPG": 2.7,
       "FDPG": 1.2,
       "EFFPG": 5.0,
-      "+/-": -15.4
+      "+/-": -15.4,
+      "name_en": "Ryo Abe"
     },
     {
       "club": "長崎",
@@ -12487,7 +12792,8 @@
       "FPG": 2.5,
       "FDPG": 4.0,
       "EFFPG": 20.2,
-      "+/-": 1.8
+      "+/-": 1.8,
+      "name_en": "Jarrell Brantley"
     },
     {
       "club": "長崎",
@@ -12523,7 +12829,8 @@
       "FPG": 2.5,
       "FDPG": 2.8,
       "EFFPG": 16.8,
-      "+/-": 3.6
+      "+/-": 3.6,
+      "name_en": "Pablo Aguilar"
     },
     {
       "club": "長崎",
@@ -12559,7 +12866,8 @@
       "FPG": 2.0,
       "FDPG": 4.1,
       "EFFPG": 17.5,
-      "+/-": 0.0
+      "+/-": 0.0,
+      "name_en": "Levi Randolph"
     },
     {
       "club": "長崎",
@@ -12595,7 +12903,8 @@
       "FPG": 2.3,
       "FDPG": 0.3,
       "EFFPG": -0.9,
-      "+/-": -4.5
+      "+/-": -4.5,
+      "name_en": "Lucas Tanaka"
     },
     {
       "club": "長崎",
@@ -12631,7 +12940,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": 3.0,
-      "+/-": -2.0
+      "+/-": -2.0,
+      "name_en": "Akil Mitchell"
     },
     {
       "club": "長崎",
@@ -12667,7 +12977,8 @@
       "FPG": 0.0,
       "FDPG": 0.8,
       "EFFPG": 1.0,
-      "+/-": -0.8
+      "+/-": -0.8,
+      "name_en": "Sena Platt"
     },
     {
       "club": "長崎",
@@ -12703,7 +13014,8 @@
       "FPG": 2.0,
       "FDPG": 1.8,
       "EFFPG": 6.3,
-      "+/-": -2.0
+      "+/-": -2.0,
+      "name_en": "Io Nagano"
     },
     {
       "club": "長崎",
@@ -12739,7 +13051,8 @@
       "FPG": 2.3,
       "FDPG": 4.4,
       "EFFPG": 16.0,
-      "+/-": 0.5
+      "+/-": 0.5,
+      "name_en": "Yudai Baba"
     },
     {
       "club": "長崎",
@@ -12775,7 +13088,8 @@
       "FPG": 0.7,
       "FDPG": 0.1,
       "EFFPG": 0.4,
-      "+/-": -5.2
+      "+/-": -5.2,
+      "name_en": "Kenji leon Matsumoto"
     },
     {
       "club": "長崎",
@@ -12811,7 +13125,8 @@
       "FPG": 0.7,
       "FDPG": 0.3,
       "EFFPG": 1.8,
-      "+/-": -6.1
+      "+/-": -6.1,
+      "name_en": "Kenshin Hoshikawa"
     },
     {
       "club": "長崎",
@@ -12847,7 +13162,8 @@
       "FPG": 0.8,
       "FDPG": 0.1,
       "EFFPG": -1.3,
-      "+/-": -3.6
+      "+/-": -3.6,
+      "name_en": "Kanji Takahira"
     },
     {
       "club": "長崎",
@@ -12883,7 +13199,8 @@
       "FPG": 3.3,
       "FDPG": 1.6,
       "EFFPG": 5.0,
-      "+/-": -1.4
+      "+/-": -1.4,
+      "name_en": "Ko Kumagai"
     },
     {
       "club": "長崎",
@@ -12919,7 +13236,8 @@
       "FPG": 2.7,
       "FDPG": 0.6,
       "EFFPG": -0.8,
-      "+/-": -1.8
+      "+/-": -1.8,
+      "name_en": "Alistair Tokio Tsuchiya"
     },
     {
       "club": "長崎",
@@ -12955,7 +13273,8 @@
       "FPG": 1.3,
       "FDPG": 0.7,
       "EFFPG": 3.9,
-      "+/-": -3.9
+      "+/-": -3.9,
+      "name_en": "Masaaki Morikawa"
     },
     {
       "club": "琉球",
@@ -12991,7 +13310,8 @@
       "FPG": 2.6,
       "FDPG": 7.3,
       "EFFPG": 26.0,
-      "+/-": -0.2
+      "+/-": -0.2,
+      "name_en": "David Nwaba"
     },
     {
       "club": "琉球",
@@ -13027,7 +13347,8 @@
       "FPG": 3.0,
       "FDPG": 3.5,
       "EFFPG": 19.3,
-      "+/-": 4.1
+      "+/-": 4.1,
+      "name_en": "Jack Cooley"
     },
     {
       "club": "琉球",
@@ -13063,7 +13384,8 @@
       "FPG": 2.5,
       "FDPG": 2.1,
       "EFFPG": 7.5,
-      "+/-": 0.9
+      "+/-": 0.9,
+      "name_en": "Sota Oura"
     },
     {
       "club": "琉球",
@@ -13099,7 +13421,8 @@
       "FPG": 1.6,
       "FDPG": 1.6,
       "EFFPG": 4.6,
-      "+/-": 0.4
+      "+/-": 0.4,
+      "name_en": "Koya Kawamata"
     },
     {
       "club": "琉球",
@@ -13135,7 +13458,8 @@
       "FPG": 0.0,
       "FDPG": 0.0,
       "EFFPG": 0.7,
-      "+/-": 1.0
+      "+/-": 1.0,
+      "name_en": "Ryunosuke Satori"
     },
     {
       "club": "琉球",
@@ -13171,7 +13495,8 @@
       "FPG": 0.0,
       "FDPG": 0.5,
       "EFFPG": 4.5,
-      "+/-": 9.5
+      "+/-": 9.5,
+      "name_en": "Koya Kobari"
     },
     {
       "club": "琉球",
@@ -13207,7 +13532,8 @@
       "FPG": 0.0,
       "FDPG": 0.2,
       "EFFPG": 2.2,
-      "+/-": 3.0
+      "+/-": 3.0,
+      "name_en": "Morihisa Yamauchi"
     },
     {
       "club": "琉球",
@@ -13243,7 +13569,8 @@
       "FPG": 2.2,
       "FDPG": 1.3,
       "EFFPG": 7.5,
-      "+/-": 2.4
+      "+/-": 2.4,
+      "name_en": "Masahiro Waki"
     },
     {
       "club": "琉球",
@@ -13279,7 +13606,8 @@
       "FPG": 2.3,
       "FDPG": 2.6,
       "EFFPG": 9.9,
-      "+/-": 3.6
+      "+/-": 3.6,
+      "name_en": "Kiefer Ravena"
     },
     {
       "club": "琉球",
@@ -13315,7 +13643,8 @@
       "FPG": 2.5,
       "FDPG": 2.0,
       "EFFPG": 3.3,
-      "+/-": 9.2
+      "+/-": 9.2,
+      "name_en": "Ryo Sadohara"
     },
     {
       "club": "琉球",
@@ -13351,7 +13680,8 @@
       "FPG": 1.2,
       "FDPG": 1.2,
       "EFFPG": 12.9,
-      "+/-": -0.1
+      "+/-": -0.1,
+      "name_en": "Kevin Jones"
     },
     {
       "club": "琉球",
@@ -13387,7 +13717,8 @@
       "FPG": 1.6,
       "FDPG": 0.9,
       "EFFPG": 1.0,
-      "+/-": -0.8
+      "+/-": -0.8,
+      "name_en": "Shota Onodera"
     },
     {
       "club": "琉球",
@@ -13423,7 +13754,8 @@
       "FPG": 2.3,
       "FDPG": 0.6,
       "EFFPG": 2.9,
-      "+/-": -3.2
+      "+/-": -3.2,
+      "name_en": "Yoshiyuki Matsuwaki"
     }
   ],
   "errors": [],
@@ -13435,7 +13767,7 @@
   "retrieved": {
     "advanced": "2026-10-28 10:56 JST",
     "basic": "2026-10-28 10:56 JST",
-    "players": "2026-10-28 11:06 JST"
+    "players": "2026-10-28 11:17 JST"
   },
   "method": {
     "advanced": "leaderboard",
