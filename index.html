@@ -201,7 +201,9 @@ function playerId(p){
  return String(p?.url||'').match(/[?&]PlayerID=(\d+)/)?.[1]||'';
 }
 function verifiedEnglishName(p){
- return (p?.name_en||EN_OFFICIAL_NAMES[playerId(p)]||'');
+ // Only the separately verified full-name map is authoritative.
+ // Early per-player extraction sometimes stored a partial name (e.g. "El Darwich").
+ return EN_OFFICIAL_NAMES[playerId(p)]||'';
 }
 function displayPlayerName(p){
  if(!p)return '';
