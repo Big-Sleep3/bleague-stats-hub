@@ -11,6 +11,9 @@ class EnglishNameTests(unittest.TestCase):
  def test_split_suffix_not_lost(self):
   html='<span>Trey</span><span>Kell III</span><h2>トレイ・ケル</h2><div>PTS Total Points</div>'
   self.assertEqual(extract_official_english(html,'トレイ・ケル'),'Trey Kell III')
+ def test_current_japanese_profile_uses_ppg(self):
+  html='<header>富永 啓生</header><div>Keisei Tominaga</div><h2>富永 啓生</h2><div>PPG 平均得点数</div>'
+  self.assertEqual(extract_official_english(html,'富永 啓生'),'Keisei Tominaga')
  def test_japanese_name_with_spaces(self):
   html="""<div>Keisei Tominaga</div><h2>富永 啓生</h2><div>PTS Total Points</div>"""
   self.assertEqual(extract_official_english(html,'富永啓生'),'Keisei Tominaga')
