@@ -1,0 +1,50 @@
+name: Verify English Player Names
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/enrich_english.py'
+      - 'tests/test_name_enrichment.py'
+      - '.github/workflows/enrich-names.yml'
+  workflow_dispatch:
+  schedule:
+    # 05:43 JST, after the early-morning player statistics refresh
+    - cron: '43 20 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: player-name-enrichment
+  cancel-in-progress: false
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install playwright==1.56.0 beautifulsoup4==4.14.2
+          python -m playwright install --with-deps chromium
+      - name: Test English name extraction
+        run: python -m unittest discover -s tests -p 'test_name_enrichment.py' -v
+      - name: Retrieve and verify official English names
+        id: names
+        continue-on-error: true
+        run: python scripts/enrich_english.py
+      - name: Save names without touching numerical statistics
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/player-names-en.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh verified English player names'
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Report unusable official name pages
+        if: steps.names.outcome == 'failure'
+        run: exit 1
