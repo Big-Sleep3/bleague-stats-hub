@@ -1,0 +1,20 @@
+name: Discover Kansai 2026 Official Stats Sources
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/discover-kansai-stats.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'beautifulsoup4>=4.12,<5'
+      - name: Discover original official links
+        run: python scripts/discover_kansai_sources.py
