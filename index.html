@@ -487,7 +487,7 @@ const originalRender=render;
 render=function(){originalRender();translatePage();};
 
 render();
-if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26){data=next;render()}}).catch(()=>{const w=$('warning');w.textContent+=language==='en'?' Latest hosted JSON unavailable; showing bundled snapshot.':' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
+if(location.protocol.startsWith('http')){fetch('./data/stats.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(next=>{if(next.schema===1&&next.advanced?.length===26&&next.basic?.length===26&&next.players?.length>=300){data=next;render()}else{throw Error('Incomplete hosted statistics; retaining validated embedded dataset')}}).catch(()=>{const w=$('warning');w.textContent+=language==='en'?' Latest hosted JSON unavailable; showing bundled snapshot.':' 公開先の最新JSONが取得できず、内蔵スナップショットを表示しています。';w.classList.remove('ok');translatePage()})}
 
 if(location.protocol.startsWith('http')){
  fetch('./data/player-names-en.json',{cache:'no-store'})
