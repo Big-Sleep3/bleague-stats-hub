@@ -1,0 +1,24 @@
+name: Recruiting UI Browser Regression
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'recruiting/*.html'
+      - 'recruiting/i18n.js'
+      - 'tests/test_recruiting_browser.py'
+      - '.github/workflows/test-recruiting-ui.yml'
+permissions:
+  contents: read
+jobs:
+  browser-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'playwright>=1.50,<2'
+      - run: python -m playwright install --with-deps chromium
+      - name: Test public board and staff portal in Chromium (offline Supabase stub)
+        run: python -m unittest discover -s tests -p 'test_recruiting_browser.py' -v
