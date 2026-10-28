@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "asOf": "2026-10-28 14:46 JST",
+  "asOf": "2026-10-28 14:49 JST",
   "coverage": "Sourced basketball player physical measurements. Older measurements labelled by source year.",
   "players": [
     {
@@ -42,6 +42,47 @@
       "sources": [
         "https://www.bleague.jp/roster_detail/?PlayerID=51000562",
         "https://jubf.jp/game/university-detail/id/6/type/intercollege/y/2025/s/men"
+      ]
+    },
+    {
+      "id": "K26-002",
+      "name": "スヴェトリシック イゴール",
+      "university": "山梨学院大学",
+      "heightEvidence": {
+        "value": 203.0,
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 108,
+        "source": "https://northern-happinets.com/news/detail/id%3D19716",
+        "sourceYear": 2025,
+        "publisher": "秋田ノーザンハピネッツ 2025.12公式発表",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "C",
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "height": 203.0,
+      "weight": 108,
+      "position": "C",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
+        "https://northern-happinets.com/news/detail/id%3D19716"
       ]
     },
     {
@@ -89,10 +130,10 @@
       "name": "菅野 陸",
       "university": "山梨学院大学",
       "heightEvidence": {
-        "value": 176,
-        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "value": 178.0,
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
         "sourceYear": 2025,
-        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "publisher": "JUBF official tournament roster",
         "quality": 2
       },
       "weightEvidence": {
@@ -104,23 +145,24 @@
       },
       "positionEvidence": {
         "value": "PG",
-        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
         "sourceYear": 2025,
-        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "publisher": "JUBF official tournament roster",
         "quality": 2
       },
       "gradeEvidence": {
         "value": 3,
-        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "source": "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
         "sourceYear": 2025,
-        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "publisher": "JUBF official tournament roster",
         "quality": 2
       },
-      "height": 176,
+      "height": 178.0,
       "weight": 69,
       "position": "PG",
       "grade": 3,
       "sources": [
+        "https://jubf.jp/game/university-detail/id/204/type/intercollege/y/2025/s/men",
         "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D"
       ]
     },
@@ -774,6 +816,46 @@
       ]
     },
     {
+      "id": "K26-021",
+      "name": "中村 千颯",
+      "university": "山梨学院大学",
+      "heightEvidence": {
+        "value": 166,
+        "source": "https://bojweb.com/?p=7294",
+        "sourceYear": 2026,
+        "publisher": "BOJweb 2026選手インタビュー",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 65,
+        "source": "https://bojweb.com/?p=7294",
+        "sourceYear": 2026,
+        "publisher": "BOJweb 2026選手インタビュー",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://bojweb.com/?p=7294",
+        "sourceYear": 2026,
+        "publisher": "BOJweb 2026選手インタビュー",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://bojweb.com/?p=7294",
+        "sourceYear": 2026,
+        "publisher": "BOJweb 2026選手インタビュー",
+        "quality": 2
+      },
+      "height": 166,
+      "weight": 65,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://bojweb.com/?p=7294"
+      ]
+    },
+    {
       "id": "K26-022",
       "name": "嘉手川 太智",
       "university": "早稲田大学",
@@ -852,6 +934,46 @@
       "grade": 4,
       "sources": [
         "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1152/"
+      ]
+    },
+    {
+      "id": "K26-024",
+      "name": "関 峻作",
+      "university": "国士舘大学",
+      "heightEvidence": {
+        "value": 193,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 94,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF/PF",
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "height": 193,
+      "weight": 94,
+      "position": "SF/PF",
+      "grade": 4,
+      "sources": [
+        "https://basketballking.jp/news/japan/fixed/634331.html"
       ]
     },
     {
@@ -976,6 +1098,46 @@
       ]
     },
     {
+      "id": "K26-028",
+      "name": "齋藤 晴",
+      "university": "山梨学院大学",
+      "heightEvidence": {
+        "value": 190,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 90,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "height": 190,
+      "weight": 90,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://basketballking.jp/news/japan/fixed/634331.html"
+      ]
+    },
+    {
       "id": "K26-030",
       "name": "芦田 真人",
       "university": "青山学院大学",
@@ -1057,6 +1219,30 @@
       ]
     },
     {
+      "id": "K26D2-C44C6085E66B",
+      "name": "エクプ ハロルド アズカ",
+      "university": "拓殖大学",
+      "heightEvidence": {
+        "value": 200,
+        "source": "https://www.tu-orangecrushers.com/player/28%E3%83%8F%E3%83%AD%E3%83%AB%E3%83%89%E3%82%A2%E3%82%BA%E3%82%AB/",
+        "sourceYear": 2026,
+        "publisher": "拓殖大学 Orange Crushers 公式プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 99,
+        "source": "https://www.tu-orangecrushers.com/player/28%E3%83%8F%E3%83%AD%E3%83%AB%E3%83%89%E3%82%A2%E3%82%BA%E3%82%AB/",
+        "sourceYear": 2026,
+        "publisher": "拓殖大学 Orange Crushers 公式プロフィール",
+        "quality": 2
+      },
+      "height": 200,
+      "weight": 99,
+      "sources": [
+        "https://www.tu-orangecrushers.com/player/28%E3%83%8F%E3%83%AD%E3%83%AB%E3%83%89%E3%82%A2%E3%82%BA%E3%82%AB/"
+      ]
+    },
+    {
       "id": "K26D2-A9873120B272",
       "name": "鍋田 憲伸",
       "university": "法政大学",
@@ -1121,6 +1307,78 @@
       ]
     },
     {
+      "id": "K26D2-3A9DC26F35B3",
+      "name": "権藤 隼斗",
+      "university": "明星大学",
+      "heightEvidence": {
+        "value": 178,
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 75,
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "height": 178,
+      "weight": 75,
+      "position": "PG",
+      "sources": [
+        "https://meiseiunivbb.com/player/detail/id/23506"
+      ]
+    },
+    {
+      "id": "K26D2-66E0556B2B46",
+      "name": "深谷 ナナ",
+      "university": "上武大学",
+      "heightEvidence": {
+        "value": 187,
+        "source": "https://note.com/ballbeats_jp/n/n3121228af9b9",
+        "sourceYear": 2026,
+        "publisher": "ballbeats 2026ドラフト選手リスト（独立メディア）",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 80,
+        "source": "https://note.com/ballbeats_jp/n/n3121228af9b9",
+        "sourceYear": 2026,
+        "publisher": "ballbeats 2026ドラフト選手リスト（独立メディア）",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://note.com/ballbeats_jp/n/n3121228af9b9",
+        "sourceYear": 2026,
+        "publisher": "ballbeats 2026ドラフト選手リスト（独立メディア）",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://note.com/ballbeats_jp/n/n3121228af9b9",
+        "sourceYear": 2026,
+        "publisher": "ballbeats 2026ドラフト選手リスト（独立メディア）",
+        "quality": 2
+      },
+      "height": 187,
+      "weight": 80,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://note.com/ballbeats_jp/n/n3121228af9b9"
+      ]
+    },
+    {
       "id": "K26D2-5DEDD84634D8",
       "name": "笠木 憂生",
       "university": "専修大学",
@@ -1162,6 +1420,46 @@
       ]
     },
     {
+      "id": "K26D2-063082E93DD4",
+      "name": "髙田 将吾",
+      "university": "筑波大学",
+      "heightEvidence": {
+        "value": 190,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 80,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 2,
+        "source": "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D",
+        "sourceYear": 2025,
+        "publisher": "JUBF World University Basketball Series 2025日本学生選抜",
+        "quality": 2
+      },
+      "height": 190,
+      "weight": 80,
+      "position": "SF",
+      "grade": 2,
+      "sources": [
+        "https://jubf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9qdWJmL25ld3MvNjg4MWM5MTc5YzUzYi5wZGY%3D"
+      ]
+    },
+    {
       "id": "K26D2-9B22083360A9",
       "name": "古山 幸聖",
       "university": "専修大学",
@@ -1194,6 +1492,6 @@
       ]
     }
   ],
-  "sourceCount": 184,
+  "sourceCount": 228,
   "warnings": []
 }
