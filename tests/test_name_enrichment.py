@@ -1,7 +1,36 @@
 import unittest
+import asyncio
+import json
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
+import scripts.enrich_english as names_module
 from scripts.enrich_english import extract_official_english, pid_of, ascii_name, filter_name_map, profile_urls
 
 class EnglishNameTests(unittest.TestCase):
+ def test_complete_verified_map_skips_browser_and_preserves_file(self):
+  # A complete official name map must not require Playwright or rewrite metadata.
+  with tempfile.TemporaryDirectory() as directory:
+   root=Path(directory)
+   stats_path=root/'stats.json'
+   map_path=root/'player-names-en.json'
+   ids=[str(20000+i) for i in range(332)]
+   players=[{'name':'選手'+str(i),
+             'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
+            for i,pid in enumerate(ids)]
+   names={pid:'Alex '+chr(65+i//26)+chr(65+i%26)
+          for i,pid in enumerate(ids)}
+   stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
+   previous={'source':'official','updated_at':'previous run',
+             'total_players':332,'verified':332,'pending_count':0,'names':names}
+   map_path.write_text(json.dumps(previous),encoding='utf-8')
+   original=map_path.read_bytes()
+   with patch.object(names_module,'STATS',stats_path), \
+        patch.object(names_module,'OUT',map_path), \
+        patch.object(names_module,'async_playwright',
+                     side_effect=AssertionError('Browser launched with zero pending players')):
+    asyncio.run(names_module.enrich())
+   self.assertEqual(map_path.read_bytes(),original)
  def test_official_profile_roman_spelling(self):
   html="""<p>1999年2月20日</p><div>Jarrett Culver</div><h1>ジャレット・カルバー</h1><div>PTS Total Points</div>"""
   self.assertEqual(extract_official_english(html,'ジャレット・カルバー'),'Jarrett Culver')
