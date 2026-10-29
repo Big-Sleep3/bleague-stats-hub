@@ -85,31 +85,33 @@ async def enrich():
     attempts=queue.qsize()
     failures={}
     discoveries={}
-    async with async_playwright() as playwright:
-        browser=await playwright.chromium.launch(headless=True,args=["--no-sandbox"])
-        context=await browser.new_context(locale="en-US",timezone_id="Asia/Tokyo",
-            viewport={"width":1280,"height":820})
-        async def worker(worker_id):
-            page=await context.new_page()
-            while True:
-                try:pid,player=queue.get_nowait()
-                except asyncio.QueueEmpty:break
-                try:
-                    name=None
-                    for url in profile_urls(pid):
-                        try:
-                            await page.goto(url,wait_until="domcontentloaded",timeout=25000)
-                            name=extract_official_english(await page.content(),player["name"])
-                            if name:break
-                        except Exception:pass
-                    if name:discoveries[pid]=name
-                    else:failures[pid]=player["name"]
-                finally:
-                    queue.task_done()
-                    await asyncio.sleep(.4)
-            await page.close()
-        await asyncio.gather(*(worker(i) for i in range(4)))
-        await browser.close()
+    # All currently verified players need no browser session or network requests.
+    if attempts:
+        async with async_playwright() as playwright:
+            browser=await playwright.chromium.launch(headless=True,args=["--no-sandbox"])
+            context=await browser.new_context(locale="en-US",timezone_id="Asia/Tokyo",
+                viewport={"width":1280,"height":820})
+            async def worker(worker_id):
+                page=await context.new_page()
+                while True:
+                    try:pid,player=queue.get_nowait()
+                    except asyncio.QueueEmpty:break
+                    try:
+                        name=None
+                        for url in profile_urls(pid):
+                            try:
+                                await page.goto(url,wait_until="domcontentloaded",timeout=25000)
+                                name=extract_official_english(await page.content(),player["name"])
+                                if name:break
+                            except Exception:pass
+                        if name:discoveries[pid]=name
+                        else:failures[pid]=player["name"]
+                    finally:
+                        queue.task_done()
+                        await asyncio.sleep(.4)
+                await page.close()
+            await asyncio.gather(*(worker(i) for i in range(4)))
+            await browser.close()
     known.update(discoveries)
     names=filter_name_map(known,set(work))
     record={"source":"B.LEAGUE official Japanese and English roster profiles",
