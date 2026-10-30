@@ -67,6 +67,17 @@ class EnglishNameTests(unittest.TestCase):
  def test_bad_labels_ignored(self):
   clean=filter_name_map({'1':'Buy tickets','2':'Jarrett Culver'},{'1','2'})
   self.assertEqual(clean,{'2':'Jarrett Culver'})
+ def test_name_shaped_navigation_is_rejected(self):
+  # Menu calls to action have the same shape as a two-word person name.
+  labels=('Sign Up','My Account','Shop Now','Checkout Cart','Register Account')
+  for label in labels:
+   with self.subTest(label=label):
+    self.assertFalse(ascii_name(label))
+  self.assertTrue(ascii_name('John Lawrence Harper Jr.'))
+ def test_navigation_labels_cannot_enter_verified_map(self):
+  candidate={'1':'Sign Up','2':'My Account','3':'Shop Now',
+             '4':'Checkout Cart','5':'Register Account','6':'Keisei Tominaga'}
+  self.assertEqual(filter_name_map(candidate,set(candidate)),{'6':'Keisei Tominaga'})
  def test_read_player_id(self):
   self.assertEqual(pid_of({'url':'https://www.bleague.jp/roster_detail/?PlayerID=19755'}),'19755')
  def test_name_not_an_unrelated_page_element(self):
