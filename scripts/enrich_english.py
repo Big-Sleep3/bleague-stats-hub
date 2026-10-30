@@ -47,7 +47,8 @@ def ascii_name(value):
       'schedule','stats','statistics','basketball','league','game','games',
       'merchandise','login','log','in','member','members','watch','live',
       'stream','highlights','results','ranking','rankings','about',
-      'privacy','policy','visit','home','away','next','previous','see','more'}
+      'privacy','policy','visit','home','away','next','previous','see','more',
+      'sign','up','account','shop','now','checkout','cart','register','subscribe'}
     return not any(w.lower().strip(".'’-") in blocked for w in words)
 
 def filter_name_map(candidate, current_ids):
