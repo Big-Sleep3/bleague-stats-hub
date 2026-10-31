@@ -56,7 +56,10 @@ def filter_name_map(candidate, current_ids):
     from collections import Counter
     result={pid:name.strip() for pid,name in candidate.items()
             if pid in current_ids and ascii_name(name)}
-    counts=Counter(result.values())
+    # Treat case and whitespace variants as the same label when detecting
+    # a broken scrape (e.g. "John Smith", "JOHN SMITH", "John  Smith").
+    counts=Counter(re.sub(r"\s+", " ", name).strip().casefold()
+                   for name in result.values())
     worst=counts.most_common(1)
     if worst and worst[0][1]>=5:
         raise RuntimeError(f"Invalid name map: a single label was repeated {worst[0][1]} times")
