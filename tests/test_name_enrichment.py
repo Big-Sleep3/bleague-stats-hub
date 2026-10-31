@@ -64,6 +64,12 @@ class EnglishNameTests(unittest.TestCase):
  def test_mass_duplicate_labels_fail_closed(self):
   with self.assertRaises(RuntimeError):
    filter_name_map({str(i):'Same Duplicate' for i in range(6)}, {str(i) for i in range(6)})
+ def test_mass_duplicate_labels_with_case_and_spacing_fail_closed(self):
+  variants=['Keisei Tominaga','keisei tominaga','KEISEI TOMINAGA',
+            'Keisei  Tominaga','Keisei\tTominaga']
+  with self.assertRaisesRegex(RuntimeError,'repeated 5 times'):
+   filter_name_map({str(i):name for i,name in enumerate(variants)},
+                   {str(i) for i in range(len(variants))})
  def test_bad_labels_ignored(self):
   clean=filter_name_map({'1':'Buy tickets','2':'Jarrett Culver'},{'1','2'})
   self.assertEqual(clean,{'2':'Jarrett Culver'})
