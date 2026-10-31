@@ -44,7 +44,12 @@ class ContractTests(unittest.TestCase):
   page=self.browser.new_page()
   page.goto(self.base,wait_until='domcontentloaded')
   page.locator('#term').select_option('unknown')
-  expect(page.locator('#results tr')).to_have_count(321)
+  roster=json.loads((ROOT/'data'/'stats.json').read_text(encoding='utf-8'))['players']
+  contracts=json.loads((ROOT/'contracts'/'contracts.json').read_text(encoding='utf-8'))['contracts']
+  norm=lambda x:str(x or '').replace(' ','').replace('　','').replace('・','')
+  keys={(norm(c['club']),norm(c['name'])) for c in contracts}
+  expected=sum((norm(p['club']),norm(p['name'])) not in keys for p in roster)
+  expect(page.locator('#results tr')).to_have_count(expected)
   self.assertNotIn('1 年',page.locator('#results').inner_text())
   page.close()
  def test_staff_has_login_without_auth(self):
