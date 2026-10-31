@@ -49,7 +49,7 @@ class ContractTests(unittest.TestCase):
   page.close()
  def test_staff_has_login_without_auth(self):
   page=self.browser.new_page()
-  page.route('https://cdn.jsdelivr.net/**/supabase.min.js',lambda route:route.fulfill(status=200,content_type='application/javascript',body="window.supabase={createClient:function(){return {auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}}}}}"))
+  page.route('https://cdn.jsdelivr.net/**/supabase.min.js',lambda route:route.fulfill(status=200,content_type='application/javascript',body="window.supabase={createClient:()=>({auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({})}})};"))
   page.goto(self.base+'staff.html',wait_until='domcontentloaded')
   expect(page.locator('#login')).to_be_visible()
   page.locator('#en').click()
