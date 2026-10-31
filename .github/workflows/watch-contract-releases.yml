@@ -1,0 +1,53 @@
+name: Monitor Official B.LEAGUE Contract Releases
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/watch_contract_releases.py'
+      - 'contracts/watch-sources.json'
+      - 'tests/test_contract_watch.py'
+      - '.github/workflows/watch-contract-releases.yml'
+  schedule:
+    # JST 09:00 and 21:00
+    - cron: '0 0,12 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: bleague-contract-release-watch
+  cancel-in-progress: false
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install HTML parser
+        run: python -m pip install 'beautifulsoup4>=4.12,<5'
+      - name: Test fail-closed source parsing
+        run: python -m unittest discover -s tests -p 'test_contract_watch.py' -v
+      - name: Scan publicly sourced contract news and official FA list
+        run: python scripts/watch_contract_releases.py
+      - name: Commit new announcement leads only
+        run: |
+          if git diff --quiet -- contracts/watch-state.json; then
+            echo "No new official release leads"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add contracts/watch-state.json
+          git commit -m 'data(contracts): note newly detected official contract announcements'
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "Official announcement watch state published"
+              exit 0
+            fi
+            echo "Parallel repository write; retrying" >&2
+            sleep 3
+          done
+          exit 1
