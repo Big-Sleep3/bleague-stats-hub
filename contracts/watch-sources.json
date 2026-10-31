@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "disclaimer": "Official club/league discovery only. Listed candidates are NOT verified contract terms. Only a subset of clubs has direct news monitoring; expand sources as verified.",
+  "sources": [
+    {
+      "club": "茨城",
+      "kind": "news",
+      "url": "https://www.ibarakirobots.win/news/?contents_type=32"
+    },
+    {
+      "club": "名古屋D",
+      "kind": "news",
+      "url": "https://nagoya-dolphins.jp/news/?contents_type=32"
+    },
+    {
+      "club": "千葉J",
+      "kind": "news",
+      "url": "https://chibajets.jp/news/?contents_type=32"
+    },
+    {
+      "club": "三河",
+      "kind": "news",
+      "url": "https://go-seahorses.jp/news/?contents_type=32"
+    },
+    {
+      "club": "秋田",
+      "kind": "news",
+      "url": "https://northern-happinets.com/news/?contents_type=32"
+    },
+    {
+      "club": "宇都宮",
+      "kind": "news",
+      "url": "https://www.utsunomiyabrex.com/news/?contents_type=32"
+    },
+    {
+      "club": "北海道",
+      "kind": "news",
+      "url": "https://www.levanga.com/news/?contents_type=32"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "kind": "fa",
+      "url": "https://www.bleague.jp/news/falist.html"
+    }
+  ]
+}
