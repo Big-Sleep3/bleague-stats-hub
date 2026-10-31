@@ -1,0 +1,127 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>CONTRACT HUB · STAFF SCOUTING</title>
+<style>
+:root{--navy:#18364b;--teal:#0b8383;--line:#dae5e7;--ink:#233d4c;--muted:#607982}
+*{box-sizing:border-box}body{background:#f5f8f7;color:var(--ink);margin:0;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--teal)}header{background:var(--navy);color:#fff}.head{max-width:1340px;margin:auto;padding:16px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}.head strong{font-size:18px}.head nav{margin-left:auto;display:flex;align-items:center;gap:16px}.head a{color:#cfefeb;font-size:12px}.lang{display:flex;border:1px solid #7e9ba7;border-radius:8px;gap:2px;padding:2px}.lang button{border:0;background:transparent;color:#fff;padding:6px 9px;border-radius:6px;font-size:12px}.lang button.active{background:#fff;color:#173648}
+main{max-width:1340px;margin:20px auto;padding:0 20px 60px}.small{color:var(--muted);font-size:12px}.card{background:white;border:1px solid var(--line);border-radius:13px;padding:20px;margin-bottom:15px}.hidden{display:none!important}h1{font-size:25px;margin:0 0 7px}h2{font-size:17px;margin:0 0 12px}input,textarea,select{width:100%;border:1px solid #bfd2d7;border-radius:7px;padding:9px 10px;background:#fff;color:var(--ink);min-height:40px}label{font-size:12px;font-weight:800;color:#536e7b}label input,label textarea,label select{display:block;margin-top:5px;font-size:14px}.btn{border:1px solid var(--teal);border-radius:8px;padding:10px 15px;background:var(--teal);color:white;font-weight:800}.btn.secondary{color:var(--teal);background:white}.layout{display:grid;grid-template-columns:370px minmax(0,1fr);gap:15px}.list{max-height:70vh;overflow:auto}.player{display:block;width:100%;background:#fff;border:0;border-bottom:1px solid #ebf0f0;padding:12px 7px;text-align:left}.player:hover,.player.selected{background:#ebf7f5}.player strong{display:block;font-size:14px}.player span{display:block;font-size:11px;color:var(--muted)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:14px 0}.wide{grid-column:1/-1}textarea{min-height:95px;resize:vertical}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #19b4ae;outline-offset:2px}.status{color:var(--muted);font-size:12px;min-height:20px}.tag{background:#e5f4f0;color:#087d65;font-size:10px;border-radius:6px;padding:3px 7px}.note{padding:12px 15px;border-left:3px solid #0b8383;background:#eaf6f4;font-size:12px;margin-bottom:15px}.topactions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.value{font-weight:800;font-size:14px}.quick-stats{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.quick-stats span{border-radius:7px;padding:7px;background:#f3f7f7;font-size:12px}.info{font-size:11px;color:var(--muted)}@media(max-width:850px){.layout{grid-template-columns:1fr}.list{max-height:270px}.head nav{margin-left:0}}@media(max-width:530px){.fields{grid-template-columns:1fr}.wide{grid-column:1}main{padding:0 12px}.head{padding:12px}}
+</style></head>
+<body><header><div class="head"><strong>CONTRACT HUB / STAFF</strong><nav><a href="./index.html">PUBLIC CONTRACT BOARD</a><a href="../recruiting/staff.html">UNIVERSITY STAFF</a><div class="lang"><button id="ja" class="active" type="button">日本語</button><button id="en" type="button">English</button></div></nav></div></header>
+<main><h1 id="heading">B.LEAGUE リクルーティング管理</h1><p id="intro" class="small">承認済みスタッフ限定。選手への接触状況や内部メモはGitHubに公開されない。</p>
+<div id="alert" class="status" role="status"></div>
+<section id="setup" class="card hidden"><h2>認証サービス未設定</h2>Supabase接続の確認が必要です。</section>
+<section id="login" class="card hidden" style="max-width:540px"><h2 id="loginTitle">スタッフログイン</h2><p class="small" id="loginDesc">登録・承認済みのメールアドレスにログインリンクを送る。</p><form id="loginForm"><label>Email address<input id="email" type="email" required autocomplete="email" placeholder="you@company.com"></label><p><button class="btn" id="send" type="submit">ログインリンクを送る</button></p></form></section>
+<section id="pending" class="card hidden"><h2>承認待ち</h2><p>このアカウントにはスタッフ閲覧権限がないよ。管理者に承認を依頼してね。</p><button id="outPending" class="btn secondary">Logout</button></section>
+<section id="app" class="hidden">
+<div class="topactions card"><span class="tag" id="who"></span><span class="small" id="meta"></span><button id="reload" class="btn secondary">最新を取得 / Reload</button><button id="logout" class="btn secondary">Logout</button></div>
+<div class="note" id="confidential">内部評価・接触状況・未確認の契約情報はこのSTAFF画面だけに保存。公開の契約一覧には反映されない。</div>
+<div class="layout">
+<section class="card" style="margin:0"><h2>PLAYER BOARD</h2><input id="filter" placeholder="名前・クラブ・英語名で検索" type="search"><div class="list" id="list"></div></section>
+<section class="card" style="margin:0"><p id="choose" class="small">左から選手を選んでね。</p><div id="editor" class="hidden"><h2 id="playerName"></h2><p id="playerMeta" class="small"></p><div id="stats" class="quick-stats"></div>
+<div id="officialContract" class="note"></div><form id="form">
+<div class="fields">
+<label id="priorityLabel">獲得優先度<select name="priority"><option value="">未設定</option><option>A</option><option>B</option><option>C</option></select></label>
+<label id="stageLabel">進捗<select name="stage"><option value="">未評価</option><option value="research">調査中 / Research</option><option value="watchlist">Watchlist</option><option value="contact">Contacted</option><option value="negotiation">Negotiation</option><option value="hold">Hold</option><option value="closed">Closed</option></select></label>
+<label id="yearLabel">ターゲット年度<select name="targetYear"><option value="">未設定</option><option>2027-28</option><option>2028-29</option><option>2029-30</option><option>2030-31</option></select></label>
+<label id="contactLabel">担当者<input name="owner" maxlength="100" placeholder="Staff / 担当者"></label>
+<label id="nextLabel">次の確認日<input type="date" name="nextDate"></label>
+<label id="agentLabel">代理人・窓口（社内限定）<input name="agent" maxlength="180"></label>
+<label id="evaluationLabel" class="wide">戦力評価・フィット<textarea name="evaluation" maxlength="4000"></textarea></label>
+<label id="conditionsLabel" class="wide">契約条件の確認事項 / PO・TOの行使時期など<textarea name="contractQuestions" maxlength="4000"></textarea></label>
+<label id="notesLabel" class="wide">内部メモ / 接触履歴<textarea name="notes" maxlength="7000"></textarea></label>
+<label id="actionLabel" class="wide">次のアクション<textarea name="nextAction" maxlength="2500"></textarea></label>
+</div><div class="topactions"><button class="btn" type="submit" id="save">共有メモを保存</button><span id="saved" class="status"></span></div>
+</form></div></section></div></section>
+</main>
+<script src="../recruiting/supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+'use strict';
+const $=q=>document.querySelector(q);const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let db=null,user=null,players=[],notes={},current=null,dirty=false,lang='ja';
+try{lang=localStorage.getItem('bcontract-lang')==='en'?'en':'ja'}catch{}
+const i18n={
+ ja:{heading:'B.LEAGUE リクルーティング管理',intro:'承認済みスタッフ限定。接触状況や内部メモはGitHubに公開されない。',loginTitle:'スタッフログイン',loginDesc:'登録・承認済みのメールアドレスにログインリンクを送る。',send:'ログインリンクを送る',confidential:'内部評価・接触状況・未確認の契約情報はこのSTAFF画面だけに保存。公開の契約一覧には反映されない。',choose:'左から選手を選んでね。',filter:'名前・クラブ・英語名で検索',priority:'獲得優先度',stage:'進捗',targetYear:'ターゲット年度',owner:'担当者',nextDate:'次の確認日',agent:'代理人・窓口（社内限定）',evaluation:'戦力評価・フィット',contractQuestions:'契約条件の確認事項 / PO・TOの行使時期など',notes:'内部メモ / 接触履歴',nextAction:'次のアクション',save:'共有メモを保存',saved:'共有保存完了',noContract:'公開契約年数・オプション：未確認',contract:'公開契約情報',source:'原文 ↗',sent:'メールのログインリンクを確認してね',pending:'承認待ち'},
+ en:{heading:'B.LEAGUE Recruiting — Staff Workspace',intro:'Approved staff only. Contact status and internal scouting notes are not committed to GitHub.',loginTitle:'Staff sign in',loginDesc:'Email a sign-in link to a previously invited and approved team member.',send:'Send sign-in link',confidential:'Internal evaluations, contact history and unverified contract intelligence are private to this STAFF page; nothing here changes the public contract board.',choose:'Select a player from the left.',filter:'Search player, club or English name',priority:'Recruiting priority',stage:'Pipeline stage',targetYear:'Target season',owner:'Staff owner',nextDate:'Next check date',agent:'Agent / contact (private)',evaluation:'Player fit / scouting evaluation',contractQuestions:'Contract questions / PO and TO deadlines',notes:'Internal notes / contact history',nextAction:'Next action',save:'Save shared notes',saved:'Shared notes saved',noContract:'Public contract terms: unverified',contract:'Published contract',source:'Source ↗',sent:'Check your email for the sign-in link',pending:'Awaiting approval'}
+};
+const t=k=>i18n[lang][k]||k;
+function words(){
+ document.documentElement.lang=lang;
+ for(const [id,k] of [['heading','heading'],['intro','intro'],['loginTitle','loginTitle'],['loginDesc','loginDesc'],['send','send'],['confidential','confidential'],['choose','choose'],['priorityLabel','priority'],['stageLabel','stage'],['yearLabel','targetYear'],['contactLabel','owner'],['nextLabel','nextDate'],['agentLabel','agent'],['evaluationLabel','evaluation'],['conditionsLabel','contractQuestions'],['notesLabel','notes'],['actionLabel','nextAction'],['save','save']]){
+ const e=$('#'+id);if(!e)continue;if(e.tagName==='LABEL'){const node=[...e.childNodes].find(n=>n.nodeType===Node.TEXT_NODE);if(node)node.nodeValue=t(k)}else e.textContent=t(k);
+ }
+ $('#filter').placeholder=t('filter');$('#ja').classList.toggle('active',lang==='ja');$('#en').classList.toggle('active',lang==='en');
+ if(current){const p=players.find(x=>x.id===current);if(p)showContract(p)}
+}
+function page(id){for(const key of ['setup','login','pending','app'])$('#'+key).classList.toggle('hidden',id!==key)}
+function alertUser(s){$('#alert').textContent=s}
+function getNotes(id){return notes[id]?.payload||{}}
+function showContract(p){
+ const c=p.contract;
+ $('#officialContract').innerHTML=c?'<b>'+t('contract')+': </b>'+esc(c.totalYears??'—')+' yr / '+esc(c.endYear?String(c.endYear-1)+'-'+String(c.endYear).slice(-2):'—')+
+ ' / '+esc((c.options||[]).map(o=>o.kind+' '+o.year+'-'+String(o.year+1).slice(-2)).join(', ')||'Option undisclosed')+
+ '<div><a href="'+esc(c.source)+'" target="_blank" rel="noopener noreferrer">'+t('source')+'</a></div>':'<b>'+t('noContract')+'</b>';
+}
+function drawList(){
+ const q=$('#filter').value.trim().toLowerCase();
+ const list=players.filter(x=>[x.name,x.name_en,x.club].join(' ').toLowerCase().includes(q));
+ $('#list').innerHTML=list.map(p=>'<button class="player '+(current===p.id?'selected':'')+'" data-id="'+esc(p.id)+'"><strong>'+esc(p.name)+'</strong><span>'+esc(p.club)+' · '+esc(p.pos||'—')+' · '+(p.contract?'PUBLISHED TERM':'TERM UNVERIFIED')+' · '+esc(getNotes(p.id).priority||'')+'</span></button>').join('');
+}
+function openPlayer(p){
+ if(dirty&&!confirm('Discard unsaved changes?'))return;
+ current=p.id;dirty=false;$('#choose').classList.add('hidden');$('#editor').classList.remove('hidden');
+ $('#playerName').textContent=p.name;$('#playerMeta').textContent=p.club+' · #'+(p.number||'—')+' · '+(p.name_en||'');
+ $('#stats').innerHTML=[['PPG',p.PPG],['3P%',p['3FG%']],['RPG',p.RPG],['APG',p.APG]].map(([k,v])=>'<span><b>'+k+'</b> '+esc(v??'—')+'</span>').join('');
+ showContract(p);
+ const payload=getNotes(p.id),form=$('#form');
+ for(const name of ['priority','stage','targetYear','owner','nextDate','agent','evaluation','contractQuestions','notes','nextAction'])form.elements[name].value=payload[name]??'';
+ $('#saved').textContent=notes[p.id]?.updated_at?new Date(notes[p.id].updated_at).toLocaleString(lang==='en'?'en-US':'ja-JP'):'';
+ drawList();
+}
+async function reload(){
+ const r=await db.from('bleague_contract_notes').select('player_id,payload,updated_by,updated_at');
+ if(r.error)throw r.error;notes=Object.fromEntries((r.data||[]).map(x=>[x.player_id,x]));drawList();
+}
+async function authorized(session){
+ user=session.user;
+ const chk=await db.from('recruiting_staff').select('approved,role').eq('user_id',user.id).maybeSingle();
+ if(chk.error||!chk.data?.approved){page('pending');return}
+ page('app');$('#who').textContent=user.email+' / '+chk.data.role;
+ try{
+ const [rr,cc]=await Promise.all([fetch('../data/stats.json',{cache:'no-store'}),fetch('./contracts.json',{cache:'no-store'})]);
+ if(!rr.ok||!cc.ok)throw Error('Source data unavailable');
+ const stats=await rr.json(),contracts=await cc.json();
+ const norm=s=>String(s||'').normalize('NFKC').replace(/[\s　・･.]/g,'').toLowerCase();
+ const cmap=new Map(contracts.contracts.map(c=>[norm(c.club)+'|'+norm(c.name),c]));
+ players=stats.players.map(p=>({...p,id:(String(p.url||'').match(/PlayerID=(\d+)/)||[])[1]||norm(p.name)+norm(p.club),contract:cmap.get(norm(p.club)+'|'+norm(p.name))||null}));
+ $('#meta').textContent=players.length+' PLAYERS · '+(stats.updated?.players||'');
+ await reload();
+ }catch(e){alertUser('Load failed: '+e.message)}
+}
+async function init(){
+ if(!window.URH_SUPABASE_URL||!window.URH_SUPABASE_ANON_KEY||!window.supabase){page('setup');return}
+ db=window.supabase.createClient(window.URH_SUPABASE_URL,window.URH_SUPABASE_ANON_KEY);
+ const r=await db.auth.getSession();if(r.data?.session)await authorized(r.data.session);else page('login');
+ db.auth.onAuthStateChange((ev,s)=>{if(ev==='SIGNED_OUT'){user=null;notes={};current=null;page('login')}else if(ev==='SIGNED_IN'&&s)setTimeout(()=>authorized(s),0)});
+}
+$('#loginForm').addEventListener('submit',async e=>{
+ e.preventDefault();if(!db)return;const b=$('#send');b.disabled=true;
+ try{const r=await db.auth.signInWithOtp({email:$('#email').value.trim(),options:{shouldCreateUser:false,emailRedirectTo:location.origin+location.pathname}});
+ alertUser(r.error?'Email error: '+r.error.message:t('sent'))}finally{b.disabled=false}
+});
+$('#form').addEventListener('input',()=>dirty=true);
+$('#form').addEventListener('submit',async e=>{
+ e.preventDefault();if(!db||!user||!current)return;
+ const form=new FormData(e.currentTarget),payload={};
+ for(const key of ['priority','stage','targetYear','owner','nextDate','agent','evaluation','contractQuestions','notes','nextAction'])payload[key]=String(form.get(key)||'');
+ const b=$('#save');b.disabled=true;
+ try{
+  const r=await db.from('bleague_contract_notes').upsert({player_id:current,payload,updated_by:user.id,updated_at:new Date().toISOString()},{onConflict:'player_id'}).select().single();
+  if(r.error)throw r.error;notes[current]=r.data;dirty=false;drawList();$('#saved').textContent=t('saved')+' · '+new Date().toLocaleString(lang==='en'?'en-US':'ja-JP');
+ }catch(err){$('#saved').textContent='Save failed: '+err.message}finally{b.disabled=false}
+});
+$('#filter').addEventListener('input',drawList);
+$('#list').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b){const p=players.find(x=>x.id===b.dataset.id);if(p)openPlayer(p)}});
+$('#reload').addEventListener('click',async()=>{if(dirty&&!confirm('Discard unsaved changes?'))return;try{await reload();dirty=false;$('#saved').textContent='Reloaded'}catch(e){alertUser(e.message)}});
+for(const id of ['logout','outPending'])$('#'+id).addEventListener('click',()=>db?.auth.signOut());
+for(const code of ['ja','en'])$('#'+code).addEventListener('click',()=>{lang=code;try{localStorage.setItem('bcontract-lang',code)}catch{}words()});
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+words();init();
+</script></body></html>
