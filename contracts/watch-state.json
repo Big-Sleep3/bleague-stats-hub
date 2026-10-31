@@ -1,8 +1,22 @@
 {
   "schema": 1,
-  "initialized": false,
-  "seenUrls": [],
+  "initialized": true,
+  "seenUrls": [
+    "https://chibajets.jp/news/detail/id=27297",
+    "https://www.ibarakirobots.win/news/detail/id=25588"
+  ],
   "pending": [],
-  "faDigests": {},
-  "sourceCoverage": []
+  "faDigests": {
+    "B.LEAGUE自由交渉リスト": "d045d61fb000da2eda283a819c88cf7ddb2a14441d779a891e4ef2b3fb38d9cf"
+  },
+  "sourceCoverage": [
+    "名古屋D",
+    "秋田",
+    "三河",
+    "千葉J",
+    "茨城",
+    "北海道",
+    "宇都宮",
+    "B.LEAGUE自由交渉リスト"
+  ]
 }
