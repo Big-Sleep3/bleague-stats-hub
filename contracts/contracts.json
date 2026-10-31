@@ -2,7 +2,7 @@
   "schema": 1,
   "season": "2026-27",
   "publishedAt": "2026-10-31",
-  "coverage": "B.PREMIER verified public releases (not all contracts)",
+  "coverage": "Source-backed contract durations/options for a subset of B.PREMIER roster (not a full league contract registry). Club releases preferred; media records distinguished.",
   "leagueRule": "https://www.bleague.jp/basketlive_news_detail/id=544060",
   "contracts": [
     {
@@ -186,20 +186,6 @@
     },
     {
       "club": "北海道",
-      "name": "西村 優真",
-      "startYear": 2026,
-      "endYear": 2029,
-      "totalYears": 3,
-      "options": [],
-      "optionDisclosure": "not_reported",
-      "announced": "2026-05-20",
-      "source": "https://www.bleague.jp/media_news/detail/id=613753",
-      "sourceType": "media",
-      "note": "2028-29までの3年契約と報道。オプションは未確認",
-      "verification": "source_backed"
-    },
-    {
-      "club": "北海道",
       "name": "内藤 耀悠",
       "startYear": null,
       "endYear": 2027,
@@ -211,6 +197,63 @@
       "sourceType": "media",
       "note": "U22制度で2026-27が最終年との報道。通常契約の満了と同義ではない",
       "verification": "source_backed"
+    },
+    {
+      "club": "三河",
+      "name": "西田 優大",
+      "startYear": 2026,
+      "endYear": 2030,
+      "totalYears": 4,
+      "options": [],
+      "announced": "2026-05-26",
+      "source": "https://go-seahorses.jp/news/detail/id=27212",
+      "sourceType": "club",
+      "note": "2026-27〜2029-30の4年間。オプションは発表文に記載なし",
+      "optionDisclosure": "not_reported",
+      "verification": "source_backed"
+    },
+    {
+      "club": "三河",
+      "name": "石井 講祐",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "announced": "2026-05-25",
+      "source": "https://go-seahorses.jp/news/detail/id=27208",
+      "sourceType": "club",
+      "note": "2026-27〜2028-29の3年間。オプションは発表文に記載なし",
+      "optionDisclosure": "not_reported",
+      "verification": "source_backed"
+    },
+    {
+      "club": "三河",
+      "name": "長野 誠史",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "announced": "2026-05-25",
+      "source": "https://go-seahorses.jp/news/detail/id=27207",
+      "sourceType": "club",
+      "note": "2026-27〜2028-29の3年間。オプションは発表文に記載なし",
+      "optionDisclosure": "not_reported",
+      "verification": "source_backed"
+    },
+    {
+      "club": "名古屋D",
+      "name": "アイザイア・マーフィー",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "announced": "2026-06-08",
+      "source": "https://nagoya-dolphins.jp/news/detail/id=23537",
+      "sourceType": "club",
+      "note": "2026-27から3年間の複数年契約。オプションは発表文に記載なし",
+      "optionDisclosure": "not_reported",
+      "verification": "source_backed"
     }
-  ]
+  ],
+  "verifiedAt": "2026-10-31"
 }
