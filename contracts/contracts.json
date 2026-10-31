@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "season": "2026-27",
+  "publishedAt": "2026-10-31",
+  "coverage": "B.PREMIER verified public releases (not all contracts)",
+  "leagueRule": "https://www.bleague.jp/basketlive_news_detail/id=544060",
+  "contracts": [
+    {
+      "club": "茨城",
+      "name": "長谷川 暢",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        },
+        {
+          "year": 2028,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-05-14",
+      "source": "https://www.ibarakirobots.win/news/20260514_01_team/",
+      "sourceType": "club",
+      "note": "2027-28と2028-29はともに選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "茨城",
+      "name": "赤間 賢人",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [
+        {
+          "year": 2028,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-05-15",
+      "source": "https://www.ibarakirobots.win/news/20260515_01_team/",
+      "sourceType": "club",
+      "note": "2028-29は選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "茨城",
+      "name": "前田 怜緒",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [
+        {
+          "year": 2028,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-06-01",
+      "source": "https://www.ibarakirobots.win/news/20260601_01_team/",
+      "sourceType": "club",
+      "note": "2028-29は選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "茨城",
+      "name": "吉井 裕鷹",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-06-12",
+      "source": "https://www.ibarakirobots.win/news/20260612_01_team/",
+      "sourceType": "club",
+      "note": "2027-28は選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "茨城",
+      "name": "ヴィック・ロー",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-06-19",
+      "source": "https://www.ibarakirobots.win/news/20260619_01_team/",
+      "sourceType": "club",
+      "note": "2027-28は選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "茨城",
+      "name": "渡邉 飛勇",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-06-03",
+      "source": "https://www.ibarakirobots.win/news/20260603_02_team/",
+      "sourceType": "club",
+      "note": "2027-28は選手オプション",
+      "verification": "source_backed"
+    },
+    {
+      "club": "名古屋D",
+      "name": "スコット・エサトン",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-06-07",
+      "source": "https://nagoya-dolphins.jp/news/detail/id=23514",
+      "sourceType": "club",
+      "note": "3年複数年契約。オプションについて当該発表で記載確認できず",
+      "verification": "source_backed"
+    },
+    {
+      "club": "千葉J",
+      "name": "富樫 勇樹",
+      "startYear": 2024,
+      "endYear": 2028,
+      "totalYears": 4,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2024-05-28",
+      "source": "https://chibajets.jp/news/detail/id=22703",
+      "sourceType": "club",
+      "note": "2024-25から2027-28の4年契約。オプションは当該発表で明示なし",
+      "verification": "source_backed"
+    },
+    {
+      "club": "秋田",
+      "name": "中山 拓哉",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-06-30",
+      "source": "https://www.bleague.jp/media_news/detail/id=614259",
+      "sourceType": "media",
+      "note": "2027-28は選手オプション。B.LEAGUE掲載媒体記事",
+      "verification": "source_backed"
+    },
+    {
+      "club": "宇都宮",
+      "name": "比江島 慎",
+      "startYear": null,
+      "endYear": 2028,
+      "totalYears": null,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-06-10",
+      "source": "https://www.bleague.jp/media_news/detail/id=614087",
+      "sourceType": "media",
+      "note": "2027-28までの契約と報道。契約起点・オプションは未確認",
+      "verification": "source_backed"
+    },
+    {
+      "club": "北海道",
+      "name": "西村 優真",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-05-20",
+      "source": "https://www.bleague.jp/media_news/detail/id=613753",
+      "sourceType": "media",
+      "note": "2028-29までの3年契約と報道。オプションは未確認",
+      "verification": "source_backed"
+    },
+    {
+      "club": "北海道",
+      "name": "内藤 耀悠",
+      "startYear": null,
+      "endYear": 2027,
+      "totalYears": null,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-05-20",
+      "source": "https://www.bleague.jp/media_news/detail/id=613753",
+      "sourceType": "media",
+      "note": "U22制度で2026-27が最終年との報道。通常契約の満了と同義ではない",
+      "verification": "source_backed"
+    }
+  ]
+}
