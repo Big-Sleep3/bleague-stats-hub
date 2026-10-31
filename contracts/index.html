@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#142f43"><title>B.LEAGUE CONTRACT HUB | 2026-27</title>
+<style>
+:root{--navy:#142f43;--teal:#07847e;--line:#dce7e7;--muted:#627d86;--text:#243e4c}
+*{box-sizing:border-box}body{margin:0;background:#f6f8f7;color:var(--text);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:var(--teal)}
+.shell{max-width:1450px;margin:auto;padding:0 22px}header{background:linear-gradient(110deg,#142f43,#21545b);color:white}.head{min-height:75px;display:flex;align-items:center;gap:15px;flex-wrap:wrap}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#139e9d;font-weight:900;font-size:16px}.brand strong{display:block;letter-spacing:.03em;font-size:18px}.brand small{color:#b7d7d7;letter-spacing:.1em;font-size:10px}.nav{margin-left:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.nav a{color:#d1e9e8;font-size:11px;font-weight:800;text-decoration:none}.lang{display:flex;border-radius:8px;border:1px solid #6c9c9e;padding:3px}.lang button{background:transparent;border:0;color:#fff;border-radius:6px;padding:7px 10px;font-size:12px;font-weight:800}.lang button.active{background:#fff;color:#14374a}
+.hero{padding:30px 0 18px;display:flex;align-items:end;justify-content:space-between;gap:15px}.hero h1{font-size:clamp(25px,3vw,42px);letter-spacing:-.03em;color:var(--navy);margin:3px 0}.hero p{color:var(--muted);margin:0;max-width:840px}.eyebrow{color:var(--teal);font-size:10px;font-weight:900;letter-spacing:.12em}.small{font-size:11px;color:var(--muted)}.updated{text-align:right;min-width:185px;font-size:10px;color:var(--muted)}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:14px}.kpi{padding:14px;background:#fff;border:1px solid var(--line);border-radius:13px}.kpi small{color:var(--muted);font-size:10px;font-weight:800}.kpi strong{display:block;font-size:28px;color:var(--navy);line-height:1.25}.notice{border-left:4px solid var(--teal);background:#eaf5f3;border-radius:8px;padding:12px 16px;font-size:12px;margin-bottom:15px}
+.filters{display:flex;align-items:center;flex-wrap:wrap;gap:9px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:14px}.filters input,.filters select{border:1px solid #c8d8da;border-radius:8px;min-height:40px;background:#fff;color:var(--text);padding:7px 10px;flex:1;min-width:120px}.filters input{flex:2;min-width:230px}.btn{display:inline-block;border:1px solid #b6cacc;border-radius:8px;background:white;color:var(--navy);padding:9px 13px;font-weight:800;text-decoration:none;font-size:12px}.btn.primary{color:white;background:var(--teal);border-color:var(--teal)}.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #26afa9;outline-offset:2px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px}.table-wrap{overflow:auto;max-height:64vh;min-height:320px}.board{border-collapse:separate;border-spacing:0;width:100%;min-width:1220px;font-size:12px}.board th{position:sticky;top:0;background:#eaf1f2;z-index:1;color:#56727e;padding:11px 10px;font-size:10px;white-space:nowrap;text-align:right;border-bottom:1px solid #d0dfe1}.board th:first-child,.board th:nth-child(2){text-align:left}.board td{padding:10px;border-bottom:1px solid #e8eeee;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.board td:first-child,.board td:nth-child(2){text-align:left}.board tr:hover{background:#f3f9f8}.name{border:0;background:none;padding:0;color:var(--navy);font-weight:900;text-align:left}.name:hover{text-decoration:underline;color:var(--teal)}.badge{display:inline-block;padding:4px 8px;font-size:10px;font-weight:800;border-radius:7px;background:#ebf1f2;color:#647f88}.badge.po{background:#e0f3ec;color:#16745e}.badge.to{background:#fff0d9;color:#a16327}.badge.confirmed{background:#e2eff3;color:#176d82}.seasons{display:flex;gap:3px;justify-content:flex-end}.season{border-radius:5px;background:#eef2f3;color:#9aadb3;padding:4px 5px;font-weight:900;font-size:10px;min-width:37px;text-align:center}.season.fixed{background:#dceee8;color:#196b62}.season.po{background:#ffecdb;color:#a0662a}.season.to{background:#fff1b2;color:#8d6a1e}.empty{text-align:center;color:var(--muted);padding:40px!important}.footer{padding:20px 0 40px;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:11px}
+.backdrop{display:none;position:fixed;inset:0;z-index:20;background:#11293caa;justify-content:flex-end}.backdrop.open{display:flex}.drawer{background:white;width:min(590px,100%);height:100vh;overflow:auto;box-shadow:-20px 0 50px #17304144}.drawer-head{padding:24px;background:var(--navy);color:#fff}.drawer-head h2{margin:5px 0;font-size:25px}.drawer-head small{color:#c0d8db}.drawer-body{padding:22px}.card{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}.card h3{margin:0 0 12px}.details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.datum{background:#f1f6f6;padding:10px;border-radius:8px}.datum span{display:block;color:var(--muted);font-size:10px}.datum strong{font-size:16px}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.timeline div{background:#f0f4f4;border-radius:6px;padding:10px 5px;text-align:center}.timeline div.opt{background:#ffeddd}.timeline div.fix{background:#d9ede7}.timeline small{display:block}.close{float:right;border:1px solid #86a8aa;background:transparent;color:#fff;padding:3px 10px;border-radius:7px;font-size:22px}
+@media(max-width:880px){.kpis{grid-template-columns:repeat(3,1fr)}.hero{flex-direction:column;align-items:flex-start}.updated{text-align:left}.table-wrap{max-height:65vh}}@media(max-width:570px){.kpis{grid-template-columns:repeat(2,1fr)}.nav{margin-left:0}.shell{padding:0 12px}.filters input{min-width:100%}}
+</style></head><body>
+<header><div class="shell head"><div class="logo">BC</div><div class="brand"><strong>B.LEAGUE CONTRACT HUB</strong><small>2026–27 · PUBLIC CONTRACT INTELLIGENCE</small></div><div class="nav"><a href="../index.html">STATS HUB</a><a href="../recruiting/">UNIVERSITY HUB</a><a href="./staff.html">STAFF SCOUTING</a><div class="lang"><button id="ja" type="button">日本語</button><button id="en" type="button">English</button></div></div></div></header>
+<main class="shell"><div class="hero"><div><div class="eyebrow">B.PREMIER / 26 CLUBS · RECRUITING</div><h1 id="heading">選手契約データベース</h1><p id="subheading">契約年数・終了シーズン・PO／TOと今季スタッツを横断検索。公開発表に出典がある契約だけを登録。</p></div><div class="updated"><span id="rosterUpdated"></span><div id="contractUpdated"></div></div></div>
+<section id="kpis" class="kpis"></section>
+<div id="notice" class="notice">重要：契約条件が未確認でも単年契約とは限らない。またPO/TO年は保証年と異なる可能性があり、選手の獲得可能性を保証しない。</div>
+<div class="filters"><input id="query" type="search" placeholder="選手・クラブ・英語名で検索"><select id="club"><option value="">ALL CLUBS</option></select><select id="term"><option value="">ALL CONTRACTS</option><option value="known">契約期間掲載</option><option value="unknown">未確認</option><option value="po">PLAYER OPTION</option><option value="to">TEAM OPTION</option><option value="2027">2026-27終了</option><option value="2028">2027-28終了</option><option value="2029">2028-29終了</option></select><select id="position"><option value="">ALL POSITIONS</option></select><select id="sort"><option value="name">CLUB / NAME</option><option value="ppg">PPG ↓</option><option value="three">3P% ↓</option><option value="end">END ↑</option></select><button type="button" class="btn primary" id="export">EXPORT CSV</button></div>
+<section class="panel"><div class="panel-head"><strong>PLAYER CONTRACT BOARD</strong><span id="resultCount" class="small"></span></div><div class="table-wrap"><table class="board"><thead><tr><th>PLAYER</th><th>CLUB</th><th>POS</th><th>GP</th><th>PPG</th><th>3P%</th><th>APG</th><th id="termTitle">契約年数</th><th id="endTitle">最終シーズン</th><th>PO / TO</th><th>2026→30</th><th id="evidenceTitle">出典</th></tr></thead><tbody id="results"><tr><td colspan="12" class="empty">Loading...</td></tr></tbody></table></div></section>
+<div class="footer"><span id="footnote">B.PREMIER 26クラブの2026-27スタッツ掲載選手を使用。B.ONE・B.NEXTや未掲載選手は未収録。</span><span>PUBLIC EVIDENCE ONLY · Private notes in staff portal</span></div></main>
+<div class="backdrop" id="overlay"><div class="drawer" role="dialog" aria-modal="true" aria-label="Player contract details" id="detail"></div></div>
+<script>
+'use strict';
+const $=q=>document.querySelector(q);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dict={
+ ja:{heading:'選手契約データベース',sub:'契約年数・終了シーズン・PO／TOと今季スタッツを横断検索。公開発表に出典がある契約だけを登録。',notice:'重要：契約条件が未確認でも単年契約とは限らない。またPO/TO年は保証年と異なる可能性があり、選手の獲得可能性を保証しない。',foot:'B.PREMIER 26クラブの2026-27スタッツ掲載選手を使用。B.ONE・B.NEXTや未掲載選手は未収録。',search:'選手・クラブ・英語名で検索',known:'契約期間掲載',unknown:'未確認',term:'契約年数',end:'最終シーズン',evidence:'出典',years:'年',source:'公式記事',media:'報道記事',undisclosed:'オプション未公表',details:'契約概要',stats:'今季成績',original:'原文を開く',caution:'契約の実際の効力、オプション行使条件、交渉の可否はクラブ・代理人への確認が必要。',noTerms:'契約期間・オプション条件は未確認。'},
+ en:{heading:'Player Contract Database',sub:'Search contract terms, final seasons, player/team options and season stats. Only evidenced public contract announcements are included.',notice:'Unverified does NOT mean a one-year contract. PO and TO years may not be guaranteed. Contract terms do not determine actual recruitment availability.',foot:'2026-27 published player stats from 26 B.PREMIER clubs. B.ONE, B.NEXT and unlisted players are not covered.',search:'Search player, club or English name',known:'Published terms',unknown:'Unverified',term:'Contract length',end:'Last season',evidence:'Source',years:'yr',source:'Club release',media:'Media report',undisclosed:'Options undisclosed',details:'Contract details',stats:'Season statistics',original:'View source',caution:'Verify the current terms, option triggers and recruitment eligibility with the club or authorized representative.',noTerms:'Contract duration and option terms are unverified.'}
+};
+let language='ja',joined=[],filtered=[],filters={query:'',club:'',term:'',position:'',sort:'name'};
+try{language=localStorage.getItem('bcontract-lang')==='en'?'en':'ja'}catch{}
+const t=k=>dict[language][k]||k;
+const norm=s=>String(s||'').normalize('NFKC').replace(/[\s　・･.]/g,'').toLowerCase();
+const idOf=p=>(String(p.url||'').match(/PlayerID=(\d+)/)||[])[1]||norm(p.club)+norm(p.name);
+const labelYear=y=>Number.isInteger(y)?y+'-'+String(y+1).slice(-2):'—';
+const fmt=n=>n===null||n===undefined||!Number.isFinite(Number(n))?'—':Number(n).toFixed(1);
+const end=c=>c?.endYear?labelYear(c.endYear-1):'—';
+const options=c=>c?.options?.length?c.options.map(o=>o.kind+' '+labelYear(o.year)).join(', '):(c?t('undisclosed'):'—');
+function timeline(c){
+ if(!c?.endYear)return '—';
+ return '<div class="seasons">'+[2026,2027,2028,2029].map(y=>{
+ const opt=c.options?.find(o=>o.year===y),inRange=c.startYear===null||c.startYear===undefined?null:y>=c.startYear&&y<c.endYear;
+ const cls=opt?opt.kind.toLowerCase():inRange?'fixed':'';
+ const symbol=opt?opt.kind:inRange?'●':'—';
+ return '<span class="season '+cls+'" title="'+labelYear(y)+'">'+symbol+'</span>';
+ }).join('')+'</div>';
+}
+function updateWords(){
+ document.documentElement.lang=language;$('#heading').textContent=t('heading');$('#subheading').textContent=t('sub');$('#notice').textContent=t('notice');$('#footnote').textContent=t('foot');$('#query').placeholder=t('search');$('#termTitle').textContent=t('term');$('#endTitle').textContent=t('end');$('#evidenceTitle').textContent=t('evidence');
+ $('#term option[value="known"]').textContent=t('known');$('#term option[value="unknown"]').textContent=t('unknown');
+ for(const k of ['ja','en'])$('#'+k).classList.toggle('active',language===k);
+}
+function counter(){
+ const known=joined.filter(p=>p.contract),po=joined.filter(p=>p.contract?.options?.some(o=>o.kind==='PO')),to=joined.filter(p=>p.contract?.options?.some(o=>o.kind==='TO'));
+ const items=[[language==='ja'?'選手数':'Players',joined.length],[t('known'),known.length],['PO',po.length],['TO',to.length],[t('unknown'),joined.length-known.length]];
+ $('#kpis').innerHTML=items.map(([k,v])=>'<div class="kpi"><small>'+esc(k)+'</small><strong>'+v+'</strong><span class="small">2026-27 B.PREMIER</span></div>').join('');
+}
+function optionsForFilters(){
+ for(const [id,values] of [['club',[...new Set(joined.map(p=>p.club))].sort((a,b)=>a.localeCompare(b,'ja'))],['position',[...new Set(joined.map(p=>p.pos).filter(Boolean))].sort()]])$('#'+id).innerHTML='<option value="">ALL '+(id==='club'?'CLUBS':'POSITIONS')+'</option>'+values.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
+}
+function apply(){
+ const q=norm(filters.query);filtered=joined.filter(p=>{
+ const c=p.contract;
+ if(q&&!norm([p.name,p.name_en,p.club].join(' ')).includes(q))return false;
+ if(filters.club&&filters.club!==p.club)return false;
+ if(filters.position&&filters.position!==p.pos)return false;
+ if(filters.term==='known'&&!c||filters.term==='unknown'&&!!c)return false;
+ if(filters.term==='po'&&!c?.options?.some(o=>o.kind==='PO'))return false;
+ if(filters.term==='to'&&!c?.options?.some(o=>o.kind==='TO'))return false;
+ if(/^\d{4}$/.test(filters.term)&&c?.endYear!==Number(filters.term))return false;
+ return true;
+ });
+ if(filters.sort==='name')filtered.sort((a,b)=>a.club.localeCompare(b.club,'ja')||a.name.localeCompare(b.name,'ja'));
+ else if(filters.sort==='end')filtered.sort((a,b)=>(a.contract?.endYear??9999)-(b.contract?.endYear??9999));
+ else {const field=filters.sort==='three'?'3FG%':'PPG';filtered.sort((a,b)=>(Number(b[field])||-1)-(Number(a[field])||-1))}
+}
+function render(){
+ apply();counter();$('#resultCount').textContent=filtered.length+'/'+joined.length+' players';
+ $('#results').innerHTML=filtered.length?filtered.map(p=>{
+ const c=p.contract;
+ return '<tr><td><button class="name" data-id="'+esc(idOf(p))+'">'+esc(p.name)+'</button><div class="small">'+esc(p.name_en||'')+'</div></td><td>'+esc(p.club)+'</td><td>'+esc(p.pos||'—')+'</td><td>'+esc(p.G??'—')+'</td><td>'+fmt(p.PPG)+'</td><td>'+fmt(p['3FG%'])+(p['3FG%']!=null?'%':'')+'</td><td>'+fmt(p.APG)+'</td><td>'+(c?'<span class="badge confirmed">'+(c.totalYears??'—')+' '+t('years')+'</span>':'<span class="small">—</span>')+'</td><td>'+esc(end(c))+'</td><td>'+(c?.options?.length?c.options.map(o=>'<span class="badge '+esc(o.kind.toLowerCase())+'">'+esc(o.kind)+' '+labelYear(o.year)+'</span>').join(' '):'<span class="small">'+esc(options(c))+'</span>')+'</td><td>'+timeline(c)+'</td><td>'+(c?'<a target="_blank" rel="noopener noreferrer" href="'+esc(c.source)+'">'+(c.sourceType==='club'?t('source'):t('media'))+' ↗</a>':'—')+'</td></tr>';
+ }).join(''):'<tr><td class="empty" colspan="12">No matching records</td></tr>';
+}
+function show(id){
+ const p=joined.find(x=>idOf(x)===id);if(!p)return;const c=p.contract;
+ const info=[[t('term'),c?.totalYears!=null?c.totalYears+' '+t('years'):t('unknown')],[t('end'),end(c)],['PO / TO',options(c)],[t('evidence'),c?(c.sourceType==='club'?t('source'):t('media')):t('unknown')]];
+ const stats=[['GP',p.G],['PPG',fmt(p.PPG)],['3P%',fmt(p['3FG%'])+'%'],['RPG',fmt(p.RPG)],['APG',fmt(p.APG)],['MIN/G',p.MINPG||'—']];
+ $('#detail').innerHTML='<div class="drawer-head"><button id="close" class="close" type="button">×</button><small>'+esc(p.club)+' · #'+esc(p.number||'—')+'</small><h2>'+esc(p.name)+'</h2><small>'+esc(p.name_en||'')+' · '+esc(p.pos||'—')+'</small></div>'+
+ '<div class="drawer-body"><section class="card"><h3>'+t('details')+'</h3><div class="details">'+info.map(([key,val])=>'<div class="datum"><span>'+esc(key)+'</span><strong>'+esc(val)+'</strong></div>').join('')+'</div><h3 style="margin-top:16px">TERM TIMELINE</h3><div class="timeline">'+[2026,2027,2028,2029].map(y=>{const o=c?.options?.find(x=>x.year===y),within=c?.startYear!=null&&y>=c.startYear&&y<c.endYear;return '<div class="'+(o?'opt':within?'fix':'')+'"><small>'+labelYear(y)+'</small><strong>'+(o?o.kind:within?'●':'—')+'</strong></div>'}).join('')+'</div><p class="small">'+esc(c?.note||t('noTerms'))+'</p>'+(c?'<p class="small">'+esc(c.announced)+'</p><a class="btn" href="'+esc(c.source)+'" target="_blank" rel="noopener noreferrer">'+t('original')+' ↗</a>':'')+'</section><section class="card"><h3>'+t('stats')+'</h3><div class="details">'+stats.map(([key,val])=>'<div class="datum"><span>'+key+'</span><strong>'+esc(val)+'</strong></div>').join('')+'</div><p><a href="'+esc(p.url||'#')+'" target="_blank" rel="noopener noreferrer">B.LEAGUE PROFILE ↗</a></p></section><p class="notice">'+t('caution')+'</p><a class="btn primary" href="./staff.html">STAFF SCOUTING</a></div>';
+ $('#overlay').classList.add('open');document.body.style.overflow='hidden';$('#close').focus();
+}
+function closeDetail(){$('#overlay').classList.remove('open');document.body.style.overflow=''}
+function exportCsv(){
+ const keys=['club','name','name_en','number','pos','G','PPG','3FG%','APG','contractYears','startYear','endYear','options','announcement','source','sourceType','notes'];
+ const quote=v=>{let s=String(v??'');if(/^[=+@]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';};
+ const data=[keys.join(','),...filtered.map(p=>{const c=p.contract||{};const v={...p,contractYears:c.totalYears,startYear:c.startYear,endYear:c.endYear,options:options(p.contract),announcement:c.announced,source:c.source,sourceType:c.sourceType,notes:c.note};return keys.map(key=>quote(v[key])).join(',')})].join('\r\n');
+ const blob=new Blob(['\ufeff'+data],{type:'text/csv;charset=utf-8'});const u=URL.createObjectURL(blob),link=document.createElement('a');link.href=u;link.download='bleague-contract-hub-2026-27.csv';link.click();setTimeout(()=>URL.revokeObjectURL(u),3000);
+}
+async function init(){
+ try{
+  const [r,c]=await Promise.all([fetch('../data/stats.json',{cache:'no-store'}),fetch('./contracts.json',{cache:'no-store'})]);
+  if(!r.ok||!c.ok)throw Error('Official data unavailable');
+  const stats=await r.json(),payload=await c.json();
+  if(!Array.isArray(stats.players)||stats.players.length<100||!Array.isArray(payload.contracts))throw Error('Invalid stats or contract data');
+  const map=new Map(payload.contracts.map(x=>[norm(x.club)+'|'+norm(x.name),x]));
+  joined=stats.players.map(p=>({...p,contract:map.get(norm(p.club)+'|'+norm(p.name))||null}));
+  $('#rosterUpdated').textContent='ROSTER '+(stats.updated?.players||'—');$('#contractUpdated').textContent='CONTRACTS '+payload.publishedAt;
+  optionsForFilters();updateWords();render();
+ }catch(err){$('#results').innerHTML='<tr><td colspan="12" class="empty">Data unavailable: '+esc(err.message)+'</td></tr>';console.error(err)}
+}
+for(const id of ['query','club','term','position','sort'])$('#'+id).addEventListener(id==='query'?'input':'change',e=>{filters[id]=e.target.value;render()});
+for(const lang of ['ja','en'])$('#'+lang).addEventListener('click',()=>{language=lang;try{localStorage.setItem('bcontract-lang',lang)}catch{}updateWords();render()});
+$('#export').addEventListener('click',exportCsv);$('#results').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)show(b.dataset.id)});
+$('#overlay').addEventListener('click',e=>{if(e.target.id==='overlay'||e.target.id==='close')closeDetail()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+updateWords();init();
+</script></body></html>
