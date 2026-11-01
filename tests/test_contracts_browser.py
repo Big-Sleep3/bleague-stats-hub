@@ -15,15 +15,21 @@ class ContractTests(unittest.TestCase):
  @classmethod
  def tearDownClass(cls):
   cls.browser.close();cls.pw.stop();cls.http.shutdown();cls.http.server_close()
- def test_public_332_and_verified_options(self):
+ def test_public_roster_and_verified_options(self):
   page=self.browser.new_page(accept_downloads=True)
   errors=[];page.on('pageerror',lambda x:errors.append(str(x)))
   page.goto(self.base,wait_until='domcontentloaded')
   expect(page.locator('#kpis .kpi')).to_have_count(5)
-  expect(page.locator('#results tr')).to_have_count(332)
+  roster=json.loads((ROOT/'data'/'stats.json').read_text(encoding='utf-8'))['players']
+  expect(page.locator('#results tr')).to_have_count(len(roster))
   page.locator('#term').select_option('po')
   po=page.locator('#results tr')
   self.assertGreaterEqual(po.count(),4)
+  page.locator('#targetSeason').select_option('2027')
+  page.locator('#availability').select_option('option')
+  self.assertGreaterEqual(page.locator('#results tr').count(),1)
+  page.locator('#availability').select_option('')
+  page.locator('#targetSeason').select_option('')
   page.locator('#query').fill('吉井')
   expect(page.locator('#results tr')).to_have_count(1)
   expect(page.locator('#results')).to_contain_text('2027-28')
