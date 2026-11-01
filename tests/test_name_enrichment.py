@@ -18,8 +18,12 @@ class EnglishNameTests(unittest.TestCase):
    players=[{'name':'選手'+str(i),
              'url':'https://www.bleague.jp/roster_detail/?PlayerID='+pid}
             for i,pid in enumerate(ids)]
-   names={pid:'Alex '+chr(65+i//26)+chr(65+i%26)
+   # Prefix the synthetic surname: two-letter tokens can accidentally be
+   # navigation stop words (e.g. 'IN') and create a false pending player.
+   names={pid:'Alex Z'+chr(65+i//26)+chr(65+i%26)
           for i,pid in enumerate(ids)}
+   self.assertTrue(all(ascii_name(name) for name in names.values()))
+   self.assertEqual(len(filter_name_map(names,set(ids))),332)
    stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
    previous={'source':'official','updated_at':'previous run',
              'total_players':332,'verified':332,'pending_count':0,'names':names}
