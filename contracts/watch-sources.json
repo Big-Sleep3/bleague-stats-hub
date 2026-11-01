@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "disclaimer": "Official club/league discovery only. Listed candidates are NOT verified contract terms. Only a subset of clubs has direct news monitoring; expand sources as verified.",
+  "disclaimer": "Official club/league discovery only. Listed candidates are NOT verified contract terms. Currently 12 of 26 club news archives are monitored; expand only with verified official sources.",
   "sources": [
     {
       "club": "茨城",
@@ -36,6 +36,31 @@
       "club": "北海道",
       "kind": "news",
       "url": "https://www.levanga.com/news/?contents_type=32"
+    },
+    {
+      "club": "三遠",
+      "kind": "news",
+      "url": "https://www.neophoenix.jp/news/?contents_type=32"
+    },
+    {
+      "club": "琉球",
+      "kind": "news",
+      "url": "https://goldenkings.jp/news/?contents_type=32"
+    },
+    {
+      "club": "大阪",
+      "kind": "news",
+      "url": "https://www.evessa.com/news/?contents_type=32"
+    },
+    {
+      "club": "長崎",
+      "kind": "news",
+      "url": "https://www.velca.jp/news/?contents_type=32"
+    },
+    {
+      "club": "信州",
+      "kind": "news",
+      "url": "https://www.b-warriors.net/news/?contents_type=32"
     },
     {
       "club": "B.LEAGUE自由交渉リスト",
