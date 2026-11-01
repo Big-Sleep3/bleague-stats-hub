@@ -31,8 +31,8 @@ Approved-staff portal: https://big-sleep3.github.io/bleague-stats-hub/contracts/
 ## Official announcement discovery (scheduled)
 
 - `/.github/workflows/watch-contract-releases.yml` scans **twice daily at 09:00 and 21:00 Asia/Tokyo** using public official news archive pages and the B.LEAGUE public free-agent list. Results are summarized in [Official News Watch](./watch.html).
-- `watch-sources.json` currently lists **seven** verified club news pages plus the league official free-agent list. This is a partial coverage baseline, **not** all 26 club news pages.
+- `watch-sources.json` currently lists **12** verified club news pages plus the league official free-agent list. This is a partial coverage baseline, **not** all 26 club news pages.
 - `watch-state.json` keeps seen official announcement URL keys and a list of newly discovered articles. First scan seeds the baseline instead of flooding the queue with historic news. A changed free-agent list digest is a review event, not an availability claim.
 - The watcher **never writes** `contracts.json` or any private Supabase record. Headlines cannot determine contract length, PO, TO, guarantees, or actual availability. A new release must be read and checked against player/team identity before terms are curated.
 - `scripts/validate_bleague_contracts.py` checks field structure, HTTPS source references, year arithmetic, option seasons, uniqueness and related public roster references. It cannot confirm that an article actually says what a record claims.
-- ChatGPT scheduled monitoring could not be enabled: all five available scheduled automation slots are occupied. To receive ChatGPT alerts and have source-backed GitHub contract updates made autonomously, one existing scheduled task must be paused or repurposed with the user's consent.
+- A ChatGPT scheduled review is active (twice daily). Verified contract terms are added separately after reviewing the original club release and passing the contract UI/validation tests.
