@@ -21,12 +21,12 @@
     },
     "players": {
       "success": true,
-      "rows": 332,
-      "changed": false,
-      "official_updated": "2026-10-28 11:17 JST (detail page values; official time not supplied)",
+      "rows": 334,
+      "changed": true,
+      "official_updated": "2026-11-01 11:10 JST (detail page values; official time not supplied)",
       "method": "club_detail/roster_detail fallback",
-      "checked_at": "2026-10-29 11:27 JST",
-      "english_names": 332
+      "checked_at": "2026-11-01 11:10 JST",
+      "english_names": 334
     }
   },
   "notes": "Official changes are detected from data values. Failed/partial extractions are rejected.",
