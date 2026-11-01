@@ -15,7 +15,7 @@
 <main class="shell"><div class="hero"><div><div class="eyebrow">B.PREMIER / 26 CLUBS · RECRUITING</div><h1 id="heading">選手契約データベース</h1><p id="subheading">契約年数・終了シーズン・PO／TOと今季スタッツを横断検索。公開発表に出典がある契約だけを登録。</p></div><div class="updated"><span id="rosterUpdated"></span><div id="contractUpdated"></div></div></div>
 <section id="kpis" class="kpis"></section>
 <div id="notice" class="notice">重要：契約条件が未確認でも単年契約とは限らない。またPO/TO年は保証年と異なる可能性があり、選手の獲得可能性を保証しない。</div>
-<div class="filters"><input id="query" type="search" placeholder="選手・クラブ・英語名で検索"><select id="club"><option value="">ALL CLUBS</option></select><select id="term"><option value="">ALL CONTRACTS</option><option value="known">契約期間掲載</option><option value="unknown">未確認</option><option value="po">PLAYER OPTION</option><option value="to">TEAM OPTION</option><option value="2027">2026-27終了</option><option value="2028">2027-28終了</option><option value="2029">2028-29終了</option><option value="2030">2029-30終了</option></select><select id="position"><option value="">ALL POSITIONS</option></select><select id="sort"><option value="name">CLUB / NAME</option><option value="ppg">PPG ↓</option><option value="three">3P% ↓</option><option value="end">END ↑</option></select><button type="button" class="btn primary" id="export">EXPORT CSV</button></div>
+<div class="filters"><input id="query" type="search" placeholder="選手・クラブ・英語名で検索"><select id="club"><option value="">ALL CLUBS</option></select><select id="term"><option value="">ALL CONTRACTS</option><option value="known">契約期間掲載</option><option value="unknown">未確認</option><option value="po">PLAYER OPTION</option><option value="to">TEAM OPTION</option><option value="2027">2026-27終了</option><option value="2028">2027-28終了</option><option value="2029">2028-29終了</option><option value="2030">2029-30終了</option></select><select id="targetSeason" aria-label="Target recruiting season"><option value="">ALL TARGET SEASONS</option><option value="2027">2027-28</option><option value="2028">2028-29</option><option value="2029">2029-30</option></select><select id="availability" aria-label="Recruiting candidate category"><option value="">ALL PLAYERS</option><option value="potential">EXPIRY / PO / TO</option><option value="expiry">CONTRACT EXPIRY</option><option value="option">PO / TO WINDOW</option></select><select id="position"><option value="">ALL POSITIONS</option></select><select id="sort"><option value="name">CLUB / NAME</option><option value="ppg">PPG ↓</option><option value="three">3P% ↓</option><option value="end">END ↑</option></select><button type="button" class="btn primary" id="export">EXPORT CSV</button></div>
 <section class="panel"><div class="panel-head"><strong>PLAYER CONTRACT BOARD</strong><span id="resultCount" class="small"></span></div><div class="table-wrap"><table class="board"><thead><tr><th>PLAYER</th><th>CLUB</th><th>POS</th><th>GP</th><th>PPG</th><th>3P%</th><th>APG</th><th id="termTitle">契約年数</th><th id="endTitle">最終シーズン</th><th>PO / TO</th><th>2026→30</th><th id="evidenceTitle">出典</th></tr></thead><tbody id="results"><tr><td colspan="12" class="empty">Loading...</td></tr></tbody></table></div></section>
 <div class="footer"><span id="footnote">B.PREMIER 26クラブの2026-27スタッツ掲載選手を使用。B.ONE・B.NEXTや未掲載選手は未収録。</span><span>PUBLIC EVIDENCE ONLY · Private notes in staff portal</span></div></main>
 <div class="backdrop" id="overlay"><div class="drawer" role="dialog" aria-modal="true" aria-label="Player contract details" id="detail"></div></div>
@@ -27,7 +27,7 @@ const dict={
  ja:{heading:'選手契約データベース',sub:'契約年数・終了シーズン・PO／TOと今季スタッツを横断検索。公開発表に出典がある契約だけを登録。',notice:'重要：契約条件が未確認でも単年契約とは限らない。またPO/TO年は保証年と異なる可能性があり、選手の獲得可能性を保証しない。',foot:'B.PREMIER 26クラブの2026-27スタッツ掲載選手を使用。B.ONE・B.NEXTや未掲載選手は未収録。',search:'選手・クラブ・英語名で検索',known:'契約期間掲載',unknown:'未確認',term:'契約年数',end:'最終シーズン',evidence:'出典',years:'年',source:'公式記事',media:'報道記事',undisclosed:'オプション未公表',details:'契約概要',stats:'今季成績',original:'原文を開く',caution:'契約の実際の効力、オプション行使条件、交渉の可否はクラブ・代理人への確認が必要。',noTerms:'契約期間・オプション条件は未確認。'},
  en:{heading:'Player Contract Database',sub:'Search contract terms, final seasons, player/team options and season stats. Only evidenced public contract announcements are included.',notice:'Unverified does NOT mean a one-year contract. PO and TO years may not be guaranteed. Contract terms do not determine actual recruitment availability.',foot:'2026-27 published player stats from 26 B.PREMIER clubs. B.ONE, B.NEXT and unlisted players are not covered.',search:'Search player, club or English name',known:'Published terms',unknown:'Unverified',term:'Contract length',end:'Last season',evidence:'Source',years:'yr',source:'Club release',media:'Media report',undisclosed:'Options undisclosed',details:'Contract details',stats:'Season statistics',original:'View source',caution:'Verify the current terms, option triggers and recruitment eligibility with the club or authorized representative.',noTerms:'Contract duration and option terms are unverified.'}
 };
-let language='ja',joined=[],filtered=[],filters={query:'',club:'',term:'',position:'',sort:'name'};
+let language='ja',joined=[],filtered=[],filters={query:'',club:'',term:'',position:'',sort:'name',targetSeason:'',availability:''};
 try{language=localStorage.getItem('bcontract-lang')==='en'?'en':'ja'}catch{}
 const t=k=>dict[language][k]||k;
 const norm=s=>String(s||'').normalize('NFKC').replace(/[\s　・･.]/g,'').toLowerCase();
@@ -48,6 +48,9 @@ function timeline(c){
 function updateWords(){
  document.documentElement.lang=language;$('#heading').textContent=t('heading');$('#subheading').textContent=t('sub');$('#notice').textContent=t('notice');$('#footnote').textContent=t('foot');$('#query').placeholder=t('search');$('#termTitle').textContent=t('term');$('#endTitle').textContent=t('end');$('#evidenceTitle').textContent=t('evidence');
  $('#term option[value="known"]').textContent=t('known');$('#term option[value="unknown"]').textContent=t('unknown');
+ $('#targetSeason option[value=""]').textContent=language==='ja'?'獲得対象シーズン':'Target season';
+ const labels=language==='ja'?['全選手','契約満了・PO/TO候補','契約満了候補','PO / TO対象']:['All players','Expiry / PO / TO candidates','Contract expiry candidates','PO / TO windows'];
+ [...$('#availability').options].forEach((o,i)=>o.textContent=labels[i]);
  for(const k of ['ja','en'])$('#'+k).classList.toggle('active',language===k);
 }
 function counter(){
@@ -58,12 +61,21 @@ function counter(){
 function optionsForFilters(){
  for(const [id,values] of [['club',[...new Set(joined.map(p=>p.club))].sort((a,b)=>a.localeCompare(b,'ja'))],['position',[...new Set(joined.map(p=>p.pos).filter(Boolean))].sort()]])$('#'+id).innerHTML='<option value="">ALL '+(id==='club'?'CLUBS':'POSITIONS')+'</option>'+values.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
 }
+function candidateClass(c,y){
+ if(!c||!Number.isInteger(y))return '';
+ // An option applies to its named season; it does not establish a free-agent date.
+ if(c.options?.some(o=>o.year===y&&(o.kind==='PO'||o.kind==='TO')))return 'option';
+ // End year is exclusive: endYear=2027 means last season 2026-27.
+ if(c.endYear===y&&c.verification==='source_backed'&&c.startYear!==null)return 'expiry';
+ return '';
+}
 function apply(){
  const q=norm(filters.query);filtered=joined.filter(p=>{
  const c=p.contract;
  if(q&&!norm([p.name,p.name_en,p.club].join(' ')).includes(q))return false;
  if(filters.club&&filters.club!==p.club)return false;
  if(filters.position&&filters.position!==p.pos)return false;
+ if(filters.availability){const y=Number(filters.targetSeason);if(!y)return false;const kind=candidateClass(c,y);if(filters.availability==='potential'&&!kind||filters.availability==='expiry'&&kind!=='expiry'||filters.availability==='option'&&kind!=='option')return false;}
  if(filters.term==='known'&&!c||filters.term==='unknown'&&!!c)return false;
  if(filters.term==='po'&&!c?.options?.some(o=>o.kind==='PO'))return false;
  if(filters.term==='to'&&!c?.options?.some(o=>o.kind==='TO'))return false;
@@ -108,7 +120,7 @@ async function init(){
   optionsForFilters();updateWords();render();
  }catch(err){$('#results').innerHTML='<tr><td colspan="12" class="empty">Data unavailable: '+esc(err.message)+'</td></tr>';console.error(err)}
 }
-for(const id of ['query','club','term','position','sort'])$('#'+id).addEventListener(id==='query'?'input':'change',e=>{filters[id]=e.target.value;render()});
+for(const id of ['query','club','term','position','sort','targetSeason','availability'])$('#'+id).addEventListener(id==='query'?'input':'change',e=>{filters[id]=e.target.value;render()});
 for(const lang of ['ja','en'])$('#'+lang).addEventListener('click',()=>{language=lang;try{localStorage.setItem('bcontract-lang',lang)}catch{}updateWords();render()});
 $('#export').addEventListener('click',exportCsv);$('#results').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)show(b.dataset.id)});
 $('#overlay').addEventListener('click',e=>{if(e.target.id==='overlay'||e.target.id==='close')closeDetail()});
