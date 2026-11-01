@@ -547,6 +547,48 @@
       "sourceType": "club",
       "note": "2026-27から2年契約（2027-28まで）。当該発表ではPO/TOの種類・対象年の記載を確認できず",
       "verification": "source_backed"
+    },
+    {
+      "club": "大阪",
+      "name": "チュクゥディエベレ・マドゥアバム",
+      "startYear": 2026,
+      "endYear": null,
+      "totalYears": null,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-10-30",
+      "source": "https://www.evessa.com/news/detail/id=24984",
+      "sourceType": "club",
+      "note": "2026-27シーズンの選手契約締結を公式発表。総契約年数・最終契約シーズン・PO/TO条件は未公表。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "大阪",
+      "name": "ワース・スミス",
+      "startYear": 2026,
+      "endYear": null,
+      "totalYears": null,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-10-30",
+      "source": "https://www.evessa.com/news/detail/id=24985",
+      "sourceType": "club",
+      "note": "2026-27シーズンの選手契約締結を公式発表。総契約年数・最終契約シーズン・PO/TO条件は未公表。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "長崎",
+      "name": "パブロ・アギラール",
+      "startYear": 2026,
+      "endYear": null,
+      "totalYears": null,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-10-02",
+      "source": "https://www.velca.jp/news/detail/id=50955",
+      "sourceType": "club",
+      "note": "2026-27シーズンの選手契約基本合意を公式発表。総契約年数・最終契約シーズン・PO/TO条件は未公表。前所属は福岡（B.ONE）、新所属は長崎。",
+      "verification": "source_backed"
     }
   ],
   "verifiedAt": "2026-11-01"
