@@ -12,6 +12,17 @@ class LanguageSwitcherTests(unittest.TestCase):
    errors=[]
    page.on('pageerror',lambda exc:errors.append(str(exc)))
    page.goto(HTML,wait_until='load')
+   # Browser-side safeguards must agree with the backend name-map validator.
+   for bad in ('Buy tickets','Sign Up','My Account','Shop Now','Checkout Cart'):
+    self.assertFalse(page.evaluate('(name) => validOfficialDisplayName(name)',bad),bad)
+   for good in ('Keisei Tominaga','Trey Kell III','Sergio El Darwich'):
+    self.assertTrue(page.evaluate('(name) => validOfficialDisplayName(name)',good),good)
+   variants=['Keisei Tominaga','keisei tominaga','KEISEI TOMINAGA',
+             'Keisei  Tominaga',' Keisei\tTominaga ']
+   self.assertTrue(page.evaluate(
+    '(names) => hasMassDuplicateOfficialNames(names.map((name,i) => [String(i),name]))',variants))
+   self.assertFalse(page.evaluate(
+    '(names) => hasMassDuplicateOfficialNames(names.map((name,i) => [String(i),name]))',variants[:4]))
    self.assertEqual(page.locator('html').get_attribute('lang'),'ja')
    self.assertIn('クラブ詳細',page.locator('[data-tab=advanced]').inner_text())
    self.assertEqual(page.locator('#tbody tr').count(),26)
