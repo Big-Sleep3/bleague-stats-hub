@@ -198,10 +198,29 @@ const EN_PLAYER_STARTERS={
 };
 const EN_OFFICIAL_NAMES={};
 function validOfficialDisplayName(name){
- if(typeof name!=='string'||!name.includes(' ')||name.length>85||name.length<4)return false;
- if(!/^[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+$/.test(name))return false;
- const blocked=['buy','ticket','tickets','club','player','players','information','news','schedule','stats','statistics','league','game','games','merchandise','login','watch','live','results','ranking','rankings','privacy','policy','home','away','see','more'];
- return !name.toLowerCase().split(/\s+/).some(w=>blocked.includes(w.replace(/[.'’\-]/g,'')));
+ if(typeof name!=='string')return false;
+ const value=name.trim();
+ if(value.length<4||value.length>85||!/^[A-Za-zÀ-ÖØ-öø-ÿ.'’\-\s]+$/.test(value))return false;
+ const words=value.split(/\s+/);
+ if(words.length<2||words.length>7||words.some(w=>w.length>=35))return false;
+ // Mirror backend menu-label safeguards; do not trust a fetched JSON blindly.
+ const blocked=new Set(['buy','ticket','tickets','club','player','players','information','news',
+  'schedule','stats','statistics','basketball','league','game','games','merchandise',
+  'login','log','in','member','members','watch','live','stream','highlights',
+  'results','ranking','rankings','about','privacy','policy','visit','home','away',
+  'next','previous','see','more','sign','up','account','shop','now',
+  'checkout','cart','register','subscribe']);
+ return !words.some(w=>blocked.has(w.toLowerCase().replace(/[.'’\-]/g,'')));
+}
+function officialNameKey(name){return name.trim().replace(/\s+/g,' ').toLowerCase();}
+function hasMassDuplicateOfficialNames(entries){
+ const counts={};
+ for(const [,name] of entries){
+  const key=officialNameKey(name);
+  counts[key]=(counts[key]||0)+1;
+  if(counts[key]>=5)return true;
+ }
+ return false;
 }
 function playerId(p){
  return String(p?.url||'').match(/[?&]PlayerID=(\d+)/)?.[1]||'';
@@ -495,9 +514,8 @@ if(location.protocol.startsWith('http')){
  .then(payload=>{
    if(payload&&payload.names&&typeof payload.names==='object'){
      const clean=Object.entries(payload.names).filter(([id,name])=>/^\d+$/.test(id)&&validOfficialDisplayName(name));
-     const counts={}; clean.forEach(([,name])=>{counts[name]=(counts[name]||0)+1;});
-     // An accidental page-label import must not overwrite hundreds of identities.
-     if(clean.some(([,name])=>counts[name]>=5)){console.warn('English names rejected: repeated label.');return;}
+     // Case/whitespace variants are also duplicates, matching backend validation.
+     if(hasMassDuplicateOfficialNames(clean)){console.warn('English names rejected: repeated label.');return;}
      clean.forEach(([id,name])=>{EN_OFFICIAL_NAMES[id]=name.trim();});
      render();
    }
