@@ -8,6 +8,7 @@ import asyncio
 import datetime as dt
 import json
 import re
+import unicodedata
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -58,7 +59,7 @@ def filter_name_map(candidate, current_ids):
             if pid in current_ids and ascii_name(name)}
     # Treat case and whitespace variants as the same label when detecting
     # a broken scrape (e.g. "John Smith", "JOHN SMITH", "John  Smith").
-    counts=Counter(re.sub(r"\s+", " ", name).strip().casefold()
+    counts=Counter(re.sub(r"\s+", " ", unicodedata.normalize("NFKC", name)).strip().casefold()
                    for name in result.values())
     worst=counts.most_common(1)
     if worst and worst[0][1]>=5:
