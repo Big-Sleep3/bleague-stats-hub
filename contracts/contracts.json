@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "season": "2026-27",
-  "publishedAt": "2026-11-02",
+  "publishedAt": "2026-11-03",
   "coverage": "Source-backed contract durations/options for a subset of B.PREMIER roster (not a full league contract registry). Club releases preferred; media records distinguished.",
   "leagueRule": "https://www.bleague.jp/basketlive_news_detail/id=544060",
   "contracts": [
@@ -789,6 +789,48 @@
       "source": "https://chibajets.jp/news/detail/id=27499",
       "sourceType": "club",
       "note": "2026-11-01付で契約満了。千葉ジェッツが2026-11-02に公式発表し、同日B.LEAGUE自由交渉選手リストへ公示。双方合意の上でチーム練習への参加は継続。2026-10-07加入時の公式発表：https://chibajets.jp/news/detail/id=27297。総契約年数・PO/TO条件は未公表（単年契約とは推定しない）。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "三遠",
+      "name": "児玉 ジュニア",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-05-28",
+      "source": "https://www.neophoenix.jp/news/detail/id=24999",
+      "sourceType": "club",
+      "note": "2026-27シーズンから2028-29シーズンまでの3年契約をクラブ公式発表で確認。PO/TOの有無・対象年は当該発表では未公表。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "三遠",
+      "name": "根本 大",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-05-28",
+      "source": "https://www.neophoenix.jp/news/detail/id=24998",
+      "sourceType": "club",
+      "note": "2026-27シーズンから2028-29シーズンまでの3年契約をクラブ公式発表で確認。PO/TOの有無・対象年は当該発表では未公表。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "三遠",
+      "name": "浅井 英矢",
+      "startYear": 2026,
+      "endYear": 2029,
+      "totalYears": 3,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-05-28",
+      "source": "https://www.neophoenix.jp/news/detail/id=24997",
+      "sourceType": "club",
+      "note": "2026-27シーズンから2028-29シーズンまでの3年契約をクラブ公式発表で確認。PO/TOの有無・対象年は当該発表では未公表。",
       "verification": "source_backed"
     }
   ],
