@@ -74,6 +74,13 @@ class EnglishNameTests(unittest.TestCase):
   with self.assertRaisesRegex(RuntimeError,'repeated 5 times'):
    filter_name_map({str(i):name for i,name in enumerate(variants)},
                    {str(i) for i in range(len(variants))})
+ def test_mass_duplicate_labels_with_unicode_spaces_fail_closed(self):
+  # NFKC folds nonbreaking and full-width spaces into ordinary spaces.
+  variants=['Keisei Tominaga','keisei tominaga','KEISEI TOMINAGA',
+            'Keisei\u00a0Tominaga','Keisei\u3000Tominaga']
+  with self.assertRaisesRegex(RuntimeError,'repeated 5 times'):
+   filter_name_map({str(i):name for i,name in enumerate(variants)},
+                   {str(i) for i in range(len(variants))})
  def test_bad_labels_ignored(self):
   clean=filter_name_map({'1':'Buy tickets','2':'Jarrett Culver'},{'1','2'})
   self.assertEqual(clean,{'2':'Jarrett Culver'})
