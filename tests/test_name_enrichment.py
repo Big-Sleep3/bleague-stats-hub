@@ -48,8 +48,8 @@ class EnglishNameTests(unittest.TestCase):
    stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
    map_path.write_text(json.dumps({'total_players':334,'verified':0,'names':{}}),encoding='utf-8')
    original=map_path.read_bytes()
-   with patch.object(names_module,'STATS',stats_path), \\
-        patch.object(names_module,'OUT',map_path), \\
+   with patch.object(names_module,'STATS',stats_path), \
+        patch.object(names_module,'OUT',map_path), \
         patch.object(names_module,'async_playwright',
                      side_effect=AssertionError('Browser should not start')):
     with self.assertRaisesRegex(RuntimeError,'Roster PlayerID mismatch'):
@@ -66,8 +66,8 @@ class EnglishNameTests(unittest.TestCase):
    players[-1]['url']='https://www.bleague.jp/roster_detail/'
    stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
    map_path.write_text(json.dumps({'names':{}}),encoding='utf-8')
-   with patch.object(names_module,'STATS',stats_path), \\
-        patch.object(names_module,'OUT',map_path), \\
+   with patch.object(names_module,'STATS',stats_path), \
+        patch.object(names_module,'OUT',map_path), \
         patch.object(names_module,'async_playwright',
                      side_effect=AssertionError('Browser should not start')):
     with self.assertRaisesRegex(RuntimeError,'Roster PlayerID mismatch'):
