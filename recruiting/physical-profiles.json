@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "asOf": "2026-11-04 03:48 JST",
+  "asOf": "2026-11-05 03:55 JST",
   "coverage": "Sourced basketball player physical measurements. Older measurements labelled by source year.",
   "players": [
     {
@@ -328,6 +328,47 @@
       ]
     },
     {
+      "id": "K26-025",
+      "name": "広瀬 洸生",
+      "university": "青山学院大学",
+      "heightEvidence": {
+        "value": 190.0,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF",
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 87.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 190.0,
+      "weight": 87.0,
+      "position": "SF",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/"
+      ]
+    },
+    {
       "id": "K26-009",
       "name": "轟 琉維",
       "university": "東海大学",
@@ -613,6 +654,46 @@
       ]
     },
     {
+      "id": "K26-024",
+      "name": "関 峻作",
+      "university": "国士舘大学",
+      "heightEvidence": {
+        "value": 193,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 94,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SF/PF",
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
+        "sourceYear": 2026,
+        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
+        "quality": 2
+      },
+      "height": 193,
+      "weight": 94,
+      "position": "SF/PF",
+      "grade": 4,
+      "sources": [
+        "https://basketballking.jp/news/japan/fixed/634331.html"
+      ]
+    },
+    {
       "id": "K26-016",
       "name": "武藤 俊太朗",
       "university": "明治大学",
@@ -651,87 +732,6 @@
       "sources": [
         "https://jubf.jp/game/university-detail/id/2/type/intercollege/y/2025/s/men",
         "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1176/"
-      ]
-    },
-    {
-      "id": "K26-025",
-      "name": "広瀬 洸生",
-      "university": "青山学院大学",
-      "heightEvidence": {
-        "value": 190.0,
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "positionEvidence": {
-        "value": "SF",
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "gradeEvidence": {
-        "value": 4,
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "weightEvidence": {
-        "value": 87.0,
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "height": 190.0,
-      "weight": 87.0,
-      "position": "SF",
-      "grade": 4,
-      "sources": [
-        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/"
-      ]
-    },
-    {
-      "id": "K26-024",
-      "name": "関 峻作",
-      "university": "国士舘大学",
-      "heightEvidence": {
-        "value": 193,
-        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
-        "sourceYear": 2026,
-        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
-        "quality": 2
-      },
-      "weightEvidence": {
-        "value": 94,
-        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
-        "sourceYear": 2026,
-        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
-        "quality": 2
-      },
-      "positionEvidence": {
-        "value": "SF/PF",
-        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
-        "sourceYear": 2026,
-        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
-        "quality": 2
-      },
-      "gradeEvidence": {
-        "value": 4,
-        "source": "https://basketballking.jp/news/japan/fixed/634331.html",
-        "sourceYear": 2026,
-        "publisher": "バスケットボールキング 2026ドラフト志望届リスト",
-        "quality": 2
-      },
-      "height": 193,
-      "weight": 94,
-      "position": "SF/PF",
-      "grade": 4,
-      "sources": [
-        "https://basketballking.jp/news/japan/fixed/634331.html"
       ]
     },
     {
@@ -1098,6 +1098,47 @@
       ]
     },
     {
+      "id": "K26-030",
+      "name": "芦田 真人",
+      "university": "青山学院大学",
+      "heightEvidence": {
+        "value": 182.0,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "SG",
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "sourceYear": 2025,
+        "publisher": "JUBF official tournament roster",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 80.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 182.0,
+      "weight": 80.0,
+      "position": "SG",
+      "grade": 4,
+      "sources": [
+        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/"
+      ]
+    },
+    {
       "id": "K26-D46A4EA7871B",
       "name": "ニシンバ アニエル",
       "university": "国士舘大学",
@@ -1167,47 +1208,6 @@
       "grade": 4,
       "sources": [
         "https://basketballking.jp/news/japan/fixed/634331.html"
-      ]
-    },
-    {
-      "id": "K26-030",
-      "name": "芦田 真人",
-      "university": "青山学院大学",
-      "heightEvidence": {
-        "value": 182.0,
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "positionEvidence": {
-        "value": "SG",
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "gradeEvidence": {
-        "value": 4,
-        "source": "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "sourceYear": 2025,
-        "publisher": "JUBF official tournament roster",
-        "quality": 2
-      },
-      "weightEvidence": {
-        "value": 80.0,
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "height": 182.0,
-      "weight": 80.0,
-      "position": "SG",
-      "grade": 4,
-      "sources": [
-        "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
-        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1029/"
       ]
     },
     {
@@ -1339,6 +1339,38 @@
       ]
     },
     {
+      "id": "K26D2-112BD2D720A3",
+      "name": "佐藤 拓海",
+      "university": "立教大学",
+      "heightEvidence": {
+        "value": 188,
+        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
+        "sourceYear": 2026,
+        "publisher": "立教大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 83,
+        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
+        "sourceYear": 2026,
+        "publisher": "立教大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PF",
+        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
+        "sourceYear": 2026,
+        "publisher": "立教大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "height": 188,
+      "weight": 83,
+      "position": "PF",
+      "sources": [
+        "https://rikkyo-bb1921-mens.com/player/detail/id/23491"
+      ]
+    },
+    {
       "id": "K26D2-A1B36621FF93",
       "name": "ダイラ モゼス ヨラム",
       "university": "明星大学",
@@ -1392,38 +1424,6 @@
       "grade": 1,
       "sources": [
         "https://bojweb.com/?p=7400"
-      ]
-    },
-    {
-      "id": "K26D2-112BD2D720A3",
-      "name": "佐藤 拓海",
-      "university": "立教大学",
-      "heightEvidence": {
-        "value": 188,
-        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
-        "sourceYear": 2026,
-        "publisher": "立教大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "weightEvidence": {
-        "value": 83,
-        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
-        "sourceYear": 2026,
-        "publisher": "立教大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "positionEvidence": {
-        "value": "PF",
-        "source": "https://rikkyo-bb1921-mens.com/player/detail/id/23491",
-        "sourceYear": 2026,
-        "publisher": "立教大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "height": 188,
-      "weight": 83,
-      "position": "PF",
-      "sources": [
-        "https://rikkyo-bb1921-mens.com/player/detail/id/23491"
       ]
     },
     {
