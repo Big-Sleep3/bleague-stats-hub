@@ -83,6 +83,12 @@ async def enrich():
         if pid:
             work.setdefault(pid,player)
     if len(work)<200:raise RuntimeError("Not enough official player IDs.")
+    # A repeated or missing PlayerID means the roster cannot be mapped one-to-one.
+    # Fail closed rather than silently treating duplicate rows as fully verified.
+    if len(work)!=len(players):
+        raise RuntimeError(
+            f"Roster PlayerID mismatch: {len(players)} rows but {len(work)} unique IDs"
+        )
     known=filter_name_map(known,set(work))
     queue=asyncio.Queue()
     for pid,player in work.items():
