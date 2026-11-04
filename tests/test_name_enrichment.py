@@ -35,6 +35,43 @@ class EnglishNameTests(unittest.TestCase):
                      side_effect=AssertionError('Browser launched with zero pending players')):
     asyncio.run(names_module.enrich())
    self.assertEqual(map_path.read_bytes(),original)
+ def test_duplicate_player_id_fails_without_rewriting_verified_names(self):
+  with tempfile.TemporaryDirectory() as directory:
+   root=Path(directory)
+   stats_path=root/'stats.json'
+   map_path=root/'player-names-en.json'
+   players=[{'name':'選手'+str(i),
+             'url':'https://www.bleague.jp/roster_detail/?PlayerID='+str(30000+i)}
+            for i in range(334)]
+   # Duplicate a valid ID: silently deduplicating would overstate coverage.
+   players[-1]['url']=players[0]['url']
+   stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
+   map_path.write_text(json.dumps({'total_players':334,'verified':0,'names':{}}),encoding='utf-8')
+   original=map_path.read_bytes()
+   with patch.object(names_module,'STATS',stats_path), \\
+        patch.object(names_module,'OUT',map_path), \\
+        patch.object(names_module,'async_playwright',
+                     side_effect=AssertionError('Browser should not start')):
+    with self.assertRaisesRegex(RuntimeError,'Roster PlayerID mismatch'):
+     asyncio.run(names_module.enrich())
+   self.assertEqual(map_path.read_bytes(),original)
+ def test_missing_player_id_fails_without_browser(self):
+  with tempfile.TemporaryDirectory() as directory:
+   root=Path(directory)
+   stats_path=root/'stats.json'
+   map_path=root/'player-names-en.json'
+   players=[{'name':'選手'+str(i),
+             'url':'https://www.bleague.jp/roster_detail/?PlayerID='+str(30000+i)}
+            for i in range(334)]
+   players[-1]['url']='https://www.bleague.jp/roster_detail/'
+   stats_path.write_text(json.dumps({'players':players}),encoding='utf-8')
+   map_path.write_text(json.dumps({'names':{}}),encoding='utf-8')
+   with patch.object(names_module,'STATS',stats_path), \\
+        patch.object(names_module,'OUT',map_path), \\
+        patch.object(names_module,'async_playwright',
+                     side_effect=AssertionError('Browser should not start')):
+    with self.assertRaisesRegex(RuntimeError,'Roster PlayerID mismatch'):
+     asyncio.run(names_module.enrich())
  def test_official_profile_roman_spelling(self):
   html="""<p>1999年2月20日</p><div>Jarrett Culver</div><h1>ジャレット・カルバー</h1><div>PTS Total Points</div>"""
   self.assertEqual(extract_official_english(html,'ジャレット・カルバー'),'Jarrett Culver')
