@@ -4,7 +4,7 @@
   "league": "B.PREMIER",
   "updated": {
     "advanced": "2026-11-01 22:25 JST",
-    "basic": "2026-11-01 22:25 JST",
+    "basic": "2026-11-01 23:03 JST",
     "players": "2026-11-03 11:33 JST (detail page values; official time not supplied)"
   },
   "quality": {
@@ -1211,8 +1211,8 @@
       "FTAPG": 24.3,
       "FT%": 78.8,
       "ORPG": 13.3,
-      "DRPG": 28.4,
-      "RPG": 41.7,
+      "DRPG": 28.3,
+      "RPG": 41.6,
       "APG": 22.1,
       "TOPG": 12.7,
       "STPG": 6.1,
@@ -1241,7 +1241,7 @@
       "FTMPG": 14.1,
       "FTAPG": 17.4,
       "FT%": 81.1,
-      "ORPG": 11.4,
+      "ORPG": 11.5,
       "DRPG": 26.1,
       "RPG": 37.6,
       "APG": 22.4,
@@ -1272,9 +1272,9 @@
       "FTMPG": 12.3,
       "FTAPG": 16.8,
       "FT%": 73.4,
-      "ORPG": 9.1,
-      "DRPG": 27.2,
-      "RPG": 36.2,
+      "ORPG": 8.9,
+      "DRPG": 27.1,
+      "RPG": 36.0,
       "APG": 18.2,
       "TOPG": 11.5,
       "STPG": 5.8,
@@ -1397,8 +1397,8 @@
       "FTAPG": 15.2,
       "FT%": 70.0,
       "ORPG": 11.4,
-      "DRPG": 26.6,
-      "RPG": 38.0,
+      "DRPG": 26.7,
+      "RPG": 38.1,
       "APG": 21.3,
       "TOPG": 14.5,
       "STPG": 4.4,
@@ -13840,7 +13840,7 @@
   },
   "retrieved": {
     "advanced": "2026-11-01 22:46 JST",
-    "basic": "2026-11-01 22:46 JST",
+    "basic": "2026-11-04 14:12 JST",
     "players": "2026-11-03 11:33 JST"
   },
   "method": {
