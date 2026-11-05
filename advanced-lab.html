@@ -53,7 +53,9 @@ th:nth-child(1){z-index:3;background:#e9f1f3}td:first-child{font-weight:800}td.m
 const $=id=>document.getElementById(id);
 const rate=(n,d)=>Number.isFinite(n)&&Number.isFinite(d)&&d>0?100*n/d:null;
 const num=v=>typeof v==="number"&&Number.isFinite(v)?v:null;
-const per40=(v,t)=>{if(typeof t!=="string"||! /^\d+:\d{2}$/.test(t))return null;const x=t.split(":").map(Number);const m=x[0]+x[1]/60;return m>0?40*v/m:null};
+const add=(...values)=>values.every(Number.isFinite)?values.reduce((a,b)=>a+b,0):null;
+const mul=(value,factor)=>Number.isFinite(value)?value*factor:null;
+const per40=(v,t)=>{if(!Number.isFinite(v)||typeof t!=="string"||! /^\d+:\d{2}$/.test(t))return null;const x=t.split(":").map(Number);const m=x[0]+x[1]/60;return m>0?40*v/m:null};
 const state={view:"team",lang:"ja",query:"",sort:"ortg",desc:true,teams:[],players:[],dataset:null};
 const defs={
 team:[
@@ -82,16 +84,16 @@ function makeRows(d){
  const basic=new Map(d.basic.map(x=>[x.abbr,x]));
  state.teams=d.advanced.map(a=>{const b=basic.get(a.abbr)||{},v=a.v||{};return{
  abbr:a.abbr,gp:a.gp,ortg:num(v.OFFRTG),drtg:num(v.DEFRTG),net:num(v.NETRTG),pace:num(v.PACE),
- efg:num(v["EFG%"]),ts:num(v["TS%"]),tovrate:rate(num(b.TOPG),num(b.FGAPG)+.44*num(b.FTAPG)+num(b.TOPG)),
+ efg:num(v["EFG%"]),ts:num(v["TS%"]),tovrate:rate(num(b.TOPG),add(num(b.FGAPG),mul(num(b.FTAPG),.44),num(b.TOPG))),
  ftr:rate(num(b.FTAPG),num(b.FGAPG)),threepar:rate(num(b["3FGAPG"]),num(b.FGAPG)),
  astto:num(v["AST/TO"]),paint:num(v["%PTSPITP"]),p2:num(v["%PTS2PT"]),
  p3:num(v["%PTS3PT"]),ftshare:num(v["%PTSFT"]),opppts:num(b.OPPPTSPG)}})
  state.players=d.players.map(p=>{const fga=num(p.FGAPG),fta=num(p.FTAPG),fgm=num(p.FGMPG),tpm=num(p["3FGMPG"]),tpa=num(p["3FGAPG"]),tov=num(p.TOPG);
  return{label:state.lang==="en"?(p.name_en||p.name):p.name,labelJa:p.name,labelEn:p.name_en||p.name,club:p.club,gp:num(p.G),mpg:p.MINPG,ppg:num(p.PPG),p40:per40(num(p.PPG),p.MINPG),
- efg:rate(fgm+.5*tpm,fga),ts:rate(num(p.PPG),2*(fga+.44*fta)),
- threepar:rate(tpa,fga),ftr:rate(fta,fga),tovrate:rate(tov,fga+.44*fta+tov),
+ efg:rate(add(fgm,mul(tpm,.5)),fga),ts:rate(num(p.PPG),mul(add(fga,mul(fta,.44)),2)),
+ threepar:rate(tpa,fga),ftr:rate(fta,fga),tovrate:rate(tov,add(fga,mul(fta,.44),tov)),
  astto:tov>0?num(p.APG)/tov:null,ast40:per40(num(p.APG),p.MINPG),
- reb40:per40(num(p.RPG),p.MINPG),stocks40:per40(num(p.STPG)+num(p.BSPG),p.MINPG),
+ reb40:per40(num(p.RPG),p.MINPG),stocks40:per40(add(num(p.STPG),num(p.BSPG)),p.MINPG),
  plusminus:num(p["+/-"])}})
 }
 function fmt(value,type){if(value===null||value===undefined||typeof value==="number"&&!Number.isFinite(value))return "—";
