@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#132a3d"><title>ADVANCED LAB | B.PREMIER STATS HUB</title>
+<style>
+:root{--navy:#132a3d;--teal:#078b87;--ink:#263e50;--muted:#637c8b;--line:#dce6e9;--bg:#f5f7f8;--soft:#e8f6f3}
+*{box-sizing:border-box}body{margin:0;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:white;border-bottom:4px solid var(--teal)}header .wrap,main,footer{max-width:1480px;margin:auto;padding:18px 24px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}header a{color:white;text-decoration:none;font-weight:800}header a:hover{text-decoration:underline}
+header small{color:#a7ccd2;display:block;font-size:11px;letter-spacing:.13em}
+h1{font-size:clamp(26px,4vw,42px);color:var(--navy);line-height:1.2;margin:10px 0}p{margin:6px 0}.eyebrow{font-size:12px;color:var(--teal);font-weight:850;letter-spacing:.12em}
+.sub{color:var(--muted)}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:24px 0 15px}
+button,input,select{font:inherit;border-radius:8px;border:1px solid #c9dadd;padding:9px 12px;background:#fff;color:var(--navy)}
+button{cursor:pointer;font-weight:750}button.active{background:var(--navy);color:white;border-color:var(--navy)}button:hover{border-color:var(--teal)}
+input{min-width:220px;flex:1;max-width:400px}select{max-width:230px}.spacer{flex:1}
+.panel{border:1px solid var(--line);border-radius:12px;background:white;overflow:hidden}
+.bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.bar strong{font-size:18px}.bar span{color:var(--muted);font-size:12px}
+.scroller{overflow:auto;max-height:72vh}table{border-collapse:separate;border-spacing:0;min-width:1450px;width:100%;font-size:12px;white-space:nowrap}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{position:sticky;top:0;background:#e9f1f3;color:var(--navy);font-size:11px;z-index:2;cursor:pointer;user-select:none}
+tr:hover td{background:#f1faf8}th:nth-child(1),td:nth-child(1){text-align:left;position:sticky;left:0;z-index:1;background:white;min-width:150px}
+th:nth-child(1){z-index:3;background:#e9f1f3}td:first-child{font-weight:800}td.missing{color:#9daab2}th .arrow{color:var(--teal)}
+.legend{margin-top:18px;background:var(--soft);border:1px solid #c8e9e3;padding:14px 16px;border-radius:10px}
+.legend strong{color:var(--navy)}.legend p{font-size:12px;line-height:1.7}
+.meta{color:var(--muted);font-size:12px;margin:18px 0}footer{color:var(--muted);font-size:12px;padding-bottom:50px}
+@media(max-width:650px){header .wrap,main,footer{padding-left:13px;padding-right:13px}.controls{gap:7px}.controls button,.controls select{padding:7px}input{min-width:145px}}
+</style></head>
+<body><header><div class="wrap"><div><a href="./index.html">◈ BASKETBALL STATS LAB</a><small>2026–27 · B.PREMIER</small></div><div><a href="./index.html" id="back">← STATS HUB</a></div></div></header>
+<main>
+  <div class="eyebrow">LEAGUE-WIDE · CALCULATED METRICS</div>
+  <h1>ADVANCED LAB <span style="color:var(--teal)">/ B.PREMIER</span></h1>
+  <p class="sub" id="description">公式取得値と、公式平均値から計算した派生指標を比較する実験版。</p>
+  <div class="controls" aria-label="Filters">
+    <button id="teamBtn" class="active" aria-pressed="true">クラブ / Teams</button>
+    <button id="playerBtn" aria-pressed="false">選手 / Players</button>
+    <input id="query" placeholder="クラブ・選手を検索" aria-label="Search club or player">
+    <select id="metric" aria-label="Sort metric"></select>
+    <div class="spacer"></div>
+    <button id="langBtn" aria-label="Switch language">English</button>
+    <button id="csvBtn">CSV ↓</button>
+  </div>
+  <section class="panel"><div class="bar"><strong id="tableTitle">クラブ アドバンスドスタッツ</strong><span id="count">Loading…</span></div>
+  <div class="scroller" tabindex="0"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div></section>
+  <div class="legend">
+    <strong id="legendTitle">数値の種類・解釈</strong>
+    <p id="legendText">公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。TOV%* は TOV÷(FGA＋0.44×FTA＋TOV) によるBOX上の概算（ガベージタイム除外や実ポゼッションによるTOV%とは異なります）。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。</p>
+  </div>
+  <div class="meta" id="source">Loading official source dates…</div>
+</main>
+<footer>B.PREMIER STATS HUB · Independent unofficial research tool · <a href="https://www.bleague.jp/stats/" target="_blank" rel="noopener">B.LEAGUE Official Stats</a></footer>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const rate=(n,d)=>Number.isFinite(n)&&Number.isFinite(d)&&d>0?100*n/d:null;
+const num=v=>typeof v==="number"&&Number.isFinite(v)?v:null;
+const add=(...values)=>values.every(Number.isFinite)?values.reduce((a,b)=>a+b,0):null;
+const mul=(value,factor)=>Number.isFinite(value)?value*factor:null;
+const per40=(v,t)=>{if(!Number.isFinite(v)||typeof t!=="string"||! /^\d+:\d{2}$/.test(t))return null;const x=t.split(":").map(Number);const m=x[0]+x[1]/60;return m>0?40*v/m:null};
+const state={view:"team",lang:"ja",query:"",sort:"ortg",desc:true,teams:[],players:[],dataset:null};
+const defs={
+team:[
+["abbr","クラブ","Team","text"],
+["gp","GP","GP","int"],
+["ortg","OFF RTG","ORTG","one"],["drtg","DEF RTG","DRTG","one"],["net","NET RTG","NET RTG","signed"],
+["pace","PACE","PACE","one"],["efg","eFG%","eFG%","pct"],["ts","TS%","TS%","pct"],
+["tovrate","TOV%*","TOV%*","pct"],["ftr","FTr%*","FTr%*","pct"],["threepar","3PAr%*","3PAr%*","pct"],
+["astto","AST/TO","AST/TO","two"],["paint","PITP比率","Paint Pts %","pct"],
+["p2","2PT得点比率","2PT Pts %","pct"],["p3","3PT得点比率","3PT Pts %","pct"],
+["ftshare","FT得点比率","FT Pts %","pct"],["opppts","平均失点","Opp PPG","one"]
+],
+player:[
+["label","選手","Player","text"],["club","クラブ","Team","text"],["gp","GP","GP","int"],["mpg","MIN","MIN","text"],
+["ppg","PTS","PTS","one"],["p40","PTS/40*","PTS/40*","one"],
+["efg","eFG%*","eFG%*","pct"],["ts","TS%*","TS%*","pct"],["threepar","3PAr%*","3PAr%*","pct"],
+["ftr","FTr%*","FTr%*","pct"],["tovrate","TOV%*","TOV%*","pct"],
+["astto","AST/TO*","AST/TO*","two"],["ast40","AST/40*","AST/40*","one"],
+["reb40","REB/40*","REB/40*","one"],["stocks40","STL+BLK/40*","STL+BLK/40*","two"],
+["plusminus","+/-","+/-","signed"]
+]};
+const ui={
+ja:{desc:"公式取得値と、公式平均値から計算した派生指標を比較する実験版。",search:"クラブ・選手を検索",team:"クラブ アドバンスドスタッツ",player:"選手 アドバンスドスタッツ",legend:"数値の種類・解釈",note:"公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。TOV%* は TOV÷(FGA＋0.44×FTA＋TOV) によるBOX上の概算（ガベージタイム除外や実ポゼッションによるTOV%とは異なります）。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。",rows:"件",upd:"公式掲載",got:"実データ取得"},
+en:{desc:"Experimental official and derived metrics. Asterisked figures are computed from published rounded averages.",search:"Search clubs or players",team:"Team Advanced Stats",player:"Player Advanced Stats",legend:"Data quality and definitions",note:"Official: published by B.LEAGUE. Derived*: calculated from rounded per-game averages and may differ from precise season totals. Percentages are displayed as %; missing means —. TOV%* uses a box-score estimate: TOV / (FGA + 0.44×FTA + TOV), which is not directly comparable to possession-based or garbage-time-excluded rates. Opponent TOV% and shot-zone defense await verified game BOX/shot-location data.",rows:"rows",upd:"Official posting",got:"Actual retrieval"}};
+function makeRows(d){
+ const basic=new Map(d.basic.map(x=>[x.abbr,x]));
+ state.teams=d.advanced.map(a=>{const b=basic.get(a.abbr)||{},v=a.v||{};return{
+ abbr:a.abbr,gp:a.gp,ortg:num(v.OFFRTG),drtg:num(v.DEFRTG),net:num(v.NETRTG),pace:num(v.PACE),
+ efg:num(v["EFG%"]),ts:num(v["TS%"]),tovrate:rate(num(b.TOPG),add(num(b.FGAPG),mul(num(b.FTAPG),.44),num(b.TOPG))),
+ ftr:rate(num(b.FTAPG),num(b.FGAPG)),threepar:rate(num(b["3FGAPG"]),num(b.FGAPG)),
+ astto:num(v["AST/TO"]),paint:num(v["%PTSPITP"]),p2:num(v["%PTS2PT"]),
+ p3:num(v["%PTS3PT"]),ftshare:num(v["%PTSFT"]),opppts:num(b.OPPPTSPG)}})
+ state.players=d.players.map(p=>{const fga=num(p.FGAPG),fta=num(p.FTAPG),fgm=num(p.FGMPG),tpm=num(p["3FGMPG"]),tpa=num(p["3FGAPG"]),tov=num(p.TOPG);
+ return{label:state.lang==="en"?(p.name_en||p.name):p.name,labelJa:p.name,labelEn:p.name_en||p.name,club:p.club,gp:num(p.G),mpg:p.MINPG,ppg:num(p.PPG),p40:per40(num(p.PPG),p.MINPG),
+ efg:rate(add(fgm,mul(tpm,.5)),fga),ts:rate(num(p.PPG),mul(add(fga,mul(fta,.44)),2)),
+ threepar:rate(tpa,fga),ftr:rate(fta,fga),tovrate:rate(tov,add(fga,mul(fta,.44),tov)),
+ astto:tov>0?num(p.APG)/tov:null,ast40:per40(num(p.APG),p.MINPG),
+ reb40:per40(num(p.RPG),p.MINPG),stocks40:per40(add(num(p.STPG),num(p.BSPG)),p.MINPG),
+ plusminus:num(p["+/-"])}})
+}
+function fmt(value,type){if(value===null||value===undefined||typeof value==="number"&&!Number.isFinite(value))return "—";
+ if(type==="text")return String(value);if(type==="int")return String(Math.round(value));
+ if(type==="pct")return Number(value).toFixed(1)+"%";
+ if(type==="two")return Number(value).toFixed(2);
+ if(type==="signed")return (value>0?"+":"")+Number(value).toFixed(1);
+ return Number(value).toFixed(1)}
+function rows(){const search=state.query.trim().toLocaleLowerCase();return (state.view==="team"?state.teams:state.players).filter(r=>
+  !search||Object.values(r).some(x=>typeof x==="string"&&x.toLocaleLowerCase().includes(search))).sort((a,b)=>{
+ const x=a[state.sort],y=b[state.sort];if(x===null||x===undefined)return y===null||y===undefined?0:1;
+ if(y===null||y===undefined)return -1;const order=typeof x==="number"&&typeof y==="number"?x-y:String(x).localeCompare(String(y),"ja");
+ return state.desc?-order:order
+})}
+function render(){
+ const t=ui[state.lang];document.documentElement.lang=state.lang;$("description").textContent=t.desc;$("query").placeholder=t.search;
+ $("tableTitle").textContent=state.view==="team"?t.team:t.player;
+ $("legendTitle").textContent=t.legend;$("legendText").textContent=t.note;$("langBtn").textContent=state.lang==="ja"?"English":"日本語";
+ $("teamBtn").classList.toggle("active",state.view==="team");$("playerBtn").classList.toggle("active",state.view==="player");
+ $("teamBtn").setAttribute("aria-pressed",String(state.view==="team"));$("playerBtn").setAttribute("aria-pressed",String(state.view==="player"));
+ const columns=defs[state.view],selected=state.sort;
+ $("metric").replaceChildren(...columns.filter(c=>c[3]!=="text").map(c=>{const o=document.createElement("option");o.value=c[0];o.textContent=c[state.lang==="ja"?1:2];o.selected=c[0]===selected;return o}));
+ const tr=document.createElement("tr");for(const c of columns){const th=document.createElement("th");th.scope="col";th.textContent=c[state.lang==="ja"?1:2]+(selected===c[0]?(state.desc?" ▼":" ▲"):"");th.onclick=()=>{if(state.sort===c[0])state.desc=!state.desc;else{state.sort=c[0];state.desc=true}render()};tr.append(th)}
+ $("thead").replaceChildren(tr);const data=rows();const frag=document.createDocumentFragment();for(const r of data){const tr=document.createElement("tr");
+ for(const c of columns){const td=document.createElement("td");const val=c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):r[c[0]];
+ td.textContent=fmt(val,c[3]);if(val===null||val===undefined)td.className="missing";tr.append(td)}
+ frag.append(tr)}$("tbody").replaceChildren(frag);$("count").textContent=data.length+" "+t.rows;
+ if(state.dataset){const d=state.dataset,u=d.updated||{},r=d.retrieved||{};
+ $("source").textContent=t.upd+" — "+[u.advanced,u.basic,u.players].filter(Boolean).join(" / ")+" | "+t.got+" — "+[r.advanced,r.basic,r.players].filter(Boolean).join(" / ")}
+}
+function setView(view){state.view=view;state.sort=view==="team"?"ortg":"ppg";state.desc=true;render()}
+$("teamBtn").onclick=()=>setView("team");$("playerBtn").onclick=()=>setView("player");
+$("query").addEventListener("input",e=>{state.query=e.target.value;render()});
+$("metric").onchange=e=>{state.sort=e.target.value;state.desc=true;render()};
+$("langBtn").onclick=()=>{state.lang=state.lang==="ja"?"en":"ja";render()};
+$("csvBtn").onclick=()=>{const columns=defs[state.view],table=rows();const esc=s=>'"'+String(s??"").replace(/"/g,'""')+'"';
+ const lines=[columns.map(c=>esc(c[state.lang==="ja"?1:2])).join(",")];
+ for(const r of table)lines.push(columns.map(c=>esc(fmt(c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):r[c[0]],c[3]))).join(","));
+ const blob=new Blob(["\ufeff"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="bleague-"+state.view+"-advanced-"+state.lang+".csv";a.click();URL.revokeObjectURL(url)};
+fetch("./data/stats.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{
+ if(!Array.isArray(d.advanced)||!Array.isArray(d.basic)||!Array.isArray(d.players))throw Error("Incomplete data snapshot");
+ state.dataset=d;makeRows(d);render()}).catch(err=>{$("count").textContent="Data unavailable: "+err.message;$("source").textContent="Source could not be verified.";});
+</script></body></html>
