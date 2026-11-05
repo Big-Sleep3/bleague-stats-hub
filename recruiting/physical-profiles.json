@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "asOf": "2026-11-05 03:55 JST",
+  "asOf": "2026-11-06 03:52 JST",
   "coverage": "Sourced basketball player physical measurements. Older measurements labelled by source year.",
   "players": [
     {
@@ -288,46 +288,6 @@
       ]
     },
     {
-      "id": "K26-008",
-      "name": "大江 悠斗",
-      "university": "日本体育大学",
-      "heightEvidence": {
-        "value": 170.0,
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "weightEvidence": {
-        "value": 67.0,
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "positionEvidence": {
-        "value": "PG",
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "gradeEvidence": {
-        "value": 4,
-        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
-        "sourceYear": 2025,
-        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
-        "quality": 1
-      },
-      "height": 170.0,
-      "weight": 67.0,
-      "position": "PG",
-      "grade": 4,
-      "sources": [
-        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/"
-      ]
-    },
-    {
       "id": "K26-025",
       "name": "広瀬 洸生",
       "university": "青山学院大学",
@@ -366,6 +326,46 @@
       "sources": [
         "https://jubf.jp/game/university-detail/id/9/type/intercollege/y/2025/s/men",
         "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1020/"
+      ]
+    },
+    {
+      "id": "K26-008",
+      "name": "大江 悠斗",
+      "university": "日本体育大学",
+      "heightEvidence": {
+        "value": 170.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "weightEvidence": {
+        "value": 67.0,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "gradeEvidence": {
+        "value": 4,
+        "source": "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/",
+        "sourceYear": 2025,
+        "publisher": "J SPORTS 第101回関東大学リーグ戦選手名鑑",
+        "quality": 1
+      },
+      "height": 170.0,
+      "weight": 67.0,
+      "position": "PG",
+      "grade": 4,
+      "sources": [
+        "https://www.jsports.co.jp/basketball/college/autumnleague_2025/player/1130/"
       ]
     },
     {
@@ -1467,22 +1467,6 @@
       ]
     },
     {
-      "id": "K26D2-3191BDAFDACB",
-      "name": "アデツツ デイビット アラバ",
-      "university": "江戸川大学",
-      "heightEvidence": {
-        "value": 196,
-        "source": "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/",
-        "sourceYear": 2024,
-        "publisher": "JBA 2024-25天皇杯登録ロスター",
-        "quality": 2
-      },
-      "height": 196,
-      "sources": [
-        "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/"
-      ]
-    },
-    {
       "id": "K26D2-9054E37906E9",
       "name": "澤口 陽",
       "university": "順天堂大学",
@@ -1499,6 +1483,22 @@
       ]
     },
     {
+      "id": "K26D2-3191BDAFDACB",
+      "name": "アデツツ デイビット アラバ",
+      "university": "江戸川大学",
+      "heightEvidence": {
+        "value": 196,
+        "source": "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/",
+        "sourceYear": 2024,
+        "publisher": "JBA 2024-25天皇杯登録ロスター",
+        "quality": 2
+      },
+      "height": 196,
+      "sources": [
+        "https://zennihon2024-25.japanbasketball.jp/team/1st/m12/"
+      ]
+    },
+    {
       "id": "K26D2-E2F0976BDAF1",
       "name": "宮澤 海輝",
       "university": "順天堂大学",
@@ -1512,38 +1512,6 @@
       "grade": 1,
       "sources": [
         "https://juntendo-lonelywolves.com/player"
-      ]
-    },
-    {
-      "id": "K26D2-3A9DC26F35B3",
-      "name": "権藤 隼斗",
-      "university": "明星大学",
-      "heightEvidence": {
-        "value": 178,
-        "source": "https://meiseiunivbb.com/player/detail/id/23506",
-        "sourceYear": 2026,
-        "publisher": "明星大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "weightEvidence": {
-        "value": 75,
-        "source": "https://meiseiunivbb.com/player/detail/id/23506",
-        "sourceYear": 2026,
-        "publisher": "明星大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "positionEvidence": {
-        "value": "PG",
-        "source": "https://meiseiunivbb.com/player/detail/id/23506",
-        "sourceYear": 2026,
-        "publisher": "明星大学男子バスケットボール部公式プロフィール",
-        "quality": 2
-      },
-      "height": 178,
-      "weight": 75,
-      "position": "PG",
-      "sources": [
-        "https://meiseiunivbb.com/player/detail/id/23506"
       ]
     },
     {
@@ -1576,6 +1544,38 @@
       "grade": 2,
       "sources": [
         "https://www.kcbbf.jp/index/show-pdf/url/aHR0cHM6Ly9kMmEwdjF4N3F2eGw2Yy5jbG91ZGZyb250Lm5ldC9maWxlcy9zcG9ocF9rY2JiZi9uZXdzLzY5NDI4MGYxMDZiN2IucGRm"
+      ]
+    },
+    {
+      "id": "K26D2-3A9DC26F35B3",
+      "name": "権藤 隼斗",
+      "university": "明星大学",
+      "heightEvidence": {
+        "value": 178,
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "weightEvidence": {
+        "value": 75,
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "positionEvidence": {
+        "value": "PG",
+        "source": "https://meiseiunivbb.com/player/detail/id/23506",
+        "sourceYear": 2026,
+        "publisher": "明星大学男子バスケットボール部公式プロフィール",
+        "quality": 2
+      },
+      "height": 178,
+      "weight": 75,
+      "position": "PG",
+      "sources": [
+        "https://meiseiunivbb.com/player/detail/id/23506"
       ]
     },
     {
