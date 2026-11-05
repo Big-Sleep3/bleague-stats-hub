@@ -54,3 +54,93 @@ def opponent_shooting(box):
         result["opp_pitp"] = None
         result["opp_pitp_share"] = None
     return result
+
+
+def opponent_four_factors(box, own_dreb=None):
+    """Return verified opponent possession/second-chance measures.
+
+    Turnover rate uses the conventional box-score Four Factors denominator
+    TOV / (FGA + 0.44*FTA + TOV), NOT the published official possession count.
+    OREB% uses opponent OREB / (opponent OREB + own team DREB).
+    Missing optional fields stay None, never silently become zero.
+    All percentages are fractions (0-1) for consumers to format.
+    """
+    result = opponent_shooting(box)
+    for key in ("TOV", "OREB"):
+        value = box.get(key)
+        if value is not None and (type(value) is not int or value < 0):
+            raise ValueError("Invalid official opponent " + key)
+    if own_dreb is not None and (type(own_dreb) is not int or own_dreb < 0):
+        raise ValueError("Invalid official own DREB")
+    tov = box.get("TOV")
+    oreb = box.get("OREB")
+    result.update({
+        "opp_tov": tov,
+        "opp_tov_pct": (ratio(tov, box["FGA"] + 0.44 * box["FTA"] + tov)
+                        if tov is not None else None),
+        "opp_oreb": oreb,
+        "opp_oreb_pct": (ratio(oreb, oreb + own_dreb)
+                         if oreb is not None and own_dreb is not None else None),
+        "opp_3par": ratio(box["3PA"], box["FGA"]),
+        "opp_fg_pct": ratio(box["FGM"], box["FGA"]),
+    })
+    return result
+
+
+def aggregate_verified_opponents(games, season="2026-27"):
+    """Aggregate verified official opponent BOX scores for one team's games.
+
+    games: iterable of {game_id, season, opponent_box, team_dreb}.
+    Duplicates, cross-season data and invalid core scores fail closed. Optional
+    TOV/OREB/PITP and DREB must be complete across all games before publishing
+    their season-level aggregates. Never average rounded game percentages.
+    """
+    games = list(games)
+    if not games:
+        raise ValueError("No official opponent games")
+    seen = set()
+    totals = {key: 0 for key in FIELDS}
+    optional = ("TOV", "OREB", "PITP")
+    opt_totals = {key: 0 for key in optional}
+    complete = {key: True for key in optional}
+    total_dreb = 0
+    complete_dreb = True
+    for game in games:
+        if not isinstance(game, dict) or game.get("season") != season:
+            raise ValueError("Unknown or inconsistent game season")
+        game_id = str(game.get("game_id") or "").strip()
+        if not game_id or game_id in seen:
+            raise ValueError("Missing or duplicated game ID")
+        seen.add(game_id)
+        box = game.get("opponent_box")
+        opponent_shooting(box)  # validate every game's real scoring identity
+        for key in FIELDS:
+            totals[key] += box[key]
+        for key in optional:
+            value = box.get(key)
+            if value is None:
+                complete[key] = False
+            elif type(value) is not int or value < 0:
+                raise ValueError("Invalid official opponent " + key)
+            else:
+                opt_totals[key] += value
+        own_dreb = game.get("team_dreb")
+        if own_dreb is None:
+            complete_dreb = False
+        elif type(own_dreb) is not int or own_dreb < 0:
+            raise ValueError("Invalid official own DREB")
+        else:
+            total_dreb += own_dreb
+    for key in optional:
+        if complete[key]:
+            totals[key] = opt_totals[key]
+    result = opponent_four_factors(
+        totals, own_dreb=total_dreb if complete_dreb else None)
+    result.update({
+        "gp": len(games),
+        "opp_pts_pg": totals["PTS"] / len(games),
+        "game_ids": sorted(seen),
+        "coverage": {key: complete[key] for key in optional},
+    })
+    result["coverage"]["team_dreb"] = complete_dreb
+    return result
