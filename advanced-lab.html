@@ -43,7 +43,7 @@ th:nth-child(1){z-index:3;background:#e9f1f3}td:first-child{font-weight:800}td.m
   <div class="scroller" tabindex="0"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div></section>
   <div class="legend">
     <strong id="legendTitle">数値の種類・解釈</strong>
-    <p id="legendText">公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。</p>
+    <p id="legendText">公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。TOV%* は TOV÷(FGA＋0.44×FTA＋TOV) によるBOX上の概算（ガベージタイム除外や実ポゼッションによるTOV%とは異なります）。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。</p>
   </div>
   <div class="meta" id="source">Loading official source dates…</div>
 </main>
@@ -78,8 +78,8 @@ player:[
 ["plusminus","+/-","+/-","signed"]
 ]};
 const ui={
-ja:{desc:"公式取得値と、公式平均値から計算した派生指標を比較する実験版。",search:"クラブ・選手を検索",team:"クラブ アドバンスドスタッツ",player:"選手 アドバンスドスタッツ",legend:"数値の種類・解釈",note:"公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。",rows:"件",upd:"公式掲載",got:"実データ取得"},
-en:{desc:"Experimental official and derived metrics. Asterisked figures are computed from published rounded averages.",search:"Search clubs or players",team:"Team Advanced Stats",player:"Player Advanced Stats",legend:"Data quality and definitions",note:"Official: published by B.LEAGUE. Derived*: calculated from rounded per-game averages and may differ from precise season totals. Percentages are displayed as %; missing means —. Opponent TOV% and shot-zone defense await verified game BOX/shot-location data.",rows:"rows",upd:"Official posting",got:"Actual retrieval"}};
+ja:{desc:"公式取得値と、公式平均値から計算した派生指標を比較する実験版。",search:"クラブ・選手を検索",team:"クラブ アドバンスドスタッツ",player:"選手 アドバンスドスタッツ",legend:"数値の種類・解釈",note:"公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。TOV%* は TOV÷(FGA＋0.44×FTA＋TOV) によるBOX上の概算（ガベージタイム除外や実ポゼッションによるTOV%とは異なります）。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。",rows:"件",upd:"公式掲載",got:"実データ取得"},
+en:{desc:"Experimental official and derived metrics. Asterisked figures are computed from published rounded averages.",search:"Search clubs or players",team:"Team Advanced Stats",player:"Player Advanced Stats",legend:"Data quality and definitions",note:"Official: published by B.LEAGUE. Derived*: calculated from rounded per-game averages and may differ from precise season totals. Percentages are displayed as %; missing means —. TOV%* uses a box-score estimate: TOV / (FGA + 0.44×FTA + TOV), which is not directly comparable to possession-based or garbage-time-excluded rates. Opponent TOV% and shot-zone defense await verified game BOX/shot-location data.",rows:"rows",upd:"Official posting",got:"Actual retrieval"}};
 function makeRows(d){
  const basic=new Map(d.basic.map(x=>[x.abbr,x]));
  state.teams=d.advanced.map(a=>{const b=basic.get(a.abbr)||{},v=a.v||{};return{
