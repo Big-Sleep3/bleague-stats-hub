@@ -6,6 +6,8 @@ on:
     paths:
       - 'scripts/defensive_stats.py'
       - 'tests/test_defensive_stats.py'
+      - 'advanced-lab.html'
+      - 'tests/test_advanced_lab_ui.py'
       - '.github/workflows/test-defensive-stats.yml'
   workflow_dispatch:
 permissions:
@@ -20,4 +22,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test verified opponent BOX SCORE calculations
-        run: python -m unittest discover -s tests -p 'test_defensive_stats.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_defensive_stats.py' -v
+          python -m unittest discover -s tests -p 'test_advanced_lab_ui.py' -v
