@@ -120,6 +120,13 @@ class OpponentFourFactorsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "game season"):
             aggregate_verified_opponents([{**a, "season": "2025-26"}])
 
+    def test_non_scalar_game_ids_are_rejected(self):
+        base = {"season": "2026-27", "opponent_box": self.box,
+                "team_dreb": 25}
+        for bad_id in (True, False, {}, [], None):
+            with self.subTest(game_id=bad_id), self.assertRaises(ValueError):
+                aggregate_verified_opponents([{**base, "game_id": bad_id}])
+
     def test_missing_all_games_rejected(self):
         with self.assertRaises(ValueError):
             aggregate_verified_opponents([])
