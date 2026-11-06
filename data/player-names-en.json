@@ -1,8 +1,8 @@
 {
   "source": "B.LEAGUE official Japanese and English roster profiles",
-  "updated_at": "2026-11-04 06:26 JST",
-  "total_players": 334,
-  "verified": 334,
+  "updated_at": "2026-11-07 06:21 JST",
+  "total_players": 336,
+  "verified": 336,
   "pending_count": 0,
   "names": {
     "10258": "Alistair Tokio Tsuchiya",
@@ -24,6 +24,7 @@
     "12598": "Josh Hawkinson",
     "12605": "Kanji Takahira",
     "12607": "Christopher Olivier",
+    "12642": "Angelo Chol",
     "14301": "Takumi Saito",
     "14302": "Keita Imamura",
     "15750": "Takaaki Kida",
@@ -259,6 +260,7 @@
     "51000639": "Michael Phillips",
     "51000641": "Nate Williams",
     "51000642": "Matt Costello",
+    "51000643": "Brandon Randolph",
     "51000647": "Keyontae Johnson",
     "51000648": "Lachlan Olbrich",
     "51000653": "Vitto Brown",
