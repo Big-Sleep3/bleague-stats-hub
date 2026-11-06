@@ -112,7 +112,7 @@ def aggregate_verified_opponents(games, season="2026-27"):
         if type(raw_game_id) not in (str, int):
             raise ValueError("Invalid game ID type")
         game_id = str(raw_game_id).strip()
-        if not game_id or game_id in seen:
+        if not game_id or (type(raw_game_id) is int and raw_game_id <= 0) or game_id in seen:
             raise ValueError("Missing or duplicated game ID")
         seen.add(game_id)
         box = game.get("opponent_box")
