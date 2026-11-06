@@ -127,6 +127,13 @@ class OpponentFourFactorsTests(unittest.TestCase):
             with self.subTest(game_id=bad_id), self.assertRaises(ValueError):
                 aggregate_verified_opponents([{**base, "game_id": bad_id}])
 
+    def test_nonpositive_numeric_game_ids_rejected(self):
+        base = {"season": "2026-27", "opponent_box": self.box,
+                "team_dreb": 25}
+        for bad_id in (0, -1, -123):
+            with self.subTest(game_id=bad_id), self.assertRaisesRegex(ValueError, "game ID"):
+                aggregate_verified_opponents([{**base, "game_id": bad_id}])
+
     def test_missing_all_games_rejected(self):
         with self.assertRaises(ValueError):
             aggregate_verified_opponents([])
