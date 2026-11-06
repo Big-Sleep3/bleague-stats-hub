@@ -108,7 +108,10 @@ def aggregate_verified_opponents(games, season="2026-27"):
     for game in games:
         if not isinstance(game, dict) or game.get("season") != season:
             raise ValueError("Unknown or inconsistent game season")
-        game_id = str(game.get("game_id") or "").strip()
+        raw_game_id = game.get("game_id")
+        if type(raw_game_id) not in (str, int):
+            raise ValueError("Invalid game ID type")
+        game_id = str(raw_game_id).strip()
         if not game_id or game_id in seen:
             raise ValueError("Missing or duplicated game ID")
         seen.add(game_id)
