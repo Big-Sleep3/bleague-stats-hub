@@ -1,5 +1,5 @@
 {
-  "last_attempt": "2026-11-08 05:10 JST",
+  "last_attempt": "2026-11-08 14:04 JST",
   "results": {
     "advanced": {
       "success": true,
@@ -7,7 +7,7 @@
       "changed": false,
       "official_updated": "2026-11-07 20:42 JST",
       "method": "leaderboard",
-      "checked_at": "2026-11-08 05:10 JST",
+      "checked_at": "2026-11-08 14:04 JST",
       "english_names": null
     },
     "basic": {
@@ -16,7 +16,7 @@
       "changed": false,
       "official_updated": "2026-11-07 20:42 JST",
       "method": "leaderboard",
-      "checked_at": "2026-11-08 05:10 JST",
+      "checked_at": "2026-11-08 14:04 JST",
       "english_names": null
     },
     "players": {
