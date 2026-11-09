@@ -7,6 +7,7 @@
     "https://www.evessa.com/news/detail/id=24984",
     "https://www.evessa.com/news/detail/id=24985",
     "https://www.evessa.com/news/detail/id=24987",
+    "https://www.evessa.com/news/detail/id=25055",
     "https://www.ibarakirobots.win/news/detail/id=25588",
     "https://www.velca.jp/news/detail/id=50952",
     "https://www.velca.jp/news/detail/id=50955"
@@ -26,24 +27,39 @@
       "source": "league_official",
       "firstSeen": "2026-11-02",
       "digest": "5932476f3c1d40782911b6d4b01949a8cb9ad67fa0f2200365cd61febe12ab6e"
+    },
+    {
+      "club": "大阪",
+      "title": "2026/11/09 【お知らせ】ワース・スミス選手 契約解除 TEAM",
+      "url": "https://www.evessa.com/news/detail/id=25055",
+      "source": "club_official",
+      "firstSeen": "2026-11-09"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "title": "B.LEAGUE自由交渉選手リスト：公式掲載内容に変化",
+      "url": "https://www.bleague.jp/news/falist.html",
+      "source": "league_official",
+      "firstSeen": "2026-11-09",
+      "digest": "8885b98a9de264075ff78f59aa35dd48b2e8249402607a0a624f42c30d19d687"
     }
   ],
   "faDigests": {
-    "B.LEAGUE自由交渉リスト": "5932476f3c1d40782911b6d4b01949a8cb9ad67fa0f2200365cd61febe12ab6e"
+    "B.LEAGUE自由交渉リスト": "8885b98a9de264075ff78f59aa35dd48b2e8249402607a0a624f42c30d19d687"
   },
   "sourceCoverage": [
-    "名古屋D",
     "秋田",
-    "千葉J",
-    "三河",
-    "茨城",
+    "宇都宮",
     "北海道",
-    "三遠",
-    "大阪",
-    "B.LEAGUE自由交渉リスト",
+    "名古屋D",
+    "三河",
+    "千葉J",
+    "茨城",
     "長崎",
-    "信州",
     "琉球",
-    "宇都宮"
+    "三遠",
+    "信州",
+    "大阪",
+    "B.LEAGUE自由交渉リスト"
   ]
 }
