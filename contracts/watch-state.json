@@ -4,13 +4,15 @@
   "seenUrls": [
     "https://chibajets.jp/news/detail/id=27297",
     "https://chibajets.jp/news/detail/id=27499",
+    "https://chibajets.jp/news/detail/id=27534",
     "https://www.evessa.com/news/detail/id=24984",
     "https://www.evessa.com/news/detail/id=24985",
     "https://www.evessa.com/news/detail/id=24987",
     "https://www.evessa.com/news/detail/id=25055",
     "https://www.ibarakirobots.win/news/detail/id=25588",
     "https://www.velca.jp/news/detail/id=50952",
-    "https://www.velca.jp/news/detail/id=50955"
+    "https://www.velca.jp/news/detail/id=50955",
+    "https://www.velca.jp/news/detail/id=51103"
   ],
   "pending": [
     {
@@ -42,24 +44,46 @@
       "source": "league_official",
       "firstSeen": "2026-11-09",
       "digest": "8885b98a9de264075ff78f59aa35dd48b2e8249402607a0a624f42c30d19d687"
+    },
+    {
+      "club": "千葉J",
+      "title": "2026/11/10 B.LEAGUE 2026-27シーズン 選手契約情報について TEAM",
+      "url": "https://chibajets.jp/news/detail/id=27534",
+      "source": "club_official",
+      "firstSeen": "2026-11-10"
+    },
+    {
+      "club": "長崎",
+      "title": "2026/11/10 パブロ・アギラール 選手契約解除のお知らせ TEAM",
+      "url": "https://www.velca.jp/news/detail/id=51103",
+      "source": "club_official",
+      "firstSeen": "2026-11-10"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "title": "B.LEAGUE自由交渉選手リスト：公式掲載内容に変化",
+      "url": "https://www.bleague.jp/news/falist.html",
+      "source": "league_official",
+      "firstSeen": "2026-11-10",
+      "digest": "9619e8c01b10f7f835eb216409a69d3b2e337331ab22c31cc83f26135be6d57a"
     }
   ],
   "faDigests": {
-    "B.LEAGUE自由交渉リスト": "8885b98a9de264075ff78f59aa35dd48b2e8249402607a0a624f42c30d19d687"
+    "B.LEAGUE自由交渉リスト": "9619e8c01b10f7f835eb216409a69d3b2e337331ab22c31cc83f26135be6d57a"
   },
   "sourceCoverage": [
-    "秋田",
-    "宇都宮",
-    "北海道",
     "名古屋D",
     "三河",
-    "千葉J",
-    "茨城",
-    "長崎",
-    "琉球",
+    "秋田",
+    "宇都宮",
     "三遠",
+    "北海道",
+    "琉球",
     "信州",
-    "大阪",
-    "B.LEAGUE自由交渉リスト"
+    "長崎",
+    "千葉J",
+    "B.LEAGUE自由交渉リスト",
+    "茨城",
+    "大阪"
   ]
 }
