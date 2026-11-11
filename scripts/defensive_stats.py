@@ -115,7 +115,12 @@ def aggregate_verified_opponents(games, season="2026-27"):
         # strings rather than silently normalizing them into valid IDs.
         game_id = str(raw_game_id)
         if (not game_id.isascii() or not game_id.isdecimal() or
-                int(game_id) <= 0 or game_id in seen):
+                int(game_id) <= 0):
+            raise ValueError("Missing, invalid or duplicated game ID")
+        # Canonicalize decimal IDs before deduplication: 001 and 1 are
+        # the same official game, even when upstream sources differ in type.
+        game_id = str(int(game_id))
+        if game_id in seen:
             raise ValueError("Missing, invalid or duplicated game ID")
         seen.add(game_id)
         box = game.get("opponent_box")
