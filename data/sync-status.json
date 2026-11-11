@@ -1,5 +1,5 @@
 {
-  "last_attempt": "2026-11-11 17:50 JST",
+  "last_attempt": "2026-11-11 17:51 JST",
   "results": {
     "advanced": {
       "success": true,
@@ -22,10 +22,10 @@
     "players": {
       "success": true,
       "rows": 337,
-      "changed": true,
+      "changed": false,
       "official_updated": "2026-11-11 05:30 JST (detail page values; official time not supplied)",
       "method": "club_detail/roster_detail fallback",
-      "checked_at": "2026-11-11 05:30 JST",
+      "checked_at": "2026-11-11 18:00 JST",
       "english_names": 337
     }
   },
