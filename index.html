@@ -39,6 +39,66 @@
 .table-scroll table tbody tr:nth-child(even) td:nth-child(2){background:#f8fafb;}
 .table-scroll table tbody tr.highlight td:nth-child(2){background:#e8f6f3;}
 @media(max-width:850px){.table-scroll table thead th:nth-child(2),.table-scroll table tbody td:nth-child(2){width:190px;min-width:190px;max-width:190px;}}
+
+/* Ranking table regression guard: keep identifiers readable while horizontal stats scroll. */
+#rankingTable .table-scroll > table{
+  width:max-content;
+  min-width:100%;
+  table-layout:auto;
+}
+#rankingTable .table-scroll thead th:nth-child(n+4),
+#rankingTable .table-scroll tbody td:nth-child(n+4){min-width:96px;}
+#rankingTable .table-scroll thead th:nth-child(3),
+#rankingTable .table-scroll tbody td:nth-child(3){
+  position:sticky;
+  left:303px;
+  width:76px;
+  min-width:76px;
+  max-width:76px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  border-left:1px solid #dce6e9;
+}
+#rankingTable .table-scroll thead th:nth-child(3){
+  z-index:5;
+  background:var(--navy2);
+  box-shadow:7px 0 10px -6px #132a3d55;
+}
+#rankingTable .table-scroll tbody td:nth-child(3){
+  z-index:3;
+  box-shadow:7px 0 10px -6px #132a3d33;
+}
+#rankingTable .table-scroll tbody tr:nth-child(odd) td:nth-child(-n+3){background:white;}
+#rankingTable .table-scroll tbody tr:nth-child(even) td:nth-child(-n+3){background:#f8fafb;}
+#rankingTable .table-scroll tbody tr:hover td:nth-child(-n+3){background:#f0f7f8;}
+#rankingTable .table-scroll tbody tr.highlight td:nth-child(-n+3){background:#e8f6f3!important;}
+#rankingTable .table-scroll thead th:first-child,
+#rankingTable .table-scroll thead th:nth-child(2){z-index:6;}
+#rankingTable .table-scroll tbody td:first-child,
+#rankingTable .table-scroll tbody td:nth-child(2){z-index:4;}
+#rankingTable[data-view="players"] .table-scroll thead th:nth-child(3),
+#rankingTable[data-view="players"] .table-scroll tbody td:nth-child(3){
+  width:136px;min-width:136px;max-width:136px;text-align:left;
+}
+#rankingTable .table-scroll tbody td.name{cursor:default;}
+/* Comparison table must not inherit ranking-only frozen columns. */
+#compareView .compare-table thead th:first-child,
+#compareView .compare-table thead th:nth-child(2),
+#compareView .compare-table tbody td:first-child,
+#compareView .compare-table tbody td:nth-child(2){
+  left:auto;
+  position:static;
+  width:auto;min-width:0;max-width:none;
+  overflow:visible;
+  text-overflow:clip;
+  background:transparent;
+}
+#compareView .compare-table thead th{position:sticky;top:0;z-index:2;background:#f1f6f7;}
+@media(max-width:850px){
+  #rankingTable .table-scroll thead th:nth-child(3),
+  #rankingTable .table-scroll tbody td:nth-child(3){left:248px;}
+}
 </style></head><body>
 <header class="mast"><div class="wrap"><div class="logo">◈ BASKETBALL STATS LAB<small>UNOFFICIAL SCOUTING DASHBOARD</small></div><div class="mast-right"><div class="season">2026–27 · B.PREMIER</div><div class="lang-switch" role="group" aria-label="言語 / Language"><button id="langJa" type="button" data-lang="ja" aria-pressed="true">日本語</button><button id="langEn" type="button" data-lang="en" aria-pressed="false">English</button></div></div></div></header>
 <main class="wrapmain"><div class="intro"><div><div class="eyebrow">LEAGUE-WIDE STATS · 2026–27</div><h1>B.PREMIER STATS HUB</h1><p class="subtitle">クラブの公式基本成績・詳細18項目の1試合平均・個人成績をまとめて比較</p></div><div class="status" id="globalStatus">● 保存データを表示中</div></div>
@@ -137,11 +197,11 @@ function renderCompare(){
  }).join('');
  $('globalStatus').textContent=`● クラブ比較 / ${compareType==='advanced'?'詳細26クラブ':'基本 '+data.basic.length+'クラブ'}`;
 }
-function render(){renderHealth();if(tab==='compare'){renderCompare();return;}
+function render(){renderHealth();if(tab==='compare'){renderCompare();return;} $('rankingTable').dataset.view=tab;
  $('rankingPanel').style.display='';$('warning').style.display='';$('cards').style.display='';$('rankingTable').style.display='';$('compareView').style.display='none';renderControls();const base=orderRows(arr()), rank=rankMap(base),rows=orderRows(selection());let cols=metrics().filter(m=>group==='全項目'||m[2]===group);if(!cols.some(m=>m[0]===metric))cols=[meta(metric),...cols];
 const hdr1=tab==='players'?'<th>順位</th><th>選手</th><th>クラブ</th><th>POS</th>':'<th>順位</th><th>クラブ</th><th>GP</th>';
 $('thead').innerHTML='<tr>'+hdr1+cols.map(m=>`<th class="${m[0]===metric?'sel':''}"><button type="button" data-sort="${safe(m[0])}" title="${safe(m[1])}">${safe(m[0])}${m[0]===metric?(direction==='desc'?' ↓':' ↑'):''}</button></th>`).join('')+'</tr>';
-$('tbody').innerHTML=rows.length?rows.map(r=>{const rankCell=rank.has(r)?String(rank.get(r)):'—';const label=tab==='players'?displayPlayerName(r):language==='en'?(EN_CLUBS[r.abbr]||r.name):r.name;const name=tab==='players'&&r.url?`<a href="${safe(r.url)}" target="_blank" rel="noopener">${safe(label)}</a>`:safe(label);const left=tab==='players'?`<td class="rank">${rankCell}</td><td class="name">${name}${r.number!==undefined?` <small>#${safe(r.number)}</small>`:''}</td><td>${safe(r.club)}</td><td>${safe(r.pos||'—')}</td>`:`<td class="rank">${rankCell}</td><td class="name">${name} <small>${safe(r.abbr)}</small></td><td>${r.gp??'—'}</td>`;return `<tr class="${r.abbr==='信州'||r.club==='信州'?'highlight':''}">${left}${cols.map(m=>`<td class="${m[0]===metric?'sel':''}">${fmt(r,m[0])}</td>`).join('')}</tr>`}).join(''):`<tr><td class="empty" colspan="${cols.length+(tab==='players'?4:3)}">データがまだ取得されていません。上の公式リンクも参照してね。</td></tr>`;
+$('tbody').innerHTML=rows.length?rows.map(r=>{const rankCell=rank.has(r)?String(rank.get(r)):'—';const label=tab==='players'?displayPlayerName(r):language==='en'?(EN_CLUBS[r.abbr]||r.name):r.name;const name=tab==='players'&&r.url?`<a href="${safe(r.url)}" target="_blank" rel="noopener">${safe(label)}</a>`:safe(label);const left=tab==='players'?`<td class="rank">${rankCell}</td><td class="name" title="${safe(label)}">${name}${r.number!==undefined?` <small>#${safe(r.number)}</small>`:''}</td><td>${safe(r.club)}</td><td>${safe(r.pos||'—')}</td>`:`<td class="rank">${rankCell}</td><td class="name" title="${safe(label)}">${name} <small>${safe(r.abbr)}</small></td><td>${r.gp??'—'}</td>`;return `<tr class="${r.abbr==='信州'||r.club==='信州'?'highlight':''}">${left}${cols.map(m=>`<td class="${m[0]===metric?'sel':''}">${fmt(r,m[0])}</td>`).join('')}</tr>`}).join(''):`<tr><td class="empty" colspan="${cols.length+(tab==='players'?4:3)}">データがまだ取得されていません。上の公式リンクも参照してね。</td></tr>`;
 $('tableTitle').textContent=`${tab==='players'?'個人':'クラブ'}ランキング｜${metric}`;$('tableInfo').textContent=`${rows.length} / ${arr().length} ${tab==='players'?'選手':'クラブ'} ｜ 指標名の列を押すとその数値で並べ替え ｜ 表は左右にスクロール可能`;
 const top=base.find(r=>metricVal(r)!=null);const vals=base.map(x=>metricVal(x)).filter(x=>x!==null);const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;const shin=tab==='players'?null:data.advanced.find(x=>x.abbr==='信州');const srow=tab==='advanced'?shin:tab==='basic'?data.basic.find(x=>x.abbr==='信州'):null;function set(n,title,value,desc){$('lbl'+n).textContent=title;$('val'+n).textContent=value;$('sub'+n).textContent=desc}
 set(1,direction==='desc'?'LEAGUE LEADER':'LEAGUE LOWEST',top?fmt(top):'—',top?(tab==='players'?displayPlayerName(top):top.abbr):'未取得');
@@ -152,7 +212,7 @@ function downloadCSV(){const rows=orderRows(selection()), ms=metrics(), headings
 function setTab(t){tab=t;group='全項目';metric=t==='advanced'?'PITP':'PPG';club='';q='';direction='desc';render()}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 ['compareA','compareB','compareType','compareMode'].forEach(id=>$(id).addEventListener('change',e=>{if(id==='compareA')compareA=e.target.value;if(id==='compareB')compareB=e.target.value;if(id==='compareType')compareType=e.target.value;if(id==='compareMode')compareMode=e.target.value;render()}));
-$('metric').addEventListener('change',e=>{metric=e.target.value;group='全項目';direction=metric==='DEFRTG'||metric==='OPPPTSPG'||metric==='TOPG'||metric==='FPG'?'asc':'desc';render()});$('modeAvg').addEventListener('click',()=>{mode='avg';render()});$('modeTotal').addEventListener('click',()=>{mode='total';render()});$('club').addEventListener('change',e=>{club=e.target.value;render()});$('eligible').addEventListener('change',e=>{eligible=e.target.value;render()});$('position').addEventListener('change',e=>{position=e.target.value;render()});$('search').addEventListener('input',e=>{q=e.target.value;render()});$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-group]');if(b){group=b.dataset.group;render()}});$('sortToggle').addEventListener('click',()=>{direction=direction==='asc'?'desc':'asc';render()});$('thead').addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(!b)return;if(metric===b.dataset.sort)direction=direction==='asc'?'desc':'asc';else{metric=b.dataset.sort;direction='desc'}render()});$('clear').addEventListener('click',()=>{club='';q='';group='全項目';eligible='all';position='';mode='avg';metric=tab==='advanced'?'PITP':'PPG';direction='desc';render()});$('csv').addEventListener('click',downloadCSV);$('loadJson').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const candidate=JSON.parse(await file.text());if(candidate.schema!==1||!Array.isArray(candidate.advanced)||candidate.advanced.length!==26||!Array.isArray(candidate.players)||!Array.isArray(candidate.basic))throw Error('stats.json形式か26クラブが不足');data=candidate;render();alert('新しいデータを読み込みました。このブラウザの表示中だけ反映します。')}catch(err){alert('読み込みエラー：'+err.message)}e.target.value=''});
+$('metric').addEventListener('change',e=>{metric=e.target.value;group='全項目';direction=['DEFRTG','OPPPTSPG','TOPG','FPG','BSRPG'].includes(metric)?'asc':'desc';render()});$('modeAvg').addEventListener('click',()=>{mode='avg';render()});$('modeTotal').addEventListener('click',()=>{mode='total';render()});$('club').addEventListener('change',e=>{club=e.target.value;render()});$('eligible').addEventListener('change',e=>{eligible=e.target.value;render()});$('position').addEventListener('change',e=>{position=e.target.value;render()});$('search').addEventListener('input',e=>{q=e.target.value;render()});$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-group]');if(b){group=b.dataset.group;render()}});$('sortToggle').addEventListener('click',()=>{direction=direction==='asc'?'desc':'asc';render()});$('thead').addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(!b)return;if(metric===b.dataset.sort)direction=direction==='asc'?'desc':'asc';else{metric=b.dataset.sort;direction=['DEFRTG','OPPPTSPG','TOPG','FPG','BSRPG'].includes(metric)?'asc':'desc'}render()});$('clear').addEventListener('click',()=>{club='';q='';group='全項目';eligible='all';position='';mode='avg';metric=tab==='advanced'?'PITP':'PPG';direction='desc';render()});$('csv').addEventListener('click',downloadCSV);$('loadJson').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const candidate=JSON.parse(await file.text());if(candidate.schema!==1||!Array.isArray(candidate.advanced)||candidate.advanced.length!==26||!Array.isArray(candidate.players)||!Array.isArray(candidate.basic))throw Error('stats.json形式か26クラブが不足');data=candidate;render();alert('新しいデータを読み込みました。このブラウザの表示中だけ反映します。')}catch(err){alert('読み込みエラー：'+err.message)}e.target.value=''});
 
 // --- Language switcher. This layer never modifies the official numeric data. ---
 const EN_CLUBS={
