@@ -142,6 +142,25 @@ class OpponentFourFactorsTests(unittest.TestCase):
             with self.subTest(game_id=bad_id), self.assertRaisesRegex(ValueError, "game ID"):
                 aggregate_verified_opponents([{**base, "game_id": bad_id}])
 
+    def test_equivalent_decimal_game_ids_are_duplicates(self):
+        base = {"season": "2026-27", "opponent_box": self.box,
+                "team_dreb": 25}
+        for first, second in (("00101", "101"), (101, "000101"),
+                              ("000101", 101)):
+            with self.subTest(first=first, second=second):
+                with self.assertRaisesRegex(ValueError, "duplicated game ID"):
+                    aggregate_verified_opponents([
+                        {**base, "game_id": first},
+                        {**base, "game_id": second},
+                    ])
+
+    def test_canonical_game_id_in_output(self):
+        result = aggregate_verified_opponents([{
+            "game_id": "000101", "season": "2026-27",
+            "opponent_box": self.box, "team_dreb": 25,
+        }])
+        self.assertEqual(result["game_ids"], ["101"])
+
     def test_missing_all_games_rejected(self):
         with self.assertRaises(ValueError):
             aggregate_verified_opponents([])
