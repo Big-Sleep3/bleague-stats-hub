@@ -43,7 +43,7 @@ class TableLayoutTests(unittest.TestCase):
                     for item in (a,b,c):
                         self.assertEqual(item["sticky"],"sticky")
                         self.assertNotEqual(item["color"],"rgba(0, 0, 0, 0)")
-                    self.assertRegex(c["text"],r"^\\d+$")
+                    self.assertRegex(c["text"],r"^\d+$")
 
                 for fraction in (0,0.5,1):
                     page.locator("#rankingTable .table-scroll").evaluate(
