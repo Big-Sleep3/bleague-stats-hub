@@ -1,0 +1,26 @@
+name: B.PREMIER Main Table UI Regression
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'tests/test_ranking_layout.py'
+      - 'tests/test_i18n_ui.py'
+      - '.github/workflows/test-main-table-ui.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'playwright>=1.50,<2'
+      - run: python -m playwright install --with-deps chromium
+      - name: Verify ranking table scroll and defense sort
+        run: python -m unittest discover -s tests -p 'test_ranking_layout.py' -v
+      - name: Verify Japanese-English switches
+        run: python -m unittest discover -s tests -p 'test_i18n_ui.py' -v
