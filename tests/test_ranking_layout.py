@@ -68,6 +68,7 @@ class TableLayoutTests(unittest.TestCase):
                 page.set_viewport_size({"width":390,"height":844})
                 page.locator("#rankingTable .table-scroll").evaluate("(e)=>e.scrollLeft=e.scrollWidth")
                 d=geometry()
+                print("MOBILE_GEOMETRY",d,flush=True)
                 a,b,c=d["cells"]
                 self.assertAlmostEqual(a["left"],d["left"],delta=3)
                 self.assertAlmostEqual(b["left"],a["right"],delta=3)
