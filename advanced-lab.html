@@ -80,16 +80,18 @@ player:[
 const ui={
 ja:{desc:"公式取得値と、公式平均値から計算した派生指標を比較する実験版。",search:"クラブ・選手を検索",team:"クラブ アドバンスドスタッツ",player:"選手 アドバンスドスタッツ",legend:"数値の種類・解釈",note:"公式: B.LEAGUE掲載値。算出*: 公式の1試合平均（小数丸め）から再計算した参考値で、公式原データの精密な通算値と一致するとは限りません。%は百分率表記。欠損は — 。TOV%* は TOV÷(FGA＋0.44×FTA＋TOV) によるBOX上の概算（ガベージタイム除外や実ポゼッションによるTOV%とは異なります）。守備側のOPP TOV%やエリア別失点は公式対戦BOX/位置データを検証するまで表示しません。",rows:"件",upd:"公式掲載",got:"実データ取得"},
 en:{desc:"Experimental official and derived metrics. Asterisked figures are computed from published rounded averages.",search:"Search clubs or players",team:"Team Advanced Stats",player:"Player Advanced Stats",legend:"Data quality and definitions",note:"Official: published by B.LEAGUE. Derived*: calculated from rounded per-game averages and may differ from precise season totals. Percentages are displayed as %; missing means —. TOV%* uses a box-score estimate: TOV / (FGA + 0.44×FTA + TOV), which is not directly comparable to possession-based or garbage-time-excluded rates. Opponent TOV% and shot-zone defense await verified game BOX/shot-location data.",rows:"rows",upd:"Official posting",got:"Actual retrieval"}};
+const teamNamesEn={"滋賀":"Shiga","名古屋D":"Nagoya D","東京SR":"Sunrockers Shibuya","仙台":"Sendai","群馬":"Gunma","京都":"Kyoto","琉球":"Ryukyu","三遠":"San-en","大阪":"Osaka","長崎":"Nagasaki","北海道":"Hokkaido","広島":"Hiroshima","横浜BC":"Yokohama BC","神戸":"Kobe","佐賀":"Saga","富山":"Toyama","島根":"Shimane","宇都宮":"Utsunomiya","A東京":"Alvark Tokyo","秋田":"Akita","茨城":"Ibaraki","信州":"Shinshu","千葉J":"Chiba Jets","三河":"Mikawa","川崎":"Kawasaki","A千葉":"Altiri Chiba"};
+const teamLabel=(name,lang)=>lang==="en"?(teamNamesEn[name]||name):name;
 function makeRows(d){
  const basic=new Map(d.basic.map(x=>[x.abbr,x]));
  state.teams=d.advanced.map(a=>{const b=basic.get(a.abbr)||{},v=a.v||{};return{
- abbr:a.abbr,gp:a.gp,ortg:num(v.OFFRTG),drtg:num(v.DEFRTG),net:num(v.NETRTG),pace:num(v.PACE),
+ abbr:a.abbr,abbrJa:a.abbr,abbrEn:teamLabel(a.abbr,"en"),gp:a.gp,ortg:num(v.OFFRTG),drtg:num(v.DEFRTG),net:num(v.NETRTG),pace:num(v.PACE),
  efg:num(v["EFG%"]),ts:num(v["TS%"]),tovrate:rate(num(b.TOPG),add(num(b.FGAPG),mul(num(b.FTAPG),.44),num(b.TOPG))),
  ftr:rate(num(b.FTAPG),num(b.FGAPG)),threepar:rate(num(b["3FGAPG"]),num(b.FGAPG)),
  astto:num(v["AST/TO"]),paint:num(v["%PTSPITP"]),p2:num(v["%PTS2PT"]),
  p3:num(v["%PTS3PT"]),ftshare:num(v["%PTSFT"]),opppts:num(b.OPPPTSPG)}})
  state.players=d.players.map(p=>{const fga=num(p.FGAPG),fta=num(p.FTAPG),fgm=num(p.FGMPG),tpm=num(p["3FGMPG"]),tpa=num(p["3FGAPG"]),tov=num(p.TOPG);
- return{label:state.lang==="en"?(p.name_en||p.name):p.name,labelJa:p.name,labelEn:p.name_en||p.name,club:p.club,gp:num(p.G),mpg:p.MINPG,ppg:num(p.PPG),p40:per40(num(p.PPG),p.MINPG),
+ return{label:state.lang==="en"?(p.name_en||p.name):p.name,labelJa:p.name,labelEn:p.name_en||p.name,club:p.club,clubJa:p.club,clubEn:teamLabel(p.club,"en"),gp:num(p.G),mpg:p.MINPG,ppg:num(p.PPG),p40:per40(num(p.PPG),p.MINPG),
  efg:rate(add(fgm,mul(tpm,.5)),fga),ts:rate(num(p.PPG),mul(add(fga,mul(fta,.44)),2)),
  threepar:rate(tpa,fga),ftr:rate(fta,fga),tovrate:rate(tov,add(fga,mul(fta,.44),tov)),
  astto:tov>0?num(p.APG)/tov:null,ast40:per40(num(p.APG),p.MINPG),
@@ -118,7 +120,7 @@ function render(){
  $("metric").replaceChildren(...columns.filter(c=>c[3]!=="text").map(c=>{const o=document.createElement("option");o.value=c[0];o.textContent=c[state.lang==="ja"?1:2];o.selected=c[0]===selected;return o}));
  const tr=document.createElement("tr");for(const c of columns){const th=document.createElement("th");th.scope="col";th.textContent=c[state.lang==="ja"?1:2]+(selected===c[0]?(state.desc?" ▼":" ▲"):"");th.onclick=()=>{if(state.sort===c[0])state.desc=!state.desc;else{state.sort=c[0];state.desc=true}render()};tr.append(th)}
  $("thead").replaceChildren(tr);const data=rows();const frag=document.createDocumentFragment();for(const r of data){const tr=document.createElement("tr");
- for(const c of columns){const td=document.createElement("td");const val=c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):r[c[0]];
+ for(const c of columns){const td=document.createElement("td");const val=c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):c[0]==="club"?(state.lang==="ja"?r.clubJa:r.clubEn):c[0]==="abbr"?(state.lang==="ja"?r.abbrJa:r.abbrEn):r[c[0]];
  td.textContent=fmt(val,c[3]);if(val===null||val===undefined)td.className="missing";tr.append(td)}
  frag.append(tr)}$("tbody").replaceChildren(frag);$("count").textContent=data.length+" "+t.rows;
  if(state.dataset){const d=state.dataset,u=d.updated||{},r=d.retrieved||{};
@@ -131,7 +133,7 @@ $("metric").onchange=e=>{state.sort=e.target.value;state.desc=true;render()};
 $("langBtn").onclick=()=>{state.lang=state.lang==="ja"?"en":"ja";render()};
 $("csvBtn").onclick=()=>{const columns=defs[state.view],table=rows();const esc=s=>'"'+String(s??"").replace(/"/g,'""')+'"';
  const lines=[columns.map(c=>esc(c[state.lang==="ja"?1:2])).join(",")];
- for(const r of table)lines.push(columns.map(c=>esc(fmt(c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):r[c[0]],c[3]))).join(","));
+ for(const r of table)lines.push(columns.map(c=>esc(fmt(c[0]==="label"?(state.lang==="ja"?r.labelJa:r.labelEn):c[0]==="club"?(state.lang==="ja"?r.clubJa:r.clubEn):c[0]==="abbr"?(state.lang==="ja"?r.abbrJa:r.abbrEn):r[c[0]],c[3]))).join(","));
  const blob=new Blob(["\ufeff"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
  a.href=url;a.download="bleague-"+state.view+"-advanced-"+state.lang+".csv";a.click();URL.revokeObjectURL(url)};
 fetch("./data/stats.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{
