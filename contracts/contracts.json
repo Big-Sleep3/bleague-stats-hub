@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "season": "2026-27",
-  "publishedAt": "2026-11-03",
+  "publishedAt": "2026-11-12",
   "coverage": "Source-backed contract durations/options for a subset of B.PREMIER roster (not a full league contract registry). Club releases preferred; media records distinguished.",
   "leagueRule": "https://www.bleague.jp/basketlive_news_detail/id=544060",
   "contracts": [
@@ -140,15 +140,15 @@
     {
       "club": "千葉J",
       "name": "富樫 勇樹",
-      "startYear": 2024,
-      "endYear": 2028,
+      "startYear": 2026,
+      "endYear": 2030,
       "totalYears": 4,
       "options": [],
       "optionDisclosure": "not_reported",
-      "announced": "2024-05-28",
-      "source": "https://chibajets.jp/news/detail/id=22703",
+      "announced": "2026-11-10",
+      "source": "https://www.bleague.jp/files/user/2026-27_contract.pdf",
       "sourceType": "club",
-      "note": "2024-25から2027-28の4年契約。オプションは当該発表で明示なし",
+      "note": "B.LEAGUE公式2026-11-10開幕時点契約年数一覧表（2ページ目）に基づく。PO/TOは明示された年のみ登録。過去の契約起点・更新歴はこの資料からは確定しない。",
       "verification": "source_backed"
     },
     {
@@ -831,6 +831,53 @@
       "source": "https://www.neophoenix.jp/news/detail/id=24997",
       "sourceType": "club",
       "note": "2026-27シーズンから2028-29シーズンまでの3年契約をクラブ公式発表で確認。PO/TOの有無・対象年は当該発表では未公表。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "千葉J",
+      "name": "原 修太",
+      "startYear": 2026,
+      "endYear": 2030,
+      "totalYears": 4,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-11-10",
+      "source": "https://www.bleague.jp/files/user/2026-27_contract.pdf",
+      "sourceType": "club",
+      "note": "B.LEAGUE公式2026-11-10開幕時点契約年数一覧表（2ページ目）に基づく。PO/TOは明示された年のみ登録。過去の契約起点・更新歴はこの資料からは確定しない。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "千葉J",
+      "name": "瀬川 琉久",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [],
+      "optionDisclosure": "not_reported",
+      "announced": "2026-11-10",
+      "source": "https://www.bleague.jp/files/user/2026-27_contract.pdf",
+      "sourceType": "club",
+      "note": "B.LEAGUE公式2026-11-10開幕時点契約年数一覧表（2ページ目）に基づく。PO/TOは明示された年のみ登録。過去の契約起点・更新歴はこの資料からは確定しない。",
+      "verification": "source_backed"
+    },
+    {
+      "club": "千葉J",
+      "name": "金近 廉",
+      "startYear": 2026,
+      "endYear": 2028,
+      "totalYears": 2,
+      "options": [
+        {
+          "year": 2027,
+          "kind": "PO"
+        }
+      ],
+      "optionDisclosure": "specified",
+      "announced": "2026-11-10",
+      "source": "https://www.bleague.jp/files/user/2026-27_contract.pdf",
+      "sourceType": "club",
+      "note": "B.LEAGUE公式2026-11-10開幕時点契約年数一覧表（2ページ目）に基づく。PO/TOは明示された年のみ登録。過去の契約起点・更新歴はこの資料からは確定しない。",
       "verification": "source_backed"
     }
   ],
