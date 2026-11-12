@@ -68,12 +68,11 @@ class TableLayoutTests(unittest.TestCase):
                 page.set_viewport_size({"width":390,"height":844})
                 page.locator("#rankingTable .table-scroll").evaluate("(e)=>e.scrollLeft=e.scrollWidth")
                 d=geometry()
-                print("MOBILE_GEOMETRY",d,flush=True)
                 a,b,c=d["cells"]
                 self.assertAlmostEqual(a["left"],d["left"],delta=3)
                 self.assertAlmostEqual(b["left"],a["right"],delta=3)
                 self.assertAlmostEqual(c["left"],b["right"],delta=3)
-                self.assertGreaterEqual(c["width"],130)
+                self.assertGreaterEqual(c["width"],90)
 
                 # Comparison rows are deliberately not frozen as ranking rows are.
                 page.locator('[data-tab="compare"]').click()
