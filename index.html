@@ -82,6 +82,40 @@
   width:136px;min-width:136px;max-width:136px;text-align:left;
 }
 #rankingTable .table-scroll tbody td.name{cursor:default;}
+
+/* Narrow-screen guard: all frozen columns must fit inside the viewport. */
+@media(max-width:650px){
+  #rankingTable .table-scroll thead th:first-child,
+  #rankingTable .table-scroll tbody td:first-child{
+    width:48px;min-width:48px;max-width:48px;
+  }
+  #rankingTable .table-scroll thead th:nth-child(2),
+  #rankingTable .table-scroll tbody td:nth-child(2){
+    left:48px;width:155px;min-width:155px;max-width:155px;
+  }
+  #rankingTable .table-scroll thead th:nth-child(3),
+  #rankingTable .table-scroll tbody td:nth-child(3){left:203px;}
+  #rankingTable[data-view="players"] .table-scroll thead th:nth-child(3),
+  #rankingTable[data-view="players"] .table-scroll tbody td:nth-child(3){
+    width:100px;min-width:100px;max-width:100px;
+  }
+}
+@media(max-width:380px){
+  #rankingTable .table-scroll thead th:first-child,
+  #rankingTable .table-scroll tbody td:first-child{
+    width:44px;min-width:44px;max-width:44px;
+  }
+  #rankingTable .table-scroll thead th:nth-child(2),
+  #rankingTable .table-scroll tbody td:nth-child(2){
+    left:44px;width:128px;min-width:128px;max-width:128px;
+  }
+  #rankingTable .table-scroll thead th:nth-child(3),
+  #rankingTable .table-scroll tbody td:nth-child(3){left:172px;}
+  #rankingTable[data-view="players"] .table-scroll thead th:nth-child(3),
+  #rankingTable[data-view="players"] .table-scroll tbody td:nth-child(3){
+    width:92px;min-width:92px;max-width:92px;
+  }
+}
 /* Comparison table must not inherit ranking-only frozen columns. */
 #compareView .compare-table thead th:first-child,
 #compareView .compare-table thead th:nth-child(2),
@@ -95,7 +129,7 @@
   background:transparent;
 }
 #compareView .compare-table thead th{position:sticky;top:0;z-index:2;background:#f1f6f7;}
-@media(max-width:850px){
+@media(min-width:651px) and (max-width:850px){
   #rankingTable .table-scroll thead th:nth-child(3),
   #rankingTable .table-scroll tbody td:nth-child(3){left:248px;}
 }
