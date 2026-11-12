@@ -30,6 +30,15 @@
 .lang-switch button[aria-pressed="true"]{background:#f6fafb;color:#132a3d;box-shadow:0 1px 4px #071d3040}
 .lang-switch button:focus-visible{outline:3px solid #77dacf;outline-offset:2px}
 @media(max-width:420px){.logo{font-size:13px}.logo small{font-size:8px}.mast .wrap{gap:8px}.lang-switch button{font-size:11px;padding:6px 9px}}
+
+/* Prevent long sticky club/player names from painting over numeric columns. */
+.table-scroll table thead th:first-child,.table-scroll table tbody td:first-child{width:58px;min-width:58px;max-width:58px;overflow:hidden;}
+.table-scroll table thead th:nth-child(2),.table-scroll table tbody td:nth-child(2){width:245px;min-width:245px;max-width:245px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.table-scroll table tbody td:nth-child(2) small{max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;}
+.table-scroll table tbody td:nth-child(2){background:#fff;}
+.table-scroll table tbody tr:nth-child(even) td:nth-child(2){background:#f8fafb;}
+.table-scroll table tbody tr.highlight td:nth-child(2){background:#e8f6f3;}
+@media(max-width:850px){.table-scroll table thead th:nth-child(2),.table-scroll table tbody td:nth-child(2){width:190px;min-width:190px;max-width:190px;}}
 </style></head><body>
 <header class="mast"><div class="wrap"><div class="logo">◈ BASKETBALL STATS LAB<small>UNOFFICIAL SCOUTING DASHBOARD</small></div><div class="mast-right"><div class="season">2026–27 · B.PREMIER</div><div class="lang-switch" role="group" aria-label="言語 / Language"><button id="langJa" type="button" data-lang="ja" aria-pressed="true">日本語</button><button id="langEn" type="button" data-lang="en" aria-pressed="false">English</button></div></div></div></header>
 <main class="wrapmain"><div class="intro"><div><div class="eyebrow">LEAGUE-WIDE STATS · 2026–27</div><h1>B.PREMIER STATS HUB</h1><p class="subtitle">クラブの公式基本成績・詳細18項目の1試合平均・個人成績をまとめて比較</p></div><div class="status" id="globalStatus">● 保存データを表示中</div></div>
