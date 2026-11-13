@@ -620,10 +620,10 @@
       "v": {
         "2NDPTS": 121.0,
         "FBPS": 144.0,
-        "PITP": 412.0,
+        "PITP": 414.0,
         "PTSOFFTO": 182.0,
         "%PTSFT": 15.8,
-        "%PTSPITP": 37.6,
+        "%PTSPITP": 37.8,
         "EFG%": 48.6,
         "TS%": 52.1,
         "%PTS2PT": 45.3,
@@ -631,9 +631,9 @@
         "%PTS3PT": 38.9,
         "%FGA3PT": 47.7,
         "AST/TO": 1.9,
-        "PACE": 74.1,
-        "POSS": 1038.0,
-        "OFFRTG": 105.5,
+        "PACE": 74.2,
+        "POSS": 1038.5,
+        "OFFRTG": 105.4,
         "DEFRTG": 128.4,
         "NETRTG": -22.9
       }
@@ -1151,8 +1151,8 @@
       "ORPG": 9.9,
       "DRPG": 22.5,
       "RPG": 32.4,
-      "APG": 18.7,
-      "TOPG": 9.9,
+      "APG": 18.9,
+      "TOPG": 10.0,
       "STPG": 6.5,
       "BSPG": 1.6,
       "BSRPG": 2.8,
@@ -13913,8 +13913,8 @@
     "basic": "https://www.bleague.jp/stats/?year=2026&tab=1&e=2&o=desc&target=club-b1&value=STAV"
   },
   "retrieved": {
-    "advanced": "2026-11-12 23:14 JST",
-    "basic": "2026-11-13 14:14 JST",
+    "advanced": "2026-11-13 17:51 JST",
+    "basic": "2026-11-13 17:51 JST",
     "players": "2026-11-13 00:40 JST"
   },
   "method": {
