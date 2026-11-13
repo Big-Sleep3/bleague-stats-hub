@@ -150,7 +150,7 @@ def aggregate_verified_opponents(games, season="2026-27"):
     result.update({
         "gp": len(games),
         "opp_pts_pg": totals["PTS"] / len(games),
-        "game_ids": sorted(seen),
+        "game_ids": sorted(seen, key=int),
         "coverage": {key: complete[key] for key in optional},
     })
     result["coverage"]["team_dreb"] = complete_dreb
