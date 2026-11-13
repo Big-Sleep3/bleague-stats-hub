@@ -161,6 +161,13 @@ class OpponentFourFactorsTests(unittest.TestCase):
         }])
         self.assertEqual(result["game_ids"], ["101"])
 
+    def test_game_ids_sorted_numerically_after_normalization(self):
+        base = {"season": "2026-27", "opponent_box": self.box,
+                "team_dreb": 25}
+        games = [{**base, "game_id": value} for value in ("10", "002", 1)]
+        result = aggregate_verified_opponents(games)
+        self.assertEqual(result["game_ids"], ["1", "2", "10"])
+
     def test_missing_all_games_rejected(self):
         with self.assertRaises(ValueError):
             aggregate_verified_opponents([])
