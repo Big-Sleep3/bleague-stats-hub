@@ -1,11 +1,11 @@
 {
-  "revision": 40,
-  "changed_at": "2026-11-13 23:17 JST",
+  "revision": 41,
+  "changed_at": "2026-11-14 05:37 JST",
   "changed_kinds": [
     "players"
   ],
   "official_updated": {
-    "players": "2026-11-13 23:17 JST (detail page values; official time not supplied)"
+    "players": "2026-11-14 05:37 JST (detail page values; official time not supplied)"
   },
   "history": [
     {
@@ -435,17 +435,27 @@
       "official_updated": {
         "players": "2026-11-13 23:17 JST (detail page values; official time not supplied)"
       }
+    },
+    {
+      "revision": 41,
+      "changed_at": "2026-11-14 05:37 JST",
+      "changed_kinds": [
+        "players"
+      ],
+      "official_updated": {
+        "players": "2026-11-14 05:37 JST (detail page values; official time not supplied)"
+      }
     }
   ],
   "row_counts": {
     "advanced": 26,
     "basic": 26,
-    "players": 336
+    "players": 338
   },
   "signature": {
     "advanced": "6dafdd9a7d86ea130f1a04548340e3359a2b7c2b8d4f6e37700e853ea9b15cdb",
     "basic": "5cccdc1f6c0948abfb707c3dac28187d6cc146e45712fb07559915f7700e128f",
-    "players": "7490f465591966d7c50c7ec196a9271680a196b89ccff2d5d3bfd3070bb92fb5"
+    "players": "35828e30d0bbabad368e6775b65eab8ab7ce7a762da433c379f1081804cc407b"
   },
   "notes": "A revision means official numeric stats changed, not merely that a check ran."
 }
