@@ -5,6 +5,8 @@
     "https://chibajets.jp/news/detail/id=27297",
     "https://chibajets.jp/news/detail/id=27499",
     "https://chibajets.jp/news/detail/id=27534",
+    "https://chibajets.jp/news/detail/id=27543",
+    "https://chibajets.jp/news/detail/id=27547",
     "https://www.evessa.com/news/detail/id=24984",
     "https://www.evessa.com/news/detail/id=24985",
     "https://www.evessa.com/news/detail/id=24987",
@@ -66,24 +68,46 @@
       "source": "league_official",
       "firstSeen": "2026-11-10",
       "digest": "9619e8c01b10f7f835eb216409a69d3b2e337331ab22c31cc83f26135be6d57a"
+    },
+    {
+      "club": "千葉J",
+      "title": "2026/11/13 ルーク・メイ選手 契約解除のお知らせ TEAM",
+      "url": "https://chibajets.jp/news/detail/id=27543",
+      "source": "club_official",
+      "firstSeen": "2026-11-13"
+    },
+    {
+      "club": "千葉J",
+      "title": "2026/11/13 2026-27シーズン エルジー・ギル選手契約締結のお知らせ TEAM",
+      "url": "https://chibajets.jp/news/detail/id=27547",
+      "source": "club_official",
+      "firstSeen": "2026-11-13"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "title": "B.LEAGUE自由交渉選手リスト：公式掲載内容に変化",
+      "url": "https://www.bleague.jp/news/falist.html",
+      "source": "league_official",
+      "firstSeen": "2026-11-13",
+      "digest": "e320e7f913e3c00141ee3db1bfa4c8d0bb184dfc887a9d6482fa8e73551602d9"
     }
   ],
   "faDigests": {
-    "B.LEAGUE自由交渉リスト": "9619e8c01b10f7f835eb216409a69d3b2e337331ab22c31cc83f26135be6d57a"
+    "B.LEAGUE自由交渉リスト": "e320e7f913e3c00141ee3db1bfa4c8d0bb184dfc887a9d6482fa8e73551602d9"
   },
   "sourceCoverage": [
-    "名古屋D",
-    "三河",
     "秋田",
-    "宇都宮",
-    "三遠",
-    "北海道",
-    "琉球",
-    "信州",
-    "長崎",
+    "三河",
     "千葉J",
+    "三遠",
+    "宇都宮",
+    "琉球",
+    "名古屋D",
+    "長崎",
+    "信州",
     "B.LEAGUE自由交渉リスト",
-    "茨城",
-    "大阪"
+    "大阪",
+    "北海道",
+    "茨城"
   ]
 }
