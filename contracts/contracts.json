@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "season": "2026-27",
-  "publishedAt": "2026-11-12",
+  "publishedAt": "2026-11-13",
   "coverage": "Source-backed contract durations/options for a subset of B.PREMIER roster (not a full league contract registry). Club releases preferred; media records distinguished.",
   "leagueRule": "https://www.bleague.jp/basketlive_news_detail/id=544060",
   "contracts": [
@@ -570,10 +570,10 @@
       "totalYears": null,
       "options": [],
       "optionDisclosure": "not_reported",
-      "announced": "2026-10-30",
-      "source": "https://www.evessa.com/news/detail/id=24985",
+      "announced": "2026-11-09",
+      "source": "https://www.evessa.com/news/detail/id=25055",
       "sourceType": "club",
-      "note": "2026-27シーズンの選手契約締結を公式発表。総契約年数・最終契約シーズン・PO/TO条件は未公表。",
+      "note": "2026-11-09、双方合意で大阪との選手契約を解除。同日15:00から自由交渉選手リスト公示。加入時発表：https://www.evessa.com/news/detail/id=24985。旧契約の総年数・PO/TOは未公表。現所属・獲得可能性は別途最新情報の確認が必要。",
       "verification": "source_backed"
     },
     {
@@ -584,10 +584,10 @@
       "totalYears": null,
       "options": [],
       "optionDisclosure": "not_reported",
-      "announced": "2026-10-02",
-      "source": "https://www.velca.jp/news/detail/id=50955",
+      "announced": "2026-11-10",
+      "source": "https://www.velca.jp/news/detail/id=51103",
       "sourceType": "club",
-      "note": "2026-27シーズンの選手契約基本合意を公式発表。総契約年数・最終契約シーズン・PO/TO条件は未公表。前所属は福岡（B.ONE）、新所属は長崎。",
+      "note": "2026-11-10、双方合意で長崎との選手契約を解除。同日自由交渉選手リスト公示。加入時発表：https://www.velca.jp/news/detail/id=50955。旧契約の総年数・PO/TOは未公表。現所属・獲得可能性は別途最新情報の確認が必要。",
       "verification": "source_backed"
     },
     {
@@ -785,10 +785,10 @@
       "totalYears": null,
       "options": [],
       "optionDisclosure": "not_reported",
-      "announced": "2026-11-02",
-      "source": "https://chibajets.jp/news/detail/id=27499",
+      "announced": "2026-11-13",
+      "source": "https://chibajets.jp/news/detail/id=27547",
       "sourceType": "club",
-      "note": "2026-11-01付で契約満了。千葉ジェッツが2026-11-02に公式発表し、同日B.LEAGUE自由交渉選手リストへ公示。双方合意の上でチーム練習への参加は継続。2026-10-07加入時の公式発表：https://chibajets.jp/news/detail/id=27297。総契約年数・PO/TO条件は未公表（単年契約とは推定しない）。",
+      "note": "2026-11-13に千葉Jが新たな選手契約締結を公式発表。2026-11-01付の旧契約満了（2026-11-02発表：https://chibajets.jp/news/detail/id=27499）後の再契約。新契約の総年数・最終契約シーズン・PO/TOは未公表。旧契約の終了と新契約の締結を混同しない。",
       "verification": "source_backed"
     },
     {
@@ -881,5 +881,5 @@
       "verification": "source_backed"
     }
   ],
-  "verifiedAt": "2026-11-01"
+  "verifiedAt": "2026-11-13"
 }
