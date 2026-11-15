@@ -39,6 +39,15 @@ class RosterNameMapTests(unittest.TestCase):
         if stale:
             print("Historical IDs outside current player stats (not counted as active):", ", ".join(stale))
 
+    def test_mapping_metadata_matches_actual_entries(self):
+        """Validate counters against live entries, not a fixed roster size."""
+        mapping = json.loads((ROOT / "data/player-names-en.json").read_text(encoding="utf-8"))
+        names = mapping["names"]
+        self.assertEqual(mapping["total_players"], len(names))
+        self.assertEqual(mapping["verified"] + mapping["pending_count"], len(names))
+        self.assertTrue(all(pid.isdecimal() for pid in names))
+        self.assertTrue(all(isinstance(name, str) and name.strip() for name in names.values()))
+
     def test_reject_missing_and_duplicate(self):
         players = [{"url": "https://www.bleague.jp/roster_detail/?PlayerID=1"},
                    {"url": "https://www.bleague.jp/roster_detail/?PlayerID=2"}]
