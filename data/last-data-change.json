@@ -1,11 +1,11 @@
 {
-  "revision": 50,
-  "changed_at": "2026-11-17 23:09 JST",
+  "revision": 51,
+  "changed_at": "2026-11-18 18:54 JST",
   "changed_kinds": [
-    "players"
+    "basic"
   ],
   "official_updated": {
-    "players": "2026-11-17 23:09 JST (detail page values; official time not supplied)"
+    "basic": "2026-11-17 22:44 JST"
   },
   "history": [
     {
@@ -543,6 +543,16 @@
       "official_updated": {
         "players": "2026-11-17 23:09 JST (detail page values; official time not supplied)"
       }
+    },
+    {
+      "revision": 51,
+      "changed_at": "2026-11-18 18:54 JST",
+      "changed_kinds": [
+        "basic"
+      ],
+      "official_updated": {
+        "basic": "2026-11-17 22:44 JST"
+      }
     }
   ],
   "row_counts": {
@@ -552,7 +562,7 @@
   },
   "signature": {
     "advanced": "c31f4914672c817908652aafc0ce202353df43a4d8d7662dfd93fabc6cbfeea1",
-    "basic": "a2c81f6714f0f3481e0405c65dd915f5b97d922d5ad686e648706b3ebe3e0cd3",
+    "basic": "b087e6b9f674f41266d95fc6609451b1f6f2a921132cd1ab25f055d0756c3d54",
     "players": "145a81d272fb8b81aa06f7d018620dba6afe0bb5a61e9e4036b3ede822bc8dd2"
   },
   "notes": "A revision means official numeric stats changed, not merely that a check ran."
