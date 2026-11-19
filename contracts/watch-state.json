@@ -12,6 +12,7 @@
     "https://www.evessa.com/news/detail/id=24987",
     "https://www.evessa.com/news/detail/id=25055",
     "https://www.ibarakirobots.win/news/detail/id=25588",
+    "https://www.ibarakirobots.win/news/detail/id=25756",
     "https://www.velca.jp/news/detail/id=50952",
     "https://www.velca.jp/news/detail/id=50955",
     "https://www.velca.jp/news/detail/id=51103"
@@ -98,24 +99,39 @@
       "source": "league_official",
       "firstSeen": "2026-11-16",
       "digest": "a8369ba337c88eca99b4254ac939eddcbcba3ccdd7db74eadb1090bd32dff333"
+    },
+    {
+      "club": "茨城",
+      "title": "2026/11/19 #0 ラウリー・アルキンズ選手 契約合意(新規)のご報告 TEAM",
+      "url": "https://www.ibarakirobots.win/news/detail/id=25756",
+      "source": "club_official",
+      "firstSeen": "2026-11-19"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "title": "B.LEAGUE自由交渉選手リスト：公式掲載内容に変化",
+      "url": "https://www.bleague.jp/news/falist.html",
+      "source": "league_official",
+      "firstSeen": "2026-11-19",
+      "digest": "ff10e1a783cb390f1680484e78eb082563c5c9b0a60347ff7174dcefd8e4d7ec"
     }
   ],
   "faDigests": {
-    "B.LEAGUE自由交渉リスト": "a8369ba337c88eca99b4254ac939eddcbcba3ccdd7db74eadb1090bd32dff333"
+    "B.LEAGUE自由交渉リスト": "ff10e1a783cb390f1680484e78eb082563c5c9b0a60347ff7174dcefd8e4d7ec"
   },
   "sourceCoverage": [
-    "名古屋D",
-    "秋田",
     "三河",
-    "千葉J",
+    "秋田",
     "茨城",
+    "千葉J",
     "北海道",
-    "宇都宮",
     "三遠",
+    "名古屋D",
     "琉球",
-    "信州",
     "長崎",
     "大阪",
-    "B.LEAGUE自由交渉リスト"
+    "B.LEAGUE自由交渉リスト",
+    "信州",
+    "宇都宮"
   ]
 }
