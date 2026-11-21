@@ -5,7 +5,7 @@
   "updated": {
     "advanced": "2026-11-18 23:14 JST",
     "basic": "2026-11-18 23:14 JST",
-    "players": "2026-11-20 18:05 JST (detail page values; official time not supplied)"
+    "players": "2026-11-22 05:26 JST (detail page values; official time not supplied)"
   },
   "quality": {
     "advanced": "full",
@@ -5505,43 +5505,6 @@
       "EFFPG": 19.8,
       "+/-": 8.3,
       "name_en": "Ryan Rossiter"
-    },
-    {
-      "club": "A東京",
-      "name": "デジョン・ジャロウ",
-      "number": "77",
-      "pos": "SG/SF",
-      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000717",
-      "G": 9.0,
-      "GS": 0.0,
-      "MIN": "179:52",
-      "MINPG": "19:59",
-      "PPG": 13.1,
-      "FGMPG": 4.1,
-      "FGAPG": 9.1,
-      "FG%": 45.1,
-      "2FGMPG": 3.7,
-      "2FGAPG": 6.8,
-      "2FG%": 54.1,
-      "3FGMPG": 0.4,
-      "3FGAPG": 2.3,
-      "3FG%": 19.0,
-      "FTMPG": 4.4,
-      "FTAPG": 6.2,
-      "FT%": 71.4,
-      "ORPG": 1.0,
-      "DRPG": 3.3,
-      "RPG": 4.3,
-      "APG": 3.0,
-      "TOPG": 1.8,
-      "STPG": 0.4,
-      "BSPG": 0.7,
-      "BSRPG": 0.2,
-      "FPG": 1.8,
-      "FDPG": 4.1,
-      "EFFPG": 15.1,
-      "+/-": 0.3,
-      "name_en": "Dejon Jarreau"
     },
     {
       "club": "A東京",
@@ -13952,7 +13915,7 @@
   "retrieved": {
     "advanced": "2026-11-18 23:20 JST",
     "basic": "2026-11-20 17:55 JST",
-    "players": "2026-11-20 18:05 JST"
+    "players": "2026-11-22 05:26 JST"
   },
   "method": {
     "advanced": "leaderboard",
