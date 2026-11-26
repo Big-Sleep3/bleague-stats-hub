@@ -5,7 +5,7 @@
   "updated": {
     "advanced": "2026-11-18 23:14 JST",
     "basic": "2026-11-18 23:14 JST",
-    "players": "2026-11-26 05:35 JST (detail page values; official time not supplied)"
+    "players": "2026-11-27 05:42 JST (detail page values; official time not supplied)"
   },
   "quality": {
     "advanced": "full",
@@ -5024,6 +5024,43 @@
       "EFFPG": 2.6,
       "+/-": -0.6,
       "name_en": "Naoki Tashiro"
+    },
+    {
+      "club": "千葉J",
+      "name": "エルジー・ギル",
+      "number": "26",
+      "pos": "PF",
+      "url": "https://www.bleague.jp/roster_detail/?PlayerID=51000715",
+      "G": 12.0,
+      "GS": 10.0,
+      "MIN": "235:17",
+      "MINPG": "19:36",
+      "PPG": 5.8,
+      "FGMPG": 2.5,
+      "FGAPG": 3.8,
+      "FG%": 65.2,
+      "2FGMPG": 2.5,
+      "2FGAPG": 3.8,
+      "2FG%": 66.7,
+      "3FGMPG": 0.0,
+      "3FGAPG": 0.1,
+      "3FG%": 0.0,
+      "FTMPG": 0.8,
+      "FTAPG": 1.5,
+      "FT%": 50.0,
+      "ORPG": 1.5,
+      "DRPG": 2.2,
+      "RPG": 3.7,
+      "APG": 0.8,
+      "TOPG": 1.3,
+      "STPG": 0.3,
+      "BSPG": 0.3,
+      "BSRPG": 0.4,
+      "FPG": 3.5,
+      "FDPG": 2.3,
+      "EFFPG": 5.7,
+      "+/-": -5.9,
+      "name_en": "LG Gill"
     },
     {
       "club": "千葉J",
@@ -13878,7 +13915,7 @@
   "retrieved": {
     "advanced": "2026-11-18 23:20 JST",
     "basic": "2026-11-20 17:55 JST",
-    "players": "2026-11-26 05:35 JST"
+    "players": "2026-11-27 05:42 JST"
   },
   "method": {
     "advanced": "leaderboard",
