@@ -12,6 +12,22 @@ GitHub → Settings → Pages → Build and deployment → Deploy from a branch 
 
 初期版のクラブ詳細は2026-10-26 02:24 JST更新の保存済み26クラブ。クラブ基本は初期0クラブ、個人成績は9選手の抜粋。全データを取得したという意味ではない。
 
+
+## ページ切り替え（共通ナビ）
+
+全公開ページの先頭に共通の STATS HUB ナビゲーションを配置。PCでは横並びの8リンク、スマホでは「ページを移動」のプルダウンとスワイプ可能なクイックリンクで行き先を選べる。
+
+- [クラブ詳細](https://big-sleep3.github.io/bleague-stats-hub/index.html#advanced)
+- [クラブ基本](https://big-sleep3.github.io/bleague-stats-hub/index.html#basic)
+- [個人成績（Per Game / Per 40min）](https://big-sleep3.github.io/bleague-stats-hub/index.html#players)
+- [クラブ比較](https://big-sleep3.github.io/bleague-stats-hub/index.html#compare)
+- [DEFENSE LAB](https://big-sleep3.github.io/bleague-stats-hub/defense.html)
+- [ADVANCED LAB](https://big-sleep3.github.io/bleague-stats-hub/advanced-lab.html)
+- [契約HUB](https://big-sleep3.github.io/bleague-stats-hub/contracts/index.html)
+- [大学リクルート](https://big-sleep3.github.io/bleague-stats-hub/recruiting/index.html)
+
+いま見ているページを強調表示し、言語切替にも追従する。main のクラブ詳細／基本／個人／比較は URL のハッシュで直接開け、ブラウザの戻る／進むにも対応。共通ナビは `hub-nav.js` と `hub-nav.css` で管理し、7つの公開HTMLから読み込む。
+
 ## 自動更新と通知
 
 GitHub Actionsの `Update B.PREMIER Stats` は**日本時間17:00〜翌02:45に15分ごと**、昼13:17・15:17にも公式データを確認する。早朝04:33は登録選手の変更も拾うため全選手の再取得を強制する。
