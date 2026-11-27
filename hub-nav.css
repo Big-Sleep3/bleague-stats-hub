@@ -4,7 +4,7 @@
   --hub-aqua:#99e2da;
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:10; /* Below contract/recruiting drawers (z-index:20). */
   isolation:isolate;
   width:100%;
   background:#132a3d;
