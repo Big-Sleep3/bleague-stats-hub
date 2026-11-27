@@ -61,7 +61,7 @@ class PlayerPer40BrowserTests(unittest.TestCase):
             page.locator("#metric").select_option("RPG")
             self.assertIn("REB/40", page.locator("#tableTitle").inner_text())
             with page.expect_download() as download:
-                page.locator("#csvBtn").click()
+                page.locator("#csv").click()
             self.assertEqual(download.value.suggested_filename,
                              "BPREMIER_2026-27_players_p40.csv")
             page.locator("#playerPerGame").click()
