@@ -167,7 +167,8 @@ let data=JSON.parse(document.getElementById('bootstrap').textContent),tab='advan
 const $=id=>document.getElementById(id);const safe=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const metrics=()=>tab==='advanced'?ADV:tab==='basic'?BAS:PLY;const meta=k=>metrics().find(x=>x[0]===k);const arr=()=>tab==='advanced'?data.advanced:tab==='basic'?data.basic:data.players;
 const per40Eligible=k=>k.endsWith('PG')&&k!=='MINPG';
-const displayMetricLabel=k=>tab==='players'&&playerRate==='p40'&&per40Eligible(k)?k.replace(/PG$/,'')+'/40':k;
+const PER40_LABELS={PPG:'PTS',RPG:'REB',APG:'AST',TOPG:'TO',STPG:'STL',BSPG:'BLK',BSRPG:'BLK AGAINST',FPG:'PF',FDPG:'FD',ORPG:'OREB',DRPG:'DREB'};
+const displayMetricLabel=k=>tab==='players'&&playerRate==='p40'&&per40Eligible(k)?(PER40_LABELS[k]||k.replace(/PG$/,''))+'/40':k;
 const metricVal=(row,k=metric)=>{let value=tab==='advanced'?row.v?.[k]:row[k];if(value===undefined||value===null||value==='')return null;if(k==='MIN'||k==='MINPG')return typeof value==='number'?value:timeMinutes(value);let n=Number(String(value).replace('%',''));if(!Number.isFinite(n))return null;if(tab==='advanced'&&ADV.find(x=>x[0]===k)?.[3]&&mode==='avg')return row.gp?n/row.gp:null;
 if(tab==='players'&&playerRate==='p40'&&per40Eligible(k)){
  const minutes=timeMinutes(row.MIN),gp=Number(row.G);
