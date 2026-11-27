@@ -1,0 +1,48 @@
+name: STATS HUB Unified Navigation UI
+on:
+  pull_request:
+    paths:
+      - 'hub-nav.css'
+      - 'hub-nav.js'
+      - 'index.html'
+      - 'defense.html'
+      - 'advanced-lab.html'
+      - 'contracts/index.html'
+      - 'recruiting/*.html'
+      - 'tests/test_hub_navigation.py'
+      - '.github/workflows/hub-navigation-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'hub-nav.css'
+      - 'hub-nav.js'
+      - 'index.html'
+      - 'defense.html'
+      - 'advanced-lab.html'
+      - 'contracts/index.html'
+      - 'recruiting/*.html'
+      - '.github/workflows/hub-navigation-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test runner
+        run: |
+          pip install 'playwright>=1.50,<2'
+          python -m playwright install --with-deps chromium
+      - name: Test all page switching and mobile navigation
+        run: python -m unittest discover -s tests -p 'test_hub_navigation.py' -v
+      - name: Regression test main standings, player Per 40min and Defense dashboard
+        run: |
+          python -m unittest discover -s tests -p 'test_i18n_ui.py' -v
+          python -m unittest discover -s tests -p 'test_player_per40.py' -v
+          python -m unittest discover -s tests -p 'test_defense_browser.py' -v
+          python -m unittest discover -s tests -p 'test_advanced_browser.py' -v
