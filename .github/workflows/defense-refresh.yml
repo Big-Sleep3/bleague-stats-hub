@@ -43,7 +43,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_defense_browser.py' -v
       - name: Fetch completed official game summaries
         if: github.event_name != 'pull_request'
-        run: python scripts/update_defense.py
+        run: python -m scripts.update_defense
       - name: Commit only verified DEFENSE game/metric changes
         if: github.event_name != 'pull_request'
         run: |
