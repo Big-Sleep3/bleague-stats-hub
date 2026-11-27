@@ -46,3 +46,5 @@ jobs:
           python -m unittest discover -s tests -p 'test_player_per40.py' -v
           python -m unittest discover -s tests -p 'test_defense_browser.py' -v
           python -m unittest discover -s tests -p 'test_advanced_browser.py' -v
+          python -m unittest discover -s tests -p 'test_contracts_browser.py' -v
+          python -m unittest discover -s tests -p 'test_recruiting_browser.py' -v
