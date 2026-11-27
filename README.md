@@ -49,3 +49,20 @@ UIのブラウザ動作テスト: `tests/test_i18n_ui.py`。
 GitHub Actionsの処理が終わるまでは `data/player-names-en.json` の `verified` が 0 のままのことがある。全選手の名前が確認できたかは `verified` と `total_players` を比較すること。
 
 英語名のみの更新はスタッツの変更番号 `data/last-data-change.json` に影響せず、数値更新通知を発火させない。
+
+## DEFENSE LAB（2026-27 / 相手スタッツ）
+
+公開画面: https://big-sleep3.github.io/bleague-stats-hub/defense.html
+
+- 相手2P%・3P%・eFG%・TOV%、被ORB本数・被ORB%、相手2nd Chance PTS・失点・2PA・3PAを26クラブで比較
+- 1試合平均 / 合計、順位・並べ替え、クラブ検索、日本語 / English、CSV出力
+- 出典はB.LEAGUE公式2026-27レギュラーシーズンの試合別日程と試合全体サマリー（PeriodCategory=18）
+- 被ORB% = 相手ORB /（相手ORB + 自チームDREB）。被2nd Chance PTS = 相手サマリーのPT2NDの得点累計
+- 相手TOV% = 相手TOV /（相手FGA + 0.44 × 相手FTA + 相手TOV）。これはBOX SCOREベースのFour Factors定義で、公式possessionベースとは区別
+- 終了確定フラグ、試合ID、シーズン、チーム、試合得点・シュート内訳を照合。不足した試合や指標をゼロで埋めない
+- 全試合を照合できたクラブだけ正式なランキング対象にする。部分集計値は参考表示、未取得ならN/A
+- 公式掲載日時が不明の場合、取得日時を公式掲載日時として誤表示しない
+- 更新スクリプト: scripts/update_defense.py。検証済み試合キャッシュ: data/defense-games.json。公開指標: data/defense.json
+- GitHub Actions: .github/workflows/defense-refresh.yml（定期取得）
+- 既存のstats.json、last-data-change.json、notification-watermark.jsonには触れない。定期チェックによる既存数値更新通知の誤発火を防ぐ
+- テスト: tests/test_defensive_stats.py、tests/test_defense_ingest.py、tests/test_defense_browser.py
