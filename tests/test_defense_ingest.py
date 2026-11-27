@@ -127,7 +127,7 @@ class VerifiedOpponentDefenseTest(unittest.TestCase):
         next_game["away"]["box"]["FAST_BREAK_PTS"] = None
         next_game["away"]["box"]["PTS_OFF_TOV"] = None
         ref = {"advanced": [{"abbr": code, "name": code, "gp": (2 if code in ("信州", "千葉J") else 0)}
-                for code in (["信州", "千葉J"] + [f"C{i:02d}" for i in range(24))]}
+                for code in (["信州", "千葉J"] + [f"C{i:02d}" for i in range(24)])]}
         f2 = {**fixture(), "game_id": "5002"}
         clubs = aggregate_clubs(ref, {"5001": base, "5002": next_game},
                                  {"5001": fixture(), "5002": f2}, {})
