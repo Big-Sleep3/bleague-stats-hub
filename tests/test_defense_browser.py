@@ -30,6 +30,64 @@ class DefenseBrowserTests(unittest.TestCase):
         cls.http.shutdown()
         cls.http.server_close()
 
+    def test_sort_direction_dropdown_and_column_click_keep_csv_and_ranks_consistent(self):
+        from playwright.sync_api import sync_playwright
+        import csv
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(accept_downloads=True)
+            page = context.new_page()
+            errors = []
+            page.on("pageerror", lambda err: errors.append(str(err)))
+            page.goto("http://127.0.0.1:%s/defense.html" % self.http.server_port,
+                      wait_until="networkidle")
+            self.assertEqual(page.locator("#rows tr").count(), 26)
+            # Lowest opponent offensive-rebounding percentage comes first by default.
+            page.locator("#sort").select_option("opp_oreb_pct")
+            self.assertEqual(page.locator("#direction").input_value(), "asc")
+            ascending = page.evaluate(
+                "() => visible().filter(valid).map(r => value(r, 'opp_oreb_pct'))")
+            self.assertEqual(ascending, sorted(ascending))
+            first_asc = page.locator("#rows tr").first.locator("td").nth(1).inner_text()
+            self.assertEqual(page.locator('#head th[aria-sort="ascending"]').count(), 1)
+            # Explicit select control switches descending, with all clubs retained.
+            page.locator("#direction").select_option("desc")
+            descending = page.evaluate(
+                "() => visible().filter(valid).map(r => value(r, 'opp_oreb_pct'))")
+            self.assertEqual(descending, sorted(descending, reverse=True))
+            self.assertEqual(len(descending), len(ascending))
+            self.assertEqual(page.locator('#head th[aria-sort="descending"]').count(), 1)
+            if ascending[0] != ascending[-1]:
+                self.assertNotEqual(first_asc,
+                                    page.locator("#rows tr").first.locator("td").nth(1).inner_text())
+            # Header click toggles the SAME metric instead of ignoring the direction.
+            page.locator("#head th button").filter(has_text="被ORB%" ).first.click()
+            self.assertEqual(page.locator("#direction").input_value(), "asc")
+            self.assertEqual(page.evaluate(
+                "() => visible().filter(valid).map(r => value(r, 'opp_oreb_pct'))"),
+                ascending)
+            # Changing sort metric chooses its sensible default (forced TOV% = high first).
+            page.locator("#sort").select_option("opp_tov_pct")
+            self.assertEqual(page.locator("#direction").input_value(), "desc")
+            page.locator("#direction").select_option("asc")
+            self.assertEqual(page.evaluate(
+                "() => visible().filter(valid).map(r => value(r, 'opp_tov_pct'))"),
+                sorted(page.evaluate(
+                    "() => visible().filter(valid).map(r => value(r, 'opp_tov_pct'))")))
+            # CSV must use precisely the displayed order.
+            first_club = page.locator("#rows tr").first.locator("td").nth(1).inner_text()
+            with page.expect_download() as download:
+                page.locator("#export").click()
+            with open(download.value.path(), encoding="utf-8-sig", newline="") as fh:
+                rows = list(csv.reader(fh))
+            self.assertEqual(rows[1][1], first_club)
+            self.assertEqual(len(rows), 27)
+            page.locator("#search").fill("信州")
+            self.assertEqual(page.locator("#rows tr").count(), 1)
+            self.assertEqual(page.locator("#direction").input_value(), "asc")
+            self.assertEqual(errors, [])
+            browser.close()
+
     def test_26_clubs_filters_translation_and_csv(self):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
