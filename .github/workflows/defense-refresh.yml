@@ -12,7 +12,6 @@ on:
     paths:
       - 'scripts/update_defense.py'
       - 'defense.html'
-      - 'data/defense.json'
       - '.github/workflows/defense-refresh.yml'
   schedule:
     # Every morning at 05:07 Japan time, after league games have ended.
