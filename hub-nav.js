@@ -29,7 +29,7 @@
     if(relative==='defense.html')return 'defense';
     if(relative==='advanced-lab.html')return 'lab';
     if(relative==='contracts/index.html')return 'contracts';
-    if(relative==='recruiting/index.html')return 'recruiting';
+    if(['recruiting/index.html','recruiting/sources.html','recruiting/staff.html'].includes(relative))return 'recruiting';
     return 'advanced';
   }
   function language(){
