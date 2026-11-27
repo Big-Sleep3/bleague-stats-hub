@@ -28,6 +28,8 @@ tr:hover td{background:#f6fbfc}.unknown{color:#9aaab0}.partial{color:#946222}.ok
 <main><nav><a href="index.html">← STATS HUB</a><button id="ja" aria-pressed="true">日本語</button><button id="en" aria-pressed="false">English</button></nav>
 <section><div class="top"><div><h2 id="heading">相手スタッツ｜26クラブ</h2><div id="summary" class="muted">読み込み中…</div></div><span id="health" class="ok">公式データ読み込み中…</span></div>
 <div class="controls"><div class="field"><label for="search" id="findlabel">クラブ検索</label><input id="search" type="search" placeholder="信州 / 千葉"></div>
+<div class="field"><label for="period" id="periodlabel">対象期間</label><select id="period"></select></div>
+<div class="field"><label for="group" id="grouplabel">表示グループ</label><select id="group"></select></div>
 <div class="field"><label for="sort" id="sortlabel">並べ替える指標</label><select id="sort"></select></div>
 <div class="field"><label id="modelabel">表示形式</label><div><button id="avg" aria-pressed="true">平均</button><button id="total" aria-pressed="false">合計</button></div></div>
 <div class="spacer"></div><button id="export">CSV ↓</button></div>
@@ -47,15 +49,41 @@ var fields=[
 ["opp_oreb","被ORB","Opp ORB","num",0],
 ["opp_second_chance_pts","被2nd Chance PTS","Opp 2nd Chance PTS","num",0],
 ["opp_2pa","相手2PA","Opp 2PA","num",0],
-["opp_3pa","相手3PA","Opp 3PA","num",0]];
-var data=null,lang="ja",mode="avg",order="opp_oreb_pct",filter="";
+["opp_3pa","相手3PA","Opp 3PA","num",0],
+["opp_ft_pct","相手FT%","Opp FT%","pct",0],
+["opp_fta","相手FTA","Opp FTA","num",0],
+["opp_ftr","相手FTr (FTA/FGA)","Opp FTr (FTA/FGA)","pct",0],
+["opp_3par","相手3PA比率","Opp 3PA Rate","pct",0],
+["opp_pitp","被ペイント得点","Opp Paint PTS","num",0],
+["opp_pitp_share","被ペイント得点比率","Opp Paint PTS Share","pct",0],
+["opp_fast_break_pts","被速攻得点","Opp Fast Break PTS","num",0],
+["opp_fast_break_pts_share","被速攻得点比率","Opp Fast Break PTS Share","pct",0],
+["opp_pts_off_tov","被TO起点得点","Opp PTS off TO","num",0],
+["opp_pts_off_tov_share","被TO起点得点比率","Opp PTS off TO Share","pct",0],
+["opp_second_chance_pts_share","被2nd Chance得点比率","Opp 2nd Chance Share","pct",0],
+["opp_second_chance_pts_per_oreb","相手ORB1本当たり2nd Chance得点","Opp 2nd Chance PTS/ORB","ratio",0],
+["opp_tov","相手TOV本数","Opp TOV","num",1],
+["opp_2pt_scoring_share","相手2PT得点構成","Opp 2PT PTS Share","pct",0],
+["opp_3pt_scoring_share","相手3PT得点構成","Opp 3PT PTS Share","pct",0],
+["opp_ft_scoring_share","相手FT得点構成","Opp FT PTS Share","pct",0]];
+function fieldGroup(key){
+ if(["opp_oreb_pct","opp_oreb","opp_second_chance_pts","opp_second_chance_pts_share","opp_second_chance_pts_per_oreb"].includes(key))return "rebound";
+ if(["opp_tov","opp_tov_pct","opp_pts_off_tov","opp_pts_off_tov_share"].includes(key))return "turnover";
+ if(["opp_pts","opp_pitp","opp_pitp_share","opp_fast_break_pts","opp_fast_break_pts_share","opp_2pt_scoring_share","opp_3pt_scoring_share","opp_ft_scoring_share"].includes(key))return "scoring";
+ return "shooting";
+}
+fields.forEach(function(f){f.push(fieldGroup(f[0]))});
+var data=null,lang="ja",mode="avg",order="opp_oreb_pct",filter="",group="all",period="season";
 var enNames={"信州":"Shinshu","千葉J":"Chiba Jets","A東京":"Alvark Tokyo","東京SR":"Sunrockers","群馬":"Gunma","宇都宮":"Utsunomiya","三遠":"San-en","三河":"Mikawa","名古屋D":"Nagoya D","京都":"Kyoto","琉球":"Ryukyu","広島":"Hiroshima","島根":"Shimane","長崎":"Nagasaki","北海道":"Hokkaido","仙台":"Sendai","秋田":"Akita","茨城":"Ibaraki","富山":"Toyama","川崎":"Kawasaki","横浜BC":"Yokohama","A千葉":"Altiri Chiba","滋賀":"Shiga","大阪":"Osaka","神戸":"Kobe","佐賀":"Saga"};
 function el(id){return document.getElementById(id)}
 function t(ja,en){return lang==="ja"?ja:en}
 function name(r){return lang==="ja"?r.name:(enNames[r.abbr]||r.abbr)}
 function fName(f){return f[lang==="ja"?1:2]}
-function value(r,key){if(!r.metrics)return null;var v=r.metrics[key];if(v==null)return null;var f=fields.find(function(x){return x[0]===key});if(mode==="avg"&&f&&f[3]==="num"){var explicit=r.metrics[key+"_pg"];return explicit!=null?explicit:(r.gp>0?v/r.gp:null)}return v}
-function format(v,type){return v==null?"—":type==="pct"?(100*v).toFixed(1)+"%":v.toFixed(1)}
+function periodStats(r){return period==="season"?r.metrics:(r.recent&&r.recent[period]?r.recent[period].metrics:null)}
+function periodGP(r){return period==="season"?r.gp:(r.recent&&r.recent[period]?r.recent[period].gp:0)}
+function shownFields(){return fields.filter(function(f){return group==="all"||f[5]===group})}
+function value(r,key){var m=periodStats(r);if(!m)return null;var v=m[key];if(v==null)return null;var f=fields.find(function(x){return x[0]===key});if(mode==="avg"&&f&&f[3]==="num"){var explicit=m[key+"_pg"];return explicit!=null?explicit:(periodGP(r)>0?v/periodGP(r):null)}return v}
+function format(v,type){return v==null?"—":type==="pct"?(100*v).toFixed(1)+"%":type==="ratio"?v.toFixed(2):v.toFixed(1)}
 function valid(r){return r.complete&&value(r,order)!=null}
 function visible(){
 var set=(data?data.clubs:[]).slice();
@@ -70,31 +98,35 @@ var english=lang==="en";document.documentElement.lang=lang;
 el("ja").setAttribute("aria-pressed",String(!english));el("en").setAttribute("aria-pressed",String(english));
 el("tagline").textContent=t("相手に何を許しているか。26クラブの守備指標を比較。","What are opponents getting? Verified defensive stats for 26 clubs.");
 el("heading").textContent=t("相手スタッツ｜26クラブ","Opponent defense | 26 clubs");
-el("findlabel").textContent=t("クラブ検索","Find club");el("sortlabel").textContent=t("並べ替える指標","Sort by");
+el("findlabel").textContent=t("クラブ検索","Find club");el("sortlabel").textContent=t("並べ替える指標","Sort by");el("grouplabel").textContent=t("表示グループ","Metric group");el("periodlabel").textContent=t("対象期間","Sample window");
 el("modelabel").textContent=t("表示形式","View");el("avg").textContent=t("平均","Per game");el("total").textContent=t("合計","Totals");
 el("sourceHeading").textContent=t("出典と集計条件","Sources and methodology");
-el("sourceNote").textContent=t("B.LEAGUE公式の試合別サマリー（試合全体・PeriodCategory=18）を使用。被ORB%＝相手ORB÷（相手ORB＋自チームDREB）。被2nd Chance PTS＝相手PT2NDの合計。全試合を照合したクラブのみ順位対象。未取得値は0ではなくN/A。","Based on the official B.LEAGUE full-game Summaries. Opp ORB% = Opp ORB / (Opp ORB + own DREB). Opp 2nd Chance PTS = official opponent PT2ND totals. Only fully verified clubs are ranked; missing values are N/A.");
+el("sourceNote").textContent=t("B.LEAGUE公式の試合別サマリー（試合全体・PeriodCategory=18）を使用。被ORB%＝相手ORB÷（相手ORB＋自チームDREB）。被2nd Chance PTS＝相手PT2ND、被速攻得点＝相手PTFB、被TO起点得点＝相手PTPFT。比率はシーズン合計から算出し、平均を単純平均しない。全試合を照合したクラブのみ順位対象。未取得値は0ではなくN/A。","Based on official B.LEAGUE full-game Summaries (PeriodCategory=18). Opp ORB% = Opp ORB / (Opp ORB + own DREB). Opp 2nd Chance PTS = PT2ND; Opp Fast Break PTS = PTFB; Opp PTS off TO = PTPFT. Rates use season totals, not the mean of game rates. Only full-coverage clubs are ranked; unknown values are N/A.");
 el("avg").setAttribute("aria-pressed",String(mode==="avg"));el("total").setAttribute("aria-pressed",String(mode==="total"));
+var periods=[["season","シーズン","Season"],["last5","直近5試合","Last 5"],["last3","直近3試合","Last 3"]];
+var periodOptions=periods.map(function(p){var o=document.createElement("option");o.value=p[0];o.textContent=t(p[1],p[2]);o.selected=(p[0]===period);return o});el("period").replaceChildren.apply(el("period"),periodOptions);
 var options=fields.map(function(f){var o=document.createElement("option");o.value=f[0];o.textContent=fName(f);o.selected=(f[0]===order);return o});el("sort").replaceChildren.apply(el("sort"),options);
+var groupNames=[["all","全指標","All"],["scoring","得点構成","Scoring"],["shooting","シュート","Shot Profile"],["rebound","リバウンド","Rebounding"],["turnover","TO・ポゼッション","Turnovers / Possessions"]];
+var groupOptions=groupNames.map(function(g){var o=document.createElement("option");o.value=g[0];o.textContent=t(g[1],g[2]);o.selected=(group===g[0]);return o});el("group").replaceChildren.apply(el("group"),groupOptions);
 var thead=el("head");thead.replaceChildren(cell("th",t("順位","Rank")),cell("th",t("クラブ","Club")),cell("th","GP"));
-fields.forEach(function(f){var th=document.createElement("th"),b=document.createElement("button");b.type="button";b.textContent=fName(f);b.title=t("クリックで並び替え","Click to sort");b.addEventListener("click",function(){order=f[0];render()});th.appendChild(b);thead.appendChild(th)});
+shownFields().forEach(function(f){var th=document.createElement("th"),b=document.createElement("button");b.type="button";b.textContent=fName(f);b.title=t("クリックで並び替え","Click to sort");b.addEventListener("click",function(){order=f[0];render()});th.appendChild(b);thead.appendChild(th)});
 if(!data){el("summary").textContent=t("公式ゲームデータ取得中…","Loading verified official game data…");return}
 var n=data.clubs.filter(function(r){return r.complete}).length;
-el("summary").textContent=n+"/26 "+t("クラブの全試合照合が完了","clubs with complete verified coverage");
+el("summary").textContent=n+"/26 "+t("クラブの全試合照合が完了","clubs with complete verified coverage")+" · "+(period==="season"?t("シーズン通算","Season"):period==="last5"?t("直近5試合","Last 5"):t("直近3試合","Last 3"));
 el("health").textContent=data.clubs.some(function(r){return r.gp>0})?t("公式ゲームデータ","Official game data"):t("公式試合の照合待ち","Awaiting verified game data");
 el("stamp").textContent=t("公式掲載日時：未提供 ／ 取得・集計日時：","Official publication: not supplied / Retrieved and aggregated: ")+(data.updated_at||"—");
 el("coverageNote").textContent=t("順位は全試合照合済みのみ。暫定値は参考表示、未確認値は—。","Only clubs with complete coverage receive ranks. Partial values are provisional; unknown values show —.");
 var tbody=el("rows");tbody.replaceChildren();
 visible().forEach(function(r){var tr=document.createElement("tr");tr.appendChild(cell("td",r._defenseRank?String(r._defenseRank):"—",valid(r)?"ok":"unknown"));
-tr.appendChild(cell("td",name(r)));tr.appendChild(cell("td",r.gp+"/"+r.expected_gp,r.complete?"ok":"partial"));
-fields.forEach(function(f){var v=value(r,f[0]);var td=cell("td",format(v,f[3]),v==null?"unknown":r.complete?"":"partial");if(!r.complete&&v!=null)td.title=t("一部試合のみの参考値","Partial sample only");tr.appendChild(td)});tbody.appendChild(tr)});
-if(!tbody.children.length){var r=document.createElement("tr"),td=cell("td",t("該当クラブなし","No matching clubs"));td.colSpan=fields.length+3;r.appendChild(td);tbody.appendChild(r)}
+tr.appendChild(cell("td",name(r)));tr.appendChild(cell("td",periodGP(r)+"/"+r.expected_gp,r.complete?"ok":"partial"));
+shownFields().forEach(function(f){var v=value(r,f[0]);var td=cell("td",format(v,f[3]),v==null?"unknown":r.complete?"":"partial");if(!r.complete&&v!=null)td.title=t("一部試合のみの参考値","Partial sample only");tr.appendChild(td)});tbody.appendChild(tr)});
+if(!tbody.children.length){var r=document.createElement("tr"),td=cell("td",t("該当クラブなし","No matching clubs"));td.colSpan=shownFields().length+3;r.appendChild(td);tbody.appendChild(r)}
 }
-function saveCSV(){if(!data)return;var lines=[[t("順位","Rank"),t("クラブ","Club"),"Verified GP","Expected GP"].concat(fields.map(fName))];visible().forEach(function(r){lines.push([r._defenseRank||"",name(r),r.gp,r.expected_gp].concat(fields.map(function(f){var v=value(r,f[0]);return v==null?"":(f[3]==="pct"?v*100:v).toFixed(2)})))});
+function saveCSV(){if(!data)return;var lines=[[t("順位","Rank"),t("クラブ","Club"),"Verified GP","Expected GP"].concat(fields.map(fName))];visible().forEach(function(r){lines.push([r._defenseRank||"",name(r),periodGP(r),r.expected_gp].concat(fields.map(function(f){var v=value(r,f[0]);return v==null?"":(f[3]==="pct"?v*100:v).toFixed(2)})))});
 var csv="\uFEFF"+lines.map(function(row){return row.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(",")}).join("\r\n");
 var url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=url;a.download="bleague-defense-2026-27.csv";a.click();URL.revokeObjectURL(url)}
 el("ja").addEventListener("click",function(){lang="ja";render()});el("en").addEventListener("click",function(){lang="en";render()});
 el("avg").addEventListener("click",function(){mode="avg";render()});el("total").addEventListener("click",function(){mode="total";render()});
-el("sort").addEventListener("change",function(e){order=e.target.value;render()});el("search").addEventListener("input",function(e){filter=e.target.value;render()});el("export").addEventListener("click",saveCSV);
+el("sort").addEventListener("change",function(e){order=e.target.value;if(group!=="all")group=fields.find(function(f){return f[0]===order})[5];render()});el("period").addEventListener("change",function(e){period=e.target.value;render()});el("group").addEventListener("change",function(e){group=e.target.value;render()});el("search").addEventListener("input",function(e){filter=e.target.value;render()});el("export").addEventListener("click",saveCSV);
 render();fetch("data/defense.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(function(d){if(!Array.isArray(d.clubs)||d.clubs.length!==26)throw Error("Expected 26 clubs");data=d;render()}).catch(function(e){el("health").textContent="N/A";el("summary").textContent=t("公式DEFENSEデータの取得に失敗","Could not verify official defense data");console.error(e)});
 </script></body></html>

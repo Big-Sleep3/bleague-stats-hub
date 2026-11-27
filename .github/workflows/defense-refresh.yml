@@ -5,7 +5,9 @@ on:
     paths:
       - 'scripts/update_defense.py'
       - 'defense.html'
+      - 'index.html'
       - 'tests/test_defense_*.py'
+      - 'tests/test_player_per40.py'
       - '.github/workflows/defense-refresh.yml'
   push:
     branches: [main]
@@ -39,6 +41,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_defensive_stats.py' -v
           python -m unittest discover -s tests -p 'test_defense_ingest.py' -v
           python -m unittest discover -s tests -p 'test_defense_browser.py' -v
+          python -m unittest discover -s tests -p 'test_player_per40.py' -v
       - name: Fetch completed official game summaries
         if: github.event_name != 'pull_request'
         run: python -m scripts.update_defense

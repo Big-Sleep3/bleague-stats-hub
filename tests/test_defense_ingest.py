@@ -11,7 +11,8 @@ def source_team(prefix, points=85, oreb=11, dreb=25, second=13):
     # 20 two-point makes + 10 triples + 15 FTs = 85 points.
     fields = {"PTM": 30, "PTA": 70, "PT3M": 10, "PT3A": 30,
               "FTM": 15, "FTA": 20, "TO": 12, "RB_OFF": oreb,
-              "RB_DEF": dreb, "PT2IN": 28, "PT2ND": second}
+              "RB_DEF": dreb, "PT2IN": 28, "PT2ND": second,
+              "PTFB": 9, "PTPFT": 13}
     return {prefix + k: v for k, v in fields.items()}
 
 
@@ -48,6 +49,8 @@ class VerifiedOpponentDefenseTest(unittest.TestCase):
         self.assertEqual(item["away"]["box"]["SECOND_CHANCE_PTS"], 17)
         self.assertEqual(item["home"]["box"]["SECOND_CHANCE_PTS"], 13)
         self.assertEqual(item["away"]["box"]["OREB"], 8)
+        self.assertEqual(item["away"]["box"]["FAST_BREAK_PTS"], 9)
+        self.assertEqual(item["away"]["box"]["PTS_OFF_TOV"], 13)
         self.assertEqual(item["home"]["dreb"], 25)
         self.assertIsNone(item["official_published_at"])
 
@@ -88,6 +91,15 @@ class VerifiedOpponentDefenseTest(unittest.TestCase):
         chiba = next(row for row in out if row["abbr"] == "千葉J")
         self.assertTrue(shinshu["complete"])
         self.assertEqual(shinshu["metrics"]["opp_second_chance_pts"], 17)
+        self.assertEqual(shinshu["metrics"]["opp_fast_break_pts"], 9)
+        self.assertEqual(shinshu["metrics"]["opp_pts_off_tov"], 13)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_fast_break_pts_share"], 9 / 85)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_pts_off_tov_share"], 13 / 85)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_second_chance_pts_per_oreb"], 17 / 8)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_pitp_share"], 28 / 85)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_2pt_scoring_share"], 40 / 85)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_3pt_scoring_share"], 30 / 85)
+        self.assertAlmostEqual(shinshu["metrics"]["opp_ft_scoring_share"], 15 / 85)
         self.assertEqual(chiba["metrics"]["opp_second_chance_pts"], 13)
         self.assertAlmostEqual(shinshu["metrics"]["opp_oreb_pct"], 8 / (8 + 25))
         self.assertAlmostEqual(shinshu["metrics"]["opp_tov_pct"], 12 / (70 + .44 * 20 + 12))
@@ -107,6 +119,57 @@ class VerifiedOpponentDefenseTest(unittest.TestCase):
         self.assertFalse(shinshu["complete"])
         self.assertEqual(shinshu["gp"], 1)
         self.assertIsNotNone(shinshu["metrics"])
+
+    def test_partial_optional_points_do_not_publish_fake_season_totals(self):
+        base = normalize_game(raw_game(), fixture(), "t")
+        next_game = copy.deepcopy(base)
+        next_game["game_id"] = "5002"
+        next_game["away"]["box"]["FAST_BREAK_PTS"] = None
+        next_game["away"]["box"]["PTS_OFF_TOV"] = None
+        ref = {"advanced": [{"abbr": code, "name": code, "gp": (2 if code in ("信州", "千葉J") else 0)}
+                for code in (["信州", "千葉J"] + [f"C{i:02d}" for i in range(24)])]}
+        f2 = {**fixture(), "game_id": "5002"}
+        clubs = aggregate_clubs(ref, {"5001": base, "5002": next_game},
+                                 {"5001": fixture(), "5002": f2}, {})
+        shinshu = next(row for row in clubs if row["abbr"] == "信州")
+        self.assertTrue(shinshu["complete"])
+        self.assertIsNone(shinshu["metrics"]["opp_fast_break_pts"])
+        self.assertIsNone(shinshu["metrics"]["opp_pts_off_tov"])
+        self.assertEqual(shinshu["metrics"]["opp_second_chance_pts"], 34)
+
+    def test_summary_rejects_impossible_fast_break_and_pts_off_turnover(self):
+        for key in ("AwayTeamPTFB", "AwayTeamPTPFT"):
+            raw = raw_game()
+            raw["Summaries"][0][key] = 100
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "Impossible"):
+                normalize_game(raw, fixture(), "t")
+
+
+    def test_recent_windows_are_last_completed_games_not_season_averages(self):
+        records = {}
+        fixtures = {}
+        for i in range(6):
+            match = fixture()
+            match["game_id"] = str(5001 + i)
+            match["date"] = "2026-11-%02d" % (i + 1)
+            raw = raw_game()
+            raw["Game"]["ScheduleKey"] = 5001 + i
+            raw["Summaries"][0]["ScheduleKey"] = 5001 + i
+            raw["Summaries"][0]["AwayTeamPTFB"] = 1 if i == 0 else 9
+            fixtures[match["game_id"]] = match
+            records[match["game_id"]] = normalize_game(raw, match, "t")
+        names = ["信州", "千葉J"] + [f"C{i:02d}" for i in range(24)]
+        ref = {"advanced": [{"abbr": name, "name": name,
+                             "gp": 6 if name in ("信州", "千葉J") else 0} for name in names]}
+        clubs = aggregate_clubs(ref, records, fixtures, {})
+        shinshu = next(x for x in clubs if x["abbr"] == "信州")
+        self.assertTrue(shinshu["complete"])
+        self.assertEqual(shinshu["metrics"]["opp_fast_break_pts"], 46)
+        self.assertEqual(shinshu["recent"]["last5"]["gp"], 5)
+        self.assertEqual(shinshu["recent"]["last5"]["metrics"]["opp_fast_break_pts"], 45)
+        self.assertEqual(shinshu["recent"]["last3"]["gp"], 3)
+        self.assertEqual(shinshu["recent"]["last3"]["metrics"]["opp_fast_break_pts"], 27)
+        self.assertEqual(shinshu["recent"]["last3"]["game_ids"], ["5004", "5005", "5006"])
 
 
 if __name__ == "__main__":
