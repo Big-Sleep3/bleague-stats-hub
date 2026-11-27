@@ -1,0 +1,158 @@
+/* Shared navigation for the STATS HUB family. Entirely scoped to #hubGlobalNav. */
+#hubGlobalNav{
+  --hub-ink:#f6fafb;
+  --hub-aqua:#99e2da;
+  position:sticky;
+  top:0;
+  z-index:100;
+  isolation:isolate;
+  width:100%;
+  background:#132a3d;
+  color:var(--hub-ink);
+  border-bottom:2px solid #138a88;
+  box-shadow:0 3px 12px rgba(5,29,44,.16);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  font-size:13px;
+  line-height:1.35;
+}
+#hubGlobalNav *,
+#hubGlobalNav *::before,
+#hubGlobalNav *::after{box-sizing:border-box}
+#hubGlobalNav .hub-nav-inner{
+  max-width:1510px;
+  padding:8px 19px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+#hubGlobalNav .hub-nav-brand{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#fff!important;
+  text-decoration:none!important;
+  padding:6px 4px;
+  min-width:152px;
+  white-space:nowrap;
+}
+#hubGlobalNav .hub-nav-mark{
+  display:grid;
+  place-items:center;
+  width:33px;
+  height:33px;
+  border-radius:10px;
+  color:#fff;
+  background:#078b87;
+  font-size:20px;
+  line-height:1;
+}
+#hubGlobalNav .hub-nav-brand-name{font-weight:850;letter-spacing:.045em;font-size:14px;display:block}
+#hubGlobalNav .hub-nav-brand-desc{color:#a8c9d0;display:block;font-size:10px;font-weight:650}
+#hubGlobalNav .hub-nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  overflow-x:auto;
+  scrollbar-width:thin;
+  scrollbar-color:#53757e transparent;
+  min-width:0;
+  flex:1 1 auto;
+  padding:3px 0;
+}
+#hubGlobalNav .hub-nav-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  color:#d6e6eb!important;
+  text-decoration:none!important;
+  padding:11px 10px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:720;
+  border:1px solid transparent;
+  transition:background-color .13s,color .13s;
+  min-height:40px;
+}
+#hubGlobalNav .hub-nav-link:hover{background:#29495c;color:#fff!important}
+#hubGlobalNav .hub-nav-link[aria-current="page"]{
+  color:#fff!important;
+  background:#0e7978;
+  border-color:#4cc6bd;
+  font-weight:850;
+}
+#hubGlobalNav :is(a,select):focus-visible{
+  outline:3px solid #f7c573;
+  outline-offset:2px;
+}
+#hubGlobalNav .hub-nav-mobile{display:none}
+#hubGlobalNav .hub-nav-quick{display:none}
+@media (max-width:830px){
+  #hubGlobalNav .hub-nav-inner{padding:9px 14px;gap:10px;flex-wrap:wrap}
+  #hubGlobalNav .hub-nav-brand{min-width:auto;padding:1px 0;flex:0 0 auto}
+  #hubGlobalNav .hub-nav-mark{height:30px;width:30px;border-radius:8px}
+  #hubGlobalNav .hub-nav-brand-name{font-size:13px}
+  #hubGlobalNav .hub-nav-brand-desc{font-size:9px}
+  #hubGlobalNav .hub-nav-links{display:none}
+  #hubGlobalNav .hub-nav-mobile{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-left:auto;
+    min-width:0;
+    flex:1;
+    justify-content:flex-end;
+  }
+  #hubGlobalNav .hub-nav-mobile-label{
+    color:#c5d9e0;
+    font-size:11px;
+    font-weight:750;
+    white-space:nowrap;
+  }
+  #hubGlobalNav .hub-nav-select{
+    flex:1;
+    min-width:0;
+    width:auto;
+    max-width:225px;
+    height:38px;
+    margin:0;
+    padding:7px 27px 7px 10px;
+    border:1px solid #8eb5be;
+    border-radius:8px;
+    background:#edf8f8;
+    color:#163a49;
+    font-size:13px;
+    font-weight:850;
+    line-height:1.2;
+    cursor:pointer;
+  }
+  #hubGlobalNav .hub-nav-quick{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    width:100%;
+    overflow-x:auto;
+    padding:2px 0;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+  }
+  #hubGlobalNav .hub-nav-quick::-webkit-scrollbar{display:none}
+  #hubGlobalNav .hub-nav-quick .hub-nav-link{
+    min-height:32px;
+    padding:7px 11px;
+    font-size:11px;
+    border-color:#365869;
+    flex:0 0 auto;
+    scroll-snap-align:start;
+  }
+}
+@media (max-width:390px){
+  #hubGlobalNav .hub-nav-mobile-label{display:none}
+  #hubGlobalNav .hub-nav-inner{padding:8px 10px}
+  #hubGlobalNav .hub-nav-select{max-width:190px}
+}
+@media (prefers-reduced-motion:reduce){
+  #hubGlobalNav .hub-nav-link{transition:none}
+}
