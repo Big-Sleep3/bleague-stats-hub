@@ -26,7 +26,7 @@ from scripts.update_stats import club
 
 ROOT = Path(__file__).resolve().parents[1]
 SEASON = "2026-27"
-START = dt.date(2026, 10, 1)
+START = dt.date(2026, 9, 1)
 JST = ZoneInfo("Asia/Tokyo")
 CACHE = ROOT / "data/defense-games.json"
 OUTPUT = ROOT / "data/defense.json"
