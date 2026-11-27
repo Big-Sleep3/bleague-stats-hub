@@ -39,7 +39,8 @@ CORE = {
 }
 OPTIONAL = {
     "TOV": "TO", "OREB": "RB_OFF", "PITP": "PT2IN",
-    "SECOND_CHANCE_PTS": "PT2ND",
+    "SECOND_CHANCE_PTS": "PT2ND", "FAST_BREAK_PTS": "PTFB",
+    "PTS_OFF_TOV": "PTPFT",
 }
 
 
@@ -160,8 +161,9 @@ def validated_summary(side, row, header_score):
         raise ValueError("Official game score does not reconcile with shooting")
     if info["PITP"] is not None and (info["PITP"] > 2 * two_m or info["PITP"] % 2):
         raise ValueError("Impossible paint points in official summary")
-    if info["SECOND_CHANCE_PTS"] is not None and info["SECOND_CHANCE_PTS"] > header_score:
-        raise ValueError("Impossible second-chance points in official summary")
+    for field in ("SECOND_CHANCE_PTS", "FAST_BREAK_PTS", "PTS_OFF_TOV"):
+        if info[field] is not None and info[field] > header_score:
+            raise ValueError(f"Impossible {field} in official summary")
     return info
 
 
@@ -259,6 +261,8 @@ def aggregate_clubs(stats, game_cache, schedule_games, errors):
                     ("FGM", "FGA", "3PM", "3PA", "FTM", "FTA", "PTS", "TOV", "OREB", "PITP")},
                 "team_dreb": g[own]["dreb"],
                 "opponent_2nd": item.get("SECOND_CHANCE_PTS"),
+                "opponent_fast_break": item.get("FAST_BREAK_PTS"),
+                "opponent_pts_off_tov": item.get("PTS_OFF_TOV"),
             })
     scheduled = {code: set() for code in expected}
     for g in schedule_games.values():
@@ -278,14 +282,33 @@ def aggregate_clubs(stats, game_cache, schedule_games, errors):
         if games:
             try:
                 aggregate = aggregate_verified_opponents(games)
-                second = [g["opponent_2nd"] for g in games]
-                second_ok = all(v is not None for v in second)
-                second_total = sum(second) if second_ok else None
+                def complete_total(key):
+                    values = [game[key] for game in games]
+                    return sum(values) if all(v is not None for v in values) else None
+                def safe_ratio(n, denominator):
+                    return n / denominator if n is not None and denominator else None
+                second_total = complete_total("opponent_2nd")
+                fast_total = complete_total("opponent_fast_break")
+                tov_points_total = complete_total("opponent_pts_off_tov")
+                pts_total = aggregate["opp_pts"]
+                orebs_total = aggregate.get("opp_oreb")
                 metrics = {
                     **{k: v for k, v in aggregate.items()
                        if k.startswith("opp_") and k not in ("opp_pts_2pt_share", "opp_pts_3pt_share", "opp_pts_ft_share")},
                     "opp_second_chance_pts": second_total,
-                    "opp_second_chance_pts_pg": second_total / verified if second_ok else None,
+                    "opp_second_chance_pts_pg": second_total / verified if second_total is not None else None,
+                    "opp_second_chance_pts_share": safe_ratio(second_total, pts_total),
+                    "opp_second_chance_pts_per_oreb": safe_ratio(second_total, orebs_total),
+                    "opp_fast_break_pts": fast_total,
+                    "opp_fast_break_pts_pg": fast_total / verified if fast_total is not None else None,
+                    "opp_fast_break_pts_share": safe_ratio(fast_total, pts_total),
+                    "opp_pts_off_tov": tov_points_total,
+                    "opp_pts_off_tov_pg": tov_points_total / verified if tov_points_total is not None else None,
+                    "opp_pts_off_tov_share": safe_ratio(tov_points_total, pts_total),
+                    "opp_pitp_pg": aggregate.get("opp_pitp") / verified if aggregate.get("opp_pitp") is not None else None,
+                    "opp_2pt_scoring_share": aggregate.get("opp_pts_2pt_share"),
+                    "opp_3pt_scoring_share": aggregate.get("opp_pts_3pt_share"),
+                    "opp_ft_scoring_share": aggregate.get("opp_pts_ft_share"),
                     "opp_oreb_pg": aggregate.get("opp_oreb") / verified if aggregate.get("opp_oreb") is not None else None,
                     "opp_2pa_pg": aggregate.get("opp_2pa") / verified if aggregate.get("opp_2pa") is not None else None,
                     "opp_3pa_pg": aggregate.get("opp_3pa") / verified if aggregate.get("opp_3pa") is not None else None,
@@ -343,7 +366,13 @@ def main():
             if requests_made >= args.max_new:
                 break
             old = games.get(key)
-            if old and not args.full_refresh:
+            # Existing snapshots predate the new official PT2ND/PTFB/PTPFT
+            # scoring split. Re-fetch once to backfill them without guessing.
+            needs_backfill = old and any(
+                any(field not in old.get(side, {}).get("box", {})
+                    for field in ("FAST_BREAK_PTS", "PTS_OFF_TOV"))
+                for side in ("home", "away"))
+            if old and not args.full_refresh and not needs_backfill:
                 continue
             requests_made += 1
             try:
