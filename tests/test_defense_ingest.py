@@ -145,6 +145,32 @@ class VerifiedOpponentDefenseTest(unittest.TestCase):
                 normalize_game(raw, fixture(), "t")
 
 
+    def test_recent_windows_are_last_completed_games_not_season_averages(self):
+        records = {}
+        fixtures = {}
+        for i in range(6):
+            match = fixture()
+            match["game_id"] = str(5001 + i)
+            match["date"] = "2026-11-%02d" % (i + 1)
+            raw = raw_game()
+            raw["Game"]["ScheduleKey"] = 5001 + i
+            raw["Summaries"][0]["ScheduleKey"] = 5001 + i
+            raw["Summaries"][0]["AwayTeamPTFB"] = 1 if i == 0 else 9
+            fixtures[match["game_id"]] = match
+            records[match["game_id"]] = normalize_game(raw, match, "t")
+        names = ["信州", "千葉J"] + [f"C{i:02d}" for i in range(24)]
+        ref = {"advanced": [{"abbr": name, "name": name,
+                             "gp": 6 if name in ("信州", "千葉J") else 0} for name in names]}
+        clubs = aggregate_clubs(ref, records, fixtures, {})
+        shinshu = next(x for x in clubs if x["abbr"] == "信州")
+        self.assertTrue(shinshu["complete"])
+        self.assertEqual(shinshu["metrics"]["opp_fast_break_pts"], 46)
+        self.assertEqual(shinshu["recent"]["last5"]["gp"], 5)
+        self.assertEqual(shinshu["recent"]["last5"]["metrics"]["opp_fast_break_pts"], 45)
+        self.assertEqual(shinshu["recent"]["last3"]["gp"], 3)
+        self.assertEqual(shinshu["recent"]["last3"]["metrics"]["opp_fast_break_pts"], 27)
+        self.assertEqual(shinshu["recent"]["last3"]["game_ids"], ["5004", "5005", "5006"])
+
 
 if __name__ == "__main__":
     unittest.main()
