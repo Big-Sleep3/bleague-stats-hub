@@ -12,6 +12,7 @@
     "https://www.evessa.com/news/detail/id=24985",
     "https://www.evessa.com/news/detail/id=24987",
     "https://www.evessa.com/news/detail/id=25055",
+    "https://www.evessa.com/news/detail/id=25088",
     "https://www.ibarakirobots.win/news/detail/id=25588",
     "https://www.ibarakirobots.win/news/detail/id=25756",
     "https://www.velca.jp/news/detail/id=50952",
@@ -130,24 +131,39 @@
       "source": "league_official",
       "firstSeen": "2026-11-24",
       "digest": "4e264bcea1a8b452eebc5f24188e709a666377a0e45c57903ea865cd74c8ff88"
+    },
+    {
+      "club": "大阪",
+      "title": "2026/11/27 【お知らせ】チュクゥディエベレ・マドゥアバム選手 契約解除 TEAM",
+      "url": "https://www.evessa.com/news/detail/id=25088",
+      "source": "club_official",
+      "firstSeen": "2026-11-28"
+    },
+    {
+      "club": "B.LEAGUE自由交渉リスト",
+      "title": "B.LEAGUE自由交渉選手リスト：公式掲載内容に変化",
+      "url": "https://www.bleague.jp/news/falist.html",
+      "source": "league_official",
+      "firstSeen": "2026-11-28",
+      "digest": "c441d3400db28ed369f5dbad1669e43b35ae44c21f706c03ddd00a122ca96b6e"
     }
   ],
   "faDigests": {
-    "B.LEAGUE自由交渉リスト": "4e264bcea1a8b452eebc5f24188e709a666377a0e45c57903ea865cd74c8ff88"
+    "B.LEAGUE自由交渉リスト": "c441d3400db28ed369f5dbad1669e43b35ae44c21f706c03ddd00a122ca96b6e"
   },
   "sourceCoverage": [
-    "秋田",
-    "三河",
-    "宇都宮",
-    "北海道",
+    "千葉J",
     "茨城",
-    "名古屋D",
+    "三河",
+    "秋田",
+    "北海道",
     "三遠",
+    "宇都宮",
+    "信州",
+    "長崎",
+    "名古屋D",
     "琉球",
     "大阪",
-    "B.LEAGUE自由交渉リスト",
-    "長崎",
-    "千葉J",
-    "信州"
+    "B.LEAGUE自由交渉リスト"
   ]
 }
