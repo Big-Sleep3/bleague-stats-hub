@@ -243,6 +243,7 @@ def compute_metrics(games):
     """Calculate verified season or trailing-game opponent stats, keeping gaps null."""
     if not games:
         return None
+    verified = len(games)
     aggregate = aggregate_verified_opponents(games)
     def complete_total(key):
         values = [game[key] for game in games]
