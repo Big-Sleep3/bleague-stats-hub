@@ -1,0 +1,300 @@
+{
+  "schema": 1,
+  "season": "2026-27",
+  "clubs": [
+    {
+      "abbr": "A千葉",
+      "name": "アルティーリ千葉",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "A東京",
+      "name": "アルバルク東京",
+      "gp": 0,
+      "expected_gp": 20,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "茨城",
+      "name": "茨城ロボッツ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "宇都宮",
+      "name": "宇都宮ブレックス",
+      "gp": 0,
+      "expected_gp": 17,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "横浜BC",
+      "name": "横浜ビー・コルセアーズ",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "京都",
+      "name": "京都ハンナリーズ",
+      "gp": 0,
+      "expected_gp": 17,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "群馬",
+      "name": "群馬クレインサンダーズ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "広島",
+      "name": "広島ドラゴンフライズ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "佐賀",
+      "name": "佐賀バルーナーズ",
+      "gp": 0,
+      "expected_gp": 17,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "三遠",
+      "name": "三遠ネオフェニックス",
+      "gp": 0,
+      "expected_gp": 14,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "三河",
+      "name": "シーホース三河",
+      "gp": 0,
+      "expected_gp": 15,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "滋賀",
+      "name": "滋賀レイクス",
+      "gp": 0,
+      "expected_gp": 17,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "秋田",
+      "name": "秋田ノーザンハピネッツ",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "信州",
+      "name": "信州ブレイブウォリアーズ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "神戸",
+      "name": "神戸ストークス",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "仙台",
+      "name": "仙台89ERS",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "千葉J",
+      "name": "千葉ジェッツ",
+      "gp": 0,
+      "expected_gp": 20,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "川崎",
+      "name": "川崎ブレイブサンダース",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "大阪",
+      "name": "大阪エヴェッサ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "長崎",
+      "name": "長崎ヴェルカ",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "島根",
+      "name": "島根スサノオマジック",
+      "gp": 0,
+      "expected_gp": 17,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "東京SR",
+      "name": "東京サンロッカーズ",
+      "gp": 0,
+      "expected_gp": 19,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "富山",
+      "name": "富山グラウジーズ",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "北海道",
+      "name": "レバンガ北海道",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "名古屋D",
+      "name": "名古屋ダイヤモンドドルフィンズ",
+      "gp": 0,
+      "expected_gp": 15,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    },
+    {
+      "abbr": "琉球",
+      "name": "琉球ゴールデンキングス",
+      "gp": 0,
+      "expected_gp": 18,
+      "scheduled_gp": 0,
+      "complete": false,
+      "metrics": null,
+      "missing_game_ids": [],
+      "warning": "Official game summaries not yet reconciled"
+    }
+  ],
+  "updated_at": null,
+  "official_published_at": null,
+  "source": "B.LEAGUE official season game schedule and official game Summaries (PeriodCategory=18)",
+  "source_urls": [
+    "https://www.bleague.jp/schedule/",
+    "https://www.bleague.jp/game_detail/"
+  ],
+  "notes": "No values fabricated. Awaiting verified source backfill."
+}
