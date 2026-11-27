@@ -61,7 +61,7 @@ class DefenseBrowserTests(unittest.TestCase):
                 self.assertNotEqual(first_asc,
                                     page.locator("#rows tr").first.locator("td").nth(1).inner_text())
             # Header click toggles the SAME metric instead of ignoring the direction.
-            page.locator("#head th button").filter(has_text="Opp ORB%" ).first.click()
+            page.locator("#head th button").filter(has_text="被ORB%" ).first.click()
             self.assertEqual(page.locator("#direction").input_value(), "asc")
             self.assertEqual(page.evaluate(
                 "() => visible().filter(valid).map(r => value(r, 'opp_oreb_pct'))"),
