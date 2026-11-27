@@ -58,10 +58,11 @@ function value(r,key){if(!r.metrics)return null;var v=r.metrics[key];if(v==null)
 function format(v,type){return v==null?"—":type==="pct"?(100*v).toFixed(1)+"%":v.toFixed(1)}
 function valid(r){return r.complete&&value(r,order)!=null}
 function visible(){
-var set=(data?data.clubs:[]).filter(function(r){return!filter||(r.name+" "+r.abbr+" "+(enNames[r.abbr]||"")).toLowerCase().indexOf(filter.toLowerCase())>=0});
+var set=(data?data.clubs:[]).slice();
 var chosen=fields.find(function(f){return f[0]===order});
 set.sort(function(a,b){if(valid(a)!==valid(b))return valid(a)?-1:1;var av=value(a,order),bv=value(b,order);if(av!=null&&bv!=null&&av!==bv)return chosen[4]?bv-av:av-bv;return a.abbr.localeCompare(b.abbr,"ja")});
-return set;
+var leagueRank=0;set.forEach(function(r){r._defenseRank=valid(r)?++leagueRank:null});
+return set.filter(function(r){return!filter||(r.name+" "+r.abbr+" "+(enNames[r.abbr]||"")).toLowerCase().indexOf(filter.toLowerCase())>=0});
 }
 function cell(tag,text,cls){var x=document.createElement(tag);x.textContent=text;if(cls)x.className=cls;return x}
 function render(){
@@ -80,16 +81,16 @@ fields.forEach(function(f){var th=document.createElement("th"),b=document.create
 if(!data){el("summary").textContent=t("公式ゲームデータ取得中…","Loading verified official game data…");return}
 var n=data.clubs.filter(function(r){return r.complete}).length;
 el("summary").textContent=n+"/26 "+t("クラブの全試合照合が完了","clubs with complete verified coverage");
-el("health").textContent=t("公式ゲームデータ","Official game data");
+el("health").textContent=data.clubs.some(function(r){return r.gp>0})?t("公式ゲームデータ","Official game data"):t("公式試合の照合待ち","Awaiting verified game data");
 el("stamp").textContent=t("公式掲載日時：未提供 ／ 取得・集計日時：","Official publication: not supplied / Retrieved and aggregated: ")+(data.updated_at||"—");
 el("coverageNote").textContent=t("順位は全試合照合済みのみ。暫定値は参考表示、未確認値は—。","Only clubs with complete coverage receive ranks. Partial values are provisional; unknown values show —.");
-var tbody=el("rows");tbody.replaceChildren();var rank=0;
-visible().forEach(function(r){var tr=document.createElement("tr");tr.appendChild(cell("td",valid(r)?String(++rank):"—",valid(r)?"ok":"unknown"));
+var tbody=el("rows");tbody.replaceChildren();
+visible().forEach(function(r){var tr=document.createElement("tr");tr.appendChild(cell("td",r._defenseRank?String(r._defenseRank):"—",valid(r)?"ok":"unknown"));
 tr.appendChild(cell("td",name(r)));tr.appendChild(cell("td",r.gp+"/"+r.expected_gp,r.complete?"ok":"partial"));
 fields.forEach(function(f){var v=value(r,f[0]);var td=cell("td",format(v,f[3]),v==null?"unknown":r.complete?"":"partial");if(!r.complete&&v!=null)td.title=t("一部試合のみの参考値","Partial sample only");tr.appendChild(td)});tbody.appendChild(tr)});
 if(!tbody.children.length){var r=document.createElement("tr"),td=cell("td",t("該当クラブなし","No matching clubs"));td.colSpan=fields.length+3;r.appendChild(td);tbody.appendChild(r)}
 }
-function saveCSV(){if(!data)return;var lines=[[t("順位","Rank"),t("クラブ","Club"),"Verified GP","Expected GP"].concat(fields.map(fName))];var rank=0;visible().forEach(function(r){lines.push([valid(r)?++rank:"",name(r),r.gp,r.expected_gp].concat(fields.map(function(f){var v=value(r,f[0]);return v==null?"":(f[3]==="pct"?v*100:v).toFixed(2)})))});
+function saveCSV(){if(!data)return;var lines=[[t("順位","Rank"),t("クラブ","Club"),"Verified GP","Expected GP"].concat(fields.map(fName))];visible().forEach(function(r){lines.push([r._defenseRank||"",name(r),r.gp,r.expected_gp].concat(fields.map(function(f){var v=value(r,f[0]);return v==null?"":(f[3]==="pct"?v*100:v).toFixed(2)})))});
 var csv="\uFEFF"+lines.map(function(row){return row.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(",")}).join("\r\n");
 var url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=url;a.download="bleague-defense-2026-27.csv";a.click();URL.revokeObjectURL(url)}
 el("ja").addEventListener("click",function(){lang="ja";render()});el("en").addEventListener("click",function(){lang="en";render()});
