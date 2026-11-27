@@ -1,6 +1,13 @@
 name: Refresh verified B.PREMIER DEFENSE
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/update_defense.py'
+      - 'defense.html'
+      - 'data/defense.json'
+      - 'tests/test_defense_*.py'
+      - '.github/workflows/defense-refresh.yml'
   push:
     branches: [main]
     paths:
@@ -33,9 +40,12 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_defensive_stats.py' -v
           python -m unittest discover -s tests -p 'test_defense_ingest.py' -v
+          python -m unittest discover -s tests -p 'test_defense_browser.py' -v
       - name: Fetch completed official game summaries
+        if: github.event_name != 'pull_request'
         run: python scripts/update_defense.py
       - name: Commit only verified DEFENSE game/metric changes
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
