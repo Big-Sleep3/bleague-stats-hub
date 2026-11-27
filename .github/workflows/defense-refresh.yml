@@ -5,7 +5,6 @@ on:
     paths:
       - 'scripts/update_defense.py'
       - 'defense.html'
-      - 'data/defense.json'
       - 'tests/test_defense_*.py'
       - '.github/workflows/defense-refresh.yml'
   push:
