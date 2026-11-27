@@ -57,6 +57,10 @@ class DefenseBrowserTests(unittest.TestCase):
             self.assertEqual(page.locator("#rows tr").count(), 26)
             page.locator("#group").select_option("all")
             self.assertGreaterEqual(page.locator("#head th").count(), 25)
+            page.locator("#period").select_option("last5")
+            self.assertIn("Last 5", page.locator("#summary").inner_text())
+            self.assertEqual(page.locator("#rows tr").count(), 26)
+            page.locator("#period").select_option("season")
             page.locator("#total").click()
             with page.expect_download() as download:
                 page.locator("#export").click()
