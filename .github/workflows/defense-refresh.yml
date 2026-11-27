@@ -1,0 +1,47 @@
+name: Refresh verified B.PREMIER DEFENSE
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_defense.py'
+      - 'defense.html'
+      - 'data/defense.json'
+      - '.github/workflows/defense-refresh.yml'
+  schedule:
+    # Every morning at 05:07 Japan time, after league games have ended.
+    - cron: '7 20 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: verified-defense-sync
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official schedule collector dependencies
+        run: |
+          pip install playwright==1.56.0 beautifulsoup4==4.14.2
+          python -m playwright install --with-deps chromium
+      - name: Verify calculation and provenance invariants
+        run: |
+          python -m unittest discover -s tests -p 'test_defensive_stats.py' -v
+          python -m unittest discover -s tests -p 'test_defense_ingest.py' -v
+      - name: Fetch completed official game summaries
+        run: python scripts/update_defense.py
+      - name: Commit only verified DEFENSE game/metric changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/defense.json data/defense-games.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh verified B.PREMIER opponent defense stats'
+            git pull --rebase origin main
+            git push origin main
+          fi
